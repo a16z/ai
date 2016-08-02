@@ -1,4 +1,4 @@
-# Machine Learning
+# Machine Learning Survey 
 
 
 
@@ -12,9 +12,23 @@ In the case of libraries, this means we’ll ignore any software project that do
 
 In the case of services, this means active evolution, support, up-to-date documentation.
 
-### Language Support (?)
+### Language or Platform Support (?)
 
-We will limit our analysis to the following specific languages:
+We could limit our analysis to the following specific languages:
+
+* Which languages?
+
+OR do we want to approach this as a ‘platform’ issue, that is, say, 
+
+if you’re developing for Windows, we look at X
+If you’re developing for the web (mobile or otherwise) we look at Z
+If you’re developing for mobile/android, mobile/iOS, mobile/Windows… etc
+
+But this seems like it could easily get out of hand. 
+
+**OR, the other option is focus on the systems and not the languages. Dev environment and languages change all the time, and after all the whole point of web services is that you just switch to a new wrapper.** 
+
+**We’d then end up with examples of use cases in different languages or environments, since the point is to evaluate the ML technology itself. When the platform or language makes a big difference we could note it. For example, I’d expect Google stuff to have better Go, Java and Python support — (Java for Android)**
 
 
 ## Evaluation Criteria
