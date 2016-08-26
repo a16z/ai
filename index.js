@@ -295,17 +295,6 @@ app.get('/test/phrase/sentiment',
       var dataDict =  createEJSTemplateDataDictionary(req, res);
       res.render('pages/phrase-sentiment', dataDict);
 
-        //
-        // var responseBody = "<HEAD>" +
-        //   "<title>Sentiment Analysis</title>" +
-        //   "</head>" +
-        //   "<body>" +
-        //   "<h1>Sentiment Analysis</h1><p>Greetings human.</p>" +
-        //   "<form action=\"/test/phrase/sentiment\" method=\"get\">\n" +
-        //   "Enter a phrase to analyze:<INPUT type=\"text\" name=\"phrase\"><BR>\n" +
-        //   "<input type=\"submit\" value=\"Analyze\">\n" +
-        //   "</form>" +
-        //   "</body>";
     });
 
 app.post('/test/phrase/sentiment/analyze',
@@ -320,11 +309,11 @@ app.post('/test/phrase/sentiment/analyze',
       res.setHeader('Content-Type', 'application/json');
 
       if (phrase != undefined && phrase.length > 0) {
-          var sentimentJSResult = sentimentJS(phrase); //, function (err, result) {
+          var sentimentJSResult = sentimentJS(phrase); 
           sentimentJSResult.apiName = "sentimentJS";
           result.results.push(sentimentJSResult);
 
-          var sentimentalResult = sentimentJS(phrase); //, function (err, result) {
+          var sentimentalResult = sentimentalAnalyze(phrase); 
           sentimentalResult.apiName = "sentimental";
           result.results.push(sentimentalResult);
 
@@ -344,11 +333,6 @@ app.post('/test/phrase/sentiment/analyze',
 
     });
 
-
-
-app.get('/cool', function(req, res) {
-  res.send(cool());
-});
 
 
 app.listen(app.get('port'), function() {
