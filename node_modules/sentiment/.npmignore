@@ -1,0 +1,13 @@
+/* MacOS */
+.DS_Store
+
+/* NPM */
+/node_modules
+npm*
+
+/* Code Coverage */
+coverage
+.nyc_output
+
+/* Other */
+.notes.txt

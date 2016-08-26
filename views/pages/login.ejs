@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="/main-image.png">
+    </a>
+    <h1>Ultra secret key required!</h1>
+    <BR>
+    <p>Complete the following sentence:</p>
+    <% if (session.loginError != undefined && session.loginError.length > 0) { %>
+      <div class="alert alert-info text-center" role="alert">
+        <%= session.loginError %>
+      </div>
+
+      <% } %>
+
+      <form action="/loginCheck" method="POST">
+      <p>This is not the <INPUT type="password" name="secretKey"> you're looking for.</p>
+      <p><input type="submit" class="btn btn-lg btn-primary" value="Let me in!"></p>
+
+
+      </form>
+
+
+  </div>
+</div>
+<div class="container">
+
+</div>
+
+
+</body>
+</html>

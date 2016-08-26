@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div class="container">
+
+  <% if (checkMentions) { %>
+
+    <h2>Tweet Sentiment Analysis: mentions of @<%= screenName %></h2>
+    <% } else {  %>
+      <h2>Tweet Sentiment Analysis: <%= screenName %>'s latest tweets</h2>
+    <% } %>
+
+
+    <p>Analyze <a href="/test/twitter/sentiment?screenName=<%= screenName %>&checkMentions=false">@<%= screenName %>'s latest tweets</a> or analyze <a href="/test/twitter/sentiment?screenName=<%= screenName %>&checkMentions=true">latest mentions of @<%= screenName %></a></p>
+
+    <h3>Results</h3>
+    <P><b>Tweet count:</b> <%= tweets.length %><p/>
+    <p>
+      <table id="table-centered">
+        <thead>
+          <tr>
+            <th ></th>
+            <th ></th>
+            <th colspan="3" style="text-align:center; font-size:90%;"><b>Score</b></th>
+        </tr>
+          <tr>
+            <td width="15%" style="text-align:center; font-size:90%;"><b>Posted by</b></td>
+        <td style="text-align:center; font-size:90%;"><b>Text</b></td>
+
+        <td width="10%" style="text-align:center; font-size:90%;"><a href="https://github.com/thisandagain/sentiment" target="_blank">sentiment.js</a> </td>
+        <td width="10%" style="text-align:center; font-size:90%;"><a href="https://github.com/thinkroth/Sentimental" target="_blank">Sentimental</a></td>
+        <td width="10%" style="text-align:center; font-size:90%;"><b>Average</b></td>
+
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <% for(var i=0; i < tweets.length; i++) {%>
+        <tr>
+          <td style="text-align:center; font-size:80%;"><%= tweets[i].user.screen_name %></td>
+        <td style="font-size:75%;             margin: 5px 20px 5px 20px; "><%= tweets[i].text %></td>
+        <td width="15%" style="text-align:center; font-size:90%;"><%= tweets[i].sentimentJS.score %></td>
+        <td width="15%" style="text-align:center; font-size:90%;"><%= tweets[i].sentimental.score %></td>
+        <td width="15%" style="text-align:center; font-size:90%;"><span style="font-size:200%;"><%- tweets[i].average.emoji %></span>(<%= tweets[i].average.score %>)</td>
+      </tr>
+        <% } %>
+      </tbody>
+      </table>
+      <p>
+</div>
+
+
+</body>
+</html>

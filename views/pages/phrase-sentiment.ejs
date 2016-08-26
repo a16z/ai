@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+<div class="container">
+
+
+    <h2>Phrase Sentiment Analysis</h2>
+    <br>
+    <p>Greetings human.</p>
+    <form  action="/test/phrase/sentiment/analyze"  id="analysisForm">
+    Enter a phrase to analyze: <INPUT type="text" name="phrase">  <input id="sendPhrase" type="submit" value="Analyze">
+    </form>
+
+    <div id="resultsDiv">
+    </div>
+
+</div>
+<script>
+$( "#analysisForm" ).submit(function( event ) {
+
+  // Stop form from submitting normally
+  event.preventDefault();
+
+  // Get some values from elements on the page:
+  var $form = $( this );
+  var phraseField = $form.find( "input[name='phrase']" );
+    var phraseFieldContents = phraseField.val();
+    if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
+      //todo add error msg.
+      return;
+    }
+    phraseFieldContents = phraseFieldContents.trim();
+    var url = $form.attr( "action" );
+
+  // Send the data using post
+  var posting = $.post( url, { phrase: phraseFieldContents } );
+
+  // Put the results in a div
+  posting.done(function( data ) {
+    phraseField.val("");
+    // var content = data.sentiment.score;
+    var resultText = "<h3>Results</h3>";
+    resultText += "<p><b>Phrase:</b> "+data.phrase+"<br>";
+    resultText += "<b>Scores:</b><br>";
+    for (i in data.results) {
+      var result = data.results[i];
+      resultText += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+      resultText += ""+result.apiName+": "+result.score+"<br>";
+    }
+    resultText += "</p>";
+
+    $( "#resultsDiv" ).empty().append( resultText );
+
+  });
+});
+
+
+   </script>
+
+</body>
+</html>
