@@ -54,7 +54,7 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Packages used
+## Node.js Packages used
 ### Node.js Cookies
 https://github.com/pillarjs/cookies
 
@@ -66,5 +66,8 @@ https://github.com/thinkroth/Sentimental
 
 ### Twitter API
 https://github.com/desmondmorris/node-twitter
+
+### IBM Watson Dev Cloud/Alchemy API
+https://www.npmjs.com/package/watson-developer-cloud
 
 ## Documentation
