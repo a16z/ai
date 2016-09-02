@@ -14,7 +14,7 @@
     <h2>Phrase Sentiment Analysis</h2>
     <br>
     <p>Greetings human.</p>
-    <form  action="/test/phrase/sentiment/analyze"  id="analysisForm">
+    <form id="analysisForm">
     Enter a phrase to analyze: <INPUT type="text" name="phrase">  <input id="sendPhrase" type="submit" value="Analyze">
     </form>
 
@@ -23,6 +23,13 @@
 
 </div>
 <script>
+var spinnerHTML = "<div class='rect1'></div> <div class='rect2'> </div> <div class='rect3'></div> <div class='rect4'></div> <div class='rect5'></div>";
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+$(document).ready(function() {
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+});
 $( "#analysisForm" ).submit(function( event ) {
 
   // Stop form from submitting normally
@@ -31,34 +38,105 @@ $( "#analysisForm" ).submit(function( event ) {
   // Get some values from elements on the page:
   var $form = $( this );
   var phraseField = $form.find( "input[name='phrase']" );
-    var phraseFieldContents = phraseField.val();
-    if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
-      //todo add error msg.
-      return;
+
+  var sentimentAPIEndpoints = [{name:"IBM Tone Analyzer API", id: "ibm-tone", url:"/api/phrase/sentiment/ibm-tone"},
+  {name:"IBM Alchemy API Sentiment", id: "ibm-alchemy-sentiment", url:"/api/phrase/sentiment/ibm-alchemy-sentiment"},
+  {name:"Sentiment.js (node.js library)", id: "js-sentimentjs", url:"/api/phrase/sentiment/js-sentimentjs"},
+  {name:"Sentimental (node.js library)", id: "js-sentimental", url:"/api/phrase/sentiment/js-sentimental"}];
+
+  var phraseFieldContents = phraseField.val();
+  if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
+    //todo add error msg.
+    return;
+  }
+  phraseFieldContents = phraseFieldContents.trim();
+  // var url = $form.attr( "action" );
+  $("#resultsDiv").empty();
+  phraseField.val("");
+  var resultText = "<h3>Results <span class='mini-text'>(results are loaded asynchronously for each service)</span></h3> ";
+
+  resultText += "<p><b>Phrase:</b> <i>&#8220;"+phraseFieldContents+"&#8221;</i><br><BR>";
+  resultText += "<b>Scores:</b><br>";
+  resultText += "<table id='table-centered'>";
+  resultText += "<thead>";
+  resultText += "<tr>";
+  resultText += "<td width='30%' style='text-align:center; font-size:90%; font-weight: bold;'>API Name</td>";
+  resultText += "<td width='30%' style='text-align:center; font-size:90%; font-weight: bold;'>Result</td>";
+  resultText += "<td width='20%' style='text-align:center; font-size:90%; font-weight: bold;'>Total request time (msec)</td>";
+  resultText += "<td width='20%' style='text-align:center; font-size:90%; font-weight: bold;'>API Time (Server Side, msec))</td>";
+  resultText += "</tr>";
+  resultText += "</thead>";
+  resultText += "<tbody>";
+
+
+    for (key in sentimentAPIEndpoints) {
+      //necessary since ajax async calls defer and you end up having variables overwritten is used within the same context
+      (function (position) {
+        var endpointPath = sentimentAPIEndpoints[position];
+
+        // $.post(endpointPath.url, {phrase: phraseFieldContents});
+        var divname = endpointPath.id;
+        var divRefName = "#"+divname;
+        var divRefTotalTimeName = "#"+divname+"-tt";
+        var divRefAPITimeName = "#"+divname+"-ta";
+        var divRefTooltipName = "#"+divname+"-tc";
+
+        //we will use a random spinner time to avoid super-fast 'flashing' of the spinner. So the data will never appear faster than randonWait msec
+        var randomWait = 1000 + (Math.random() * 1000);
+        var sendDate = (new Date()).getTime();
+
+        var fullResponseText = '<span id="'+divname+'-tc" data-toggle="tooltip" data-placement="right" title="loading...">[data]</span>';
+
+        rowText = "";
+        rowText += "<TR><TD width='40%' style='text-align:left; font-size:80%;'>"+endpointPath.name+" "+fullResponseText+"</TD>";
+        rowText += "<TD width='30%' style='text-align:center; font-size:80%;'><span id='"+divname+"' class='spinner'>"+spinnerHTML+"</span></TD>";
+        rowText += "<TD width='15%' style='text-align:center; font-size:80%;'><span id='"+divname+"-tt'></span></TD>";
+        rowText += "<TD width='15%' style='text-align:center; font-size:80%;'><span id='"+divname+"-ta'></span></TD></TR>";
+
+        resultText += rowText;
+        // $("#resultsDiv").append("<b>"+endpointPath.name+": </b><span id='"+divname+"' class='spinner'>"+spinnerHTML+"</span><br>");
+        console.log("calling "+endpointPath.url);
+        $.ajax({
+          type: "POST",
+          async: true,
+          dataType: "json",
+          url: endpointPath.url,
+          data: {phrase: phraseFieldContents}
+
+        }).done(function(data) {
+          console.log("done in post ("+position+") "+endpointPath.url);
+          var receiveDate = (new Date()).getTime();
+          var responseTimeMs = receiveDate - sendDate;
+
+          // var content = data.sentiment.score;
+
+          sleep(randomWait).then(() => {
+            $(divRefName).removeClass("spinner");
+            $(divRefName).empty().append(""+data.result.score);
+
+            $(divRefTotalTimeName).empty().append(""+responseTimeMs);
+            $(divRefAPITimeName).empty().append(""+data.apiTime);
+            $(divRefTooltipName).attr("title",  JSON.stringify(data.serverResponse));
+
+          })
+
+        }).fail(function(data) {
+          console.log("error in post");
+          var receiveDate = (new Date()).getTime();
+          var responseTimeMs = receiveDate - sendDate;
+
+          $(divRefName).removeClass("spinner");
+          $(divRefName).empty().append("Error, api="+JSON.stringify(endpointPath)+" / data="+JSON.stringify(data)+" / Total time = "+responseTimeMs);
+
+
+        });
+      })(key);
     }
-    phraseFieldContents = phraseFieldContents.trim();
-    var url = $form.attr( "action" );
 
-  // Send the data using post
-  var posting = $.post( url, { phrase: phraseFieldContents } );
+    resultText += "</tbody>";
+    resultText += "</table>";
+    $("#resultsDiv").append(resultText);
 
-  // Put the results in a div
-  posting.done(function( data ) {
-    phraseField.val("");
-    // var content = data.sentiment.score;
-    var resultText = "<h3>Results</h3>";
-    resultText += "<p><b>Phrase:</b> "+data.phrase+"<br>";
-    resultText += "<b>Scores:</b><br>";
-    for (i in data.results) {
-      var result = data.results[i];
-      resultText += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-      resultText += ""+result.apiName+": "+result.score+"<br>";
-    }
-    resultText += "</p>";
-
-    $( "#resultsDiv" ).empty().append( resultText );
-
-  });
 });
 
 
