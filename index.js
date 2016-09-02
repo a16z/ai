@@ -31,6 +31,72 @@ var sentimentalAnalyze = require('Sentimental').analyze,
     sentimentalPositivity = require('Sentimental').positivity,
     sentimentalNegativity = require('Sentimental').negativity;
 
+// IBM/Watson/Alchemy
+var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+
+var ibmWatsonToneSentiment = function(textToAnalyze) {
+    var tone_analyzer = new ToneAnalyzerV3({
+      username: process.env.IBM_WATSON_TONE_USERNAME,
+      password: process.env.IBM_WATSON_TONE_PASSWORD,
+      "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+      version_date: '2016-05-19'
+    });
+
+    tone_analyzer.tone({ text: textToAnalyze },
+      function(err, tone) {
+        if (err)
+          console.log(err);
+        else
+          console.log(JSON.stringify(tone, null, 2));
+    });
+}
+
+var AlchemyLanguageV1 = require('watson-developer-cloud/alchemy-language/v1');
+
+var ibmAlchemySentiment = function(textToAnalyze) {
+
+}
+
+
+
+var analyzeSentiment = function(phrase) {
+  var result = Object();
+  result.processed = "true";
+  result.phrase = phrase;
+  result.results = [];
+
+  if (phrase != undefined && phrase.length > 0) {
+      var sentimentJSResult = sentimentJS(phrase);
+      sentimentJSResult.apiName = "sentimentJS";
+      result.results.push(sentimentJSResult);
+
+      var sentimentalResult = sentimentalAnalyze(phrase);
+      sentimentalResult.apiName = "sentimental";
+      result.results.push(sentimentalResult);
+
+      console.log("calling alchemy");
+      ibmAlchemySentiment(phrase);
+      console.log("end alchemy");
+      console.log("calling tone");
+      ibmWatsonToneSentiment(phrase);
+      console.log("end tone");
+
+      var averageResult = Object();
+      var sum = 0;
+      for (i in result.results) {
+        var r = result.results[i];
+        sum += r.score;
+      }
+
+      averageResult.score = (sum/result.results.length);
+      averageResult.apiName = "Average";
+      result.results.push(averageResult);
+
+  }
+
+}
+
+
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -302,38 +368,218 @@ app.post('/test/phrase/sentiment/analyze',
 
       var phrase = req.body.phrase;
 
-      var result = Object();
-      result.processed = "true";
-      result.phrase = phrase;
-      result.results = [];
+      var result = analyzeSentiment(phrase);
       res.setHeader('Content-Type', 'application/json');
-
-      if (phrase != undefined && phrase.length > 0) {
-          var sentimentJSResult = sentimentJS(phrase); 
-          sentimentJSResult.apiName = "sentimentJS";
-          result.results.push(sentimentJSResult);
-
-          var sentimentalResult = sentimentalAnalyze(phrase); 
-          sentimentalResult.apiName = "sentimental";
-          result.results.push(sentimentalResult);
-
-          var averageResult = Object();
-          var sum = 0;
-          for (i in result.results) {
-            var r = result.results[i];
-            sum += r.score;
-          }
-          averageResult.score = (sum/result.results.length);
-          averageResult.apiName = "Average";
-          result.results.push(averageResult);
-
-      }
-
       res.send(JSON.stringify(result));
 
     });
 
 
+        app.post('/api/phrase/sentiment/js-sentimentjs',
+            function (req, res) {
+
+              var phrase = req.body.phrase;
+
+              var responseData = Object();
+              responseData.processed = "true";
+              responseData.phrase = phrase;
+              responseData.result = Object();
+              responseData.inputDataPresent = "true";
+              console.log('phrase:', phrase);
+
+              var sendDate = (new Date()).getTime();
+
+              if (phrase != undefined && phrase.length > 0) {
+                responseData.inputDataPresent = "true";
+                var analysisResult = sentimentJS(phrase);
+                responseData.serverResponse = analysisResult;
+                responseData.result.score = analysisResult.score;
+              }
+              else {
+                responseData.inputDataPresent = "false";
+              }
+
+              var receiveDate = (new Date()).getTime();
+
+              var responseTimeMs = receiveDate - sendDate;
+              responseData.apiTime = responseTimeMs;
+              res.setHeader('Content-Type', 'application/json');
+              res.send(JSON.stringify(responseData));
+            });
+
+
+    app.post('/api/phrase/sentiment/js-sentimental',
+        function (req, res) {
+
+          var phrase = req.body.phrase;
+
+          var responseData = Object();
+          responseData.processed = "true";
+          responseData.phrase = phrase;
+          responseData.result = Object();
+          responseData.inputDataPresent = "true";
+          // console.log('phrase:', phrase);
+
+          var sendDate = (new Date()).getTime();
+
+          if (phrase != undefined && phrase.length > 0) {
+            responseData.inputDataPresent = "true";
+            var analysisResult = sentimentalAnalyze(phrase);
+            responseData.serverResponse = analysisResult;
+            responseData.result.score = analysisResult.score;
+            // console.log('x:', JSON.stringify(analysisResult));
+          }
+          else {
+            responseData.inputDataPresent = "false";
+          }
+
+          var receiveDate = (new Date()).getTime();
+
+          var responseTimeMs = receiveDate - sendDate;
+          responseData.apiTime = responseTimeMs;
+          res.setHeader('Content-Type', 'application/json');
+          res.send(JSON.stringify(responseData));
+        });
+
+
+        app.post('/api/phrase/sentiment/ibm-alchemy-sentiment',
+            function (req, res) {
+
+              var phrase = req.body.phrase;
+
+              var responseData = Object();
+              responseData.processed = "true";
+              responseData.phrase = phrase;
+              responseData.result = {score: 0.2};
+              var sendDate = (new Date()).getTime();
+
+              if (phrase != undefined && phrase.length > 0) {
+                responseData.inputDataPresent = "true";
+                var alchemy_language = new AlchemyLanguageV1({
+                   "url": "https://gateway-a.watsonplatform.net/calls",
+                  api_key: process.env.IBM_ALCHEMY_API_KEY
+                });
+
+                var params = {
+                  text: phrase
+                };
+
+                alchemy_language.sentiment(params, function (err, response) {
+                  var receiveDate = (new Date()).getTime();
+                  var responseTimeMs = receiveDate - sendDate;
+                  responseData.apiTime = responseTimeMs;
+                  responseData.result = Object();
+
+                  if (err) {
+                    console.log('error:', err);
+                    responseData.result.score = -1;
+
+                  }
+                  else {
+                    var multiplier = response.docSentiment.type == "positive" ? 1 : -1;
+                    responseData.result.score = (response.docSentiment.score * 10) * multiplier;
+                    // console.log(JSON.stringify(response, null, 2));
+                  }
+
+                  responseData.serverResponse = response;
+
+
+                  res.setHeader('Content-Type', 'application/json');
+                  res.send(JSON.stringify(responseData));
+                });
+
+              }
+              else {
+
+                var receiveDate = (new Date()).getTime();
+                var responseTimeMs = receiveDate - sendDate;
+                responseData.apiTime = responseTimeMs;
+                result.inputDataPresent = "false";
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(responseData));
+
+
+              }
+
+
+            });
+
+
+    app.post('/api/phrase/sentiment/ibm-tone',
+        function (req, res) {
+
+          var phrase = req.body.phrase;
+
+          var responseData = Object();
+          responseData.processed = "true";
+          responseData.phrase = phrase;
+          responseData.result = {score: 0.3};
+          responseData.inputDataPresent = "true";
+
+          var sendDate = (new Date()).getTime();
+
+
+
+          if (phrase != undefined && phrase.length > 0) {
+            responseData.inputDataPresent = "true";
+
+            var tone_analyzer = new ToneAnalyzerV3({
+              username: process.env.IBM_WATSON_TONE_USERNAME,
+              password: process.env.IBM_WATSON_TONE_PASSWORD,
+              version_date: '2016-05-19'
+            });
+
+            tone_analyzer.tone({ text: phrase },
+              function(err, tone) {
+
+                var receiveDate = (new Date()).getTime();
+                var responseTimeMs = receiveDate - sendDate;
+                responseData.apiTime = responseTimeMs;
+                responseData.result = Object();
+                if (err) {
+                  // console.log("---ERROR on :"+req);
+                  // console.log(err);
+                  // console.log("---ERROR:");
+                  responseData.result.score = -1;
+                }
+                else {
+                  // console.log(JSON.stringify(tone, null, 2));
+                  /*
+                  */
+                  var tones = tone.document_tone.tone_categories[0].tones;
+                  var score = 0;
+                  for (cat in tones) {
+                    var tonecat = tones[cat];
+                    if (tonecat.tone_id == "Joy") {
+                      score = 10 * (tonecat.score);
+                    }
+                  }
+                  responseData.result.score = score;
+                }
+
+                responseData.serverResponse = tone;
+
+
+                res.setHeader('Content-Type', 'application/json');
+                res.send(JSON.stringify(responseData));
+
+            });
+          }
+          else {
+
+            var receiveDate = (new Date()).getTime();
+            var responseTimeMs = receiveDate - sendDate;
+            responseData.apiTime = responseTimeMs;
+            result.inputDataPresent = "false";
+            res.setHeader('Content-Type', 'application/json');
+            res.send(JSON.stringify(result));
+          }
+
+
+
+
+
+        });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
