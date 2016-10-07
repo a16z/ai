@@ -10,91 +10,28 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
 
+var util = require('util');
+var mime = require('mime');
+var upload = multer({dest: 'uploads/'});
+
+
 var Twitter = require('twitter');
+
 
 //local modules (JS files)
 // var utils = require('./utils');
+var Emoji = require('./lib/emoji.js');
+var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
   return { session: req.session, activeRoute: req.activeRoute };
 }
 
+
 //storage
 // var session = require('express-session');
 // var RedisStore = require('connect-redis')(session);
 
-// #sentiment.js see https://github.com/thisandagain/sentiment
-var sentimentJS = require('sentiment');
-
-//see https://github.com/thinkroth/Sentimental
-var sentimentalAnalyze = require('Sentimental').analyze,
-    sentimentalPositivity = require('Sentimental').positivity,
-    sentimentalNegativity = require('Sentimental').negativity;
-
-// IBM/Watson/Alchemy
-var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
-
-var ibmWatsonToneSentiment = function(textToAnalyze) {
-    var tone_analyzer = new ToneAnalyzerV3({
-      username: process.env.IBM_WATSON_TONE_USERNAME,
-      password: process.env.IBM_WATSON_TONE_PASSWORD,
-      "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-      version_date: '2016-05-19'
-    });
-
-    tone_analyzer.tone({ text: textToAnalyze },
-      function(err, tone) {
-        if (err)
-          console.log(err);
-        else
-          console.log(JSON.stringify(tone, null, 2));
-    });
-}
-
-var AlchemyLanguageV1 = require('watson-developer-cloud/alchemy-language/v1');
-
-var ibmAlchemySentiment = function(textToAnalyze) {
-
-}
-
-
-
-var analyzeSentiment = function(phrase) {
-  var result = Object();
-  result.processed = "true";
-  result.phrase = phrase;
-  result.results = [];
-
-  if (phrase != undefined && phrase.length > 0) {
-      var sentimentJSResult = sentimentJS(phrase);
-      sentimentJSResult.apiName = "sentimentJS";
-      result.results.push(sentimentJSResult);
-
-      var sentimentalResult = sentimentalAnalyze(phrase);
-      sentimentalResult.apiName = "sentimental";
-      result.results.push(sentimentalResult);
-
-      console.log("calling alchemy");
-      ibmAlchemySentiment(phrase);
-      console.log("end alchemy");
-      console.log("calling tone");
-      ibmWatsonToneSentiment(phrase);
-      console.log("end tone");
-
-      var averageResult = Object();
-      var sum = 0;
-      for (i in result.results) {
-        var r = result.results[i];
-        sum += r.score;
-      }
-
-      averageResult.score = (sum/result.results.length);
-      averageResult.apiName = "Average";
-      result.results.push(averageResult);
-
-  }
-
-}
 
 
 var app = express();
@@ -157,57 +94,22 @@ app.use(function (req, res, next) {
 });
 
 
-// var emojiMappings = { 'love' : &1F601; /*😍*/, 'happiest' : 😂, 'veryhappy' : 😆,'quitehappy' : 😃, "happy" : 😊,
-// "neutral" : 😒,
-//                       'hate' : 😡, 'unhappiest' : 😤, 'veryunhappy' : 😭,'quiteunhappy' : 😥, "unhappy" : 😩,
-//
-//                     };
-var emojiMappings = { 'love' : "&#x1F60D", 'happiest' : "&#x1F602", 'veryhappy' : "&#x1F606",'quitehappy' : "&#x1F604", "happy" : "&#x1F603",
-"neutral" : '&#x1F60C;',
-                      'hate' : '&#x1F632', 'unhappiest' : '&#x1F624', 'veryunhappy' : '&#x1F62D','quiteunhappy' : '&#x1F625', "unhappy" : '&#x1F620',
+var gcloud_pid = process.env.GOOGLE_CLOUD_PID;
+var privateKey = process.env.GOOGLE_CLOUD_PRIVATE_KEY;
+var clientEmail = process.env.GOOGLE_CLOUD_EMAIL;
 
-                    };
 
-mapNumberToEmoji = function(number) {
-
-  if (number == 0)  {
-    return emojiMappings['neutral'];
-  }
-
-  if (number > 5) {
-    return emojiMappings['love'];
-  }
-  else if (number >= 5 ) {
-    return emojiMappings['happiest'];
-  }
-  if (number >= 3 ){
-    return emojiMappings['veryhappy'];
-  }
-  else if (number >= 2) {
-    return emojiMappings['quitehappy'];
-  }
-  else if (number >= 1) {
-    return emojiMappings['happy'];
-  }
-
-   if (number < -5) {
-    return emojiMappings['hate'];
-  }
-  else if (number <= -5) {
-    return emojiMappings['unhappy'];
-  }
-  else if (number <= -3) {
-    return emojiMappings['quiteunhappy'];
-  }
-  if (number <= -2) {
-    return emojiMappings['veryunhappy'];
-  }
-  else if (number <= -1) {
-    return emojiMappings['unhappiest'];
-  }
-
-  return emojiMappings['neutral'];
+var config = {
+  projectId: gcloud_pid,
+  credentials : {
+      client_email : clientEmail,
+      private_key : privateKey
+    }
 };
+
+var gcloud = require('google-cloud')(config);
+
+var vision = gcloud.vision();
 
 //docs route catch-all
 app.get('/docs/*', function(req, res) {
@@ -265,6 +167,50 @@ app.post('/loginCheck', function (req, res) {
   res.redirect(redirectPath);
 });
 
+
+function base64Image(src) {
+  var data = fs.readFileSync(src).toString('base64');
+  return util.format('data:%s;base64,%s', mime.lookup(src), data);
+}
+
+
+
+app.get('/test/image/simple', function (req, res) {
+  // Choose what the Vision API should detect
+ // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
+ var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
+  var filePath = './test-data/images/test-image-2.jpg';
+ // Send the image to the Cloud Vision API
+ vision.detect(filePath, types, function(err, detections, apiResponse) {
+   var renderText = "";
+   if (err) {
+     console.log("Image processing error."+err);
+     renderText += "<h1>Cloud Vision Error</h1>";
+     renderText += err;
+
+
+
+        var dataDict =  createEJSTemplateDataDictionary(req, res);
+        dataDict.errorText = renderText;
+        dataDict.results = "";
+        dataDict.imgData = "";
+        res.render('pages/image-test', dataDict);
+   } else {
+
+     console.log("Image processing ok.");
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.results = detections;
+     dataDict.imgData = base64Image(filePath);
+
+     res.render('pages/image-test', dataDict);
+
+   }
+
+
+
+
+ });
+});
 
 
 app.get('/', function(req, res) {
@@ -328,14 +274,14 @@ app.get('/test/twitter/sentiment', function (req, res) {
         var postedBy = tweet.user;
         if (text != undefined && text.length > 0) {
           var tweetText = tweet.text;
-          var sentimental = sentimentalAnalyze(tweetText);
-          sentimental.emoji = mapNumberToEmoji(sentimental.score);
-          var sentiment = sentimentJS(tweetText);
-          sentiment.emoji = mapNumberToEmoji(sentiment.score);
+          var sentimental = SentimentAnalysis.sentimentalAnalyze(tweetText);
+          sentimental.emoji = Emoji.mapNumberToEmoji(sentimental.score);
+          var sentiment = SentimentAnalysis.sentimentJS(tweetText);
+          sentiment.emoji = Emoji.mapNumberToEmoji(sentiment.score);
 
           var average = Object();
           average.score = (sentimental.score + sentiment.score) / 2;
-          average.emoji = mapNumberToEmoji(average.score);
+          average.emoji = Emoji.mapNumberToEmoji(average.score);
 
           var aTweet = { text: tweetText, 'average' : average, 'sentimental': sentimental, 'sentimentJS': sentiment, user: postedBy};
           analyzedTweets.push(aTweet);
@@ -368,218 +314,18 @@ app.post('/test/phrase/sentiment/analyze',
 
       var phrase = req.body.phrase;
 
-      var result = analyzeSentiment(phrase);
+      var result = SentimentAnalysis.analyzeSentiment(phrase);
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify(result));
 
     });
 
-
-        app.post('/api/phrase/sentiment/js-sentimentjs',
-            function (req, res) {
-
-              var phrase = req.body.phrase;
-
-              var responseData = Object();
-              responseData.processed = "true";
-              responseData.phrase = phrase;
-              responseData.result = Object();
-              responseData.inputDataPresent = "true";
-              console.log('phrase:', phrase);
-
-              var sendDate = (new Date()).getTime();
-
-              if (phrase != undefined && phrase.length > 0) {
-                responseData.inputDataPresent = "true";
-                var analysisResult = sentimentJS(phrase);
-                responseData.serverResponse = analysisResult;
-                responseData.result.score = analysisResult.score;
-              }
-              else {
-                responseData.inputDataPresent = "false";
-              }
-
-              var receiveDate = (new Date()).getTime();
-
-              var responseTimeMs = receiveDate - sendDate;
-              responseData.apiTime = responseTimeMs;
-              res.setHeader('Content-Type', 'application/json');
-              res.send(JSON.stringify(responseData));
-            });
-
-
-    app.post('/api/phrase/sentiment/js-sentimental',
-        function (req, res) {
-
-          var phrase = req.body.phrase;
-
-          var responseData = Object();
-          responseData.processed = "true";
-          responseData.phrase = phrase;
-          responseData.result = Object();
-          responseData.inputDataPresent = "true";
-          // console.log('phrase:', phrase);
-
-          var sendDate = (new Date()).getTime();
-
-          if (phrase != undefined && phrase.length > 0) {
-            responseData.inputDataPresent = "true";
-            var analysisResult = sentimentalAnalyze(phrase);
-            responseData.serverResponse = analysisResult;
-            responseData.result.score = analysisResult.score;
-            // console.log('x:', JSON.stringify(analysisResult));
-          }
-          else {
-            responseData.inputDataPresent = "false";
-          }
-
-          var receiveDate = (new Date()).getTime();
-
-          var responseTimeMs = receiveDate - sendDate;
-          responseData.apiTime = responseTimeMs;
-          res.setHeader('Content-Type', 'application/json');
-          res.send(JSON.stringify(responseData));
-        });
-
-
-        app.post('/api/phrase/sentiment/ibm-alchemy-sentiment',
-            function (req, res) {
-
-              var phrase = req.body.phrase;
-
-              var responseData = Object();
-              responseData.processed = "true";
-              responseData.phrase = phrase;
-              responseData.result = {score: 0.2};
-              var sendDate = (new Date()).getTime();
-
-              if (phrase != undefined && phrase.length > 0) {
-                responseData.inputDataPresent = "true";
-                var alchemy_language = new AlchemyLanguageV1({
-                   "url": "https://gateway-a.watsonplatform.net/calls",
-                  api_key: process.env.IBM_ALCHEMY_API_KEY
-                });
-
-                var params = {
-                  text: phrase
-                };
-
-                alchemy_language.sentiment(params, function (err, response) {
-                  var receiveDate = (new Date()).getTime();
-                  var responseTimeMs = receiveDate - sendDate;
-                  responseData.apiTime = responseTimeMs;
-                  responseData.result = Object();
-
-                  if (err) {
-                    console.log('error:', err);
-                    responseData.result.score = -1;
-
-                  }
-                  else {
-                    var multiplier = response.docSentiment.type == "positive" ? 1 : -1;
-                    responseData.result.score = (response.docSentiment.score * 10) * multiplier;
-                    // console.log(JSON.stringify(response, null, 2));
-                  }
-
-                  responseData.serverResponse = response;
-
-
-                  res.setHeader('Content-Type', 'application/json');
-                  res.send(JSON.stringify(responseData));
-                });
-
-              }
-              else {
-
-                var receiveDate = (new Date()).getTime();
-                var responseTimeMs = receiveDate - sendDate;
-                responseData.apiTime = responseTimeMs;
-                result.inputDataPresent = "false";
-                res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify(responseData));
-
-
-              }
-
-
-            });
-
-
-    app.post('/api/phrase/sentiment/ibm-tone',
-        function (req, res) {
-
-          var phrase = req.body.phrase;
-
-          var responseData = Object();
-          responseData.processed = "true";
-          responseData.phrase = phrase;
-          responseData.result = {score: 0.3};
-          responseData.inputDataPresent = "true";
-
-          var sendDate = (new Date()).getTime();
-
-
-
-          if (phrase != undefined && phrase.length > 0) {
-            responseData.inputDataPresent = "true";
-
-            var tone_analyzer = new ToneAnalyzerV3({
-              username: process.env.IBM_WATSON_TONE_USERNAME,
-              password: process.env.IBM_WATSON_TONE_PASSWORD,
-              version_date: '2016-05-19'
-            });
-
-            tone_analyzer.tone({ text: phrase },
-              function(err, tone) {
-
-                var receiveDate = (new Date()).getTime();
-                var responseTimeMs = receiveDate - sendDate;
-                responseData.apiTime = responseTimeMs;
-                responseData.result = Object();
-                if (err) {
-                  // console.log("---ERROR on :"+req);
-                  // console.log(err);
-                  // console.log("---ERROR:");
-                  responseData.result.score = -1;
-                }
-                else {
-                  // console.log(JSON.stringify(tone, null, 2));
-                  /*
-                  */
-                  var tones = tone.document_tone.tone_categories[0].tones;
-                  var score = 0;
-                  for (cat in tones) {
-                    var tonecat = tones[cat];
-                    if (tonecat.tone_id == "Joy") {
-                      score = 10 * (tonecat.score);
-                    }
-                  }
-                  responseData.result.score = score;
-                }
-
-                responseData.serverResponse = tone;
-
-
-                res.setHeader('Content-Type', 'application/json');
-                res.send(JSON.stringify(responseData));
-
-            });
-          }
-          else {
-
-            var receiveDate = (new Date()).getTime();
-            var responseTimeMs = receiveDate - sendDate;
-            responseData.apiTime = responseTimeMs;
-            result.inputDataPresent = "false";
-            res.setHeader('Content-Type', 'application/json');
-            res.send(JSON.stringify(result));
-          }
-
-
-
-
-
-        });
+//sentiment analysis endpoint
+app.post('/api/phrase/sentiment/js-sentimentjs', SentimentAnalysis.sentimentJSEndpoint);
+app.post('/api/phrase/sentiment/js-sentimental', SentimentAnalysis.sentimentalJSEndpoint);
+app.post('/api/phrase/sentiment/ibm-alchemy-sentiment', SentimentAnalysis.alchemySentimentEndpoint);
+app.post('/api/phrase/sentiment/ibm-tone', SentimentAnalysis.ibmToneAnalysisEndpoint);
+app.post('/api/phrase/sentiment/google-cloud-sentiment', SentimentAnalysis.googleSentimentAnalysisEndpoint);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

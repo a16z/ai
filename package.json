@@ -17,6 +17,8 @@
     "ejs": "2.3.3",
     "express": "4.13.3",
     "express-session": "1.14.1",
+    "google-cloud": "0.41.2",
+    "googleapis": "12.4.0",
     "multer": "1.2.0",
     "sentiment": "2.0.0",
     "session": "0.1.0",

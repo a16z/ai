@@ -13,16 +13,26 @@ Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https
 ### Environment variables
 
 The following environment variables are required (they also have to be setup in the Heroku app's environment when running it there):
-```
+```sh
+#example: export COOKIES_SECRET_KEY=secretsandcookies
 export COOKIES_SECRET_KEY=<secret used for cookies>
 export A16Z_AI_SECRET_KEY=<key used to allow login>
+
+#Twitter
 export TWITTER_CONSUMER_KEY=<twitter api access>
 export TWITTER_CONSUMER_SECRET=<twitter api access>
 export TWITTER_ACCESS_TOKEN_KEY=<twitter api access>
 export TWITTER_ACCESS_TOKEN_SECRET=<twitter api access>
+
+# IBM Watson/Alchemy/etc (note that different IBM services have different auth requirements)
+export IBM_WATSON_TONE_USERNAME=<IBM Tone API Username>
+export IBM_WATSON_TONE_PASSWORD=<IBM Tone API Password>
+export IBM_ALCHEMY_API_KEY=<IBM Alchemy API Key>
 ```
 
 For Twitter API Tokens, go [here](https://apps.twitter.com) to create an app and get the appropriate tokens. (see [documentation of the twitter module](https://github.com/desmondmorris/node-twitter) for more info).
+
+These variables must be added as Config Vars to the Heroku app.
 
 Packages used by the app are described in `package.json` and can be installed by running `npm install` on the local root directory of the repository.
 
@@ -44,7 +54,7 @@ or
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Packages used
+## Node.js Packages used
 ### Node.js Cookies
 https://github.com/pillarjs/cookies
 
@@ -56,5 +66,8 @@ https://github.com/thinkroth/Sentimental
 
 ### Twitter API
 https://github.com/desmondmorris/node-twitter
+
+### IBM Watson Dev Cloud/Alchemy API
+https://www.npmjs.com/package/watson-developer-cloud
 
 ## Documentation
