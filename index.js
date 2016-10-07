@@ -10,6 +10,11 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
 
+var util = require('util');
+var mime = require('mime');
+var upload = multer({dest: 'uploads/'});
+
+
 var Twitter = require('twitter');
 
 
@@ -21,6 +26,7 @@ var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 createEJSTemplateDataDictionary = function (req, res) {
   return { session: req.session, activeRoute: req.activeRoute };
 }
+
 
 //storage
 // var session = require('express-session');
@@ -88,6 +94,22 @@ app.use(function (req, res, next) {
 });
 
 
+var gcloud_pid = process.env.GOOGLE_CLOUD_PID;
+var privateKey = process.env.GOOGLE_CLOUD_PRIVATE_KEY;
+var clientEmail = process.env.GOOGLE_CLOUD_EMAIL;
+
+
+var config = {
+  projectId: gcloud_pid,
+  credentials : {
+      client_email : clientEmail,
+      private_key : privateKey
+    }
+};
+
+var gcloud = require('google-cloud')(config);
+
+var vision = gcloud.vision();
 
 //docs route catch-all
 app.get('/docs/*', function(req, res) {
@@ -145,6 +167,50 @@ app.post('/loginCheck', function (req, res) {
   res.redirect(redirectPath);
 });
 
+
+function base64Image(src) {
+  var data = fs.readFileSync(src).toString('base64');
+  return util.format('data:%s;base64,%s', mime.lookup(src), data);
+}
+
+
+
+app.get('/test/image/simple', function (req, res) {
+  // Choose what the Vision API should detect
+ // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
+ var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
+  var filePath = './test-data/images/test-image-2.jpg';
+ // Send the image to the Cloud Vision API
+ vision.detect(filePath, types, function(err, detections, apiResponse) {
+   var renderText = "";
+   if (err) {
+     console.log("Image processing error."+err);
+     renderText += "<h1>Cloud Vision Error</h1>";
+     renderText += err;
+
+
+
+        var dataDict =  createEJSTemplateDataDictionary(req, res);
+        dataDict.errorText = renderText;
+        dataDict.results = "";
+        dataDict.imgData = "";
+        res.render('pages/image-test', dataDict);
+   } else {
+
+     console.log("Image processing ok.");
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.results = detections;
+     dataDict.imgData = base64Image(filePath);
+
+     res.render('pages/image-test', dataDict);
+
+   }
+
+
+
+
+ });
+});
 
 
 app.get('/', function(req, res) {
@@ -259,6 +325,7 @@ app.post('/api/phrase/sentiment/js-sentimentjs', SentimentAnalysis.sentimentJSEn
 app.post('/api/phrase/sentiment/js-sentimental', SentimentAnalysis.sentimentalJSEndpoint);
 app.post('/api/phrase/sentiment/ibm-alchemy-sentiment', SentimentAnalysis.alchemySentimentEndpoint);
 app.post('/api/phrase/sentiment/ibm-tone', SentimentAnalysis.ibmToneAnalysisEndpoint);
+app.post('/api/phrase/sentiment/google-cloud-sentiment', SentimentAnalysis.googleSentimentAnalysisEndpoint);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
