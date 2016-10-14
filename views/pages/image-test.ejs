@@ -46,7 +46,8 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
     <h2>Image analysis sample</h2>
 
     <p>Image:</p>
-    <P><img width=400 src="<%= imgData %>"></p>
+    <canvas id="resultCanvas" width="200" height="200"></canvas>
+
 
     <h3>Results</h3>
     <pre class="resultsText">
@@ -54,11 +55,55 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 
     </pre>
     <script>
+
      var results = <%- JSON.stringify(results) %>;
      var resultObj = JSON.stringify(results, null, 4);
       var str = syntaxHighlight(resultObj);
 
     $('.resultsText').html(str);
+
+    var cnvs = document.getElementById('resultCanvas');
+    var context = cnvs.getContext("2d");
+
+    var image = new Image();
+    image.onload = function() {
+      cnvs.width = image.width;
+      cnvs.height = image.height;
+      context.drawImage(image, 0, 0);
+
+      var textInImage = results.text;
+
+      if (textInImage != undefined && textInImage.length > 0) {
+
+        for (i in textInImage) {
+          var textItem = textInImage[i];
+          var positions = textItem.bounds;
+          if (positions != undefined && positions.length > 1) {
+            context.beginPath();
+            var zeroPos = positions[0];
+            context.moveTo(zeroPos.x, zeroPos.y);
+            for (j = 1; j<positions.length; ++j) {
+              var p = positions[j];
+              context.lineTo(p.x, p.y);
+            }
+            context.lineTo(zeroPos.x, zeroPos.y);
+
+            context.lineWidth = 3;
+            context.strokeStyle = 'red';
+            context.stroke();
+
+          }
+
+      context.rect(188, 50, 200, 100);
+      context.fillStyle = 'yellow';
+        }
+      }
+    };
+    image.src = "<%= imgData %>";
+
+
+
+
     </script>
     <P> <p/>
 
