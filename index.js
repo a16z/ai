@@ -12,8 +12,21 @@ var multer = require('multer');
 
 var util = require('util');
 var mime = require('mime');
-var upload = multer({dest: 'uploads/'});
 
+var path = require("path");
+var temp_dir = path.join(process.cwd(), 'temp/');
+var uploads_dir = path.join(process.cwd(), 'uploads/');
+
+if (!fs.existsSync(temp_dir)) {
+    fs.mkdirSync(temp_dir);
+}
+
+if (!fs.existsSync(uploads_dir)) {
+    fs.mkdirSync(uploads_dir);
+}
+
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
 
 var Twitter = require('twitter');
 
@@ -173,6 +186,10 @@ function base64Image(src) {
   return util.format('data:%s;base64,%s', mime.lookup(src), data);
 }
 
+function base64ImageFromBinaryBuffer(name, src) {
+  var data = src.toString('base64');
+  return util.format('data:%s;base64,%s', name, data);
+}
 
 
 app.get('/test/image/simple', function (req, res) {
@@ -180,37 +197,96 @@ app.get('/test/image/simple', function (req, res) {
  // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
  var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
   var filePath = './test-data/images/test-image-2.jpg';
+  var base64ImageData =  base64Image(filePath);
+// vision.detect(filePath, types, function(err, detections, apiResponse) {
+
  // Send the image to the Cloud Vision API
- vision.detect(filePath, types, function(err, detections, apiResponse) {
+ vision.detect(base64ImageData, types, function(err, detections, apiResponse) {
    var renderText = "";
    if (err) {
      console.log("Image processing error."+err);
      renderText += "<h1>Cloud Vision Error</h1>";
      renderText += err;
-
-
-
-        var dataDict =  createEJSTemplateDataDictionary(req, res);
-        dataDict.errorText = renderText;
-        dataDict.results = "";
-        dataDict.imgData = "";
-        res.render('pages/image-test', dataDict);
-   } else {
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.errorText = renderText;
+     dataDict.results = "";
+     dataDict.imgData = "";
+     res.render('pages/image-test', dataDict);
+   }
+   else {
 
      console.log("Image processing ok.");
      var dataDict =  createEJSTemplateDataDictionary(req, res);
      dataDict.results = detections;
-     dataDict.imgData = base64Image(filePath);
+     dataDict.imgData = base64ImageData;
 
      res.render('pages/image-test', dataDict);
-
    }
-
-
-
-
  });
 });
+app.get('/test/image/upload', upload.single('photo'), function (req, res) {
+  var dataDict =  createEJSTemplateDataDictionary(req, res);
+  var renderText = "";
+  renderText += "<h1>Cloud Vision Start</h1>";
+dataDict.errorText = renderText;
+  dataDict.results = "";
+  dataDict.imgData = "";
+
+  res.render('pages/image-upload', dataDict);
+});
+
+app.post('/process/image/upload', upload.single('photo'), function (req, res) {
+  // Choose what the Vision API should detect
+ // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
+ var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
+ var optionsDict = new Object();
+ optionsDict.types = types;
+ optionsDict.verbose = true;
+  var filePath = './test-data/images/test-image-2.jpg';
+  var uploadedFile =  req.file;//base64Image(filePath);
+  console.log("converting...");
+
+  var base64ImageData = base64ImageFromBinaryBuffer(uploadedFile.originalname, uploadedFile.buffer);
+/*
+{ fieldname: 'photo',
+11:15:57 AM web.1 |    originalname: 'crazy-signs-notice.jpg',
+11:15:57 AM web.1 |    encoding: '7bit',
+11:15:57 AM web.1 |    mimetype: 'image/jpeg',
+11:15:57 AM web.1 |    buffer: <Buffer ff d8 ff e0... >,
+11:15:57 AM web.1 |    size: 44346 }
+
+*/
+
+
+// vision.detect(filePath, types, function(err, detections, apiResponse) {
+console.log("analyzing...");
+ // Send the image to the Cloud Vision API
+ vision.detect(uploadedFile.buffer, optionsDict, function(err, detections, apiResponse) {
+   var renderText = "";
+   console.log("received google Api response...");
+   if (err) {
+     console.log("Image processing error."+err);
+     renderText += "<h1>Cloud Vision Error</h1>";
+     renderText += err;
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.errorText = renderText;
+     dataDict.results = "";
+     dataDict.imgData = "";
+     res.render('pages/image-test', dataDict);
+   }
+   else {
+
+     console.log("Image processing ok, filename="+uploadedFile.originalname);
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.results = detections;
+     dataDict.imgData = base64ImageData;
+    //  console.log(detections);
+
+     res.render('pages/image-test', dataDict);
+   }
+ });
+});
+
 
 
 app.get('/', function(req, res) {
