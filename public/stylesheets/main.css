@@ -34,6 +34,7 @@
         text-align:center;
            margin-left:auto;
            margin-right:auto;
+           table-layout: fixed;
            width:750px;
            border-collapse: separate;
            border-spacing: 10px;

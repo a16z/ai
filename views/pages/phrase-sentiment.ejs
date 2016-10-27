@@ -52,7 +52,7 @@
 .hoverArea:hover {background: blue; color: white}
 </style>
 <style>
-pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; text-align: left;}
 .string { color: green; }
 .number { color: darkorange; }
 .boolean { color: blue; }
@@ -61,35 +61,31 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
 
 </style>
 
-<script>
-
-
-function syntaxHighlight(json) {
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-        var cls = 'number';
-        if (/^"/.test(match)) {
-            if (/:$/.test(match)) {
-                cls = 'key';
-            } else {
-                cls = 'string';
-            }
-        } else if (/true|false/.test(match)) {
-            cls = 'boolean';
-        } else if (/null/.test(match)) {
-            cls = 'null';
-        }
-        return '<span class="' + cls + '">' + match + '</span>';
-    });
-}
-
-</script>
 
 <script>
 var spinnerHTML = "<div class='rect1'></div> <div class='rect2'> </div> <div class='rect3'></div> <div class='rect4'></div> <div class='rect5'></div>";
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
+
+function toggleVisibleRow(divname) {
+  console.log("div = "+divname);
+  var divRefNameClick = divname+"-click";
+  var divRefNameArrow = divname+"-arrow";
+  var divJsonName = divname+"-json";
+
+  $("#table-centered ."+divJsonName).toggle();
+  var isJSONVisible = $("#table-centered ."+divJsonName).is(':visible');
+
+  //if JSON is now visible then we have to switch the arrow from pointing left to pointing down
+  var currentClass = isJSONVisible ? "glyphicon-triangle-right" : "glyphicon-triangle-bottom";
+  var newClass = isJSONVisible ? "glyphicon-triangle-bottom" : "glyphicon-triangle-right";
+
+  $("#table-centered #"+divRefNameArrow).removeClass(currentClass).addClass(newClass);
+
+
+}
+
 $(document).ready(function() {
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
@@ -149,17 +145,14 @@ $( "#analysisForm" ).submit(function( event ) {
         var divJsonName = divname+"-json";
         var divJsonNameData = divname+"-json-data";
         var divRefNameClick = divname+"-click";
+        var divRefNameArrow = divname+"-arrow";
 
         //we will use a random spinner time to avoid super-fast 'flashing' of the spinner. So the data will never appear faster than randonWait msec
         var randomWait = 1000 + (Math.random() * 1000);
         var sendDate = (new Date()).getTime();
 
-        var fullResponseText = '<span id="'+divname+'-tc" data-toggle="tooltip" data-placement="right" title="loading...">[data]</span>';
-
-
-
         rowText = "";
-        rowText += "<TR><TD width='40%' style='text-align:left; font-size:80%;'><span class='"+divRefNameClick+" hoverArea'>"+endpointPath.name+"</span> "+fullResponseText+"</TD>";
+        rowText += "<TR><TD width='40%' style='text-align:left; font-size:80%;'><span id='"+divRefNameArrow+"' class='glyphicon glyphicon-triangle-right' aria-hidden='true'></span> <span class='"+divRefNameClick+" hoverArea'>"+endpointPath.name+"</span> </TD>";
         rowText += "<TD width='30%' style='text-align:center; font-size:80%;'><span id='"+divname+"' class='spinner'>"+spinnerHTML+"</span></TD>";
         rowText += "<TD width='15%' style='text-align:center; font-size:80%;'><span id='"+divname+"-tt'></span></TD>";
         rowText += "<TD width='15%' style='text-align:center; font-size:80%;'><span id='"+divname+"-ta'></span></TD></TR>";
@@ -189,20 +182,18 @@ $( "#analysisForm" ).submit(function( event ) {
 
             $(divRefTotalTimeName).empty().append(""+responseTimeMs);
             $(divRefAPITimeName).empty().append(""+data.apiTime);
-            // $(divRefTooltipName).attr("title",  JSON.stringify(data.serverResponse));
 
-                            $("#table-centered ."+divRefNameClick).click(function () {
-                              $("#table-centered ."+divJsonName).toggle();
-                            });
+            $("#table-centered ."+divRefNameClick).click(function () {
+              toggleVisibleRow(divname);
+            });
+            $("#table-centered #"+divRefNameArrow).click(function () {
+              toggleVisibleRow(divname);
+            });
 
+            var resultObj = JSON.stringify(data.serverResponse, null, 4);
+            var str = syntaxHighlight(resultObj);
 
-                          var resultObj = JSON.stringify(data.serverResponse, null, 4);
-                           var str = syntaxHighlight(resultObj);
-                          //  console.log(str);
-                          //  $("#"+divJsonNameData).empty();
-                           $("#"+divJsonNameData).html(str);
-
-
+            $("#"+divJsonNameData).html(str);
           })
 
         }).fail(function(data) {

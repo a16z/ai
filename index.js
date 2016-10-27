@@ -35,6 +35,7 @@ var Twitter = require('twitter');
 // var utils = require('./utils');
 var Emoji = require('./lib/emoji.js');
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
+var EntityAnalysis = require('./lib/entity-analysis.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
   return { session: req.session, activeRoute: req.activeRoute };
@@ -376,6 +377,17 @@ app.get('/test/twitter/sentiment', function (req, res) {
     }
   });
 });
+
+
+app.get('/test/phrase/entities',
+    function (req, res) {
+      var dataDict =  createEJSTemplateDataDictionary(req, res);
+      res.render('pages/phrase-entities', dataDict);
+
+    });
+
+app.post('/api/phrase/entities/google-cloud', EntityAnalysis.googleEntityAnalysisEndpoint);
+app.post('/api/phrase/entities/ibm-alchemy', EntityAnalysis.alchemyEntityAnalysisEndpoint);
 
 
 app.get('/test/phrase/sentiment',
