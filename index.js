@@ -411,9 +411,11 @@ app.post('/test/phrase/sentiment/analyze',
 //sentiment analysis endpoint
 app.post('/api/phrase/sentiment/js-sentimentjs', SentimentAnalysis.sentimentJSEndpoint);
 app.post('/api/phrase/sentiment/js-sentimental', SentimentAnalysis.sentimentalJSEndpoint);
-app.post('/api/phrase/sentiment/ibm-alchemy-sentiment', SentimentAnalysis.alchemySentimentEndpoint);
+app.post('/api/phrase/sentiment/ibm-alchemy', SentimentAnalysis.alchemySentimentEndpoint);
 app.post('/api/phrase/sentiment/ibm-tone', SentimentAnalysis.ibmToneAnalysisEndpoint);
-app.post('/api/phrase/sentiment/google-cloud-sentiment', SentimentAnalysis.googleSentimentAnalysisEndpoint);
+app.post('/api/phrase/sentiment/google-cloud', SentimentAnalysis.googleSentimentAnalysisEndpoint);
+app.post('/api/phrase/sentiment/ms-azure', SentimentAnalysis.azureSentimentAnalysisEndpoint);
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

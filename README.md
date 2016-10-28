@@ -8,7 +8,7 @@ The app is now connected to the A16Z ai github repository and doing automatic de
 
 ## Running Locally
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed. 
+Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
 
 ### Environment variables
 
@@ -23,6 +23,9 @@ export TWITTER_CONSUMER_KEY=<twitter api access>
 export TWITTER_CONSUMER_SECRET=<twitter api access>
 export TWITTER_ACCESS_TOKEN_KEY=<twitter api access>
 export TWITTER_ACCESS_TOKEN_SECRET=<twitter api access>
+
+# Microsoft
+export MS_AZURE_COGNITIVE_SERVICES_API_KEY=<MS Azure Cognitive Services API Key>
 
 # IBM Watson/Alchemy/etc (note that different IBM services have different auth requirements)
 export IBM_WATSON_TONE_USERNAME=<IBM Tone API Username>
@@ -58,6 +61,10 @@ or
 ### Node.js Cookies
 https://github.com/pillarjs/cookies
 
+### najax
+Simple jQuery-like calls in Node.js
+https://github.com/najaxjs/najax
+
 ### sentiment.js
 https://github.com/thisandagain/sentiment
 
@@ -69,5 +76,8 @@ https://github.com/desmondmorris/node-twitter
 
 ### IBM Watson Dev Cloud/Alchemy API
 https://www.npmjs.com/package/watson-developer-cloud
+
+### (Unofficial) Node.js API for Microsoft Azure Cognitive Services
+https://github.com/joshbalfour/node-cognitive-services
 
 ## Documentation

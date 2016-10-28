@@ -9,6 +9,7 @@
   "dependencies": {
     "Sentimental": "1.0.1",
     "body-parser": "1.15.2",
+    "cognitive-services": "0.1.0",
     "connect-redis": "3.1.0",
     "cookie-parser": "1.4.3",
     "cookie-session": "2.0.0-alpha.1",
@@ -21,6 +22,7 @@
     "googleapis": "12.4.0",
     "mime": "1.3.4",
     "multer": "1.2.0",
+    "najax": "0.7.1",
     "sentiment": "2.0.0",
     "session": "0.1.0",
     "twitter": "1.4.0",
