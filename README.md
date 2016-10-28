@@ -80,4 +80,8 @@ https://www.npmjs.com/package/watson-developer-cloud
 ### (Unofficial) Node.js API for Microsoft Azure Cognitive Services
 https://github.com/joshbalfour/node-cognitive-services
 
+Other links:
+https://westus.dev.cognitive.microsoft.com/docs/services/
+https://portal.azure.com
+
 ## Documentation
