@@ -387,8 +387,8 @@ app.get('/test/phrase/entities',
 
     });
 
-app.post('/api/phrase/entities/google-cloud', EntityAnalysis.googleEntityAnalysisEndpoint);
-app.post('/api/phrase/entities/ibm-alchemy', EntityAnalysis.alchemyEntityAnalysisEndpoint);
+// app.post('/api/phrase/entities/google-cloud', EntityAnalysis.googleEntityAnalysisEndpoint);
+// app.post('/api/phrase/entities/ibm-alchemy', EntityAnalysis.alchemyEntityAnalysisEndpoint);
 
 var apiAddCompletion = function(apiPack, success, message) {
     console.log((success?"OK: ":"ERROR: ")+message);
@@ -396,6 +396,13 @@ var apiAddCompletion = function(apiPack, success, message) {
 
 NXAPIPacks.connector.setAPIRoot('/api');
 NXAPIPacks.connector.setApp(app);
+
+var entityAnalysisCommonServiceInfo = {
+  id: "entity-analysis",
+  humanReadableName : "Entity Analysis",
+  description : "Extract entities from sentences or paragraphs."
+}
+
 
 var ibmAPI = NXAPIPacks.connector.addAPI({
     id: "ibm-alchemy",
@@ -408,13 +415,26 @@ var ibmAPI = NXAPIPacks.connector.addAPI({
     description: "IBM's AlchemyLanguage API offers text analysis through natural language processing. The AlchemyLanguage APIs can analyze text and help you to understand its sentiment, keywords, entities, high-level concepts and more."
 });
 
-var entityServiceInfo = {
-  id: "entity-analysis",
-  humanReadableName : "Entity Analysis",
-  description : "Extract entities from sentences or paragraphs."
-}
 
-ibmAPI.addService(entityServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
+ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
+
+
+
+
+var googleAPI = NXAPIPacks.connector.addAPI({
+    id: "google-cloud",
+    provider: "Google",
+    humanReadableName: "Google Cloud APIs",
+    providerUrl: "https://cloud.google.com",
+    consoleUrl: "https://console.cloud.google.com/",
+    officialGithubURL: "https://github.com/GoogleCloudPlatform/google-cloud-node",
+    unofficialGithubURL: "",
+    description: "Cloud Machine Learning API (https://cloud.google.com/natural-language/docs/)."
+});
+
+
+googleAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.googleEntityAnalysisAPIPack, apiAddCompletion);
+
 
 var stype = NXAPIPacks.connector.getApisForServiceType("entity-analysis");
 console.log("v = "+JSON.stringify(stype));
