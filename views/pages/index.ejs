@@ -2,53 +2,197 @@
 <html lang="en">
 <head>
   <% include ../partials/header.ejs %>
+
+
+  <style>
+    .roundedImage {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+
+    #wheelParent {
+      display: flex;
+    }
+    #narrow {
+      width: 200px;
+
+    }
+    #wheelWide {
+      flex: 1;
+      /* Grow to rest of container */
+      background: white;
+      margin: 10px;
+      padding: 10px;
+      text-align: left;
+    }
+
+    #wheelBox {
+      width:320px; /* or whatever width you want. */
+      max-width:320px; /* or whatever width you want. */
+      height: 320px;
+      max-height: 320px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .circle-container {
+      position: absolute; visibility: visible; left: 20px; top: 20px; z-index: 10000;
+
+    }
+
+    .menu-content p {
+      font-size: 13px;
+    }
+    .menu-content blockquote {
+      font-size: 12px;
+    }
+    .menu-content h1 {
+      font-size: 17px;
+    }
+    .starthidden {
+    display: none;
+  }
+  </style>
+
+      <script src="/js/raphael.min.js"></script>
+      <script src="/js/raphael.icons.min.js"></script>
+      <script src="/js/wheelnav.min.js"></script>
+
+
+      <!-- Place this tag in your head or just before your close body tag. -->
+      <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
 </head>
 
 <body>
-
   <% include ../partials/nav.ejs %>
+  <div class="alert alert-info text-right" role="alert">
+    <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
+    <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>    <!--  navigation -->
 
+</div>
 <div class="jumbotron text-center">
   <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="/main-image.png">
-    </a>
-    <h1>Welcome to the A16Z AI playground</h1>
-    <p>Construction in progress!</p>
-    <p>
+    <div class='circle-container'>
+        <a href='#' class='center'><div class="roundedImageContainer"><img class="roundedImage" src="/main-image.png"/></div></a>
+    </div>
+
+    <div id="wheelParent">
+      <div id="wheelBox"><div id="wheelDiv"></div></div>
+      <div id="wheelWide">
+        <div id="language-content" class="menu-content">
+          <h1>Natural Language Processing (NLP)</h1>
+          <P>Key areas of NLP include understanding/processing language, translation, and language generation.</p>
+          <P>You can start by <a href="/docs/guides/nlp">reading an introduction</a> to this topic, or take a look at some of the samples we've implemented using commercial APIs:
+          <ul>
+            <li><a href="/test/phrase/sentiment">Sentiment Analysis</a></li>
+              <li><a href="/test/phrase/entities">Entity Extraction</a></li>
+              </ul></p>
+        </div>
+        <div id="dl-content" class="menu-content starthidden">
+          <h1>Deep Learning</h1>
+          <P>From <a href="https://en.wikipedia.org/wiki/Deep_learning">Wikipedia</a>:
+          <blockquote>Deep learning (also known as deep structured learning, hierarchical learning or deep machine learning) is a branch of machine learning based on a set of algorithms that attempt to model high level abstractions in data by using a deep graph with multiple processing layers, composed of multiple linear and non-linear transformations</blockquote></p>
+          </div>
+        <div id="patterns-content" class="menu-content starthidden">
+          <h1>Patterns and Classification</h1>
+          <P>Pattern recognition deals with the classification and correlation of data, irrespective (as opposed to regardless) of its meaning.</p>
+          </div>
+        <div id="vision-content" class="menu-content starthidden">
+          <h1>Vision</h1>
+          <P>Computer vision tasks include processing and analyzing images in digital form.</p>
+            <P>You can start by <a href="/docs/guides/vision">reading an introduction</a> to this topic, or take a look at some of the samples we've implemented using commercial APIs:
+            <ul>
+              <li><a href="/test/image/simple">Multi-Feature Analysis (Fixed Image)</a></li>
+                <li><a href="/test/image/upload»">Multi-Feature Analysis (Upload Image)</a></li>
+                </ul></p>
+
+
+          </div>
+      </div>
+    </div>
+
+    <script>
+      var wheelTitlesToIds = {
+        "language": "language",
+        "patterns": "patterns",
+        "vision": "vision",
+        "deep learning": "dl",
+      }
+      var wheelContent = [
+          {
+            id: "",
+            menuTitle: "",
+            boxContent: "",
+          }
+      ];
+      var visibleItemId="language";
+      function toggleContent(menuTitle) {
+        var boxId = wheelTitlesToIds[menuTitle];
+        var previousContentId = visibleItemId;
+        visibleItemId = boxId;
+        $("#"+previousContentId+"-content").toggle();
+        $("#"+boxId+"-content").toggle();
+      }
+
+      var wheel = new wheelnav('wheelDiv');
+
+      wheel.wheelRadius = 180;
+      // wheel.slicePathFunction = slicePath().MenuSlice;
+
+      wheel.animatetime = 500;
+      wheel.animateeffect = 'linear';
+      // wheel.slicePathFunction = slicePath().CogBasePieSlice;
+      // wheel.sliceHoverPathFunction = slicePath().CogSlice;
+      // wheel.sliceSelectedPathFunction = slicePath().CogSlice;
+      // wheel.sliceHoverTransformFunction = sliceTransform().RotateTitleTransform;
+      wheel.sliceSelectedTransformFunction = sliceTransform().ScaleTransform;//MoveMiddleTransform;
+      wheel.colors = ["#345578","#FF9900", "#BCBCBC", "#3299BB", "#727272"];
+      wheel.titleFont = '14px Open Sans';
+      wheel.hoverPercent = 0.8;
+      wheel.selectedPercent = 1.1;
+      wheel.wheelRadius = wheel.wheelRadius * 0.8;
+
+      wheel.createWheel(["language", "deep learning", "patterns", "vision"]);
+
+      jQuery.each(wheel.navItems, function(i, item) {
+        item.navigateFunction = function() {
+          toggleContent(item.title);
+        }
+
+      });
+
+      wheel.navigateWheel(0);
+
+      </script>
+
+
+<!-- end nav -->
+
+
+
+
+
+    <!-- <p>
     <a type="button" class="btn btn-lg btn-default" href="/docs/intro/getting-started"><span class="glyphicon glyphicon-flash"></span> Getting Started</a>
+    <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
+    <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>
     <a type="button" class="btn btn-lg btn-primary" href="https://github.com/a16z/ai"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-    </p>
+    </p> -->
 
-<p>
-  <b>Sentiment Analysis</b>
-  <br>
-  <a type="button" class="btn btn-lg btn-default" href="/test/twitter/sentiment?screenName=withfries2&checkMentions=false"><span class="glyphicon glyphicon-flash"></span> Twitter</a>
-  <a type="button" class="btn btn-lg btn-default" href="/test/phrase/sentiment"><span class="glyphicon glyphicon-flash"></span> Phrase</a>
-</p>
-<p>
-  <b>Entity Analysis</b>
-  <br>
-  <a type="button" class="btn btn-lg btn-default" href="/test/phrase/entities"><span class="glyphicon glyphicon-flash"></span> Text</a>
-</p>
-<p>
-  <b>Image Analysis</b>
-  <br>
-  <a type="button" class="btn btn-lg btn-default" href="/test/image/simple"><span class="glyphicon glyphicon-flash"></span> Multi-Feature Analysis - Fixed Image</a>
-  <br><br><a type="button" class="btn btn-lg btn-default" href="/test/image/upload"><span class="glyphicon glyphicon-flash"></span> Multi-Feature Analysis - Upload Image</a>
-
-</p>
 
   </div>
 </div>
 <div class="container">
   <div class="alert alert-info text-center" role="alert">
-    If you're not sure where to go next, just go on over to the <a href="/docs/intro/getting-started" class="alert-link">Getting Started</a> doc.
+    If you're not sure where to go next, just head on over to the <a href="/docs/intro/getting-started" class="alert-link">Getting Started</a> doc.
   </div>
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> Documentation</h3>
+      <h3><span class="glyphicon glyphicon-info-sign"></span>Documentation</h3>
       <p>Start with the introductory material <a href="/docs/intro/survey">about the survey</a> and
       <a href="/docs/intro/ai">on AI/ML</a>. Then checkout the guides for various areas, such as
       <a href="/docs/guides/nlp">Natural Language Processing</a>, <a href="/docs/guides/vision">Vision</a>, or
@@ -59,7 +203,7 @@
       </ul>
     </div>
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> More information</h3>
+      <h3><span class="glyphicon glyphicon-link"></span>More information</h3>
       <p>Please see the sections for <a href="/docs/reference/papers">Papers and Research</a> and <a href="/docs/reference/links">Useful links</a></p>
     </div>
   </div> <!-- row -->
