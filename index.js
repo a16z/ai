@@ -409,6 +409,33 @@ var sentimentAnalysisCommonServiceInfo = {
   description : "Infer sentiment behind sentences or paragraphs."
 }
 
+var sentimentJSAPI = NXAPIPacks.connector.addAPI({
+    id: "js-sentimentjs",
+    provider: "Andrew Sliwinski",
+    humanReadableName: "Sentiment.JS (node.js library)",
+    providerUrl: "https://github.com/thisandagain/sentiment",
+    consoleUrl: "",
+    officialGithubURL: "https://github.com/thisandagain/sentiment",
+    unofficialGithubURL: "",
+    description: "AFINN-based sentiment analysis for Node.js."
+});
+
+sentimentJSAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentJSAPIPack, apiAddCompletion);
+
+var sentimentalJSAPI = NXAPIPacks.connector.addAPI({
+    id: "js-sentimental",
+    provider: "Kevin M Roth",
+    humanReadableName: "Sentimental (node.js library)",
+    providerUrl: "https://github.com/thinkroth/Sentimental",
+    consoleUrl: "",
+    officialGithubURL: "https://github.com/thinkroth/Sentimental",
+    unofficialGithubURL: "",
+    description: "Sentiment analysis tool for node.js based on the AFINN-111 wordlist."
+});
+
+
+sentimentalJSAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentalJSAPIPack, apiAddCompletion);
+
 var ibmAPI = NXAPIPacks.connector.addAPI({
     id: "ibm-alchemy",
     provider: "IBM",
@@ -422,14 +449,22 @@ var ibmAPI = NXAPIPacks.connector.addAPI({
 
 
 ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
-//
-//
-// TODO next:
-// -pass APIconnector stuff to the webpage so the form data fields and endpoints are from parameters
-// -migrate other functions including Microsoft
-// -reorganize files so they are by api id (organization) instead of by api type like now (eg. sentiment-analysis.js, entity-analysis.js -> google-cloud.js , ibm-alchemy.js)
-// or leave organized by type?
-// -add circular menu at front so choosing from different 'tests' is nicer visually
+ibmAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.alchemySentimentAPIPack, apiAddCompletion);
+
+
+var ibmWatsonAPI = NXAPIPacks.connector.addAPI({
+    id: "ibm-watson",
+    provider: "IBM",
+    humanReadableName: "IBM Watson Developer Cloud",
+    providerUrl: "http://www.ibm.com/watson/developercloud/",
+    consoleUrl: "https://console.ng.bluemix.net",
+    officialGithubURL: "https://github.com/watson-developer-cloud/",
+    unofficialGithubURL: "",
+    description: "Enable cognitive computing features in your app using IBM Watson's Language, Vision, Speech and Data APIs."
+});
+
+ibmWatsonAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.ibmToneAnalysisAPIPack, apiAddCompletion);
+
 
 var googleAPI = NXAPIPacks.connector.addAPI({
     id: "google-cloud",
@@ -460,32 +495,13 @@ msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAz
 
 console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
 console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
-
+//
 app.get('/test/phrase/sentiment',
     function (req, res) {
       var dataDict =  createEJSTemplateDataDictionary(req, res);
       res.render('pages/phrase-sentiment', dataDict);
 
     });
-
-app.post('/test/phrase/sentiment/analyze',
-    function (req, res) {
-
-      var phrase = req.body.phrase;
-
-      var result = SentimentAnalysis.analyzeSentiment(phrase);
-      res.setHeader('Content-Type', 'application/json');
-      res.send(JSON.stringify(result));
-
-    });
-
-//sentiment analysis endpoint
-app.post('/api/phrase/sentiment/js-sentimentjs', SentimentAnalysis.sentimentJSEndpoint);
-app.post('/api/phrase/sentiment/js-sentimental', SentimentAnalysis.sentimentalJSEndpoint);
-app.post('/api/phrase/sentiment/ibm-alchemy', SentimentAnalysis.alchemySentimentEndpoint);
-app.post('/api/phrase/sentiment/ibm-tone', SentimentAnalysis.ibmToneAnalysisEndpoint);
-// app.post('/api/phrase/sentiment/google-cloud', SentimentAnalysis.googleSentimentAnalysisEndpoint);
-// app.post('/api/phrase/sentiment/ms-azure', SentimentAnalysis.azureSentimentAnalysisEndpoint);
 
 
 app.listen(app.get('port'), function() {

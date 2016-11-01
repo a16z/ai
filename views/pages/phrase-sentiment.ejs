@@ -69,7 +69,7 @@ function sleep (time) {
 }
 
 function toggleVisibleRow(divname) {
-  console.log("div = "+divname);
+  // console.log("div = "+divname);
   var divRefNameClick = divname+"-click";
   var divRefNameArrow = divname+"-arrow";
   var divJsonName = divname+"-json";
@@ -98,13 +98,12 @@ $( "#analysisForm" ).submit(function( event ) {
   var $form = $( this );
   var phraseField = $form.find( "input[name='phrase']" );
 
-  var sentimentAPIEndpoints = [{name:"IBM Tone Analyzer API", id: "ibm-tone", url:"/api/phrase/sentiment/ibm-tone"},
+  var sentimentAPIEndpoints = [{name:"IBM Tone Analyzer API", id: "ibm-tone", url:"/api/ibm-watson/sentiment-analysis"},
   {name:"Google Cloud", id: "google-cloud-sentiment", url:"/api/google-cloud/sentiment-analysis"},
   {name:"Microsoft Azure Cognitive Services", id: "ms-azure", url:"/api/ms-azure/sentiment-analysis"},
-  {name:"IBM Alchemy API Sentiment", id: "ibm-alchemy-sentiment", url:"/api/phrase/sentiment/ibm-alchemy"},
-  {name:"Sentiment.js (node.js library)", id: "js-sentimentjs", url:"/api/phrase/sentiment/js-sentimentjs"},
-  {name:"Sentimental (node.js library)", id: "js-sentimental", url:"/api/phrase/sentiment/js-sentimental"}
-
+  {name:"IBM Alchemy API Sentiment", id: "ibm-alchemy-sentiment", url:"/api/ibm-alchemy/sentiment-analysis"},
+  {name:"Sentiment.js (node.js library)", id: "js-sentimentjs", url:"/api/js-sentimentjs/sentiment-analysis"},
+  {name:"Sentimental (node.js library)", id: "js-sentimental", url:"/api/js-sentimental/sentiment-analysis"}
 ];
 
   var phraseFieldContents = phraseField.val();
