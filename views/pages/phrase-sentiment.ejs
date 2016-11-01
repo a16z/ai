@@ -99,8 +99,8 @@ $( "#analysisForm" ).submit(function( event ) {
   var phraseField = $form.find( "input[name='phrase']" );
 
   var sentimentAPIEndpoints = [{name:"IBM Tone Analyzer API", id: "ibm-tone", url:"/api/phrase/sentiment/ibm-tone"},
-  {name:"Google Cloud", id: "google-cloud-sentiment", url:"/api/phrase/sentiment/google-cloud"},
-  {name:"Microsoft Azure Cognitive Services", id: "ms-azure", url:"/api/phrase/sentiment/ms-azure"},
+  {name:"Google Cloud", id: "google-cloud-sentiment", url:"/api/google-cloud/sentiment-analysis"},
+  {name:"Microsoft Azure Cognitive Services", id: "ms-azure", url:"/api/ms-azure/sentiment-analysis"},
   {name:"IBM Alchemy API Sentiment", id: "ibm-alchemy-sentiment", url:"/api/phrase/sentiment/ibm-alchemy"},
   {name:"Sentiment.js (node.js library)", id: "js-sentimentjs", url:"/api/phrase/sentiment/js-sentimentjs"},
   {name:"Sentimental (node.js library)", id: "js-sentimental", url:"/api/phrase/sentiment/js-sentimental"}

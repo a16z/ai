@@ -403,6 +403,11 @@ var entityAnalysisCommonServiceInfo = {
   description : "Extract entities from sentences or paragraphs."
 }
 
+var sentimentAnalysisCommonServiceInfo = {
+  id: "sentiment-analysis",
+  humanReadableName : "Sentiment Analysis",
+  description : "Infer sentiment behind sentences or paragraphs."
+}
 
 var ibmAPI = NXAPIPacks.connector.addAPI({
     id: "ibm-alchemy",
@@ -417,9 +422,14 @@ var ibmAPI = NXAPIPacks.connector.addAPI({
 
 
 ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
-
-
-
+//
+//
+// TODO next:
+// -pass APIconnector stuff to the webpage so the form data fields and endpoints are from parameters
+// -migrate other functions including Microsoft
+// -reorganize files so they are by api id (organization) instead of by api type like now (eg. sentiment-analysis.js, entity-analysis.js -> google-cloud.js , ibm-alchemy.js)
+// or leave organized by type?
+// -add circular menu at front so choosing from different 'tests' is nicer visually
 
 var googleAPI = NXAPIPacks.connector.addAPI({
     id: "google-cloud",
@@ -432,12 +442,24 @@ var googleAPI = NXAPIPacks.connector.addAPI({
     description: "Cloud Machine Learning API (https://cloud.google.com/natural-language/docs/)."
 });
 
-
 googleAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.googleEntityAnalysisAPIPack, apiAddCompletion);
+googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googleSentimentAnalysisAPIPack, apiAddCompletion);
 
 
-var stype = NXAPIPacks.connector.getApisForServiceType("entity-analysis");
-console.log("v = "+JSON.stringify(stype));
+var msAzureAPI = NXAPIPacks.connector.addAPI({
+    id: "ms-azure",
+    provider: "Microsoft",
+    humanReadableName: "Microsoft Azure Cognitive Services",
+    providerUrl: "https://azure.microsoft.com/en-us/services/cognitive-services/",
+    consoleUrl: "https://portal.azure.com/",
+    officialGithubURL: "",
+    unofficialGithubURL: "https://github.com/joshbalfour/node-cognitive-services",
+    description: "Allow your apps to process natural language, evaluate sentiment and topics, and learn how to recognize what users want.."
+});
+msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
+
+console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
+console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
 
 app.get('/test/phrase/sentiment',
     function (req, res) {
@@ -462,8 +484,8 @@ app.post('/api/phrase/sentiment/js-sentimentjs', SentimentAnalysis.sentimentJSEn
 app.post('/api/phrase/sentiment/js-sentimental', SentimentAnalysis.sentimentalJSEndpoint);
 app.post('/api/phrase/sentiment/ibm-alchemy', SentimentAnalysis.alchemySentimentEndpoint);
 app.post('/api/phrase/sentiment/ibm-tone', SentimentAnalysis.ibmToneAnalysisEndpoint);
-app.post('/api/phrase/sentiment/google-cloud', SentimentAnalysis.googleSentimentAnalysisEndpoint);
-app.post('/api/phrase/sentiment/ms-azure', SentimentAnalysis.azureSentimentAnalysisEndpoint);
+// app.post('/api/phrase/sentiment/google-cloud', SentimentAnalysis.googleSentimentAnalysisEndpoint);
+// app.post('/api/phrase/sentiment/ms-azure', SentimentAnalysis.azureSentimentAnalysisEndpoint);
 
 
 app.listen(app.get('port'), function() {
