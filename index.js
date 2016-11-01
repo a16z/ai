@@ -36,6 +36,7 @@ var Twitter = require('twitter');
 var Emoji = require('./lib/emoji.js');
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 var EntityAnalysis = require('./lib/entity-analysis.js');
+var NXAPIPacks = require('./lib/api-connector/api-connector.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
   return { session: req.session, activeRoute: req.activeRoute };
@@ -389,6 +390,34 @@ app.get('/test/phrase/entities',
 app.post('/api/phrase/entities/google-cloud', EntityAnalysis.googleEntityAnalysisEndpoint);
 app.post('/api/phrase/entities/ibm-alchemy', EntityAnalysis.alchemyEntityAnalysisEndpoint);
 
+var apiAddCompletion = function(apiPack, success, message) {
+    console.log((success?"OK: ":"ERROR: ")+message);
+}
+
+NXAPIPacks.connector.setAPIRoot('/api');
+NXAPIPacks.connector.setApp(app);
+
+var ibmAPI = NXAPIPacks.connector.addAPI({
+    id: "ibm-alchemy",
+    provider: "IBM",
+    humanReadableName: "IBM Alchemy Language API",
+    providerUrl: "http://www.ibm.com/watson/developercloud/alchemy-language.html",
+    consoleUrl: "https://console.ng.bluemix.net",
+    officialGithubURL: "https://github.com/watson-developer-cloud/alchemylanguage-nodejs",
+    unofficialGithubURL: "",
+    description: "IBM's AlchemyLanguage API offers text analysis through natural language processing. The AlchemyLanguage APIs can analyze text and help you to understand its sentiment, keywords, entities, high-level concepts and more."
+});
+
+var entityServiceInfo = {
+  id: "entity-analysis",
+  humanReadableName : "Entity Analysis",
+  description : "Extract entities from sentences or paragraphs."
+}
+
+ibmAPI.addService(entityServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
+
+var stype = NXAPIPacks.connector.getApisForServiceType("entity-analysis");
+console.log("v = "+JSON.stringify(stype));
 
 app.get('/test/phrase/sentiment',
     function (req, res) {
