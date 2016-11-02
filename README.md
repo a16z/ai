@@ -26,6 +26,7 @@ export TWITTER_ACCESS_TOKEN_SECRET=<twitter api access>
 
 # Microsoft
 export MS_AZURE_COGNITIVE_SERVICES_API_KEY=<MS Azure Cognitive Services API Key>
+export MS_AZURE_COG_SERVICES_ENTITY_LINKING_API_KEY=<MS Azure Entity Linking API Key>
 
 # IBM Watson/Alchemy/etc (note that different IBM services have different auth requirements)
 export IBM_WATSON_TONE_USERNAME=<IBM Tone API Username>
@@ -42,6 +43,15 @@ Packages used by the app are described in `package.json` and can be installed by
 ```sh
 $ npm install
 $ npm start
+```
+
+For config values you can add them directly to the app as follows:
+```sh
+heroku config:add GOOGLE_CLOUD_PRIVATE_KEY="$GOOGLE_CLOUD_PRIVATE_KEY" --app cryptic-alpha
+```
+when variables require quotes, or
+```sh
+heroku config:add GOOGLE_CLOUD_PRIVATE_KEY=<KEY> --app cryptic-alpha
 ```
 
 The app should now be running on [localhost:5000](http://localhost:5000/).

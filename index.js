@@ -396,7 +396,7 @@ var sentimentAnalysisExamples = [
 var entityAnalysisExamples = [
   "George lives in New York City and his car is a Jaguar XL. George also owns a copy of the Guernica by Picasso. He likes Halloween.",
   "IBM and Google are companies.",
-  "It's better to commute to San Francisco using BART."
+  "It is better to commute to San Francisco using BART."
 ];
 
 
@@ -497,6 +497,7 @@ var msAzureAPI = NXAPIPacks.connector.addAPI({
     description: "Allow your apps to process natural language, evaluate sentiment and topics, and learn how to recognize what users want.."
 });
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
+msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
 
 // console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
 // console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));

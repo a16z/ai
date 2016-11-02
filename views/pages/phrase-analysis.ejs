@@ -89,10 +89,15 @@ $(document).ready(function() {
 
     var presetValues = apiServiceInfo.testSamples;
     for (i in presetValues) {
+      //necessary since ajax async calls defer and you end up having variables overwritten is used within the same context
+
+// $.each(presetValues, function( index, value ) {
+
       var presetValue = presetValues[i];
       var text = "<input type='radio' name='presetPhrase' value='"+presetValue+"'><span style='font-size: 95%;'>";
       text += "&nbsp;&nbsp;&ldquo;"+presetValue+"&rdquo;</span><br/>";
       $("#formSampleFields").append(text) ;
+
     }
 
 
