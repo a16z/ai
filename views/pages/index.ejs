@@ -5,11 +5,7 @@
 
 
   <style>
-    .roundedImage {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-    }
+
 
     #wheelParent {
       display: flex;
@@ -22,9 +18,8 @@
       flex: 1;
       /* Grow to rest of container */
       background: white;
-      margin: 10px;
-      padding: 10px;
       text-align: left;
+      margin: 10px;
     }
 
     #wheelBox {
@@ -36,11 +31,10 @@
       vertical-align: middle;
     }
 
-    .circle-container {
-      position: absolute; visibility: visible; left: 20px; top: 20px; z-index: 10000;
-
+    .menu-content {
+      padding: 10px;
+      padding-left: 20px;
     }
-
     .menu-content p {
       font-size: 13px;
     }
@@ -53,15 +47,28 @@
     .starthidden {
     display: none;
   }
+
+  .borderless {
+    border: none;
+    border: 0;
+  }
+
+  .white-border {
+    border: 1px solid white;
+  }
+
+  .blue-border {
+
+    border: 1px solid #0e7796;
+  }
+
+
   </style>
 
       <script src="/js/raphael.min.js"></script>
       <script src="/js/raphael.icons.min.js"></script>
       <script src="/js/wheelnav.min.js"></script>
 
-
-      <!-- Place this tag in your head or just before your close body tag. -->
-      <script async defer src="https://buttons.github.io/buttons.js"></script>
 
 
 </head>
@@ -70,7 +77,7 @@
   <% include ../partials/nav.ejs %>
   <div class="alert alert-info text-right" role="alert">
     <div style="display: flex;">
-    <div style="margin-left:150px;width:200px">The <a href="http://a16z.com" target="_blank">a16z</a> 2016 AI Survey</div>
+    <div style="margin-left:150px;width:200px">The 2016 <a href="http://a16z.com" target="_blank">a16z</a> AI Survey</div>
     <div style="flex: 1;">
     <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
     <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>    <!--  navigation -->
@@ -80,13 +87,10 @@
 </div>
 <div class="jumbotron text-center">
   <div class="container">
-    <div class='circle-container'>
-        <a href='#' class='center'><div class="roundedImageContainer"><img class="roundedImage" src="/main-image.png"/></div></a>
-    </div>
 
     <div id="wheelParent">
       <div id="wheelBox"><div id="wheelDiv"></div></div>
-      <div id="wheelWide">
+      <div id="wheelWide" class="white-border">
         <div id="language-content" class="menu-content">
           <h1>Natural Language Processing (NLP)</h1>
           <P>Key areas of NLP include understanding/processing language, translation, and language generation.</p>
@@ -136,10 +140,22 @@
       var visibleItemId="language";
       function toggleContent(menuTitle) {
         var boxId = wheelTitlesToIds[menuTitle];
+        if (visibleItemId == boxId) {
+          //already visible, ignore
+          console.log("id = "+"#"+visibleItemId+"-content");
+console.log($("#wheelWide"));
+          $("#wheelWide").addClass("blue-border", 400, function () {
+             $("#wheelWide").removeClass("blue-border", 400 );
+           });
+          // } );  //.animate({ "border-color": "#0e7796", 'border-style': 'groove' }, 'fast');
+        return;
+        }
         var previousContentId = visibleItemId;
         visibleItemId = boxId;
-        $("#"+previousContentId+"-content").toggle();
-        $("#"+boxId+"-content").toggle();
+        $("#"+previousContentId+"-content").fadeToggle(250, "swing", function() {
+          $("#"+visibleItemId+"-content").fadeToggle(250, "swing");
+
+        });
       }
 
       var wheel = new wheelnav('wheelDiv');

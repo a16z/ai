@@ -1,0 +1,20 @@
+.roundedImage100 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.roundedImage32 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.roundedImage64 {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+    .circle-container {
+      position: absolute; visibility: visible; left: 10px; top: 10px; z-index: 10000;
+
+    }

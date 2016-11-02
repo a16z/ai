@@ -2,10 +2,14 @@
   <div class="container">
     <ul class="nav navbar-nav">
       <li <% if (activeRoute == "" || activeRoute == "/") { %> class="active" <% } %> >
-        <a href="/"><span class="glyphicon glyphicon-home"></span> Home</a>
+        <!-- <a href="/"><span class="glyphicon glyphicon-home"></span></a> -->
+        <div class='circle-container'>
+            <a href='/' class='center'><div class="roundedImageContainer"><img class="roundedImage64" src="/main-image.png"/></div></a>
+        </div>
+
       </li>
       <li <% if (activeRoute == "about") { %> class="active" <% } %> >
-        <a href="/about"><span class="glyphicon glyphicon-user"></span> About</a>
+        <a href="/about"><span class="glyphicon glyphicon-user" style="padding-left: 80px;"></span> About</a>
       </li>
       <% if (session.signedIn) { %>
       <li class="dropdown">
@@ -13,9 +17,9 @@
           <span class="glyphicon glyphicon-info-sign"></span> Documentation <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li class="dropdown-header">Intro</li>
-            <li><a href="/docs/intro/survey">About the Survey</a></li>
-            <li><a href="/docs/intro/ai">Introduction to AI/ML</a></li>
+            <li><a href="/docs/intro/survey">Survey Goals</a></li>
             <li><a href="/docs/intro/survey-parameters">Survey Parameters</a></li>
+            <li><a href="/docs/intro/ai">Introduction to AI/ML</a></li>
             <li class="divider"></li>
             <li class="dropdown-header">Guides</li>
             <li><a href="/docs/guides/nlp">Natural Language Processing</a></li>

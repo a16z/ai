@@ -7,17 +7,19 @@
 <body>
 
   <% include ../partials/nav.ejs %>
-
+<!--
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
       <img src="/main-image.png">
     </a>
   </div>
-</div>
+</div> -->
+<% include ../partials/banner.ejs %>
 <div class="container">
   <% if (session.signedIn) { %>
-    <h1>About the A16Z AI Playground</h1>
+
+    <h1>About This Survey</h1>
     <p>This is a super secret project intended to figure out which of the following scenarios are possible. Also, we're doing a survey on the AI landscape.</p>
     <p class="text-center"><a href="http://xkcd.com/1613/" border=0 target="_blank"><img src="http://imgs.xkcd.com/comics/the_three_laws_of_robotics.png"></a></p>
   <% } else { %>
