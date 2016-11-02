@@ -380,16 +380,6 @@ app.get('/test/twitter/sentiment', function (req, res) {
 });
 
 
-app.get('/test/phrase/entities',
-    function (req, res) {
-      var dataDict =  createEJSTemplateDataDictionary(req, res);
-      res.render('pages/phrase-entities', dataDict);
-
-    });
-
-// app.post('/api/phrase/entities/google-cloud', EntityAnalysis.googleEntityAnalysisEndpoint);
-// app.post('/api/phrase/entities/ibm-alchemy', EntityAnalysis.alchemyEntityAnalysisEndpoint);
-
 var apiAddCompletion = function(apiPack, success, message) {
     console.log((success?"OK: ":"ERROR: ")+message);
 }
@@ -397,22 +387,37 @@ var apiAddCompletion = function(apiPack, success, message) {
 NXAPIPacks.connector.setAPIRoot('/api');
 NXAPIPacks.connector.setApp(app);
 
+var sentimentAnalysisExamples = [
+  "The weather today is really nice.",
+  "The Matrix was a fantastic movie.",
+  "A ten pound laptop is not a good travel companion."
+];
+
+var entityAnalysisExamples = [
+  "George lives in New York City and his car is a Jaguar XL. George also owns a copy of the Guernica by Picasso. He likes Halloween.",
+  "IBM and Google are companies.",
+  "It's better to commute to San Francisco using BART."
+];
+
+
 var entityAnalysisCommonServiceInfo = {
   id: "entity-analysis",
-  humanReadableName : "Entity Analysis",
-  description : "Extract entities from sentences or paragraphs."
+  name : "Phrase Entity Analysis",
+  description : "Extract entities from sentences or paragraphs.",
+  testSamples: entityAnalysisExamples
 }
 
 var sentimentAnalysisCommonServiceInfo = {
   id: "sentiment-analysis",
-  humanReadableName : "Sentiment Analysis",
-  description : "Infer sentiment behind sentences or paragraphs."
+  name : "Phrase Sentiment Analysis",
+  description : "Infer sentiment behind sentences or paragraphs.",
+  testSamples: sentimentAnalysisExamples
 }
 
 var sentimentJSAPI = NXAPIPacks.connector.addAPI({
     id: "js-sentimentjs",
     provider: "Andrew Sliwinski",
-    humanReadableName: "Sentiment.JS (node.js library)",
+    name: "Sentiment.JS (node.js library)",
     providerUrl: "https://github.com/thisandagain/sentiment",
     consoleUrl: "",
     officialGithubURL: "https://github.com/thisandagain/sentiment",
@@ -425,7 +430,7 @@ sentimentJSAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.
 var sentimentalJSAPI = NXAPIPacks.connector.addAPI({
     id: "js-sentimental",
     provider: "Kevin M Roth",
-    humanReadableName: "Sentimental (node.js library)",
+    name: "Sentimental (node.js library)",
     providerUrl: "https://github.com/thinkroth/Sentimental",
     consoleUrl: "",
     officialGithubURL: "https://github.com/thinkroth/Sentimental",
@@ -439,7 +444,7 @@ sentimentalJSAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysi
 var ibmAPI = NXAPIPacks.connector.addAPI({
     id: "ibm-alchemy",
     provider: "IBM",
-    humanReadableName: "IBM Alchemy Language API",
+    name: "IBM Alchemy Language API",
     providerUrl: "http://www.ibm.com/watson/developercloud/alchemy-language.html",
     consoleUrl: "https://console.ng.bluemix.net",
     officialGithubURL: "https://github.com/watson-developer-cloud/alchemylanguage-nodejs",
@@ -455,7 +460,7 @@ ibmAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.alchemyS
 var ibmWatsonAPI = NXAPIPacks.connector.addAPI({
     id: "ibm-watson",
     provider: "IBM",
-    humanReadableName: "IBM Watson Developer Cloud",
+    name: "IBM Watson Developer Cloud",
     providerUrl: "http://www.ibm.com/watson/developercloud/",
     consoleUrl: "https://console.ng.bluemix.net",
     officialGithubURL: "https://github.com/watson-developer-cloud/",
@@ -469,7 +474,7 @@ ibmWatsonAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.ib
 var googleAPI = NXAPIPacks.connector.addAPI({
     id: "google-cloud",
     provider: "Google",
-    humanReadableName: "Google Cloud APIs",
+    name: "Google Cloud APIs",
     providerUrl: "https://cloud.google.com",
     consoleUrl: "https://console.cloud.google.com/",
     officialGithubURL: "https://github.com/GoogleCloudPlatform/google-cloud-node",
@@ -484,7 +489,7 @@ googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googl
 var msAzureAPI = NXAPIPacks.connector.addAPI({
     id: "ms-azure",
     provider: "Microsoft",
-    humanReadableName: "Microsoft Azure Cognitive Services",
+    name: "Microsoft Azure Cognitive Services",
     providerUrl: "https://azure.microsoft.com/en-us/services/cognitive-services/",
     consoleUrl: "https://portal.azure.com/",
     officialGithubURL: "",
@@ -493,16 +498,64 @@ var msAzureAPI = NXAPIPacks.connector.addAPI({
 });
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
 
-console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
-console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
-//
+// console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
+// console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
+
+
 app.get('/test/phrase/sentiment',
     function (req, res) {
       var dataDict =  createEJSTemplateDataDictionary(req, res);
-      res.render('pages/phrase-sentiment', dataDict);
+
+      dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
+      // dataDict.apis = JSON.stringify();
+      var apis = NXAPIPacks.connector.getApisForServiceType("sentiment-analysis");
+
+      dataDict.apiEndpoints = [];
+      if (apis.length > 0) {
+        //get sample text from the first element
+        dataDict.apiServiceInfo = apis[0].serviceInfo;
+
+        for (i in apis) {
+          var api = apis[i];
+          var clientPack = api.createClientPack();
+
+          dataDict.apiEndpoints.push(clientPack);
+          // console.log("api = "+JSON.stringify(clientPack.getEndpointURL()));
+
+        }
+      }
+
+      res.render('pages/phrase-analysis', dataDict);
 
     });
 
+
+    app.get('/test/phrase/entities',
+        function (req, res) {
+          var dataDict =  createEJSTemplateDataDictionary(req, res);
+
+          dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
+          // dataDict.apis = JSON.stringify();
+          var apis = NXAPIPacks.connector.getApisForServiceType("entity-analysis");
+
+          dataDict.apiEndpoints = [];
+          if (apis.length > 0) {
+            //get sample text from the first element
+            dataDict.apiServiceInfo = apis[0].serviceInfo;
+
+            for (i in apis) {
+              var api = apis[i];
+              var clientPack = api.createClientPack();
+
+              dataDict.apiEndpoints.push(clientPack);
+              // console.log("api = "+JSON.stringify(clientPack.getEndpointURL()));
+
+            }
+          }
+
+          res.render('pages/phrase-analysis', dataDict);
+
+        });
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
