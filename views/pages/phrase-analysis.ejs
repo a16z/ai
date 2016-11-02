@@ -102,14 +102,11 @@ $(document).ready(function() {
 
 
         var rad = $("#analysisForm").find("input[name='presetPhrase']");
-
-        for(var i = 0; i < rad.length; i++) {
-          var field = rad[i];
+        jQuery.each(rad, function (idx, field) {
             field.onclick = function() {
-              $("#analysisForm").find("textarea[name='phrase']").val(rad.val());
+              $("#analysisForm").find("textarea[name='phrase']").val(field.value);
             }
-        }
-
+        });
 
 });
 
