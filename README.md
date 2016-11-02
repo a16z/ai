@@ -77,11 +77,20 @@ https://github.com/desmondmorris/node-twitter
 ### IBM Watson Dev Cloud/Alchemy API
 https://www.npmjs.com/package/watson-developer-cloud
 
+### Microsoft Azure Cognitive Services
+https://portal.azure.com/
+https://westus.dev.cognitive.microsoft.com/docs/services/
+
 ### (Unofficial) Node.js API for Microsoft Azure Cognitive Services
 https://github.com/joshbalfour/node-cognitive-services
 
-Other links:
-https://westus.dev.cognitive.microsoft.com/docs/services/
-https://portal.azure.com
 
 ## Documentation
+
+
+## Other Software Used
+
+* Bootstrap http://getbootstrap.com
+* JQuery http://jquery.com
+* Wheelnav.js https://github.com/softwaretailoring/wheelnav/
+* SpaceLab https://bootswatch.com/spacelab/
