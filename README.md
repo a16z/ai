@@ -32,7 +32,14 @@ export MS_AZURE_COG_SERVICES_ENTITY_LINKING_API_KEY=<MS Azure Entity Linking API
 export IBM_WATSON_TONE_USERNAME=<IBM Tone API Username>
 export IBM_WATSON_TONE_PASSWORD=<IBM Tone API Password>
 export IBM_ALCHEMY_API_KEY=<IBM Alchemy API Key>
+
+# Google NLP
+export GOOGLE_CLOUD_PID=<Google Cloud Platform Project ID>
+export GOOGLE_NLP_API_KEY=<API KEY>
+export GOOGLE_CLOUD_PRIVATE_KEY="<key>"
+export GOOGLE_CLOUD_EMAIL="888888888-something@developer.gserviceaccount.com"
 ```
+
 
 For Twitter API Tokens, go [here](https://apps.twitter.com) to create an app and get the appropriate tokens. (see [documentation of the twitter module](https://github.com/desmondmorris/node-twitter) for more info).
 

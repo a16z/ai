@@ -36,6 +36,7 @@ var Twitter = require('twitter');
 var Emoji = require('./lib/emoji.js');
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 var EntityAnalysis = require('./lib/entity-analysis.js');
+var Translate = require('./lib/translate.js');
 var NXAPIPacks = require('./lib/api-connector/api-connector.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
@@ -400,6 +401,13 @@ var entityAnalysisExamples = [
 ];
 
 
+var languageAnalysisExamples = [
+  "Hello world!",
+  "Hola mundo!",
+  "Bonjour le monde!",
+  "你好，世界!"
+];
+
 var entityAnalysisCommonServiceInfo = {
   id: "entity-analysis",
   name : "Phrase Entity Analysis",
@@ -412,6 +420,14 @@ var sentimentAnalysisCommonServiceInfo = {
   name : "Phrase Sentiment Analysis",
   description : "Infer sentiment behind sentences or paragraphs.",
   testSamples: sentimentAnalysisExamples
+}
+
+
+var languageAnalysisCommonServiceInfo = {
+  id: "translate",
+  name : "Language detection",
+  description : "Language detection.",
+  testSamples: languageAnalysisExamples
 }
 
 var sentimentJSAPI = NXAPIPacks.connector.addAPI({
@@ -484,6 +500,7 @@ var googleAPI = NXAPIPacks.connector.addAPI({
 
 googleAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.googleEntityAnalysisAPIPack, apiAddCompletion);
 googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googleSentimentAnalysisAPIPack, apiAddCompletion);
+googleAPI.addService(languageAnalysisCommonServiceInfo, Translate.googleTranslateAPIPack, apiAddCompletion);
 
 
 var msAzureAPI = NXAPIPacks.connector.addAPI({
@@ -529,6 +546,34 @@ app.get('/test/phrase/sentiment',
       res.render('pages/phrase-analysis', dataDict);
 
     });
+
+
+    app.get('/test/phrase/translate',
+        function (req, res) {
+          var dataDict =  createEJSTemplateDataDictionary(req, res);
+
+          dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
+          // dataDict.apis = JSON.stringify();
+          var apis = NXAPIPacks.connector.getApisForServiceType("translate");
+
+          dataDict.apiEndpoints = [];
+          if (apis.length > 0) {
+            //get sample text from the first element
+            dataDict.apiServiceInfo = apis[0].serviceInfo;
+
+            for (i in apis) {
+              var api = apis[i];
+              var clientPack = api.createClientPack();
+
+              dataDict.apiEndpoints.push(clientPack);
+              // console.log("api = "+JSON.stringify(clientPack.getEndpointURL()));
+
+            }
+          }
+
+          res.render('pages/phrase-analysis', dataDict);
+
+        });
 
 
     app.get('/test/phrase/entities',
