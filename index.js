@@ -405,7 +405,9 @@ var languageAnalysisExamples = [
   "Hello world!",
   "Hola mundo!",
   "Bonjour le monde!",
-  "你好，世界!"
+  "你好，世界!",
+  "則可能是兩種類型的中國文本的區別開來", //chinese traditional (same sentence "it is possible to distinguish between the two types of chinese text.")
+  "则可能是两种类型的中国文本的区别开来"   //chinese simplified
 ];
 
 var entityAnalysisCommonServiceInfo = {
@@ -515,6 +517,7 @@ var msAzureAPI = NXAPIPacks.connector.addAPI({
 });
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
+msAzureAPI.addService(languageAnalysisCommonServiceInfo, Translate.msAzureTranslateAPIPack, apiAddCompletion);
 
 // console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
 // console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
