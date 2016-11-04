@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
-
+var image2json = require('./lib/nx/image2json.js');
 var util = require('util');
 var mime = require('mime');
 
@@ -194,7 +194,6 @@ function base64ImageFromBinaryBuffer(name, src) {
   return util.format('data:%s;base64,%s', name, data);
 }
 
-
 app.get('/test/image/simple', function (req, res) {
   // Choose what the Vision API should detect
  // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
@@ -227,69 +226,6 @@ app.get('/test/image/simple', function (req, res) {
    }
  });
 });
-app.get('/test/image/upload', upload.single('photo'), function (req, res) {
-  var dataDict =  createEJSTemplateDataDictionary(req, res);
-  var renderText = "";
-  renderText += "<h1>Cloud Vision Start</h1>";
-dataDict.errorText = renderText;
-  dataDict.results = "";
-  dataDict.imgData = "";
-
-  res.render('pages/image-upload', dataDict);
-});
-
-app.post('/process/image/upload', upload.single('photo'), function (req, res) {
-  // Choose what the Vision API should detect
- // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
- var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
- var optionsDict = new Object();
- optionsDict.types = types;
- optionsDict.verbose = true;
-  var filePath = './test-data/images/test-image-2.jpg';
-  var uploadedFile =  req.file;//base64Image(filePath);
-  console.log("converting...");
-
-  var base64ImageData = base64ImageFromBinaryBuffer(uploadedFile.originalname, uploadedFile.buffer);
-/*
-{ fieldname: 'photo',
-11:15:57 AM web.1 |    originalname: 'crazy-signs-notice.jpg',
-11:15:57 AM web.1 |    encoding: '7bit',
-11:15:57 AM web.1 |    mimetype: 'image/jpeg',
-11:15:57 AM web.1 |    buffer: <Buffer ff d8 ff e0... >,
-11:15:57 AM web.1 |    size: 44346 }
-
-*/
-
-
-// vision.detect(filePath, types, function(err, detections, apiResponse) {
-console.log("analyzing...");
- // Send the image to the Cloud Vision API
- vision.detect(uploadedFile.buffer, optionsDict, function(err, detections, apiResponse) {
-   var renderText = "";
-   console.log("received google Api response...");
-   if (err) {
-     console.log("Image processing error."+err);
-     renderText += "<h1>Cloud Vision Error</h1>";
-     renderText += err;
-     var dataDict =  createEJSTemplateDataDictionary(req, res);
-     dataDict.errorText = renderText;
-     dataDict.results = "";
-     dataDict.imgData = "";
-     res.render('pages/image-test', dataDict);
-   }
-   else {
-
-     console.log("Image processing ok, filename="+uploadedFile.originalname);
-     var dataDict =  createEJSTemplateDataDictionary(req, res);
-     dataDict.results = detections;
-     dataDict.imgData = base64ImageData;
-    //  console.log(detections);
-
-     res.render('pages/image-test', dataDict);
-   }
- });
-});
-
 
 
 app.get('/', function(req, res) {
@@ -405,6 +341,7 @@ var entityAnalysisExamples = [
 //on examples, if displayText is not included the value will be used
 var languageAnalysisExamples = [
   { "value": "Hello world!"},
+  { "value": "Results are loaded asynchronously for each service."},
   { "value": "Hola mundo!"},
   { "value": "Bonjour le monde!"},
   { "value": "你好，世界!"},
@@ -412,6 +349,17 @@ var languageAnalysisExamples = [
     "displayText": "兩種不同的中國的字符集 - (Chinese (Traditional) for 'Two different chinese character sets')"},
   { "value": "则可能是两种类型的中国文本的区别开来",
     "displayText": "两种不同的中国的字符集 - (Chinese (Simplified) for 'Two different chinese character sets')"}
+];
+
+
+//on examples, if displayText is not included the value will be used
+//path assumed to be from root dir of app
+var imageAnalysisExamples = [
+  { "value": "test-data/multi-feature/city-1-medium.jpg"},
+  { "value": "test-data/multi-feature/protest-1-mediumcomp.jpg"},
+  { "value": "test-data/multi-feature/protest-2-mediumcomp.jpg"},
+  { "value": "test-data/multi-feature/sign-1-vhighcomp.jpg"},
+  { "value": "test-data/multi-feature/sign-2-vhighcomp.jpg"},
 ];
 
 var entityAnalysisCommonServiceInfo = {
@@ -477,6 +425,7 @@ var ibmAPI = NXAPIPacks.connector.addAPI({
 
 ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
 ibmAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.alchemySentimentAPIPack, apiAddCompletion);
+ibmAPI.addService(languageAnalysisCommonServiceInfo, Translate.alchemyTranslateAPIPack, apiAddCompletion);
 
 
 var ibmWatsonAPI = NXAPIPacks.connector.addAPI({
@@ -609,6 +558,78 @@ app.get('/test/phrase/sentiment',
           res.render('pages/phrase-analysis', dataDict);
 
         });
+
+
+        app.get('/test/image/upload', upload.single('photo'), function (req, res) {
+          var dataDict =  createEJSTemplateDataDictionary(req, res);
+          var renderText = "";
+          renderText += "<h1>Cloud Vision Start</h1>";
+          dataDict.errorText = renderText;
+          dataDict.results = "";
+          dataDict.imgData = "";
+          // dataDict.sampleImages = [];
+          // for (i in imageAnalysisExamples) {
+          //   var imgPath = path.join(process.cwd(), imageAnalysisExamples[i].value);
+          //   var jsonInfo = image2json.NXImage.jsonImageFromFile(imgPath);
+          //   dataDict.sampleImages.push(jsonInfo);
+          // }
+
+          res.render('pages/image-upload', dataDict);
+        });
+
+        app.post('/process/image/upload', upload.single('photo'), function (req, res) {
+          // Choose what the Vision API should detect
+         // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
+         var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
+         var optionsDict = new Object();
+         optionsDict.types = types;
+         optionsDict.verbose = true;
+          var filePath = './test-data/images/test-image-2.jpg';
+          var uploadedFile =  req.file;//base64Image(filePath);
+          console.log("converting...");
+
+          var base64ImageData = base64ImageFromBinaryBuffer(uploadedFile.originalname, uploadedFile.buffer);
+        /*
+        { fieldname: 'photo',
+        11:15:57 AM web.1 |    originalname: 'crazy-signs-notice.jpg',
+        11:15:57 AM web.1 |    encoding: '7bit',
+        11:15:57 AM web.1 |    mimetype: 'image/jpeg',
+        11:15:57 AM web.1 |    buffer: <Buffer ff d8 ff e0... >,
+        11:15:57 AM web.1 |    size: 44346 }
+
+        */
+
+
+        // vision.detect(filePath, types, function(err, detections, apiResponse) {
+        console.log("analyzing...");
+         // Send the image to the Cloud Vision API
+         vision.detect(uploadedFile.buffer, optionsDict, function(err, detections, apiResponse) {
+           var renderText = "";
+           console.log("received google Api response...");
+           if (err) {
+             console.log("Image processing error."+err);
+             renderText += "<h1>Cloud Vision Error</h1>";
+             renderText += err;
+             var dataDict =  createEJSTemplateDataDictionary(req, res);
+             dataDict.errorText = renderText;
+             dataDict.results = "";
+             dataDict.imgData = "";
+             res.render('pages/image-test', dataDict);
+           }
+           else {
+
+             console.log("Image processing ok, filename="+uploadedFile.originalname);
+             var dataDict =  createEJSTemplateDataDictionary(req, res);
+             dataDict.results = detections;
+             dataDict.imgData = base64ImageData;
+            //  console.log(detections);
+
+             res.render('pages/image-test', dataDict);
+           }
+         });
+        });
+
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
