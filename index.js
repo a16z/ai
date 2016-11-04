@@ -388,26 +388,30 @@ var apiAddCompletion = function(apiPack, success, message) {
 NXAPIPacks.connector.setAPIRoot('/api');
 NXAPIPacks.connector.setApp(app);
 
+//on examples, if displayText is not included the value will be used
 var sentimentAnalysisExamples = [
-  "The weather today is really nice.",
-  "The Matrix was a fantastic movie.",
-  "A ten pound laptop is not a good travel companion."
+  { "value": "The weather today is really nice."},
+  { "value": "The Matrix was a fantastic movie."},
+  { "value": "A ten pound laptop is not a good travel companion."}
 ];
 
+//on examples, if displayText is not included the value will be used
 var entityAnalysisExamples = [
-  "George lives in New York City and his car is a Jaguar XL. George also owns a copy of the Guernica by Picasso. He likes Halloween.",
-  "IBM and Google are companies.",
-  "It is better to commute to San Francisco using BART."
+  { "value": "George lives in New York City and his car is a Jaguar XL. George also owns a copy of the Guernica by Picasso. He likes Halloween."},
+  { "value": "IBM and Google are companies."},
+  { "value": "It is better to commute to San Francisco using BART."}
 ];
 
-
+//on examples, if displayText is not included the value will be used
 var languageAnalysisExamples = [
-  "Hello world!",
-  "Hola mundo!",
-  "Bonjour le monde!",
-  "你好，世界!",
-  "則可能是兩種類型的中國文本的區別開來", //chinese traditional (same sentence "it is possible to distinguish between the two types of chinese text.")
-  "则可能是两种类型的中国文本的区别开来"   //chinese simplified
+  { "value": "Hello world!"},
+  { "value": "Hola mundo!"},
+  { "value": "Bonjour le monde!"},
+  { "value": "你好，世界!"},
+  { "value": "兩種不同的中國的字符集",
+    "displayText": "兩種不同的中國的字符集 - (Chinese (Traditional) for 'Two different chinese character sets')"},
+  { "value": "则可能是两种类型的中国文本的区别开来",
+    "displayText": "两种不同的中国的字符集 - (Chinese (Simplified) for 'Two different chinese character sets')"}
 ];
 
 var entityAnalysisCommonServiceInfo = {
