@@ -36,7 +36,7 @@ var Twitter = require('twitter');
 var Emoji = require('./lib/emoji.js');
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 var EntityAnalysis = require('./lib/entity-analysis.js');
-var Translate = require('./lib/translate.js');
+var LanguageAnalysis = require('./lib/language-analysis.js');
 var NXAPIPacks = require('./lib/api-connector/api-connector.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
@@ -325,64 +325,80 @@ NXAPIPacks.connector.setAPIRoot('/api');
 NXAPIPacks.connector.setApp(app);
 
 //on examples, if displayText is not included the value will be used
-var sentimentAnalysisExamples = [
-  { "value": "The weather today is really nice."},
-  { "value": "The Matrix was a fantastic movie."},
-  { "value": "A ten pound laptop is not a good travel companion."}
-];
-
-//on examples, if displayText is not included the value will be used
+/*
 var entityAnalysisExamples = [
   { "value": "George lives in New York City and his car is a Jaguar XL. George also owns a copy of the Guernica by Picasso. He likes Halloween."},
   { "value": "IBM and Google are companies."},
   { "value": "It is better to commute to San Francisco using BART."}
 ];
-
-//on examples, if displayText is not included the value will be used
-var languageAnalysisExamples = [
-  { "value": "Hello world!"},
-  { "value": "Results are loaded asynchronously for each service."},
-  { "value": "Hola mundo!"},
-  { "value": "Bonjour le monde!"},
-  { "value": "你好，世界!"},
-  { "value": "兩種不同的中國的字符集",
-    "displayText": "兩種不同的中國的字符集 - (Chinese (Traditional) for 'Two different chinese character sets')"},
-  { "value": "则可能是两种类型的中国文本的区别开来",
-    "displayText": "两种不同的中国的字符集 - (Chinese (Simplified) for 'Two different chinese character sets')"}
-];
-
-
-//on examples, if displayText is not included the value will be used
-//path assumed to be from root dir of app
-var imageAnalysisExamples = [
-  { "value": "test-data/multi-feature/city-1-medium.jpg"},
-  { "value": "test-data/multi-feature/protest-1-mediumcomp.jpg"},
-  { "value": "test-data/multi-feature/protest-2-mediumcomp.jpg"},
-  { "value": "test-data/multi-feature/sign-1-vhighcomp.jpg"},
-  { "value": "test-data/multi-feature/sign-2-vhighcomp.jpg"},
-];
-
-var entityAnalysisCommonServiceInfo = {
+var entityAnalysisServiceInfo
+{
   id: "entity-analysis",
   name : "Phrase Entity Analysis",
   description : "Extract entities from sentences or paragraphs.",
   testSamples: entityAnalysisExamples
 }
+*/
 
-var sentimentAnalysisCommonServiceInfo = {
-  id: "sentiment-analysis",
-  name : "Phrase Sentiment Analysis",
-  description : "Infer sentiment behind sentences or paragraphs.",
-  testSamples: sentimentAnalysisExamples
+
+//on examples, if displayText is not included the value will be used
+//path assumed to be from root dir of app
+var imageAnalysisExamples = [
+  { "value": "public/data/services/image-analysis/city-skyline-001.jpg",
+    "id": "city-skyline-001.jpg",
+    "labels": "city, skyline",
+    "notes": "JPEG Compression (Medium)"},
+  { "value": "public/data/services/image-analysis/protest-001.jpg",
+    "id": "protest-001.jpg",
+    "labels": "protest, demonstration, sign",
+    "notes": "JPEG Compression (Medium)"},
+  { "value": "public/data/services/image-analysis/protest-002.jpg",
+    "id": "protest-002.jpg",
+    "labels": "protest, demonstration, sign",
+    "notes": "JPEG Compression (Medium)"},
+  { "value": "public/data/services/image-analysis/sign-001.jpg",
+    "id": "sign-001.jpg",
+    "labels": "sign, street sign",
+    "notes": "JPEG Compression (Very High)"},
+  { "value": "public/data/services/image-analysis/sign-002.jpg",
+    "id": "sign-002.jpg",
+    "labels": "sign, street sign",
+    "notes": "JPEG Compression (Very High)"},
+];
+
+
+function loadServiceInfo(parameters) {
+  var serviceId = parameters.serviceId;
+  var loadSamples = parameters.loadSamples;
+
+  var infoPath = path.join(process.cwd(), parameters.topLevelFolder, serviceId, serviceId+"_info.json");
+  var info = require(infoPath);
+  if ((info != undefined) && loadSamples) {
+    var samplesPath = path.join(process.cwd(), parameters.topLevelFolder,  serviceId, serviceId+"_samples.json");
+    var samples = require(samplesPath);
+
+    if (samples != undefined) {
+      info.testSamples = samples;
+    }
+  }
+
+  return info;
 }
 
+var languageAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'language-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
+var entityAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'entity-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
+var sentimentAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'sentiment-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
-var languageAnalysisCommonServiceInfo = {
-  id: "translate",
-  name : "Language detection",
-  description : "Language detection.",
-  testSamples: languageAnalysisExamples
-}
+// const imageAnalysisExamples = require('public/data/services/image-analysis/image-analysis_samples.json');
+// const imageAnalysisCommonServiceInfo = require('public/data/services/image-analysis/image-analysis_info.json');
+// imageAnalysisCommonServiceInfo.testSamples = imageAnalysisExamples;
+// var imageAnalysisCommonServiceInfo = {
+//   id: "image-analysis",
+//   name : "Multi-feature Image Analysis",
+//   description : "Detect language of text.",
+//   testSamples: languageAnalysisExamples
+// }
+
 
 var sentimentJSAPI = NXAPIPacks.connector.addAPI({
     id: "js-sentimentjs",
@@ -425,7 +441,7 @@ var ibmAPI = NXAPIPacks.connector.addAPI({
 
 ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
 ibmAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.alchemySentimentAPIPack, apiAddCompletion);
-ibmAPI.addService(languageAnalysisCommonServiceInfo, Translate.alchemyTranslateAPIPack, apiAddCompletion);
+ibmAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.alchemyLangAnalysisAPIPack, apiAddCompletion);
 
 
 var ibmWatsonAPI = NXAPIPacks.connector.addAPI({
@@ -455,7 +471,7 @@ var googleAPI = NXAPIPacks.connector.addAPI({
 
 googleAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.googleEntityAnalysisAPIPack, apiAddCompletion);
 googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googleSentimentAnalysisAPIPack, apiAddCompletion);
-googleAPI.addService(languageAnalysisCommonServiceInfo, Translate.googleTranslateAPIPack, apiAddCompletion);
+googleAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.googleLangAnalysisAPIPack, apiAddCompletion);
 
 
 var msAzureAPI = NXAPIPacks.connector.addAPI({
@@ -470,164 +486,119 @@ var msAzureAPI = NXAPIPacks.connector.addAPI({
 });
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
-msAzureAPI.addService(languageAnalysisCommonServiceInfo, Translate.msAzureTranslateAPIPack, apiAddCompletion);
+msAzureAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.msAzureLangAnalysisAPIPack, apiAddCompletion);
 
 // console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
 // console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
 
+function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
+  //path would end up being something like '/test/phrase/sentiment-analysis',
+  const requestPath = path.join(urlPath, serviceId);
+  //something like 'pages/phrase-analysis' to be used in the render() call
+  const resultPath = resultPagePath;
+  const sid = serviceId;
+  const currentApp = expressApp;
 
-app.get('/test/phrase/sentiment',
-    function (req, res) {
-      var dataDict =  createEJSTemplateDataDictionary(req, res);
+//eg  app.get('/test/phrase/sentiment-analysis',
+  currentApp.get(requestPath,
+      function (req, res) {
+        var dataDict =  createEJSTemplateDataDictionary(req, res);
 
-      dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
-      // dataDict.apis = JSON.stringify();
-      var apis = NXAPIPacks.connector.getApisForServiceType("sentiment-analysis");
+        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
+        // dataDict.apis = JSON.stringify();
+        var apis = NXAPIPacks.connector.getApisForServiceType(sid); //eg sid = 'sentiment-analysis'
 
-      dataDict.apiEndpoints = [];
-      if (apis.length > 0) {
-        //get sample text from the first element
-        dataDict.apiServiceInfo = apis[0].serviceInfo;
+        dataDict.apiEndpoints = [];
+        if (apis.length > 0) {
+          //get sample text from the first element
+          dataDict.apiServiceInfo = apis[0].serviceInfo;
 
-        for (i in apis) {
-          var api = apis[i];
-          var clientPack = api.createClientPack();
+          for (i in apis) {
+            var api = apis[i];
+            var clientPack = api.createClientPack();
 
-          dataDict.apiEndpoints.push(clientPack);
-          // console.log("api = "+JSON.stringify(clientPack.getEndpointURL()));
-
+            dataDict.apiEndpoints.push(clientPack);
+          }
         }
-      }
 
-      res.render('pages/phrase-analysis', dataDict);
+////    e.g. res.render('pages/phrase-analysis', dataDict);
+        res.render(resultPath, dataDict);
 
-    });
+      });
+};
 
+registerGet(app, "/test/phrase", "sentiment-analysis", "pages/phrase-analysis");
+registerGet(app, "/test/phrase", "entity-analysis", "pages/phrase-analysis");
+registerGet(app, "/test/phrase", "language-analysis", "pages/phrase-analysis");
 
-    app.get('/test/phrase/translate',
-        function (req, res) {
-          var dataDict =  createEJSTemplateDataDictionary(req, res);
+app.get('/test/image/upload', upload.single('photo'), function (req, res) {
+  var dataDict =  createEJSTemplateDataDictionary(req, res);
+  var renderText = "";
+  renderText += "<h1>Cloud Vision Start</h1>";
+  dataDict.errorText = renderText;
+  dataDict.results = "";
+  dataDict.imgData = "";
+  dataDict.sampleImages = [];
+  for (i in imageAnalysisExamples) {
+    var imgPath = path.join(process.cwd(), imageAnalysisExamples[i].value);
+    var jsonInfo = image2json.NXImage.jsonImageFromFile(imgPath);
+    dataDict.sampleImages.push(jsonInfo);
+  }
 
-          dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
-          // dataDict.apis = JSON.stringify();
-          var apis = NXAPIPacks.connector.getApisForServiceType("translate");
+  res.render('pages/image-upload', dataDict);
+});
 
-          dataDict.apiEndpoints = [];
-          if (apis.length > 0) {
-            //get sample text from the first element
-            dataDict.apiServiceInfo = apis[0].serviceInfo;
+app.post('/process/image/upload', upload.single('photo'), function (req, res) {
+  // Choose what the Vision API should detect
+ // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
+ var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
+ var optionsDict = new Object();
+ optionsDict.types = types;
+ optionsDict.verbose = true;
+  var filePath = './test-data/images/test-image-2.jpg';
+  var uploadedFile =  req.file;//base64Image(filePath);
+  console.log("converting...");
 
-            for (i in apis) {
-              var api = apis[i];
-              var clientPack = api.createClientPack();
+  var base64ImageData = base64ImageFromBinaryBuffer(uploadedFile.originalname, uploadedFile.buffer);
+/*
+{ fieldname: 'photo',
+11:15:57 AM web.1 |    originalname: 'crazy-signs-notice.jpg',
+11:15:57 AM web.1 |    encoding: '7bit',
+11:15:57 AM web.1 |    mimetype: 'image/jpeg',
+11:15:57 AM web.1 |    buffer: <Buffer ff d8 ff e0... >,
+11:15:57 AM web.1 |    size: 44346 }
 
-              dataDict.apiEndpoints.push(clientPack);
-              // console.log("api = "+JSON.stringify(clientPack.getEndpointURL()));
-
-            }
-          }
-
-          res.render('pages/phrase-analysis', dataDict);
-
-        });
-
-
-    app.get('/test/phrase/entities',
-        function (req, res) {
-          var dataDict =  createEJSTemplateDataDictionary(req, res);
-
-          dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
-          // dataDict.apis = JSON.stringify();
-          var apis = NXAPIPacks.connector.getApisForServiceType("entity-analysis");
-
-          dataDict.apiEndpoints = [];
-          if (apis.length > 0) {
-            //get sample text from the first element
-            dataDict.apiServiceInfo = apis[0].serviceInfo;
-
-            for (i in apis) {
-              var api = apis[i];
-              var clientPack = api.createClientPack();
-
-              dataDict.apiEndpoints.push(clientPack);
-              // console.log("api = "+JSON.stringify(clientPack.getEndpointURL()));
-
-            }
-          }
-
-          res.render('pages/phrase-analysis', dataDict);
-
-        });
+*/
 
 
-        app.get('/test/image/upload', upload.single('photo'), function (req, res) {
-          var dataDict =  createEJSTemplateDataDictionary(req, res);
-          var renderText = "";
-          renderText += "<h1>Cloud Vision Start</h1>";
-          dataDict.errorText = renderText;
-          dataDict.results = "";
-          dataDict.imgData = "";
-          // dataDict.sampleImages = [];
-          // for (i in imageAnalysisExamples) {
-          //   var imgPath = path.join(process.cwd(), imageAnalysisExamples[i].value);
-          //   var jsonInfo = image2json.NXImage.jsonImageFromFile(imgPath);
-          //   dataDict.sampleImages.push(jsonInfo);
-          // }
+// vision.detect(filePath, types, function(err, detections, apiResponse) {
+console.log("analyzing...");
+ // Send the image to the Cloud Vision API
+ vision.detect(uploadedFile.buffer, optionsDict, function(err, detections, apiResponse) {
+   var renderText = "";
+   console.log("received google Api response...");
+   if (err) {
+     console.log("Image processing error."+err);
+     renderText += "<h1>Cloud Vision Error</h1>";
+     renderText += err;
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.errorText = renderText;
+     dataDict.results = "";
+     dataDict.imgData = "";
+     res.render('pages/image-test', dataDict);
+   }
+   else {
 
-          res.render('pages/image-upload', dataDict);
-        });
+     console.log("Image processing ok, filename="+uploadedFile.originalname);
+     var dataDict =  createEJSTemplateDataDictionary(req, res);
+     dataDict.results = detections;
+     dataDict.imgData = base64ImageData;
+    //  console.log(detections);
 
-        app.post('/process/image/upload', upload.single('photo'), function (req, res) {
-          // Choose what the Vision API should detect
-         // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
-         var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
-         var optionsDict = new Object();
-         optionsDict.types = types;
-         optionsDict.verbose = true;
-          var filePath = './test-data/images/test-image-2.jpg';
-          var uploadedFile =  req.file;//base64Image(filePath);
-          console.log("converting...");
-
-          var base64ImageData = base64ImageFromBinaryBuffer(uploadedFile.originalname, uploadedFile.buffer);
-        /*
-        { fieldname: 'photo',
-        11:15:57 AM web.1 |    originalname: 'crazy-signs-notice.jpg',
-        11:15:57 AM web.1 |    encoding: '7bit',
-        11:15:57 AM web.1 |    mimetype: 'image/jpeg',
-        11:15:57 AM web.1 |    buffer: <Buffer ff d8 ff e0... >,
-        11:15:57 AM web.1 |    size: 44346 }
-
-        */
-
-
-        // vision.detect(filePath, types, function(err, detections, apiResponse) {
-        console.log("analyzing...");
-         // Send the image to the Cloud Vision API
-         vision.detect(uploadedFile.buffer, optionsDict, function(err, detections, apiResponse) {
-           var renderText = "";
-           console.log("received google Api response...");
-           if (err) {
-             console.log("Image processing error."+err);
-             renderText += "<h1>Cloud Vision Error</h1>";
-             renderText += err;
-             var dataDict =  createEJSTemplateDataDictionary(req, res);
-             dataDict.errorText = renderText;
-             dataDict.results = "";
-             dataDict.imgData = "";
-             res.render('pages/image-test', dataDict);
-           }
-           else {
-
-             console.log("Image processing ok, filename="+uploadedFile.originalname);
-             var dataDict =  createEJSTemplateDataDictionary(req, res);
-             dataDict.results = detections;
-             dataDict.imgData = base64ImageData;
-            //  console.log(detections);
-
-             res.render('pages/image-test', dataDict);
-           }
-         });
-        });
+     res.render('pages/image-test', dataDict);
+   }
+ });
+});
 
 
 
