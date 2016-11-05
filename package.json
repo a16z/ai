@@ -26,6 +26,7 @@
     "najax": "0.7.1",
     "sentiment": "2.0.0",
     "session": "0.1.0",
+    "showdown": "1.4.4",
     "twitter": "1.4.0",
     "util": "0.10.3",
     "watson-developer-cloud": "2.2.0"
