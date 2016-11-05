@@ -1,0 +1,5 @@
+{
+  "id": "sentiment-analysis",
+  "name" : "Phrase Sentiment Analysis",
+  "description" : "Infer sentiment behind sentences or paragraphs."
+}

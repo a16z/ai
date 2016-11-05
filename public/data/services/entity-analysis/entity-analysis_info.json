@@ -1,0 +1,5 @@
+{
+  "id": "entity-analysis",
+  "name" : "Phrase Entity Analysis",
+  "description" : "Extract entities from sentences or paragraphs."
+}

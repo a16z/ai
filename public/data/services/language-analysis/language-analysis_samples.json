@@ -1,0 +1,11 @@
+[
+  { "value": "Hello world!"},
+  { "value": "Results are loaded asynchronously for each service."},
+  { "value": "Hola mundo!"},
+  { "value": "Bonjour le monde!"},
+  { "value": "你好，世界!"},
+  { "value": "兩種不同的中國的字符集",
+    "displayText": "兩種不同的中國的字符集 - (Chinese (Traditional) for 'Two different chinese character sets')"},
+  { "value": "则可能是两种类型的中国文本的区别开来",
+    "displayText": "两种不同的中国的字符集 - (Chinese (Simplified) for 'Two different chinese character sets')"}
+]

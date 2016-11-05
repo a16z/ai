@@ -111,3 +111,4 @@ https://github.com/joshbalfour/node-cognitive-services
 * JQuery http://jquery.com
 * Wheelnav.js https://github.com/softwaretailoring/wheelnav/
 * SpaceLab https://bootswatch.com/spacelab/
+* Showdown https://github.com/showdownjs/showdown

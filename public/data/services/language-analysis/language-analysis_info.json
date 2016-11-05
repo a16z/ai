@@ -1,0 +1,5 @@
+{
+  "id": "language-analysis",
+  "name" : "Language detection",
+  "description" : "Detect language of text."
+}
