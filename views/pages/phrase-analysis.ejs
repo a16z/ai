@@ -56,6 +56,7 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; text-align: left;}
 
 <script>
 var spinnerHTML = "<div class='rect1'></div> <div class='rect2'> </div> <div class='rect3'></div> <div class='rect4'></div> <div class='rect5'></div>";
+
 function sleep (time) {
   return new Promise((resolve) => setTimeout(resolve, time));
 }
@@ -74,41 +75,43 @@ function toggleVisibleRow(divname) {
   var newClass = isJSONVisible ? "glyphicon-triangle-bottom" : "glyphicon-triangle-right";
 
   $("#table-centered #"+divRefNameArrow).removeClass(currentClass).addClass(newClass);
-
-
 }
+
+function insertTextSamples(apiServiceInfo) {
+  var presetValues = apiServiceInfo.testSamples;
+  for (i in presetValues) {
+    var preset = presetValues[i];
+    var presetValue = preset.value;
+    var presetDisplayText = (preset.displayText != undefined) ? preset.displayText : presetValue;
+    var text = "<input type='radio' name='presetPhrase' value='"+presetValue+"'><span style='font-size: 95%;'>";
+    text += "&nbsp;&nbsp;&ldquo;"+presetDisplayText+"&rdquo;</span><br/>";
+    $("#formSampleFields").append(text) ;
+  }
+
+
+  var rad = $("#analysisForm").find("input[name='presetPhrase']");
+
+  jQuery.each(rad, function (idx, field) {
+      field.onclick = function() {
+        $("#analysisForm").find("textarea[name='phrase']").val(field.value);
+      }
+  });
+}
+
 var apiList = <%- JSON.stringify(apiEndpoints) %>;
 var apiServiceInfo = <%- JSON.stringify(apiServiceInfo) %>;
 
 $(document).ready(function() {
+
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 
     $("#api-service-title").html(apiServiceInfo.name);
 
     $("#api-service-desc").text(apiServiceInfo.description);
 
-    var presetValues = apiServiceInfo.testSamples;
-    for (i in presetValues) {
-      //necessary since ajax async calls defer and you end up having variables overwritten is used within the same context
-
-// $.each(presetValues, function( index, value ) {
-
-      var preset = presetValues[i];
-      var presetValue = preset.value;
-      var presetDisplayText = (preset.displayText != undefined) ? preset.displayText : presetValue;
-      var text = "<input type='radio' name='presetPhrase' value='"+presetValue+"'><span style='font-size: 95%;'>";
-      text += "&nbsp;&nbsp;&ldquo;"+presetDisplayText+"&rdquo;</span><br/>";
-      $("#formSampleFields").append(text) ;
-
-    }
+    insertTextSamples(apiServiceInfo);
 
 
-        var rad = $("#analysisForm").find("input[name='presetPhrase']");
-        jQuery.each(rad, function (idx, field) {
-            field.onclick = function() {
-              $("#analysisForm").find("textarea[name='phrase']").val(field.value);
-            }
-        });
 
 });
 

@@ -1,0 +1,10 @@
+{
+    "id" : "ibm-alchemy",
+    "provider": "IBM",
+    "name": "IBM Alchemy Language API",
+    "providerUrl": "http://www.ibm.com/watson/developercloud/alchemy-language.html",
+    "consoleUrl": "https://console.ng.bluemix.net",
+    "officialGithubURL": "https://github.com/watson-developer-cloud/alchemylanguage-nodejs",
+    "unofficialGithubURL": "",
+    "description": "IBM's AlchemyLanguage API offers text analysis through natural language processing. The AlchemyLanguage APIs can analyze text and help you to understand its sentiment, keywords, entities, high-level concepts and more."
+}

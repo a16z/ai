@@ -1,0 +1,10 @@
+{
+    "id": "js-sentimentjs",
+    "provider": "Andrew Sliwinski",
+    "name": "Sentiment.JS (node.js library)",
+    "providerUrl": "https://github.com/thisandagain/sentiment",
+    "consoleUrl": "",
+    "officialGithubURL": "https://github.com/thisandagain/sentiment",
+    "unofficialGithubURL": "",
+    "description": "AFINN-based sentiment analysis for Node.js."
+}

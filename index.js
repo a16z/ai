@@ -385,111 +385,60 @@ function loadServiceInfo(parameters) {
   return info;
 }
 
+function loadApi(pathToAPIJSONFile) {
+  console.log("Loading api info from "+pathToAPIJSONFile);
+  var apiInfo = require(pathToAPIJSONFile);
+  if (apiInfo != undefined) {
+    NXAPIPacks.connector.addAPI(apiInfo);
+  }
+  else {
+    console.log("Error loading API info from "+pathToAPIJSONFile);
+  }
+}
+
+function loadAllAPIs(rootPath) {
+  var folderPath = path.join(process.cwd(), rootPath);
+
+  var files = fs.readdirSync(folderPath);
+  files.forEach(file => {
+    // console.log(file);
+
+    var filePath = path.join(folderPath, file);
+    loadApi(filePath);
+  });
+
+}
+
+loadAllAPIs('public/data/services/apis');
+
 var languageAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'language-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 var entityAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'entity-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 var sentimentAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'sentiment-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
-// const imageAnalysisExamples = require('public/data/services/image-analysis/image-analysis_samples.json');
-// const imageAnalysisCommonServiceInfo = require('public/data/services/image-analysis/image-analysis_info.json');
-// imageAnalysisCommonServiceInfo.testSamples = imageAnalysisExamples;
-// var imageAnalysisCommonServiceInfo = {
-//   id: "image-analysis",
-//   name : "Multi-feature Image Analysis",
-//   description : "Detect language of text.",
-//   testSamples: languageAnalysisExamples
-// }
+
+NXAPIPacks.connector.apiForId("js-sentimentjs").addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentJSAPIPack, apiAddCompletion);
 
 
-var sentimentJSAPI = NXAPIPacks.connector.addAPI({
-    id: "js-sentimentjs",
-    provider: "Andrew Sliwinski",
-    name: "Sentiment.JS (node.js library)",
-    providerUrl: "https://github.com/thisandagain/sentiment",
-    consoleUrl: "",
-    officialGithubURL: "https://github.com/thisandagain/sentiment",
-    unofficialGithubURL: "",
-    description: "AFINN-based sentiment analysis for Node.js."
-});
 
-sentimentJSAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentJSAPIPack, apiAddCompletion);
+NXAPIPacks.connector.apiForId("js-sentimental").addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentalJSAPIPack, apiAddCompletion);
 
-var sentimentalJSAPI = NXAPIPacks.connector.addAPI({
-    id: "js-sentimental",
-    provider: "Kevin M Roth",
-    name: "Sentimental (node.js library)",
-    providerUrl: "https://github.com/thinkroth/Sentimental",
-    consoleUrl: "",
-    officialGithubURL: "https://github.com/thinkroth/Sentimental",
-    unofficialGithubURL: "",
-    description: "Sentiment analysis tool for node.js based on the AFINN-111 wordlist."
-});
-
-
-sentimentalJSAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentalJSAPIPack, apiAddCompletion);
-
-var ibmAPI = NXAPIPacks.connector.addAPI({
-    id: "ibm-alchemy",
-    provider: "IBM",
-    name: "IBM Alchemy Language API",
-    providerUrl: "http://www.ibm.com/watson/developercloud/alchemy-language.html",
-    consoleUrl: "https://console.ng.bluemix.net",
-    officialGithubURL: "https://github.com/watson-developer-cloud/alchemylanguage-nodejs",
-    unofficialGithubURL: "",
-    description: "IBM's AlchemyLanguage API offers text analysis through natural language processing. The AlchemyLanguage APIs can analyze text and help you to understand its sentiment, keywords, entities, high-level concepts and more."
-});
-
-
+var ibmAPI = NXAPIPacks.connector.apiForId("ibm-alchemy");
 ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
 ibmAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.alchemySentimentAPIPack, apiAddCompletion);
 ibmAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.alchemyLangAnalysisAPIPack, apiAddCompletion);
 
-
-var ibmWatsonAPI = NXAPIPacks.connector.addAPI({
-    id: "ibm-watson",
-    provider: "IBM",
-    name: "IBM Watson Developer Cloud",
-    providerUrl: "http://www.ibm.com/watson/developercloud/",
-    consoleUrl: "https://console.ng.bluemix.net",
-    officialGithubURL: "https://github.com/watson-developer-cloud/",
-    unofficialGithubURL: "",
-    description: "Enable cognitive computing features in your app using IBM Watson's Language, Vision, Speech and Data APIs."
-});
-
+var ibmWatsonAPI = NXAPIPacks.connector.apiForId("ibm-watson");
 ibmWatsonAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.ibmToneAnalysisAPIPack, apiAddCompletion);
 
-
-var googleAPI = NXAPIPacks.connector.addAPI({
-    id: "google-cloud",
-    provider: "Google",
-    name: "Google Cloud APIs",
-    providerUrl: "https://cloud.google.com",
-    consoleUrl: "https://console.cloud.google.com/",
-    officialGithubURL: "https://github.com/GoogleCloudPlatform/google-cloud-node",
-    unofficialGithubURL: "",
-    description: "Cloud Machine Learning API (https://cloud.google.com/natural-language/docs/)."
-});
-
+var googleAPI = NXAPIPacks.connector.apiForId("google-cloud");
 googleAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.googleEntityAnalysisAPIPack, apiAddCompletion);
 googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googleSentimentAnalysisAPIPack, apiAddCompletion);
 googleAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.googleLangAnalysisAPIPack, apiAddCompletion);
 
-
-var msAzureAPI = NXAPIPacks.connector.addAPI({
-    id: "ms-azure",
-    provider: "Microsoft",
-    name: "Microsoft Azure Cognitive Services",
-    providerUrl: "https://azure.microsoft.com/en-us/services/cognitive-services/",
-    consoleUrl: "https://portal.azure.com/",
-    officialGithubURL: "",
-    unofficialGithubURL: "https://github.com/joshbalfour/node-cognitive-services",
-    description: "Allow your apps to process natural language, evaluate sentiment and topics, and learn how to recognize what users want.."
-});
+var msAzureAPI = NXAPIPacks.connector.apiForId("ms-azure");
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.msAzureLangAnalysisAPIPack, apiAddCompletion);
-
-// console.log("Entity Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("entity-analysis")));
-// console.log("Sentiment Analysis APIs = "+JSON.stringify(NXAPIPacks.connector.getApisForServiceType("sentiment-analysis")));
 
 function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
   //path would end up being something like '/test/phrase/sentiment-analysis',

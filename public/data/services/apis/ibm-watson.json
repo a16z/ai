@@ -1,0 +1,10 @@
+{
+    "id" : "ibm-watson",
+    "provider": "IBM",
+    "name": "IBM Watson Developer Cloud",
+    "providerUrl": "http://www.ibm.com/watson/developercloud/",
+    "consoleUrl": "https://console.ng.bluemix.net",
+    "officialGithubURL": "https://github.com/watson-developer-cloud/",
+    "unofficialGithubURL": "",
+    "description": "Enable cognitive computing features in your app using IBM Watson's Language, Vision, Speech and Data APIs."
+}
