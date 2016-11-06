@@ -109,10 +109,9 @@ $(document).ready(function() {
 
     $("#api-service-desc").text(apiServiceInfo.description);
 
-    insertTextSamples(apiServiceInfo);
-
-
-
+    if (apiServiceInfo.contentType == 'text') {
+      insertTextSamples(apiServiceInfo);
+    }
 });
 
 $( "#analysisForm" ).submit(function( event ) {
@@ -120,27 +119,19 @@ $( "#analysisForm" ).submit(function( event ) {
   // Stop form from submitting normally
   event.preventDefault();
 
-  // Get some values from elements on the page:
-  var $form = $( this );
+  var $form = $(this);
   var phraseField = $form.find( "textarea[name='phrase']" );
-//
-//   var apiList = [{name:"IBM Tone Analyzer API", id: "ibm-tone", url:"/api/ibm-watson/sentiment-analysis"},
-//   {name:"Google Cloud", id: "google-cloud-sentiment", url:"/api/google-cloud/sentiment-analysis"},
-//   {name:"Microsoft Azure Cognitive Services", id: "ms-azure", url:"/api/ms-azure/sentiment-analysis"},
-//   {name:"IBM Alchemy API Sentiment", id: "ibm-alchemy-sentiment", url:"/api/ibm-alchemy/sentiment-analysis"},
-//   {name:"Sentiment.js (node.js library)", id: "js-sentimentjs", url:"/api/js-sentimentjs/sentiment-analysis"},
-//   {name:"Sentimental (node.js library)", id: "js-sentimental", url:"/api/js-sentimental/sentiment-analysis"}
-// ];
+
 
   var phraseFieldContents = phraseField.val();
   if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
     //todo add error msg.
-    console.log("Phrase empty or undefined.");
+    console.log("Text empty or undefined.");
     alert("Weird. No text detected.");
     return;
   }
   phraseFieldContents = phraseFieldContents.trim();
-  // var url = $form.attr( "action" );
+
   $("#resultsDiv").empty();
   const resultsNotesDiv = $("#resultsNotes");
   if (resultsNotesDiv.is(':visible')) { //at the beginning the div is hidden, so we don't toggle it
@@ -150,7 +141,7 @@ $( "#analysisForm" ).submit(function( event ) {
   // phraseField.val("");
   var resultText = " ";
 
-  resultText += "<p><b>Phrase</b> <div class='alert alert-info text-center' role='alert'><i>&#8220;"+phraseFieldContents+"&#8221;</i></div><BR>";
+  resultText += "<p><b>Text</b> <div class='alert alert-info text-center' role='alert'><i>&#8220;"+phraseFieldContents+"&#8221;</i></div><BR>";
   resultText += "<b>Scores</b><br>";
   resultText += "<table id='table-centered'>";
   resultText += "<thead>";
@@ -193,8 +184,8 @@ $( "#analysisForm" ).submit(function( event ) {
         rowText += "<tr class='"+divJsonName+"' style='display:none;'><td colspan='4'><pre id='"+divJsonNameData+"'>loading...</pre></td></tr>";
 
         resultText += rowText;
-        // $("#resultsDiv").append("<b>"+endpointPath.name+": </b><span id='"+divname+"' class='spinner'>"+spinnerHTML+"</span><br>");
-        console.log("calling "+apiInfo.url);
+
+        // console.log("calling "+apiInfo.url);
 
         $.ajax({
           type: "POST",
@@ -208,10 +199,9 @@ $( "#analysisForm" ).submit(function( event ) {
           var receiveDate = (new Date()).getTime();
           var responseTimeMs = receiveDate - sendDate;
 
-          // var content = data.sentiment.score;
-
           sleep(randomWait).then(() => {
             $(divRefName).removeClass("spinner");
+
             $(divRefName).empty().append(""+data.result.score);
 
             $(divRefTotalTimeName).empty().append(""+responseTimeMs);

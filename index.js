@@ -418,8 +418,6 @@ var sentimentAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'sentiment-
 
 NXAPIPacks.connector.apiForId("js-sentimentjs").addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentJSAPIPack, apiAddCompletion);
 
-
-
 NXAPIPacks.connector.apiForId("js-sentimental").addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentalJSAPIPack, apiAddCompletion);
 
 var ibmAPI = NXAPIPacks.connector.apiForId("ibm-alchemy");
@@ -453,7 +451,7 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
       function (req, res) {
         var dataDict =  createEJSTemplateDataDictionary(req, res);
 
-        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", testSamples: []};
+        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", contentType: "none", testSamples: []};
         // dataDict.apis = JSON.stringify();
         var apis = NXAPIPacks.connector.getApisForServiceType(sid); //eg sid = 'sentiment-analysis'
 
