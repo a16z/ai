@@ -2,57 +2,151 @@
 <html lang="en">
 <head>
   <% include ../partials/header.ejs %>
+  <link rel="stylesheet" type="text/css" href="/js/image-picker/image-picker.css">
+
+  <script src="/js/image-picker/image-picker.js" type="text/javascript"></script>
+
+
 </head>
 
 <body>
 
   <% include ../partials/nav.ejs %>
-<script>
 
-
-function syntaxHighlight(json) {
-    json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
-        var cls = 'number';
-        if (/^"/.test(match)) {
-            if (/:$/.test(match)) {
-                cls = 'key';
-            } else {
-                cls = 'string';
-            }
-        } else if (/true|false/.test(match)) {
-            cls = 'boolean';
-        } else if (/null/.test(match)) {
-            cls = 'null';
-        }
-        return '<span class="' + cls + '">' + match + '</span>';
-    });
-}
-
-</script>
-<style>
-pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
-.string { color: green; }
-.number { color: darkorange; }
-.boolean { color: blue; }
-.null { color: magenta; }
-.key { color: red; }
-
-</style>
 
 
 <div class="container">
 
     <h2>Image analysis sample</h2>
-    <P>Upload and select a file to analyze. Supported formats include common image formats (JPEG, PNG), and files of up to 1 MB in size.</p><p>
-    <form enctype="multipart/form-data" action="/process/image/upload" method="post">
+    <br/>
+    <P>Select a sample image...
+    </p>
+
+    <select class="image-picker  show-labels  show-html">
+      <option value=""></option>
+    </select>
+
+    <P>or upload and select a file to analyze:</p><p>
+    <form id="analysisForm" enctype="multipart/form-data" action="/process/image/upload" method="post">
       <input type="file" name="photo" /><br>
-      <input type="submit" value="Upload" name="submit" />
+      <P>Supported formats include common image formats (JPEG, PNG), and files of up to 1 MB in size.</p>
+
+        <object id="file-object"></object>
+        <div id="file-result"></div>
+
+        <input type="submit" id="submitButton" value="Analyze" name="submit" />
     </form>
 
 
 </div>
 
+<script>
+
+//this eventually gets filled with an object that contains dataURI, name and possibly other attributes
+var imageToAnalyze = Object.create(null);
+
+// fileInfo can contain name: "myimage.jpg", lastModified: 1475855109000, size: 44346, type: "image/jpeg"
+function showResult(imageInfo) {
+  imageToAnalyze = imageInfo;
+  $('#file-result').empty();
+  $('#file-result').html("<img class=\"pickedImage\" src=\""+imageInfo.dataURI+"\" /><br/>Name: "+imageInfo.name);
+
+}
+
+  $('#file-object').replaceWith('<input type="file" id="file-object" value="Load a file" />');
+  $('#file-object').on('change', function(e) {
+    var files = e.target.files,file;
+
+    if (!files || files.length == 0) return;
+    file = files[0];
+    //format of 'file' object File {name: "crazy-signs-notice.jpg", lastModified: 1475855109000, size: 44346, type: "image/jpeg", slice: function}
+    if (file.size > (1024 * 1024)) {
+      alert('Image file is too big. Please select an image of less than 1 MB.');
+      return;
+    }
+    var fileInfo = {
+      name: file.name,
+      lastModified: file.lastModified,
+      size: file.size,
+      type: file.type,
+    }
+    var fileReader = new FileReader();
+    fileReader.onload = function (e) {
+      fileInfo.dataURI = e.target.result;
+      showResult(fileInfo);
+    };
+    fileReader.onerror = function (e) {
+      alert("Sorry, there was a problem reading the file you selected. Please try again or select another file.");
+    };
+    fileReader.readAsDataURL(file);
+  });
+
+var sampleData = <%- JSON.stringify(sampleImages) %>;
+for (var i=0; i<sampleData.length; ++i) {
+  var data = sampleData[i];
+  var str = "<option data-img-class='pickerImage' data-img-src=\""+data.dataURI+"\" value=\""+(i+1)+"\">"+data.name+"</option>";
+  $("select").append(str);
+}
+$("select").imagepicker(
+  {
+    selected: function(select, picker_option, evt) {
+      var selectedImage = sampleData[select.value()-1];
+      showResult(selectedImage);
+     }
+  }
+);
+
+
+$( "#analysisForm" ).submit(function( event ) {
+
+  // Stop form from submitting normally
+  event.preventDefault();
+
+  var $form = $(this);
+
+  if (imageToAnalyze.dataURI == undefined) {
+    alert("Please select or upload an image to analyze.");
+    return;
+  }
+
+});
+
+//
+// $( "#analysisForm" ).submit(function( event ) {
+//
+//   // Stop form from submitting normally
+//   event.preventDefault();
+//
+//   var $form = $(this);
+//   var phraseField = $form.find( "textarea[name='phrase']" );
+//   var phraseFieldContents = phraseField.val();
+//   $.ajax({
+//     type: "POST",
+//     async: true,
+//     dataType: "json",
+//     url: apiInfo.url,
+//     data: {phrase: phraseFieldContents}
+//
+//   }).done(function(data) {
+//
+//     console.log("done in post ("+position+") "+apiInfo.url);
+//     var receiveDate = (new Date()).getTime();
+//     var responseTimeMs = receiveDate - sendDate;
+//
+//
+//     }).fail(function(data) {
+//       console.log("error in post");
+//       var receiveDate = (new Date()).getTime();
+//       var responseTimeMs = receiveDate - sendDate;
+//
+//       $(divRefName).removeClass("spinner");
+//       $(divRefName).empty().append("Error, api="+JSON.stringify(endpointPath)+" / data="+JSON.stringify(data)+" / Total time = "+responseTimeMs);
+//
+//
+//             });
+
+
+</script>
 
 </body>
 </html>

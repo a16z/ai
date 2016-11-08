@@ -75,6 +75,19 @@
 <div class="jumbotron text-center">
   <div class="container">
 
+    <div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8" style="background: #AAFFAA;">.col-xs-12 .col-sm-6 .col-md-8</div>
+  <div class="col-xs-6 col-md-4"  style="background: #CCFFCC;">.col-xs-6 .col-md-4</div>
+</div>
+<div class="row">
+  <div class="col-xs-6 col-sm-4" style="background: #FFCCCC;">.col-xs-6 .col-sm-4</div>
+  <div class="col-xs-6 col-sm-4" style="background: #FFAAAA;">.col-xs-6 .col-sm-4</div>
+  <!-- Optional: clear the XS cols if their content doesn't match in height -->
+  <div class="clearfix visible-xs-block"></div>
+  <div class="col-xs-6 col-sm-4"  style="background: #CCCCFF;">.col-xs-6 .col-sm-4</div>
+</div>
+
+
     <div id="wheelParent">
       <div id="wheelBox"><div id="wheelDiv"></div></div>
       <div id="wheelWide" class="white-border">
@@ -201,7 +214,7 @@ console.log($("#wheelWide"));
   <hr>
   <div class="row">
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span>Documentation</h3>
+      <h3>Documentation</h3>
       <p>Start with the introductory material <a href="/docs/intro/survey">about the survey</a> and
       <a href="/docs/intro/ai">on AI/ML</a>. Then checkout the guides for various areas, such as
       <a href="/docs/guides/nlp">Natural Language Processing</a>, <a href="/docs/guides/vision">Vision</a>, or
@@ -212,7 +225,7 @@ console.log($("#wheelWide"));
       </ul>
     </div>
     <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span>More information</h3>
+      <h3>More information</h3>
       <p>Please see the sections for <a href="/docs/reference/papers">Papers and Research</a> and <a href="/docs/reference/links">Useful links</a></p>
     </div>
   </div> <!-- row -->

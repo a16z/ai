@@ -128,3 +128,51 @@ table#table-centered {
     -webkit-transform: scaleY(1.0);
   }
 }
+
+.pickerImage {
+  width: 120px;
+}
+
+.pickedImage {
+  width: 200px;
+  border: 1px solid #999;
+}
+
+/** pretty formatting of <pre> sections*/
+pre {
+  color: gray;
+  outline: 1px solid #aaa;
+  padding: 5px; margin: 5px;
+  text-align: left;
+}
+
+.string {
+  color: rgb(0, 80, 0);
+}
+
+.number {
+  color: rgb(144, 79, 0);
+}
+
+.boolean {
+  color: rgb(0, 0, 215);
+}
+
+.null {
+  color: rgb(183, 0, 183);
+}
+
+.key {
+  color: rgb(197, 0, 0);
+}
+
+/*glow a div*/
+.confirm_selection {
+    -webkit-animation: glow .5s infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    to {
+        text-shadow: 0 0 10px blue;
+    }
+}

@@ -8,15 +8,6 @@
 
 <% include ../partials/nav.ejs %>
 
-<style>
-pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; text-align: left;}
-.string { color: green; }
-.number { color: darkorange; }
-.boolean { color: blue; }
-.null { color: magenta; }
-.key { color: red; }
-</style>
-
 <div class="container">
   <br/>
   <h2 id="api-service-title"></h2>
@@ -57,9 +48,6 @@ pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; text-align: left;}
 <script>
 var spinnerHTML = "<div class='rect1'></div> <div class='rect2'> </div> <div class='rect3'></div> <div class='rect4'></div> <div class='rect5'></div>";
 
-function sleep (time) {
-  return new Promise((resolve) => setTimeout(resolve, time));
-}
 
 function toggleVisibleRow(divname) {
   // console.log("div = "+divname);

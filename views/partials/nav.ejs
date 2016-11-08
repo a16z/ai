@@ -9,12 +9,12 @@
 
       </li>
       <li <% if (activeRoute == "about") { %> class="active" <% } %> >
-        <a href="/about"><span class="glyphicon glyphicon-user" style="padding-left: 80px;"></span> About</a>
+        <a href="/about"><span style="padding-left: 80px;"></span> About</a>
       </li>
       <% if (session.signedIn) { %>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          <span class="glyphicon glyphicon-info-sign"></span> Documentation <span class="caret"></span></a>
+          Documentation <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li class="dropdown-header">Intro</li>
             <li><a href="/docs/intro/survey">Survey Goals</a></li>
@@ -35,7 +35,7 @@
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="navbar-right">
-        <a href="/logout"><span class="glyphicon glyphicon-book"></span> Sign out</a>
+        <a href="/logout">Sign out</a>
       </li>
     </ul>
     <% } %>
