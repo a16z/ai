@@ -5,6 +5,10 @@
 .Trashes
 Thumbs.db
 
+## Heroku local environment
+.env
+
+
 ## Build generated
 build/
 DerivedData/

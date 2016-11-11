@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "ai-a16z",
   "version": "0.1.5",
-  "description": "A sample Node.js app using Express 4",
+  "description": "A16Z 2016 AI Survey",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -36,12 +36,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/a16z/ai"
   },
   "keywords": [
-    "node",
-    "heroku",
-    "express"
+    "ai",
+    "deep learning"
   ],
   "license": "MIT"
 }
