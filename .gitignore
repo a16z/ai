@@ -30,6 +30,8 @@ xcuserdata/
 *.ipa
 *.dSYM.zip
 *.dSYM
+*.swp
+*~
 
 ## Node
 node_modules
