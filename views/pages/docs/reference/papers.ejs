@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <% include ../../../partials/header.ejs %>
+    <% include ../../../partials/header.ejs %>
+
 </head>
 
 <body>
@@ -9,46 +10,11 @@
   <% include ../../../partials/nav.ejs %>
   <% include ../../../partials/banner.ejs %>
 
+
+
 <div class="container">
-    <h1>Relevant Research</h1>
-    <P>Presented Chronologically</p>
-    <p></p>
-    <h3>1943</h3>
-    <P><i>A logical calculus of the ideas immanent in nervous
-      activity”</i>, Warren S. McCulloch, 1943. <a href="/docs/reference-material/mcculloch-pitts-1943-neural-networks.pdf" target="_blank">[PDF]</a></p></p>
-      <h3>1945</h3>
-      <p><i>"As We May Think"</i>, Vannevar Bush, July 1945. <a href="http://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/" target="_blank">[HTML]</a></p>
 
-      <h3>1950</h3>
-      <p><i>"Computing Machinery and Intelligence"</i>Alan Turing, Mind, 59:433–460, 1950. <a href="/docs/reference-material/turing-1950.pdf" target="_blank">[PDF]</a></p>
-
-    <h3>1954</h3>
-    <p><i>"The first public demonstration of machine
-      translation: the Georgetown-IBM system, 7th January 1954,"</i>, John Hutchins, 2005.
-      <a href="/docs/reference-material/gu-ibm-2005.pdf" target="_blank">[PDF]</a></p>
-    <p>IBM's Press Release on the 701 translator
-      experiment. <a href="https://www-03.ibm.com/ibm/history/exhibits/701/701_translator.html">[HTML]</a></p>
-
-      <h3>1955</h3>
-      <p><i>"A Proposal for the Dartmouth Summer Research Project on
-        Artificial Intelligence"</i>John McCarthy, Marvin Minsky,
-        N. Rochester, C.E. Shannon, August 1955. <a href="/docs/reference-material/dartmouth-1955-proposal.pdf.pdf" target="_blank">[PDF]</a></p>
-
-        <h3>1960</h3>
-  <p><i>"Recursive Functions of Symbolic Expressions and Their Computation by Machine, Part I"</i>, John McCarthy, April 1960. <a href="/docs/reference-material/mccarthy-1960.pdf" target="_blank">[PDF]</a></p>
-
-    <h3>1966</h3>
-
-    <ul>
-    <li>"ELIZA: A Computer Program for the Study of Natural Language Communication Between Man and Machine", Joseph Weizenbaum, Communications of the ACM, Volume 9, No. 1, January 1966 <a href="/docs/reference-material/p36-eliza-weizenabaum.pdf" target="_blank">[PDF]</a></li>
-    <li>ALPAC 1966 Report. <a href="/docs/reference-material/alpac-1966-report.pdf" target="_blank">[PDF]</a></li>
-    </ul>
-    <h3>1989</h3>
-    <p>Yann LeCun et al's seminal paper on Neural Networks: <i>Backpropagation Applied to handwritten Zip Code Recognition.</i>
-      (AT&amp;T Bell Labs, 1989). <a href="/docs/reference-material/lecun-89e.pdf" target="_blank">[PDF]</a></p>
-    <h3>1995</h3>
-
-<p><i>"Artificial Intelligence: A Modern Approach"</i>Stuart J. Russell and Peter Norvig, Prentice Hall, 1995 (First Edition). <a href="http://http://aima.cs.berkeley.edu/" target="_blank">[Website]</a></p>
+    <%- markdownContent %>
 
 
 </div>

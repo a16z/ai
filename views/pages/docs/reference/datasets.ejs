@@ -10,17 +10,15 @@
   <% include ../../../partials/banner.ejs %>
 
 <div class="container">
-    <h1>Datasets</h1>
 
-<P>
-This list of datasets has been compiled for the purposes of this survey. You can download <a href="/js/datasets.json" download target="_blank">the data in JSON format</a> under an MIT License (//TODO... ?).
-</p>
+    <%- markdownContent %>
+
 
 <h2>Image Datasets</h2>
 <div id="imageDataSets" class="row">
 </div>
-<h2>Text Datasets</h2>
 
+<h2>Text Datasets</h2>
 <div id="textDataSets" class="row">
 </div>
 <script>

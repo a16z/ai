@@ -132,15 +132,27 @@ var gcloud = require('google-cloud')(config);
 
 var vision = gcloud.vision();
 
+
+var showdown  = require('showdown');
+showdown.setFlavor('github');
+var converter = new showdown.Converter();
+var markdownCache = Object.create(null);
+
 //docs route catch-all
 app.get('/docs/*', function(req, res) {
-  var docPath = __dirname + '/views'+'/pages'+req.path+".ejs";
-  var canProceed = false;
-  try {
-    var file = fs.statSync(docPath);
-    canProceed = file.isFile();
-  } catch (error) {
 
+
+    // var docPath = __dirname + '/views'+'/pages'+req.path+".ejs";
+    var docPath = path.join(process.cwd(), "views", "pages", "section-template.ejs");
+    var markdownPath = path.join(process.cwd(), "src", req.path+".md");
+
+    var canProceed = false;
+    try {
+        var file = fs.statSync(docPath);
+        canProceed = file.isFile();
+    }
+    catch (error) {
+        console.log("EJS Path not found = "+error);
     }
 
     if (!canProceed) {
@@ -150,7 +162,27 @@ app.get('/docs/*', function(req, res) {
 
     }
 
-  res.render('pages'+req.path, createEJSTemplateDataDictionary(req, res));
+  var dataDict = createEJSTemplateDataDictionary(req, res);
+
+  var markdownAsHTML = markdownCache[markdownPath];
+
+  if (markdownAsHTML == undefined || markdownAsHTML == null) {
+      markdownAsHTML = "";
+      try {
+          var mdFile = fs.statSync(markdownPath);
+          if (mdFile.isFile()) {
+              var fileMd =  fs.readFileSync(markdownPath, 'utf8');
+              markdownAsHTML = converter.makeHtml(fileMd);
+          }
+      }
+      catch (error) {
+          //we ignore this error, if the file isn't there we just don't include it
+      }
+  }
+
+  dataDict['markdownContent'] = markdownAsHTML;
+
+  res.render('pages'+req.path, dataDict);
 
 });
 
