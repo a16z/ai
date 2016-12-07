@@ -4,58 +4,6 @@
   <% include ../partials/header.ejs %>
 
 
-  <style>
-
-
-    #wheelParent {
-      display: flex;
-    }
-    #narrow {
-      width: 200px;
-
-    }
-    #wheelWide {
-      flex: 1;
-      /* Grow to rest of container */
-      background: white;
-      text-align: left;
-      margin: 10px;
-    }
-
-    #wheelBox {
-      width:320px; /* or whatever width you want. */
-      max-width:320px; /* or whatever width you want. */
-      height: 320px;
-      max-height: 320px;
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .menu-content {
-      padding: 10px;
-      padding-left: 20px;
-    }
-    .menu-content p {
-      font-size: 13px;
-    }
-
-    .menu-content li {
-      font-size: 13px;
-    }
-    .menu-content blockquote {
-      font-size: 12px;
-    }
-    .menu-content h1 {
-      font-size: 17px;
-    }
-
-
-  </style>
-
-      <script src="/js/raphael.min.js"></script>
-      <script src="/js/raphael.icons.min.js"></script>
-      <script src="/js/wheelnav.min.js"></script>
-
 
 
 </head>
@@ -64,7 +12,6 @@
   <% include ../partials/nav.ejs %>
   <div class="alert alert-info text-right" role="alert">
     <div style="display: flex;">
-    <div style="margin-left:150px;width:200px">The 2016 <a href="http://a16z.com" target="_blank">a16z</a> AI Survey</div>
     <div style="flex: 1;">
     <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
     <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>    <!--  navigation -->
@@ -72,166 +19,102 @@
 </div>
 
 </div>
-<div class="jumbotron text-center">
+<div class="jumbotron">
   <div class="container">
+      <div class="pull-right" style="border: 1px solid #CCC; margin-left: 20px; padding: 10px;">
+                <a href="/about">About</a> this survey
 
-    <div class="row">
-  <div class="col-xs-12 col-sm-6 col-md-8" style="background: #AAFFAA;">.col-xs-12 .col-sm-6 .col-md-8</div>
-  <div class="col-xs-6 col-md-4"  style="background: #CCFFCC;">.col-xs-6 .col-md-4</div>
-</div>
-<div class="row">
-  <div class="col-xs-6 col-sm-4" style="background: #FFCCCC;">.col-xs-6 .col-sm-4</div>
-  <div class="col-xs-6 col-sm-4" style="background: #FFAAAA;">.col-xs-6 .col-sm-4</div>
-  <!-- Optional: clear the XS cols if their content doesn't match in height -->
-  <div class="clearfix visible-xs-block"></div>
-  <div class="col-xs-6 col-sm-4"  style="background: #CCCCFF;">.col-xs-6 .col-sm-4</div>
-</div>
-
-
-    <div id="wheelParent">
-      <div id="wheelBox"><div id="wheelDiv"></div></div>
-      <div id="wheelWide" class="white-border">
-        <div id="language-content" class="menu-content">
-          <h1>Natural Language Processing (NLP)</h1>
-          <P>Key areas of NLP include understanding/processing language, translation, and language generation.</p>
-          <P>You can start by <a href="/docs/guides/nlp">reading an introduction</a> to this topic, or take a look at some of the samples we've implemented using commercial APIs:
-          <ul>
-            <li><a href="/test/phrase/sentiment-analysis">Sentiment Analysis</a></li>
-            <li><a href="/test/phrase/entity-analysis">Entity Extraction</a></li>
-            <li><a href="/test/phrase/language-analysis">Language Detection</a></li>
-
-              </ul></p>
-        </div>
-        <div id="dl-content" class="menu-content start-hidden">
-          <h1>Deep Learning</h1>
-          <P>From <a href="https://en.wikipedia.org/wiki/Deep_learning">Wikipedia</a>:
-          <blockquote>Deep learning (also known as deep structured learning, hierarchical learning or deep machine learning) is a branch of machine learning based on a set of algorithms that attempt to model high level abstractions in data by using a deep graph with multiple processing layers, composed of multiple linear and non-linear transformations</blockquote></p>
-          </div>
-        <div id="patterns-content" class="menu-content start-hidden">
-          <h1>Patterns and Classification</h1>
-          <P>Pattern recognition deals with the classification and correlation of data, irrespective (as opposed to regardless) of its meaning.</p>
-          </div>
-        <div id="vision-content" class="menu-content start-hidden">
-          <h1>Vision</h1>
-          <P>Computer vision tasks include processing and analyzing images in digital form.</p>
-            <P>You can start by <a href="/docs/guides/vision">reading an introduction</a> to this topic, or take a look at some of the samples we've implemented using commercial APIs:
-            <ul>
-                <li><a href="/test/image/upload">Multi-Feature Analysis (Upload Image)</a></li>
-                </ul></p>
+              <li>Intro</li>
+                    <ul >
+                    <li><a href="/docs/intro/survey-goals">Survey Goals</a></li>
+                    <li><a href="/docs/intro/survey-parameters">Survey Parameters</a></li>
+                    <li><a href="/docs/intro/ai">Introduction to AI/ML</a></li>
+                </ul>
+                    <li>Guides</li>
+                    <ul >
+                    <li><a href="/docs/guides/nlp">Natural Language Processing</a></li>
+                    <li><a href="/docs/guides/vision">Vision</a></li>
+                    <li><a href="/docs/guides/patterns">Pattern Recognition</a></li>
+                </ul>
+                    <li>Reference</li>
+                    <ul >
+                    <li><a href="/docs/reference/papers">Papers and Research</a></li>
+                    <li><a href="/docs/reference/datasets">Datasets</a></li>
+                    <li><a href="/docs/reference/links">Useful links</a></li>
+                </ul>
 
 
-          </div>
       </div>
-    </div>
+      <h2>The 2016 <a href="http://a16z.com" target="_blank">a16z</a> AI Survey</h2>
 
-    <script>
-      var wheelTitlesToIds = {
-        "language": "language",
-        "patterns": "patterns",
-        "vision": "vision",
-        "deep learning": "dl",
-      }
-      var wheelContent = [
-          {
-            id: "",
-            menuTitle: "",
-            boxContent: "",
-          }
-      ];
-      var visibleItemId="language";
-      function toggleContent(menuTitle) {
-        var boxId = wheelTitlesToIds[menuTitle];
-        if (visibleItemId == boxId) {
-          //already visible, ignore
-          console.log("id = "+"#"+visibleItemId+"-content");
-console.log($("#wheelWide"));
-          $("#wheelWide").addClass("blue-border", 400, function () {
-             $("#wheelWide").removeClass("blue-border", 400 );
-           });
-          // } );  //.animate({ "border-color": "#0e7796", 'border-style': 'groove' }, 'fast');
-        return;
-        }
-        var previousContentId = visibleItemId;
-        visibleItemId = boxId;
-        $("#"+previousContentId+"-content").fadeToggle(250, "swing", function() {
-          $("#"+visibleItemId+"-content").fadeToggle(250, "swing");
+      <p>Start with the introductory material <a href="/docs/intro/survey-goals">about the survey</a> and
+      <a href="/docs/intro/ai">on AI/ML</a>. Then checkout the guides for various areas, such as
+      <a href="/docs/guides/nlp">Natural Language Processing</a>, <a href="/docs/guides/vision">Vision</a>, or
+      <a href="/docs/guides/patterns">Pattern Recognition</a>.
 
-        });
-      }
-
-      var wheel = new wheelnav('wheelDiv');
-
-      wheel.wheelRadius = 180;
-      // wheel.slicePathFunction = slicePath().MenuSlice;
-
-      wheel.animatetime = 500;
-      wheel.animateeffect = 'linear';
-      // wheel.slicePathFunction = slicePath().CogBasePieSlice;
-      // wheel.sliceHoverPathFunction = slicePath().CogSlice;
-      // wheel.sliceSelectedPathFunction = slicePath().CogSlice;
-      // wheel.sliceHoverTransformFunction = sliceTransform().RotateTitleTransform;
-      wheel.sliceSelectedTransformFunction = sliceTransform().ScaleTransform;//MoveMiddleTransform;
-      wheel.colors = ["#345578","#FF9900", "#BCBCBC", "#3299BB", "#727272"];
-      wheel.titleFont = '14px Open Sans';
-      wheel.hoverPercent = 0.8;
-      wheel.selectedPercent = 1.1;
-      wheel.wheelRadius = wheel.wheelRadius * 0.8;
-
-      wheel.createWheel(["language", "deep learning", "patterns", "vision"]);
-
-      jQuery.each(wheel.navItems, function(i, item) {
-        item.navigateFunction = function() {
-          toggleContent(item.title);
-        }
-
-      });
-
-      wheel.navigateWheel(0);
-
-      </script>
-
-
-<!-- end nav -->
-
-
-
-
-
-    <!-- <p>
-    <a type="button" class="btn btn-lg btn-default" href="/docs/intro/getting-started"><span class="glyphicon glyphicon-flash"></span> Getting Started</a>
-    <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
-    <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/a16z/ai"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
-    </p> -->
+      <p>You can see live examples throughout the various sections, and you can check out the code via our <a href="https://github.com/a16z/ai">github repo</a>.</p>
 
 
   </div>
 </div>
 <div class="container">
+
+
+
+        <div class="row">
+
+            <div class="col-md-8"><h3>Natural Language Processing (NLP)</h3>
+                <P>Key areas of NLP include understanding/processing language, translation, and language generation.</p>
+                <P>You can start by <a href="/docs/guides/nlp">reading an introduction</a> to this topic, or take a look at some of the samples we've implemented using commercial APIs:
+                <ul>
+                  <li><a href="/test/phrase/sentiment-analysis">Sentiment Analysis</a></li>
+                  <li><a href="/test/phrase/entity-analysis">Entity Extraction</a></li>
+                  <li><a href="/test/phrase/language-analysis">Language Detection</a></li>
+
+                    </ul></p>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6"><h3>Patterns and Classification</h3>
+                    <P>Pattern recognition deals with the classification and correlation of data, irrespective (as opposed to regardless) of its meaning.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6"><h3>Vision</h3>
+                    <P>Computer vision tasks include processing and analyzing images in digital form.</p>
+                      <P>You can start by <a href="/docs/guides/vision">reading an introduction</a> to this topic, or take a look at some of the samples we've implemented using commercial APIs:
+                      <ul>
+                          <li><a href="/test/image/upload">Multi-Feature Analysis (Upload Image)</a></li>
+                          </ul></p>
+                      </div>
+                  </div>
+
+
+        <div class="row">
+            <div class="col-md-6"><h3>Deep Learning</h3>
+            <p>From <a href="https://en.wikipedia.org/wiki/Deep_learning">Wikipedia</a>:
+                    <blockquote>Deep learning (also known as deep structured learning, hierarchical learning or deep machine learning) is a branch of machine learning based on a set of algorithms that attempt to model high level abstractions in data by using a deep graph with multiple processing layers, composed of multiple linear and non-linear transformations</blockquote>
+            </p>
+        </div>
+
+        </div>
+
+
   <div class="alert alert-info text-center" role="alert">
     If you're not sure where to go next, just head on over to the <a href="/docs/intro/getting-started" class="alert-link">Getting Started</a> doc.
   </div>
   <hr>
   <div class="row">
-    <div class="col-md-6">
-      <h3>Documentation</h3>
-      <p>Start with the introductory material <a href="/docs/intro/survey">about the survey</a> and
-      <a href="/docs/intro/ai">on AI/ML</a>. Then checkout the guides for various areas, such as
-      <a href="/docs/guides/nlp">Natural Language Processing</a>, <a href="/docs/guides/vision">Vision</a>, or
-      <a href="/docs/guides/patterns">Pattern Recognition</a>.
 
-      <p>You can see the examples running through links on this page, or you can check out the code via our <a href="https://github.com/a16z/ai">github repo</a>.</p>
-
-      </ul>
-    </div>
     <div class="col-md-6">
       <h3>More information</h3>
-      <p>Please see the sections for <a href="/docs/reference/papers">Papers and Research</a> and <a href="/docs/reference/links">Useful links</a></p>
+      <p>For additional information, please see the sections for <a href="/docs/reference/papers">Papers and Research</a> and <a href="/docs/reference/links">Useful links</a></p>
     </div>
-  </div> <!-- row -->
-   <!-- <div class="alert alert-info text-center" role="alert">
-    We really recommend you check out the getting started guide /docs/intro/getting-started
-  </div> -->
+  </div>
 </div>
 
 

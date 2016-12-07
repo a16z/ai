@@ -8,31 +8,9 @@
         </div>
 
       </li>
-      <li <% if (activeRoute == "about") { %> class="active" <% } %> >
-        <a href="/about"><span style="padding-left: 80px;"></span> About</a>
-      </li>
-      <% if (session.signedIn) { %>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-          Documentation <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li class="dropdown-header">Intro</li>
-            <li><a href="/docs/intro/survey">Survey Goals</a></li>
-            <li><a href="/docs/intro/survey-parameters">Survey Parameters</a></li>
-            <li><a href="/docs/intro/ai">Introduction to AI/ML</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Guides</li>
-            <li><a href="/docs/guides/nlp">Natural Language Processing</a></li>
-            <li><a href="/docs/guides/vision">Vision</a></li>
-            <li><a href="/docs/guides/patterns">Pattern Recognition</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Reference</li>
-            <li><a href="/docs/reference/papers">Papers and Research</a></li>
-            <li><a href="/docs/reference/datasets">Datasets</a></li>
-            <li><a href="/docs/reference/links">Useful links</a></li>
-          </ul>
-      </li>
     </ul>
+    <% if (session.signedIn) { %>
+        <p class="navbar-text" style="margin-left: 96px;">The 2016 <a href="http://a16z.com" target="_blank">a16z</a> AI Survey</p>
     <ul class="nav navbar-nav navbar-right">
       <li class="navbar-right">
         <a href="/logout">Sign out</a>

@@ -81,24 +81,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 
-app.use(compression({filter: shouldCompressResponse}));
-
-function shouldCompressResponse(req, res) {
-    if (req.headers['x-no-compression']) {
-        // don't compress responses with this request header
-        return false;
-    }
-
-    var type = res.getHeader('Content-Type')
-
-    if (type === undefined || !compressible(type)) {
-        debug('%s not compressible', type)
-        return false;
-    }
-
-    // fallback to standard filter function
-    return compression.filter(req, res)
-}
+app.use(compression());
 
 //add current route to the request so templates can extract it
 app.use(function(req, res, next) {
