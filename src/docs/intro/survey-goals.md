@@ -1,6 +1,11 @@
 # A16Z AI Survey Goals
 
-Our goals in producing this survey were straightforward. We intended to:
+
+While these developments are exciting, they carry with them new challenges for those companies, teams, and people that are adept at using technologies but can’t be on the bleeding edge of it because they’re focused on being on the bleeding edge of a different field.
+
+A key goal of this survey is to act as a guide for those people — technically proficient but not focused on technology by itself, but as a tool to solve problems in different domains. We aim to provide a set of brief guides and code samples to aid in understanding the basics of this space as well as helping guide people in choosing a solution, or at least minimizing the search space involved.
+
+To this end, we set out to:
 
 * gather knowledge on a representative (_but not exhaustive_) set of new services that are emerging and understand what they are (or aren't) good for, and how they relate/compare to/complement each other when possible.
 

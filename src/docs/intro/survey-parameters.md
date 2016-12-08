@@ -2,6 +2,14 @@
 
 Throughout the survey we will focus on technologies and techniques and not on specific solutions or systems. For examples, we will prefer cloud-based solutions. This is not just because they are easier to use for common examples/use cases but also because that very focus makes it easier to get started for people new to these areas.
 
+## Target Audience
+
+The target audience for this survey includes people who have technical knowledge but are not necessarily on the bleeding edge of technology. Some examples:
+
+* A software developer trying to get an understanding of the basic  choices and solutions one can take to approach this space when starting a new project that will involve these technologies
+* A technical product manager that has heard that Machine Learning could help improve the product she is responsible for but doesn’t have the time to go through all the options
+* A data scientist looking to leverage existing data sets to arrive at new, useful insights
+
 ## To Cloud or Not To Cloud?
 
 Additionally, we believe that in the vast majority of cases you _would not_ be creating your own thousand-node neural network within your own infrastructure. For other types of services this may be less common, but AI/ML is not common. Services already provided by companies (most big, some small) can cover those needs, and eventually, should you need so much computing power/storage/memory/etc you'll need to do a custom deployment of a distributed processing system of high complexity.
