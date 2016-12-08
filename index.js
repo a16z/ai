@@ -89,7 +89,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-//add a check for signed in cookies to all routes
 app.use(function (req, res, next) {
 
 //don't do this check for the login page, login processing, or the about page

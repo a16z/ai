@@ -9,8 +9,6 @@
   "dependencies": {
     "Sentimental": "1.0.1",
     "apicache": "^0.7.2",
-    "babel": "^6.5.2",
-    "babel-core": "^6.18.2",
     "body-parser": "1.15.2",
     "cognitive-services": "0.1.0",
     "compressible": "^2.0.9",
@@ -41,7 +39,7 @@
     "watson-developer-cloud": "2.2.0"
   },
   "engines": {
-    "node": "0.12.7"
+    "node": "6.2.0"
   },
   "repository": {
     "type": "git",
