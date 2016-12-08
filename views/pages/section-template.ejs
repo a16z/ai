@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <% include ../../../partials/header.ejs %>
+    <% include ../partials/header.ejs %>
 </head>
 
 <body>
 
-  <% include ../../../partials/nav.ejs %>
-  <% include ../../../partials/banner.ejs %>
+    <% include ../partials/nav.ejs %>
+    <% include ../partials/banner.ejs %>
 
-<div class="container">
+    <% if (hasBreadcrumbs) { %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
+            <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
+        </ol>
+    <% } %>
 
-    <%- markdownContent %>
+    <div class="container">
+        <%- markdownContent %>
+    </div>
 
-
-
-</div>
-
+    <% if (hasBreadcrumbs) { %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
+            <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
+        </ol>
+    <% } %>
 
 </body>
 </html>

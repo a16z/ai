@@ -143,8 +143,7 @@ app.get('/docs/*', function(req, res) {
 
 
     // var docPath = __dirname + '/views'+'/pages'+req.path+".ejs";
-    var docPath = path.join(process.cwd(), "views", "pages", "section-template.ejs");
-    var markdownPath = path.join(process.cwd(), "src", req.path+".md");
+    var docPath = path.join(process.cwd(), "src", req.path + ".md");
 
     var canProceed = false;
     try {
@@ -164,25 +163,47 @@ app.get('/docs/*', function(req, res) {
 
   var dataDict = createEJSTemplateDataDictionary(req, res);
 
-  var markdownAsHTML = markdownCache[markdownPath];
+  var markdownAsHTML = markdownCache[docPath];
+  var breadcrumbsData = Object.create(null);
+  var hasBreadcrumbs = false;
+
 
   if (markdownAsHTML == undefined || markdownAsHTML == null) {
       markdownAsHTML = "";
+      var loadingBreadcrumbs = false;
       try {
-          var mdFile = fs.statSync(markdownPath);
+          var mdFile = fs.statSync(docPath);
           if (mdFile.isFile()) {
-              var fileMd =  fs.readFileSync(markdownPath, 'utf8');
+              var fileMd =  fs.readFileSync(docPath, 'utf8');
               markdownAsHTML = converter.makeHtml(fileMd);
+          }
+
+          loadingBreadcrumbs = true;
+          var mdJson = path.join(process.cwd(), "src", req.path);
+
+          breadcrumbsData = require(mdJson);
+
+          if (breadcrumbsData.prev && breadcrumbsData.next) {
+              hasBreadcrumbs = true;
           }
       }
       catch (error) {
-          //we ignore this error, if the file isn't there we just don't include it
+          //before loading breadcrumbs we ignore this error,
+          //if the .md file isn't there we just don't include it
+          if (loadingBreadcrumbs) {
+                console.log("Error reading breadcrumb JSON: "+error);
+          }
       }
   }
 
   dataDict['markdownContent'] = markdownAsHTML;
+  dataDict['hasBreadcrumbs'] = hasBreadcrumbs;
+  if (hasBreadcrumbs) {
+      dataDict['breadcrumbs'] = breadcrumbsData;
+  }
 
-  res.render('pages'+req.path, dataDict);
+  var docPath = path.join(process.cwd(), "views", "pages", "section-template.ejs");
+  res.render(docPath, dataDict); //path was 'pages'+req.path
 
 });
 

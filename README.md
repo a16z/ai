@@ -110,5 +110,5 @@ https://github.com/joshbalfour/node-cognitive-services
 * Bootstrap http://getbootstrap.com
 * JQuery http://jquery.com
 * Wheelnav.js https://github.com/softwaretailoring/wheelnav/
-* SpaceLab https://bootswatch.com/spacelab/
+* JavaScript + Bibtex https://github.com/vkaravir/bib-publication-list
 * Showdown https://github.com/showdownjs/showdown
