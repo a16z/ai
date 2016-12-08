@@ -41,3 +41,10 @@ what is typically referred to as _Speech Recognition_.
 
 **Translating between languages** may or may not involve understanding, and
 may also involve different degrees of flexibility.
+
+## APIs
+ take a look at some of the samples we've implemented using commercial APIs:
+
+* [Sentiment Analysis](/test/phrase/sentiment-analysis)
+* [Entity Extraction](/test/phrase/entity-analysis)
+* [Language Detection](/test/phrase/language-analysis)

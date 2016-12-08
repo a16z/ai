@@ -17,7 +17,11 @@
     <% } %>
 
     <div class="container">
-        <%- markdownContent %>
+        <div class="row">
+          <div class="col-md-8">
+              <%- markdownContent %>
+          </div>
+        </div>
     </div>
 
     <% if (hasBreadcrumbs) { %>

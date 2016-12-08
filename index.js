@@ -1,6 +1,6 @@
-//Node.js express
+
 var express = require('express');
-// var log = require('log')
+
 var fs = require('fs');
 
 // cookies see https://github.com/expressjs/cookie-parser
@@ -31,12 +31,9 @@ if (!fs.existsSync(uploads_dir)) {
 var storage = multer.memoryStorage();
 var upload = multer({ storage: storage });
 
-var Twitter = require('twitter');
-
-
 //local modules (JS files)
 // var utils = require('./utils');
-var Emoji = require('./lib/emoji.js');
+
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 var EntityAnalysis = require('./lib/entity-analysis.js');
 var LanguageAnalysis = require('./lib/language-analysis.js');
@@ -50,8 +47,6 @@ createEJSTemplateDataDictionary = function (req, res) {
 //storage
 // var session = require('express-session');
 // var RedisStore = require('connect-redis')(session);
-
-
 
 var app = express();
 
@@ -67,7 +62,7 @@ app.use(session({  secret: cookiesSecretKey }));
 //
 // app.use(session({
 //     store: new RedisStore(options),
-//     secret: 'secret data'
+//     secret: 'secretdata'
 // }));
 
 app.use(bodyParser.json());
@@ -114,95 +109,16 @@ app.use(function (req, res, next) {
 });
 
 
-var gcloud_pid = process.env.GOOGLE_CLOUD_PID;
-var privateKey = process.env.GOOGLE_CLOUD_PRIVATE_KEY;
-var clientEmail = process.env.GOOGLE_CLOUD_EMAIL;
 
-
-var config = {
-  projectId: gcloud_pid,
-  credentials : {
-      client_email : clientEmail,
-      private_key : privateKey
-    }
-};
-
-var gcloud = require('google-cloud')(config);
-
-var vision = gcloud.vision();
-
-
-var showdown  = require('showdown');
-showdown.setFlavor('github');
-var converter = new showdown.Converter();
 var markdownCache = Object.create(null);
+var SectionPageProcessor = require('./lib/section-page-processor.js');
 
-//docs route catch-all
+//docs route - use markdown files as content source for pages
 app.get('/docs/*', function(req, res) {
 
+    var dataDict = createEJSTemplateDataDictionary(req, res);
 
-    // var docPath = __dirname + '/views'+'/pages'+req.path+".ejs";
-    var docPath = path.join(process.cwd(), "src", req.path + ".md");
-
-    var canProceed = false;
-    try {
-        var file = fs.statSync(docPath);
-        canProceed = file.isFile();
-    }
-    catch (error) {
-        console.log("EJS Path not found = "+error);
-    }
-
-    if (!canProceed) {
-      console.log("Requested docs path "+docPath+ " not found.");
-      res.redirect('/404');
-      return;
-
-    }
-
-  var dataDict = createEJSTemplateDataDictionary(req, res);
-
-  var markdownAsHTML = markdownCache[docPath];
-  var breadcrumbsData = Object.create(null);
-  var hasBreadcrumbs = false;
-
-
-  if (markdownAsHTML == undefined || markdownAsHTML == null) {
-      markdownAsHTML = "";
-      var loadingBreadcrumbs = false;
-      try {
-          var mdFile = fs.statSync(docPath);
-          if (mdFile.isFile()) {
-              var fileMd =  fs.readFileSync(docPath, 'utf8');
-              markdownAsHTML = converter.makeHtml(fileMd);
-          }
-
-          loadingBreadcrumbs = true;
-          var mdJson = path.join(process.cwd(), "src", req.path);
-
-          breadcrumbsData = require(mdJson);
-
-          if (breadcrumbsData.prev && breadcrumbsData.next) {
-              hasBreadcrumbs = true;
-          }
-      }
-      catch (error) {
-          //before loading breadcrumbs we ignore this error,
-          //if the .md file isn't there we just don't include it
-          if (loadingBreadcrumbs) {
-                console.log("Error reading breadcrumb JSON: "+error);
-          }
-      }
-  }
-
-  dataDict['markdownContent'] = markdownAsHTML;
-  dataDict['hasBreadcrumbs'] = hasBreadcrumbs;
-  if (hasBreadcrumbs) {
-      dataDict['breadcrumbs'] = breadcrumbsData;
-  }
-
-  var docPath = path.join(process.cwd(), "views", "pages", "section-template.ejs");
-  res.render(docPath, dataDict); //path was 'pages'+req.path
+    SectionPageProcessor.processMarkdownPage(dataDict, req, res, markdownCache);
 
 });
 
@@ -241,137 +157,11 @@ app.post('/loginCheck', function (req, res) {
 });
 
 
-function base64Image(src) {
-  var data = fs.readFileSync(src).toString('base64');
-  return util.format('data:%s;base64,%s', mime.lookup(src), data);
-}
-
-function base64ImageFromBinaryBuffer(name, src) {
-  var data = src.toString('base64');
-  return util.format('data:%s;base64,%s', name, data);
-}
-
-app.get('/test/image/simple', function (req, res) {
-  // Choose what the Vision API should detect
- // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
- var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
-  var filePath = './test-data/images/test-image-2.jpg';
-  var base64ImageData =  base64Image(filePath);
-// vision.detect(filePath, types, function(err, detections, apiResponse) {
-
- // Send the image to the Cloud Vision API
- vision.detect(base64ImageData, types, function(err, detections, apiResponse) {
-   var renderText = "";
-   if (err) {
-     console.log("Image processing error."+err);
-     renderText += "<h1>Cloud Vision Error</h1>";
-     renderText += err;
-     var dataDict =  createEJSTemplateDataDictionary(req, res);
-     dataDict.errorText = renderText;
-     dataDict.results = "";
-     dataDict.imgData = "";
-     res.render('pages/image-test', dataDict);
-   }
-   else {
-
-     console.log("Image processing ok.");
-     var dataDict =  createEJSTemplateDataDictionary(req, res);
-     dataDict.results = detections;
-     dataDict.imgData = base64ImageData;
-
-     res.render('pages/image-test', dataDict);
-   }
- });
-});
-
 
 app.get('/', function(req, res) {
   res.render('pages/index', createEJSTemplateDataDictionary(req, res));
 });
 
-app.get('/test/twitter/sentiment', function (req, res) {
-
-     var client = new Twitter({
-     consumer_key: process.env.TWITTER_CONSUMER_KEY,
-     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-     access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-     access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-   });
-
-
-  var screenName = 'withfries2'; //default
-  var screenNameParam = req.query.screenName;
-  if (screenNameParam != undefined && screenNameParam.trim().length > 0) {
-    screenName = screenNameParam.trim();
-  }
-  var defaultResultsCount = 25;
-
-    var apiRoute = 'statuses/user_timeline';
-    var params = {screen_name: screenName, count: defaultResultsCount};
-
-  var checkMentions = false;
-
-  if (req.query.checkMentions == "true") {
-    // https://api.twitter.com/1.1/statuses/mentions_timeline.json?count=2
-    checkMentions = true;
-    apiRoute = 'search/tweets';
-    params = { q: ("@"+screenName), count: defaultResultsCount};
-  }
-
-  /*
-  search results also include
-  search_metadata:     { completed_in: 0.042,  max_id: 769203907067277300,
-  max_id_str: '769203907067277312',
-  next_results: '?max_id=769158202504118271&q=%40withfries2&include_entities=1',
-  query: '%40withfries2',
-  refresh_url: '?since_id=769203907067277312&q=%40withfries2&include_entities=1',
-  count: 15,
-  since_id: 0,
-  since_id_str: '0' } }
-  */
-
-  client.get(apiRoute, params, function(error, tweets, response) {
-    if (!error) {
-      // console.log(tweets);
-
-      var dataDict =  createEJSTemplateDataDictionary(req, res);
-
-      //when doing a search the result is in the statuses entry of the response object
-      var tweetsToCheck = checkMentions ? tweets.statuses : tweets;
-
-      var analyzedTweets = [];
-      for (num in tweetsToCheck) {
-        var tweet = tweetsToCheck[num];
-        var text = tweet.text;
-        var postedBy = tweet.user;
-        if (text != undefined && text.length > 0) {
-          var tweetText = tweet.text;
-          var sentimental = SentimentAnalysis.sentimentalAnalyze(tweetText);
-          sentimental.emoji = Emoji.mapNumberToEmoji(sentimental.score);
-          var sentiment = SentimentAnalysis.sentimentJS(tweetText);
-          sentiment.emoji = Emoji.mapNumberToEmoji(sentiment.score);
-
-          var average = Object();
-          average.score = (sentimental.score + sentiment.score) / 2;
-          average.emoji = Emoji.mapNumberToEmoji(average.score);
-
-          var aTweet = { text: tweetText, 'average' : average, 'sentimental': sentimental, 'sentimentJS': sentiment, user: postedBy};
-          analyzedTweets.push(aTweet);
-        }
-        else {
-          console.log("text length 0 or nil");
-        }
-
-      }
-      dataDict.tweets = analyzedTweets;
-      dataDict.screenName = screenName;
-      dataDict.checkMentions = checkMentions;
-      res.render('pages/tweet-sentiment', dataDict);
-
-
-    }
-  });
-});
 
 
 var apiAddCompletion = function(apiPack, success, message) {
@@ -396,32 +186,6 @@ var entityAnalysisServiceInfo
   testSamples: entityAnalysisExamples
 }
 */
-
-
-//on examples, if displayText is not included the value will be used
-//path assumed to be from root dir of app
-var imageAnalysisExamples = [
-  { "value": "public/data/services/image-analysis/city-skyline-001.jpg",
-    "id": "city-skyline-001.jpg",
-    "labels": "city, skyline",
-    "notes": "JPEG Compression (Medium)"},
-  { "value": "public/data/services/image-analysis/protest-001.jpg",
-    "id": "protest-001.jpg",
-    "labels": "protest, demonstration, sign",
-    "notes": "JPEG Compression (Medium)"},
-  { "value": "public/data/services/image-analysis/protest-002.jpg",
-    "id": "protest-002.jpg",
-    "labels": "protest, demonstration, sign",
-    "notes": "JPEG Compression (Medium)"},
-  { "value": "public/data/services/image-analysis/sign-001.jpg",
-    "id": "sign-001.jpg",
-    "labels": "sign, street sign",
-    "notes": "JPEG Compression (Very High)"},
-  { "value": "public/data/services/image-analysis/sign-002.jpg",
-    "id": "sign-002.jpg",
-    "labels": "sign, street sign",
-    "notes": "JPEG Compression (Very High)"},
-];
 
 
 function loadServiceInfo(parameters) {
@@ -535,76 +299,8 @@ registerGet(app, "/test/phrase", "sentiment-analysis", "pages/phrase-analysis");
 registerGet(app, "/test/phrase", "entity-analysis", "pages/phrase-analysis");
 registerGet(app, "/test/phrase", "language-analysis", "pages/phrase-analysis");
 
-app.get('/test/image/upload', upload.single('photo'), function (req, res) {
-  var dataDict =  createEJSTemplateDataDictionary(req, res);
-  var renderText = "";
-  renderText += "<h1>Cloud Vision Start</h1>";
-  dataDict.errorText = renderText;
-  dataDict.results = "";
-  dataDict.imgData = "";
-  dataDict.sampleImages = [];
-  for (i in imageAnalysisExamples) {
-    var imgPath = path.join(process.cwd(), imageAnalysisExamples[i].value);
-    var jsonInfo = image2json.NXImage.jsonImageFromFile(imgPath);
-    dataDict.sampleImages.push(jsonInfo);
-  }
-
-  res.render('pages/image-upload', dataDict);
-});
-
-app.post('/process/image/upload', upload.single('photo'), function (req, res) {
-  // Choose what the Vision API should detect
- // Choices are: faces, landmarks, labels, logos, properties, safeSearch, texts
- var types = ['labels', 'landmarks', 'logos', 'properties', 'safeSearch', 'text', 'faces'];
- var optionsDict = new Object();
- optionsDict.types = types;
- optionsDict.verbose = true;
-  var filePath = './test-data/images/test-image-2.jpg';
-  var uploadedFile =  req.file;//base64Image(filePath);
-  console.log("converting...");
-
-  var base64ImageData = base64ImageFromBinaryBuffer(uploadedFile.originalname, uploadedFile.buffer);
-/*
-{ fieldname: 'photo',
-11:15:57 AM web.1 |    originalname: 'crazy-signs-notice.jpg',
-11:15:57 AM web.1 |    encoding: '7bit',
-11:15:57 AM web.1 |    mimetype: 'image/jpeg',
-11:15:57 AM web.1 |    buffer: <Buffer ff d8 ff e0... >,
-11:15:57 AM web.1 |    size: 44346 }
-
-*/
-
-
-// vision.detect(filePath, types, function(err, detections, apiResponse) {
-console.log("analyzing...");
- // Send the image to the Cloud Vision API
- vision.detect(uploadedFile.buffer, optionsDict, function(err, detections, apiResponse) {
-   var renderText = "";
-   console.log("received google Api response...");
-   if (err) {
-     console.log("Image processing error."+err);
-     renderText += "<h1>Cloud Vision Error</h1>";
-     renderText += err;
-     var dataDict =  createEJSTemplateDataDictionary(req, res);
-     dataDict.errorText = renderText;
-     dataDict.results = "";
-     dataDict.imgData = "";
-     res.render('pages/image-test', dataDict);
-   }
-   else {
-
-     console.log("Image processing ok, filename="+uploadedFile.originalname);
-     var dataDict =  createEJSTemplateDataDictionary(req, res);
-     dataDict.results = detections;
-     dataDict.imgData = base64ImageData;
-    //  console.log(detections);
-
-     res.render('pages/image-test', dataDict);
-   }
- });
-});
-
-
+const ImageProcessing = require('./lib/image-processing.js');
+ImageProcessing.registerEndpoints(app, upload);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
