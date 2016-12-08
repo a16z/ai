@@ -1,7 +1,7 @@
 
 # Other Areas
 
-[TODO] We have not defined what work (if any) we'll do in these areas. For now we keep these here for reference. May be removed entirely.
+## (TODO: update from other-a.md from these areas into deep learning)
 
 ## Planning and navigation
 
