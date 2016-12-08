@@ -25,3 +25,23 @@ Additionally, in every case cloud-hosted solutions are backed by open-source pro
 * _Price & Terms_. Not just for the product, but in terms of evolution. Can you start free or small and grow? Or are you forced to talk to a sales rep to run a Hello World app?
 
 * _Project activity & relevance_. How actively is it in development? How many resources are being put against it? How crucial is it for the company? E.g. for a startup that only does that it would be critical, for IBM it may be a drop in a bucket, and therefore have fewer resources against it.
+
+## Language/Platform
+
+We selected JavaScript and Node.js as language and platform respectively.
+
+Put away your pitchforks! Please.
+
+We absolutely understand JS/Node.js has its fans as well as its detractors (one needs only to look at the [ES6 Compat Table](https://kangax.github.io/compat-table/es6/) to go a little nuts), and sometimes someone can be both! What's undeniable is that JavaScript is both universally available in both clients and servers as well as being fairly well known.
+
+We love Python, Scala, Go, C, Swift, Java, Haskell, ML, Prolog, APL (well, maybe not APL.) and many other languages and environments but for most of the sample code here we'll use JavaScript.
+
+For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. This choice is also almost certainly controversial for many reasons, but hopefully we'll get over that too.
+
+## Runtime
+
+For runtime platform we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
+
+Additionally, Heroku supports multiple languages and has a free tier, which will allow people to clone, fork and run this project without problems if needed.
+
+Once again -- with all of these caveats, if there's something you feel we should take a look at, please don't hesitate to [contact us](/contact).

@@ -26,23 +26,3 @@ Before we begin, it's important to underscore the following: the fact that certa
 
 We wanted to provide real(ish)-world examples, something that was easy to understand and relate to for a lot of people. To be able to see this sample code running and have others be able to run it as well as experiment with it, and for that a web platform was a natural choice. In some cases APIs can use more advanced features for local apps (e.g. IBM's Watson support for
 Streaming Speech recognition with their [iOS SDK](https://github.com/watson-developer-cloud/ios-sdk)) but running those samples would be much more complex without providing significantly more insight for the relative added complexity.
-
-## Language/Platform
-
-We selected JavaScript and Node.js as language and platform respectively.
-
-Put away your pitchforks! Please.
-
-We absolutely understand JS/Node.js has its fans as well as its detractors, and sometimes someone can be both! What's undeniable is that JavaScript is both universally available in both clients and servers as well as being fairly well known.
-
-We love Python, Scala, Go, C, Swift, Java, Haskell, ML, Prolog, APL (well, maybe not APL.) and many other languages and environments but for most of the sample code here we'll use JavaScript.
-
-For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. This choice is also almost certainly controversial for many reasons, but hopefully we'll get over that too.
-
-## Runtime
-
-For runtime platform we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
-
-Additionally, Heroku supports multiple languages and has a free tier, which will allow people to clone, fork and run this project without problems if needed.
-
-Once again -- with all of these caveats, if there's something you feel we should take a look at, please don't hesitate to [contact us](/contact).
