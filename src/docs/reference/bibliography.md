@@ -1,6 +1,6 @@
 # Bibliography
 
-You can also download the [source bibTeX file](/docs/reference-material/a16z-ai-survey.bib).
+You can also download the [source bibTeX file](/reference-material/a16z-ai-survey.bib).
 
 
 
@@ -22,7 +22,7 @@ You can also download the [source bibTeX file](/docs/reference-material/a16z-ai-
 
 <script>
 $( document ).ready(function() {
-    $.get('/docs/reference-material/a16z-ai-survey.bib', function(data) {
+    $.get('/reference-material/a16z-ai-survey.bib', function(data) {
 
         $("#bibtex").text(data);
         bibtexify("#bibtex", "pubTable", {});
