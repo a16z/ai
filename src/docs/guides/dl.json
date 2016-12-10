@@ -1,4 +1,4 @@
 {
     "prev" : {"url" : "/docs/guides/patterns", "name" : "Patterns and Classification"},
-    "next" : {"url" : "/docs/reference/dl-supervised", "name" : "Supervised Learning"}
+    "next" : {"url" : "/docs/guides/dl-supervised", "name" : "Supervised Learning"}
 }
