@@ -1,18 +1,7 @@
 
-# Other Areas
-
-## (TODO: update from other-a.md from these areas into deep learning)
-
-## Planning and navigation
-
-How to get from A to B, "safe" routes. Multiple path selection and optimization.
-
 ## Knowledge Representation
 
-Represent information about the world in actionable, and to whatever
-degree possible, "objective," form, so that systems can reason about it.
-
-For example: "The sky is blue" is neither actionable nor objective. "The
+Knowledge Representation aims to codify information about the world in actionable, and to whatever degree possible, "objective," form, so that systems can reason about it. For example: "The sky is blue" is neither actionable nor objective. "The
 sky's color is identified by humans as blue'." is a bit better. But
 still leaves out a lot of ideas (what's a color, what's a human, etc.)
 
@@ -29,17 +18,8 @@ Even when using knowledge-based or expert systems, some tasks require a differen
    <footer>Frank Rosenblatt in <cite title="The perceptron, a perceiving and recognizing automaton">The perceptron, a perceiving and recognizing automaton</cite>, 1957.</footer>
 </blockquote>
 
-Recognizing patterns (which does not imply _understanding_ of the patterns
-that are recognized) is a critical component of intelligent systems, and was recognized as such early on.
+Recognizing patterns (which does not imply _understanding_ of the patterns that are recognized) is a critical component of intelligent systems, and was recognized as such early on.
 
-Pattern recognition deals with the classification and correlation of data,
-irrespective (as opposed to regardless) of its meaning. Classification can occur based on previously defined categories presented
-to the computer system as a _training set_, in which case it is
-called _supervised learning_. If no training set is provided
-it's called _unsupervised learning_ and the system defines patterns
-by itself--the _meaning_ of those patterns is an entirely different
-matter.
+Pattern recognition deals with the classification and correlation of data, irrespective (as opposed to regardless) of its meaning. Classification can occur based on previously defined categories presented to the computer system as a _training set_, in which case it is called _supervised learning_. If no training set is provided it's called _unsupervised learning_ and the system defines patterns by itself--the _meaning_ of those patterns is an entirely different matter.
 
-This field, in particular that of neural networks, has been at the center
-of a quantitative leap in pattern recognition, classification, and related
-tasks, with a set of techniques commonly referred to as Deep Learning.
+This field, in particular that of neural networks, has been at the center of a quantitative leap in pattern recognition, classification, and related tasks, with a set of techniques commonly referred to as Deep Learning.
