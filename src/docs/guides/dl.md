@@ -9,11 +9,21 @@ In recent years, however, a new term, "Deep Learning" has taken hold. It general
 
 # Deep Learning
 
-According to [Wikipedia](https://en.wikipedia.org/wiki/Deep_learning):
-
-> Deep learning (also known as deep structured learning, hierarchical learning or deep machine learning) is a branch of machine learning based on a set of algorithms that attempt to model high level abstractions in data by using a deep graph with multiple processing layers, composed of multiple linear and non-linear transformations
-
 And what is a Neural Network? There are different ways of looking at them, as mechanisms that, by looking at data, "learn" complex functions that can result in that dataset and be predictive of other values. At the most basic level, neural networks _transform_: inputs in one dataspace into outputs in another.
+
+It's important to keep in mind that Neural Networks (NNs) in computer science are modeled (or "inspired") on biological neural networks but they don't "copy" biological networks except in relatively abstract terms of processing, dataflow, or (sometimes) topology. Software NNs include nodes, "neurons" that are connected and therefore can send simple messages to each other. These messages are numerical values that, as they are processed by each node/neuron, move "forward" through the network, changing. When the network is asked to solve a certain type of problem, or "learn" some sort of pattern, the network processes data repeatedly, thousands or millions of times, each time adjusting processing nodes and coming closer to the desired result.
+
+
+## Why "Deep"
+
+Jeff Dean (from Google) [echoes the idea](https://youtu.be/QSaZGT4-6EY?t=315) during a talk earlier this year: "Large-Scale Deep Learning for Intelligent Computer Systems" and [adds](https://youtu.be/QSaZGT4-6EY?t=561):
+
+> "Deep refers to the number of layers [...]. I think of them as deep neural networks generally.""
+
+This is a common definition of what 'deep learning' stands for -- a modern and powerful set of techniques for training neural networks.
+
+A great resource on this topic is the online book/website [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) by Michael Nielsen.
+
 
 # What's New, What Isn't
 
@@ -27,13 +37,6 @@ Prof Geoff Hinton (Google and University of Toronto) discussed why previous appr
 
 The difference in scale, and specifically the number of processing layers that enabled, is where the 'deep' of 'deep learning' comes into play.
 
-## Why "Deep"
-
-Jeff Dean (from Google) [echoes the idea](https://youtu.be/QSaZGT4-6EY?t=315) during a talk earlier this year: "Large-Scale Deep Learning for Intelligent Computer Systems" and [adds](https://youtu.be/QSaZGT4-6EY?t=561):
-
-> "Deep refers to the number of layers [...]. I think of them as deep neural networks generally.""
-
-This is the most common definition of what 'deep learning' stands for.
 
 ## Ways In Which Machines Learn
 
