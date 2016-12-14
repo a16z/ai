@@ -6,3 +6,9 @@
 * Prof. Geoff Hinton [Deep Learning](https://youtu.be/VhmE_UXDOGs), Singularity Lectures July 2016.
 * [Deep Learning and Understandability versus Software Engineering and Verification](https://www.youtube.com/watch?v=X769cyzBNVw), Peter Norvig, 2016.
 * [Accelerating Understanding: Deep Learning, Intelligent Applications, and GPUs](https://www.youtube.com/watch?v=Qk4SqF9FT-M). The Institute for Scientific Computing Research (ISCR) sponsored this talk entitled "Deep Learning" on April 16, 2015, at the Lawrence Livermore National Laboratory. The talk was presented by Yann LeCun, director of AI research at Facebook and professor of data science, computer science, neural science and electrical engineering at NYU.
+
+
+# Tutorials
+
+[Get Started](https://www.tensorflow.org/get_started/) and [Tutorials](https://www.tensorflow.org/tutorials/) from tensorflow.org
+* [Deep Learning for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/) a Google Codelab, originally developed by [Peter Warden](https://petewarden.com/2016/02/28/tensorflow-for-poets/)
