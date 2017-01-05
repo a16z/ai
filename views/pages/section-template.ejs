@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+    <% include ../partials/nav.ejs %>
+    <% include ../partials/banner.ejs %>
+
+    <% if (hasBreadcrumbs) { %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
+            <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
+        </ol>
+    <% } %>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+              <%- markdownContent %>
+          </div>
+        </div>
+    </div>
+
+    <% if (hasBreadcrumbs) { %>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
+            <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
+        </ol>
+    <% } %>
+
+</body>
+</html>

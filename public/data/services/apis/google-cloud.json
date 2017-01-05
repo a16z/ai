@@ -1,0 +1,10 @@
+{
+    "id" : "google-cloud",
+    "provider": "Google",
+    "name": "Google Cloud APIs",
+    "providerUrl": "https://cloud.google.com",
+    "consoleUrl": "https://console.cloud.google.com/",
+    "officialGithubURL": "https://github.com/GoogleCloudPlatform/google-cloud-node",
+    "unofficialGithubURL": "",
+    "description": "Cloud Machine Learning API (https://cloud.google.com/natural-language/docs/)."
+}

@@ -1,0 +1,211 @@
+{
+
+  "dataSets": [
+
+    {
+      "id": "stanford-mobile-visual",
+      "name": "Stanford Mobile Visual Search Dataset",
+      "description": "This dataset includes query and reference images for: (1) CDs, (2) DVDs, (3) books, (4) video clips, (5) landmarks, (6) business cards, (7) text documents, (8) paintings. The format is exactly as described in our 2011 ACM Multimedia Systems paper.",
+      "organization": "Stanford",
+      "lastUpdated": "",
+      "createdOn": "2013",
+      "contributors": [
+        "Chandrasekhar, Vijay", "Chen, David", "Tsai, Sam", "Cheung, Ngai-Man", "Chen, Huizhong", "Takacs, Gabriel", "Reznik, Yuriy", "Vedantham, Ramakrishna", "Grzeszczuk, Radek", "Bach, Jeff", "Girod, Bernd"
+      ],
+      "url": "https://purl.stanford.edu/rb470rw0983",
+      "type": "image"
+    },
+    {
+      "id": "mnist",
+      "name": "MNIST",
+      "description": "handwritten digits",
+      "organization": "Cornell",
+      "lastUpdated": "",
+      "createdOn": "Unknown",
+      "contributors": [
+        "Yann Lecun"
+      ],
+      "url": "http://yann.lecun.com/exdb/mnist/",
+      "type": "image"
+    },
+    {
+      "id": "caltech-vision",
+      "name": "Caltech Vision Datasets",
+      "description": "Includes images by categories",
+      "organization": "Caltech",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "http://www.vision.caltech.edu/Image_Datasets/",
+      "type": "image"
+    },
+
+    {
+      "id": "stl-10",
+      "basedOn": "cifar-10",
+      "name": "STL-10",
+      "description": "Images. based on CIFAR-10.",
+      "organization": "Stanford",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "https://cs.stanford.edu/~acoates/stl10/",
+      "type": "image"
+    },
+
+    {
+      "id": "cifar-10",
+      "name": "CIFAR-10 ",
+      "description": "Based on MIT's 80 MM images",
+      "organization": "University of Toronto",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "http://www.cs.toronto.edu/~kriz/cifar.html",
+      "type": "image"
+    },
+
+    {
+      "id": "mit-80mm",
+      "name": "80mm ",
+      "description": "80 Million Images",
+      "organization": "MIT",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "http://groups.csail.mit.edu/vision/TinyImages/",
+      "type": "image"
+    },
+
+    {
+      "id": "mit-labelme",
+      "name": "Labelme",
+      "description": "labelme",
+      "organization": "MIT",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "http://labelme.csail.mit.edu/Release3.0/browserTools/php/dataset.php",
+      "type": "image"
+    },
+
+    {
+      "id": "imagenet",
+      "name": "ImageNet",
+      "description": "join effort, open/public dataset.",
+      "organization": "Stanford, Princeton",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "http://www.image-net.org",
+      "type": "image"
+    },
+
+    {
+      "id": "pvoc-oxford",
+      "name": "Pascal VOC",
+      "description": "http://host.robots.ox.ac.uk/pascal/VOC/",
+      "organization": "Oxford University",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Unknown"
+      ],
+      "url": "http://www.image-net.org",
+      "type": "image"
+    },
+    {
+      "id": "movie-dialogs",
+      "name": "Cornell Movie Dialogs Corpus",
+      "description": "This corpus contains a large metadata-rich collection of fictional conversations extracted from raw movie scripts.",
+      "organization": "Cornell",
+      "lastUpdated": "",
+      "createdOn": "",
+      "contributors": [
+        "Cristian Danescu-Niculescu-Mizil"
+      ],
+      "url": "https://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html",
+      "type": "text"
+    },
+    {
+      "id": "reuters",
+      "name": "Reuters Corpora (RCV1, RCV2, TRC2)",
+      "description": "In 2000, Reuters Ltd made available a large collection of Reuters News stories for use in research and development of natural language processing, information retrieval, and machine learning systems. This corpus, known as 'Reuters Corpus, Volume 1' or RCV1, is significantly larger than the older, well-known Reuters-21578 collection heavily used in the text classification community. In Fall of 2004, NIST took over distribution of RCV1 and any future Reuters Corpora. You can now get these datasets by sending a request to NIST and by signing the agreements below.",
+      "organization": "NIST/Reuters",
+      "lastUpdated": "2004",
+      "createdOn": "2000",
+      "contributors": [
+        "Various"
+      ],
+      "url": "http://trec.nist.gov/data/reuters/reuters.html",
+      "type": "text"
+    },
+    {
+      "id": "penn-hub4",
+      "name": "English Broadcast News Speech (HUB4)",
+      "description": "The 1996 Broadcast News Speech Corpus contains a total of 104 hours of broadcasts from ABC, CNN and CSPAN television networks and NPR and PRI radio networks with corresponding transcripts. The primary motivation for this collection is to provide training data for the DARPA 'HUB4' Project on continuous speech recognition in the broadcast domain.",
+      "organization": "Johns Hopkins, Upenn",
+      "lastUpdated": "1996",
+      "createdOn": "1996",
+      "contributors": [
+        "Graff, David, et al."
+      ],
+      "url": "https://catalog.ldc.upenn.edu/LDC97S44",
+      "type": "text"
+    },
+    {
+
+        "id": "mdsdset2",
+        "name": "Multi-Domain Sentiment Dataset (version 2.0)",
+        "description": "The Multi-Domain Sentiment Dataset contains product reviews taken from Amazon.com from many product types (domains). Some domains (books and dvds) have hundreds of thousands of reviews. Others (musical instruments) have only a few hundred. Reviews contain star ratings (1 to 5 stars) that can be converted into binary labels if needed. This page contains some descriptions about the data. If you have questions, please email Mark Dredze or John Blitzer.",
+        "organization": "Johns Hopkins, Upenn",
+        "lastUpdated": "2007",
+        "createdOn": "2009",
+        "contributors": [
+          "John Blitzer, Mark Dredze, et al."
+        ],
+        "url": "https://catalog.ldc.upenn.edu/LDC97S44",
+        "type": "text"
+      },
+      {
+
+          "id": "movielens",
+          "name": "MovieLens",
+          "description": "GroupLens Research has collected and made available rating data sets from the MovieLens web site (http://movielens.org). The data sets were collected over various periods of time, depending on the size of the set. Before using these data sets, please review their README files for the usage licenses and other details.",
+          "organization": "University of Minnesota",
+          "lastUpdated": "2011",
+          "createdOn": "2016",
+          "contributors": [
+            ""
+          ],
+          "url": "http://grouplens.org/datasets/movielens/",
+          "type": "text"
+        },
+        {
+
+            "id": "book-xing-freiburg",
+            "name": "Book-Crossing Dataset",
+            "description": "Collected by Cai-Nicolas Ziegler in a 4-week crawl (August / September 2004) from the Book-Crossing community with permission. Contains 278,858 users (anonymized but with demographic information) providing 1,149,780 ratings (explicit / implicit) about 271,379 books.",
+            "organization": "University of Minnesota",
+            "lastUpdated": "2004",
+            "createdOn": "2004",
+            "contributors": [
+              "Cai-Nicolas Ziegler"
+            ],
+            "url": "http://trec.nist.gov/data/reuters/reuters.html",
+            "type": "text"
+          }
+  ]
+}

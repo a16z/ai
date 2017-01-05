@@ -1,0 +1,10 @@
+{
+    "id" : "ms-azure",
+    "provider": "Microsoft",
+    "name": "Microsoft Azure Cognitive Services",
+    "providerUrl": "https://azure.microsoft.com/en-us/services/cognitive-services/",
+    "consoleUrl": "https://portal.azure.com/",
+    "officialGithubURL": "",
+    "unofficialGithubURL": "https://github.com/joshbalfour/node-cognitive-services",
+    "description": "Allow your apps to process natural language, evaluate sentiment and topics, and learn how to recognize what users want.."
+}

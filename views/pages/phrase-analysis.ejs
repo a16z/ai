@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/header.ejs %>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+
+<% include ../partials/nav.ejs %>
+
+<div class="container">
+  <br/>
+  <h2 id="api-service-title"></h2>
+  <br>
+  <p>Greetings human. <span id="api-service-desc"></span></p>
+  <br/>
+  <form id="analysisForm">
+
+                <fieldset>
+                  <legend style="font-size: 95%;">Select a sample sentence/paragraph or enter one in the field below</legend>
+                  <p style="margin-left:2.5em;" id="formSampleFields">
+                </p>
+              </fieldset>
+              <br><textarea cols="60" rows="4" wrap="true" name="phrase"></textarea>
+<div class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>"></div>
+              <br/>
+
+                  <!-- <INPUT type="text" name="phrase"> -->
+    <input id="sendPhrase" type="submit" value="Analyze">
+  </form>
+<br/><br/>
+  <div id="resultsDiv">
+  </div>
+  <br/>
+  <br/>
+  <div id="resultsNotes" class='alert alert-info text-left start-hidden' role='alert'>
+    <p><b>Notes</b></p>
+    <ul>
+      <li>Results are loaded asynchronously for each service.</li>
+      <li>Click on <i>API Name</i> to see the raw JSON API response.</li>
+      <li><i>Result</i> is an attempt combined and normalized measure to compare results. However, please note that the API results have varying ranges and accuracy, so refer to the actual API JSON response for a more detailed comparison.</li>
+      <li><i>Total request time</i> (milliseconds) is the roundtrip time for the call from client to server, and includes the API time.</li>
+      <li><i>API Time</i> (milliseconds) is the server-side roundtrip time for the API call, and as such a more accurate measure of API performance.</li>
+    </ul>
+  </div>
+
+</div>
+
+
+<script>
+var spinnerHTML = "<div class='rect1'></div> <div class='rect2'> </div> <div class='rect3'></div> <div class='rect4'></div> <div class='rect5'></div>";
+
+function toggleVisibleRow(divname) {
+  // console.log("div = "+divname);
+  var divRefNameClick = divname+"-click";
+  var divRefNameArrow = divname+"-arrow";
+  var divJsonName = divname+"-json";
+
+  $("#table-centered ."+divJsonName).toggle();
+  var isJSONVisible = $("#table-centered ."+divJsonName).is(':visible');
+
+  //if JSON is now visible then we have to switch the arrow from pointing left to pointing down
+  var currentClass = isJSONVisible ? "glyphicon-triangle-right" : "glyphicon-triangle-bottom";
+  var newClass = isJSONVisible ? "glyphicon-triangle-bottom" : "glyphicon-triangle-right";
+
+  $("#table-centered #"+divRefNameArrow).removeClass(currentClass).addClass(newClass);
+}
+
+function insertTextSamples(apiServiceInfo) {
+  var presetValues = apiServiceInfo.testSamples;
+  for (i in presetValues) {
+    var preset = presetValues[i];
+    var presetValue = preset.value;
+    var presetDisplayText = (preset.displayText != undefined) ? preset.displayText : presetValue;
+    var text = "<input type='radio' name='presetPhrase' value='"+presetValue+"'><span style='font-size: 95%;'>";
+    text += "&nbsp;&nbsp;&ldquo;"+presetDisplayText+"&rdquo;</span><br/>";
+    $("#formSampleFields").append(text) ;
+  }
+
+
+  var rad = $("#analysisForm").find("input[name='presetPhrase']");
+
+  jQuery.each(rad, function (idx, field) {
+      field.onclick = function() {
+        $("#analysisForm").find("textarea[name='phrase']").val(field.value);
+      }
+  });
+}
+
+var apiList = <%- JSON.stringify(apiEndpoints) %>;
+var apiServiceInfo = <%- JSON.stringify(apiServiceInfo) %>;
+
+$(document).ready(function() {
+
+    $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+    $("#api-service-title").html(apiServiceInfo.name);
+
+    $("#api-service-desc").text(apiServiceInfo.description);
+
+    if (apiServiceInfo.contentType == 'text') {
+      insertTextSamples(apiServiceInfo);
+    }
+});
+
+$( "#analysisForm" ).submit(function( event ) {
+
+  // Stop form from submitting normally
+  event.preventDefault();
+
+  var $form = $(this);
+  var phraseField = $form.find( "textarea[name='phrase']" );
+  var gRecaptchaResponse = $("#g-recaptcha-response").val();
+
+
+  var phraseFieldContents = phraseField.val();
+  if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
+    //todo add error msg.
+    console.log("Text empty or undefined.");
+    alert("Weird. No text detected.");
+    return;
+  }
+  phraseFieldContents = phraseFieldContents.trim();
+
+  $("#resultsDiv").empty();
+  const resultsNotesDiv = $("#resultsNotes");
+  if (resultsNotesDiv.is(':visible')) { //at the beginning the div is hidden, so we don't toggle it
+    resultsNotesDiv.fadeToggle(100);
+  }
+
+  // phraseField.val("");
+  var resultText = " ";
+
+  resultText += "<p><b>Text</b> <div class='alert alert-info text-center' role='alert'><i>&#8220;"+phraseFieldContents+"&#8221;</i></div><BR>";
+  resultText += "<b>Scores</b><br>";
+  resultText += "<table id='table-centered'>";
+  resultText += "<thead>";
+  resultText += "<tr style='border-bottom: 1px solid #444; padding-top: 3px; padding-bottom: 2px;'>";
+  resultText += "<td width='30%' style='text-align:center; font-size:90%; font-weight: bold;'>API Name</td>";
+  resultText += "<td width='30%' style='text-align:center; font-size:90%; font-weight: bold;'>Result</td>";
+  resultText += "<td width='20%' style='text-align:center; font-size:90%; font-weight: bold;'>Total request time</td>";
+  resultText += "<td width='20%' style='text-align:center; font-size:90%; font-weight: bold;'>API Time</td>";
+  resultText += "</tr>";
+  resultText += "</thead>";
+  resultText += "<tbody>";
+
+
+    for (key in apiList) {
+      //necessary since ajax async calls defer and you end up having variables overwritten is used within the same context
+      (function (position) {
+        var apiInfo = apiList[position];
+
+        // $.post(endpointPath.url, {phrase: phraseFieldContents});
+        var divname = apiInfo.api.id;
+        var divRefName = "#"+divname;
+        var divRefTotalTimeName = "#"+divname+"-tt";
+        var divRefAPITimeName = "#"+divname+"-ta";
+        var divRefTooltipName = "#"+divname+"-tc";
+
+        var divJsonName = divname+"-json";
+        var divJsonNameData = divname+"-json-data";
+        var divRefNameClick = divname+"-click";
+        var divRefNameArrow = divname+"-arrow";
+
+        //we will use a random spinner time to avoid super-fast 'flashing' of the spinner. So the data will never appear faster than randonWait msec
+        var randomWait = 1000 + (Math.random() * 1000);
+        var sendDate = (new Date()).getTime();
+
+        rowText = "";
+        rowText += "<TR style='border-bottom: 1px solid #ddd; line-height: 32px;'><TD width='40%' style='text-align:left; font-size:80%;'><span id='"+divRefNameArrow+"' class='glyphicon glyphicon-triangle-right' aria-hidden='true'></span> <span class='"+divRefNameClick+" hoverArea'>"+apiInfo.api.name+"</span> </TD>";
+        rowText += "<TD width='30%' style='text-align:center; font-size:80%;'><span id='"+divname+"' class='spinner'>"+spinnerHTML+"</span></TD>";
+        rowText += "<TD width='15%' style='text-align:center; font-size:80%;'><span id='"+divname+"-tt'></span></TD>";
+        rowText += "<TD width='15%' style='text-align:center; font-size:80%;'><span id='"+divname+"-ta'></span></TD></TR>";
+        rowText += "<tr class='"+divJsonName+"' style='display:none;'><td colspan='4'><pre id='"+divJsonNameData+"'>loading...</pre></td></tr>";
+
+        resultText += rowText;
+
+        // console.log("calling "+apiInfo.url);
+
+        $.ajax({
+          type: "POST",
+          async: true,
+          dataType: "json",
+          url: apiInfo.url,
+          data: {phrase: phraseFieldContents, gRecaptchaResponse: gRecaptchaResponse}
+
+        }).done(function(data) {
+          console.log("done in post ("+position+") "+apiInfo.url);
+          var receiveDate = (new Date()).getTime();
+          var responseTimeMs = receiveDate - sendDate;
+
+          sleep(randomWait).then(() => {
+            $(divRefName).removeClass("spinner");
+
+            $(divRefName).empty().append(""+data.result.score);
+
+            $(divRefTotalTimeName).empty().append(""+responseTimeMs);
+            $(divRefAPITimeName).empty().append(""+data.apiTime);
+
+            $("#table-centered ."+divRefNameClick).click(function () {
+              toggleVisibleRow(divname);
+            });
+            $("#table-centered #"+divRefNameArrow).click(function () {
+              toggleVisibleRow(divname);
+            });
+
+            var resultObj = JSON.stringify(data.serverResponse, null, 4);
+            var str = syntaxHighlight(resultObj);
+
+            $("#"+divJsonNameData).html(str);
+          })
+
+        }).fail(function(data) {
+          console.log("error in post");
+          var receiveDate = (new Date()).getTime();
+          var responseTimeMs = receiveDate - sendDate;
+
+          $(divRefName).removeClass("spinner");
+          $(divRefName).empty().append("Error, api="+JSON.stringify(endpointPath)+" / data="+JSON.stringify(data)+" / Total time = "+responseTimeMs);
+
+
+        });
+      })(key);
+    }
+
+    resultText += "</tbody>";
+    resultText += "</table>";
+    $("#resultsDiv").append(resultText) ;
+    resultsNotesDiv.fadeToggle(100);
+
+});
+
+
+   </script>
+
+</body>
+</html>

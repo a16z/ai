@@ -1,0 +1,220 @@
+/*
+.jumbotron {
+  background: #532F8C;
+  color: white;
+  padding-bottom: 80px;
+}
+.jumbotron .btn-primary {
+  background: #845ac7;
+  border-color: #845ac7;
+}
+.jumbotron .btn-primary:hover {
+  background: #7646c1;
+}
+.jumbotron p {
+  color: #d9ccee;
+  max-width: 75%;
+  margin: 1em auto 2em;
+}
+.navbar+.jumbotron {
+  margin-top: -20px;
+}
+.jumbotron .lang-logo {
+  display: block;
+  background: #B01302;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border: 2px solid white;
+}
+.jumbotron .lang-logo img {
+  max-width: 100%;
+}
+.card-border {
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  border: 1px solid rgba(0, 0, 0, .125)
+}*/
+
+.roundedImage100 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.roundedImage32 {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+.roundedImage64 {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+.circle-container {
+  position: absolute;
+  visibility: visible;
+  left: 10px;
+  top: 10px;
+  z-index: 10000;
+}
+.start-hidden {
+  display: none;
+}
+.borderless {
+  border: none;
+  border: 0;
+}
+.white-border {
+  border: 1px solid white;
+}
+.blue-border {
+  border: 1px solid #0e7796;
+}
+
+table#table-centered.td {
+  margin: 5px 5px 5px 5px;
+}
+table#table-centered {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  table-layout: fixed;
+  width: 750px;
+}
+
+
+.resultContainer {
+    width:100%;
+    border:1px solid #d3d3d3;
+}
+.resultContainer div {
+    width:100%;
+}
+.resultContainer .header {
+    background-color:#d3d3d3;
+    padding: 2px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.resultContainer .content {
+    display: none;
+    padding : 5px;
+}
+
+.hoverArea {
+  cursor: pointer;
+  color: blue;
+  background: white;
+
+
+}
+.hoverArea:hover {background: blue; color: white}
+
+
+.mini-text {
+  font-size: 60%;
+}
+.spinner {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 10px;
+  width: 50px;
+  height: 25px;
+  text-align: center;
+  font-size: 8px;
+}
+.spinner>div {
+  background-color: #666;
+  height: 100%;
+  width: 6px;
+  display: inline-block;
+  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+.spinner .rect2 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s;
+}
+.spinner .rect3 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+.spinner .rect4 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s;
+}
+.spinner .rect5 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+@-webkit-keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    -webkit-transform: scaleY(0.4)
+  }
+  20% {
+    -webkit-transform: scaleY(1.0)
+  }
+}
+@keyframes sk-stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+    -webkit-transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1.0);
+    -webkit-transform: scaleY(1.0);
+  }
+}
+
+.pickerImage {
+  width: 120px;
+}
+
+.pickedImage {
+  width: 200px;
+  border: 1px solid #999;
+}
+
+/** pretty formatting of <pre> sections*/
+pre {
+  color: gray;
+  outline: 1px solid #aaa;
+  padding: 5px; margin: 5px;
+  text-align: left;
+}
+
+.string {
+  color: rgb(0, 80, 0);
+}
+
+.number {
+  color: rgb(144, 79, 0);
+}
+
+.boolean {
+  color: rgb(0, 0, 215);
+}
+
+.null {
+  color: rgb(183, 0, 183);
+}
+
+.key {
+  color: rgb(197, 0, 0);
+}
+
+/*glow a div*/
+.confirm_selection {
+    -webkit-animation: glow .5s infinite alternate;
+}
+
+@-webkit-keyframes glow {
+    to {
+        text-shadow: 0 0 10px blue;
+    }
+}

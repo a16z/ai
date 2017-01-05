@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+  <% include ../partials/banner.ejs %>
+
+<div class="container">
+  <% if (session.signedIn) { %>
+
+    <h1>Contact us</h1>
+    <p>Email, twitter, signal fire, others?</p>
+    
+  <% } else { %>
+    <p>Move along, nothing to see here. <a href="/login">Try logging in!</a></p>
+  <% } %>
+</div>
+
+
+</body>
+</html>

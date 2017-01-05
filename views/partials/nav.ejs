@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default navbar-static-top navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li <% if (activeRoute == "" || activeRoute == "/") { %> class="active" <% } %> >
+        <!-- <a href="/"><span class="glyphicon glyphicon-home"></span></a> -->
+        <div class='circle-container'>
+            <a href='/' class='center'><div class="roundedImageContainer"><img class="roundedImage64" src="/main-image.png"/></div></a>
+        </div>
+
+      </li>
+    </ul>
+    <% if (session.signedIn) { %>
+        <p class="navbar-text" style="margin-left: 96px;">The 2016 <a href="http://a16z.com" target="_blank">a16z</a> AI Survey</p>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-right">
+        <a href="/logout">Sign out</a>
+      </li>
+    </ul>
+    <% } %>
+  </div>
+</nav>

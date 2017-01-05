@@ -1,0 +1,505 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F12A21971E118FB900C05219 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A21961E118FB900C05219 /* AppDelegate.swift */; };
+		F12A21991E118FB900C05219 /* CueCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12A21981E118FB900C05219 /* CueCardViewController.swift */; };
+		F12A219C1E118FB900C05219 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12A219A1E118FB900C05219 /* Main.storyboard */; };
+		F12A21A11E118FB900C05219 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12A219F1E118FB900C05219 /* LaunchScreen.storyboard */; };
+		F12A21A61E11905800C05219 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1BAE0ED1E0AFD00002AA857 /* Images.xcassets */; };
+		F12A21A71E1190A900C05219 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A90A1E09F48B00B7F653 /* CoreGraphics.framework */; };
+		F12A21A81E1190A900C05219 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A90B1E09F48B00B7F653 /* CoreImage.framework */; };
+		F12A21A91E1190A900C05219 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A90C1E09F48B00B7F653 /* CoreLocation.framework */; };
+		F12A21AA1E1190A900C05219 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A90D1E09F48B00B7F653 /* CoreMedia.framework */; };
+		F12A21AB1E1190A900C05219 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A90E1E09F48B00B7F653 /* CoreMotion.framework */; };
+		F12A21AC1E1190A900C05219 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A9081E09F46900B7F653 /* UIKit.framework */; };
+		F12A21AD1E1190A900C05219 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A9041E09F45800B7F653 /* Accelerate.framework */; };
+		F12A21AE1E1190A900C05219 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1C5A9051E09F45800B7F653 /* AVFoundation.framework */; };
+		F12A21AF1E1190A900C05219 /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591D3EDD1CFFAD230059011C /* libprotobuf-lite.a */; };
+		F12A21B01E1190A900C05219 /* libprotobuf.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 591D3EDE1CFFAD230059011C /* libprotobuf.a */; };
+		F12A21B11E1190A900C05219 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592FF8B818ECBD7600C164F8 /* Foundation.framework */; };
+		F12A21B21E1190A900C05219 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 592FF8BA18ECBD7600C164F8 /* CoreGraphics.framework */; };
+		F12A21B51E11941D00C05219 /* tensorflow_utils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 591D3ED31CFF85FD0059011C /* tensorflow_utils.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F1751AB01E11C4F400ADBB3E /* graph_label_strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 591D3ED81CFFA83A0059011C /* graph_label_strings.txt */; };
+		F1751AB11E11C4F400ADBB3E /* graph.pb in Resources */ = {isa = PBXBuildFile; fileRef = 591D3ED91CFFA83A0059011C /* graph.pb */; };
+		F1B3A0F11E1336CF00E99F1B /* TensorFlowProcessor.mm in Sources */ = {isa = PBXBuildFile; fileRef = F1B3A0EF1E1336CF00E99F1B /* TensorFlowProcessor.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F15F4B501E1ECE5D004288F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		591D3ED31CFF85FD0059011C /* tensorflow_utils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tensorflow_utils.mm; sourceTree = SOURCE_ROOT; };
+		591D3ED41CFF85FD0059011C /* tensorflow_utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tensorflow_utils.h; sourceTree = SOURCE_ROOT; };
+		591D3ED81CFFA83A0059011C /* graph_label_strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = graph_label_strings.txt; sourceTree = "<group>"; };
+		591D3ED91CFFA83A0059011C /* graph.pb */ = {isa = PBXFileReference; lastKnownFileType = file; path = graph.pb; sourceTree = "<group>"; };
+		591D3EDD1CFFAD230059011C /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "lib/libprotobuf-lite.a"; sourceTree = "<group>"; };
+		591D3EDE1CFFAD230059011C /* libprotobuf.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libprotobuf.a; path = lib/libprotobuf.a; sourceTree = "<group>"; };
+		592FF8B818ECBD7600C164F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		592FF8BA18ECBD7600C164F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		F12A21941E118FB900C05219 /* CueCardAI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CueCardAI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F12A21961E118FB900C05219 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F12A21981E118FB900C05219 /* CueCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CueCardViewController.swift; sourceTree = "<group>"; };
+		F12A219B1E118FB900C05219 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F12A21A01E118FB900C05219 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F12A21A21E118FB900C05219 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1B3A0EE1E1336CF00E99F1B /* TensorFlowProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TensorFlowProcessor.h; sourceTree = SOURCE_ROOT; };
+		F1B3A0EF1E1336CF00E99F1B /* TensorFlowProcessor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TensorFlowProcessor.mm; sourceTree = SOURCE_ROOT; };
+		F1B3A0F21E13378D00E99F1B /* CueCard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CueCard-Bridging-Header.h"; sourceTree = "<group>"; };
+		F1BAE0ED1E0AFD00002AA857 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = CueCard/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		F1C5A9041E09F45800B7F653 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A9051E09F45800B7F653 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A9081E09F46900B7F653 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A90A1E09F48B00B7F653 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A90B1E09F48B00B7F653 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreImage.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A90C1E09F48B00B7F653 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreLocation.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A90D1E09F48B00B7F653 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		F1C5A90E1E09F48B00B7F653 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F12A21911E118FB900C05219 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12A21A71E1190A900C05219 /* CoreGraphics.framework in Frameworks */,
+				F12A21A81E1190A900C05219 /* CoreImage.framework in Frameworks */,
+				F12A21A91E1190A900C05219 /* CoreLocation.framework in Frameworks */,
+				F12A21AA1E1190A900C05219 /* CoreMedia.framework in Frameworks */,
+				F12A21AB1E1190A900C05219 /* CoreMotion.framework in Frameworks */,
+				F12A21AC1E1190A900C05219 /* UIKit.framework in Frameworks */,
+				F12A21AD1E1190A900C05219 /* Accelerate.framework in Frameworks */,
+				F12A21AE1E1190A900C05219 /* AVFoundation.framework in Frameworks */,
+				F12A21AF1E1190A900C05219 /* libprotobuf-lite.a in Frameworks */,
+				F12A21B01E1190A900C05219 /* libprotobuf.a in Frameworks */,
+				F12A21B11E1190A900C05219 /* Foundation.framework in Frameworks */,
+				F12A21B21E1190A900C05219 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		591D3ED61CFFA83A0059011C /* data */ = {
+			isa = PBXGroup;
+			children = (
+				591D3ED81CFFA83A0059011C /* graph_label_strings.txt */,
+				591D3ED91CFFA83A0059011C /* graph.pb */,
+			);
+			path = data;
+			sourceTree = SOURCE_ROOT;
+		};
+		592FF8AA18ECBD3600C164F8 = {
+			isa = PBXGroup;
+			children = (
+				F12A21951E118FB900C05219 /* CueCardAI */,
+				592FF8B718ECBD7600C164F8 /* Frameworks */,
+				592FF8B618ECBD7600C164F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		592FF8B618ECBD7600C164F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F12A21941E118FB900C05219 /* CueCardAI.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		592FF8B718ECBD7600C164F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1C5A90A1E09F48B00B7F653 /* CoreGraphics.framework */,
+				F1C5A90B1E09F48B00B7F653 /* CoreImage.framework */,
+				F1C5A90C1E09F48B00B7F653 /* CoreLocation.framework */,
+				F1C5A90D1E09F48B00B7F653 /* CoreMedia.framework */,
+				F1C5A90E1E09F48B00B7F653 /* CoreMotion.framework */,
+				F1C5A9081E09F46900B7F653 /* UIKit.framework */,
+				F1C5A9041E09F45800B7F653 /* Accelerate.framework */,
+				F1C5A9051E09F45800B7F653 /* AVFoundation.framework */,
+				591D3EDD1CFFAD230059011C /* libprotobuf-lite.a */,
+				591D3EDE1CFFAD230059011C /* libprotobuf.a */,
+				592FF8B818ECBD7600C164F8 /* Foundation.framework */,
+				592FF8BA18ECBD7600C164F8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F12A21951E118FB900C05219 /* CueCardAI */ = {
+			isa = PBXGroup;
+			children = (
+				F1B3A11B1E148DF700E99F1B /* TensorFlowAPI */,
+				591D3ED61CFFA83A0059011C /* data */,
+				F12A21961E118FB900C05219 /* AppDelegate.swift */,
+				F12A21981E118FB900C05219 /* CueCardViewController.swift */,
+				F12A219A1E118FB900C05219 /* Main.storyboard */,
+				F12A219F1E118FB900C05219 /* LaunchScreen.storyboard */,
+				F12A21A21E118FB900C05219 /* Info.plist */,
+				F1B3A0F21E13378D00E99F1B /* CueCard-Bridging-Header.h */,
+				F1BAE0ED1E0AFD00002AA857 /* Images.xcassets */,
+			);
+			path = CueCardAI;
+			sourceTree = "<group>";
+		};
+		F1B3A11B1E148DF700E99F1B /* TensorFlowAPI */ = {
+			isa = PBXGroup;
+			children = (
+				591D3ED31CFF85FD0059011C /* tensorflow_utils.mm */,
+				591D3ED41CFF85FD0059011C /* tensorflow_utils.h */,
+				F1B3A0EE1E1336CF00E99F1B /* TensorFlowProcessor.h */,
+				F1B3A0EF1E1336CF00E99F1B /* TensorFlowProcessor.mm */,
+			);
+			name = TensorFlowAPI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F12A21931E118FB900C05219 /* CueCardAI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F12A21A31E118FB900C05219 /* Build configuration list for PBXNativeTarget "CueCardAI" */;
+			buildPhases = (
+				F15F4B511E1ECE74004288F8 /* Extract ZIP files */,
+				F15F4B501E1ECE5D004288F8 /* CopyFiles */,
+				F12A21901E118FB900C05219 /* Sources */,
+				F12A21911E118FB900C05219 /* Frameworks */,
+				F12A21921E118FB900C05219 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CueCardAI;
+			productName = CueCardAI;
+			productReference = F12A21941E118FB900C05219 /* CueCardAI.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		592FF8AB18ECBD3600C164F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				TargetAttributes = {
+					F12A21931E118FB900C05219 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 596FA9S4A7;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 592FF8AE18ECBD3600C164F8 /* Build configuration list for PBXProject "CueCard" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 592FF8AA18ECBD3600C164F8;
+			productRefGroup = 592FF8B618ECBD7600C164F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F12A21931E118FB900C05219 /* CueCardAI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F12A21921E118FB900C05219 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12A21A11E118FB900C05219 /* LaunchScreen.storyboard in Resources */,
+				F1751AB01E11C4F400ADBB3E /* graph_label_strings.txt in Resources */,
+				F1751AB11E11C4F400ADBB3E /* graph.pb in Resources */,
+				F12A21A61E11905800C05219 /* Images.xcassets in Resources */,
+				F12A219C1E118FB900C05219 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F15F4B511E1ECE74004288F8 /* Extract ZIP files */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Extract ZIP files";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TENSORFLOW_STATIC_LIB=${PROJECT_DIR}/lib/libtensorflow-core.a\nTENSORFLOW_GRAPH_DATA=${PROJECT_DIR}/data/graph.pb\n\nif [ ! -f $TENSORFLOW_STATIC_LIB ]; then\necho \"Tensorflow static lib not found! Extracting...\"\necho $TENSORFLOW_STATIC_LIB\nunzip $TENSORFLOW_STATIC_LIB -d ${PROJECT_DIR}/lib/\nelse\necho \"Tensorflow static lib found.\"\nfi\n\nif [ ! -f $TENSORFLOW_GRAPH_DATA ]; then\necho \"Tensorflow graph data not found! Extracting...\"\necho $TENSORFLOW_GRAPH_DATA\nunzip $TENSORFLOW_GRAPH_DATA -d ${PROJECT_DIR}/data/\nelse\necho \"Tensorflow graph data found.\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F12A21901E118FB900C05219 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F12A21991E118FB900C05219 /* CueCardViewController.swift in Sources */,
+				F1B3A0F11E1336CF00E99F1B /* TensorFlowProcessor.mm in Sources */,
+				F12A21971E118FB900C05219 /* AppDelegate.swift in Sources */,
+				F12A21B51E11941D00C05219 /* tensorflow_utils.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F12A219A1E118FB900C05219 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F12A219B1E118FB900C05219 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F12A219F1E118FB900C05219 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F12A21A01E118FB900C05219 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		592FF8AF18ECBD3600C164F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+			};
+			name = Debug;
+		};
+		592FF8B018ECBD3600C164F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+			};
+			name = Release;
+		};
+		F12A21A41E118FB900C05219 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/include",
+					"$(PROJECT_DIR)/include",
+				);
+				INFOPLIST_FILE = CueCardAI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+					"$(SRCROOT)/lib",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(SRCROOT)/lib/libtensorflow-core.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.webelectric.CueCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = "CueCardAI/CueCard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F12A21A51E118FB900C05219 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/include",
+					"$(PROJECT_DIR)/include",
+				);
+				INFOPLIST_FILE = CueCardAI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib",
+					"$(SRCROOT)/lib",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(SRCROOT)/lib/libtensorflow-core.a",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.webelectric.CueCard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "CueCardAI/CueCard-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		592FF8AE18ECBD3600C164F8 /* Build configuration list for PBXProject "CueCard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592FF8AF18ECBD3600C164F8 /* Debug */,
+				592FF8B018ECBD3600C164F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F12A21A31E118FB900C05219 /* Build configuration list for PBXNativeTarget "CueCardAI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F12A21A41E118FB900C05219 /* Debug */,
+				F12A21A51E118FB900C05219 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 592FF8AB18ECBD3600C164F8 /* Project object */;
+}

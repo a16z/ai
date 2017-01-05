@@ -1,0 +1,6 @@
+{
+  "id": "sentiment-analysis",
+  "name" : "Phrase Sentiment Analysis",
+  "contentType" : "text",
+  "description" : "Infer sentiment behind sentences or paragraphs."
+}

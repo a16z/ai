@@ -1,0 +1,10 @@
+{
+    "id": "js-sentimental",
+    "provider": "Kevin M Roth",
+    "name": "Sentimental (node.js library)",
+    "providerUrl": "https://github.com/thinkroth/Sentimental",
+    "consoleUrl": "",
+    "officialGithubURL": "https://github.com/thinkroth/Sentimental",
+    "unofficialGithubURL": "",
+    "description": "Sentiment analysis tool for node.js based on the AFINN-111 wordlist."
+}
