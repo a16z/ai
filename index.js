@@ -95,7 +95,7 @@ app.use(function (req, res, next) {
   if (req.originalUrl != "/login"
           && req.originalUrl != "/loginCheck"
           && req.originalUrl != "/about") {
-    var signedIn = req.cookies.a16zAIKey;
+    var signedIn = req.cookies.aiKeyCheck;
 
     if (signedIn !== "ok") {
       // console.log('not signed in');
@@ -135,7 +135,7 @@ app.get('/login', function(req, res) {
 });
 
 app.get('/logout', function (req, res) {
-  res.cookie("a16zAIKey",'');
+  res.cookie("aiKeyCheck",'');
   req.session.signedIn = undefined
   req.session.loginError = undefined
   res.redirect("/");
@@ -147,7 +147,7 @@ app.post('/loginCheck', function (req, res) {
   var redirectPath = "/";
   if (secretKey == process.env.A16Z_AI_SECRET_KEY) {
     //set the cookie, redirect to /
-    res.cookie("a16zAIKey",'ok');
+    res.cookie("aiKeyCheck",'ok');
   }
   else {
     //redirect to / with an error
