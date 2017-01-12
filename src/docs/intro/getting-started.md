@@ -12,7 +12,7 @@ The same technological environment that has created the demand for intelligent s
 
 ## Why a survey?
 
-There is something different about this particular wave of innovation that sets it apart from others: new _commercial_ services of many different levels of abstraction and complexity have appeared seemingly overnight. 
+There is something different about this particular wave of innovation that sets it apart from others: new _commercial_ services of many different levels of abstraction and complexity have appeared seemingly overnight.
 
 In particular, large organizations and corporations, instead of small fast-moving startups have been frequently at the forefront of the field. New services have been released at an accelerated pace, owing in part to the fact that much of what’s “new” about AI/ML in recent years has to do as much with quantitative jumps in scale and speed as with advanced in fundamental science. Significant research and applications which for years grew quietly within both labs and garages have become both possible and necessary at roughly the same time.
 

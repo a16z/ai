@@ -1,4 +1,4 @@
 {
     "prev" : {"url" : "/docs/guides/vision", "name" : "Vision"},
-    "next" : {"url" : "/docs/guides/dl", "name" : "Deep Learning"}
+    "next" : {"url" : "/docs/guides/on-apis", "name" : "On APIs, Packaging and Complexity"}
 }
