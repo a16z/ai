@@ -19,3 +19,5 @@ In particular, large organizations and corporations, instead of small fast-movin
 This has resulted in a situation where the public at large, as well as people in technology that are not directly involved in the field, have seen complete systems “appear” out of nowhere. News stories, blog posts, books, articles, all point to step-function advancements that seem to have come without any precedent.
 
 In this context, it was our goal to create a source of information that would be useful as an introduction to the field in general, using actual services and systems available today as examples of how this technology can be leveraged across different environments. A combination that we hope can serve readers as a first step, and a guide, to delve more deeply into topics or interest or systems and services that can be relevant beyond what their creators imagined.
+
+<!-- Eyes up, Guardian. -->

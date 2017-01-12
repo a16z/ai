@@ -263,6 +263,13 @@ msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAz
 msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.msAzureLangAnalysisAPIPack, apiAddCompletion);
 
+var recastAIAPI = NXAPIPacks.connector.apiForId("recast-ai");
+recastAIAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.recastaiEntityAPIPack, apiAddCompletion);
+
+var apiAIAPI = NXAPIPacks.connector.apiForId("api-ai");
+apiAIAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.apiaiEntityAPIPack, apiAddCompletion);
+
+
 function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
   //path would end up being something like '/test/phrase/sentiment-analysis',
   const requestPath = path.join(urlPath, serviceId);

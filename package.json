@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "Sentimental": "1.0.1",
+    "apiai": "^3.0.3",
     "apicache": "^0.7.2",
     "body-parser": "1.15.2",
     "cognitive-services": "0.1.0",
@@ -31,6 +32,7 @@
     "moment": "^2.17.1",
     "multer": "1.2.0",
     "najax": "0.7.1",
+    "recastai": "^2.3.0",
     "sentiment": "2.0.0",
     "session": "0.1.0",
     "showdown": "1.5.1",

@@ -73,7 +73,7 @@ function insertTextSamples(apiServiceInfo) {
     var preset = presetValues[i];
     var presetValue = preset.value;
     var presetDisplayText = (preset.displayText != undefined) ? preset.displayText : presetValue;
-    var text = "<input type='radio' name='presetPhrase' value='"+presetValue+"'><span style='font-size: 95%;'>";
+    var text = "<input type='radio' name='presetPhrase' value=\""+presetValue+"\"><span style='font-size: 95%;'>";
     text += "&nbsp;&nbsp;&ldquo;"+presetDisplayText+"&rdquo;</span><br/>";
     $("#formSampleFields").append(text) ;
   }
