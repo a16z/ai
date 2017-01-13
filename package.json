@@ -11,6 +11,7 @@
     "apiai": "^3.0.3",
     "apicache": "^0.7.2",
     "body-parser": "1.15.2",
+    "clarifai": "^2.1.0-dev",
     "cognitive-services": "0.1.0",
     "compressible": "^2.0.9",
     "compression": "^1.6.2",

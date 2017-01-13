@@ -33,6 +33,10 @@ GOOGLE_NLP_API_KEY=<API KEY>
 GOOGLE_CLOUD_PRIVATE_KEY="<key>"
 GOOGLE_CLOUD_EMAIL="888888888-something@developer.gserviceaccount.com"
 
+# Clarifai
+CLARIFAI_CLIENT_ID=<token>
+CLARIFAI_CLIENT_SECRET=<secret>
+
 # Recast.ai
 RECAST_AI_TOKEN=<token>
 
