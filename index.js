@@ -9,7 +9,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var multer = require('multer');
-var image2json = require('./lib/nx/image2json.js');
 var util = require('util');
 var mime = require('mime');
 var compression = require('compression');
@@ -38,6 +37,7 @@ var upload = multer({ storage: storage });
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 var EntityAnalysis = require('./lib/entity-analysis.js');
 var LanguageAnalysis = require('./lib/language-analysis.js');
+var ImageAnalysis = require('./lib/image-analysis.js');
 var NXAPIPacks = require('./lib/api-connector/api-connector.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
@@ -237,28 +237,42 @@ function loadAllAPIs(rootPath) {
 loadAllAPIs('public/data/services/apis');
 
 var languageAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'language-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
+
 var entityAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'entity-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
+
 var sentimentAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'sentiment-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
+var imageAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'image-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
-NXAPIPacks.connector.apiForId("js-sentimentjs").addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentJSAPIPack, apiAddCompletion);
+NXAPIPacks.connector
+    .apiForId("js-sentimentjs")
+        .addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentJSAPIPack, apiAddCompletion);
 
-NXAPIPacks.connector.apiForId("js-sentimental").addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentalJSAPIPack, apiAddCompletion);
+NXAPIPacks.connector
+    .apiForId("js-sentimental")
+        .addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.sentimentalJSAPIPack, apiAddCompletion);
 
 var ibmAPI = NXAPIPacks.connector.apiForId("ibm-alchemy");
+
 ibmAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.alchemyEntityAPIPack, apiAddCompletion);
 ibmAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.alchemySentimentAPIPack, apiAddCompletion);
 ibmAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.alchemyLangAnalysisAPIPack, apiAddCompletion);
 
 var ibmWatsonAPI = NXAPIPacks.connector.apiForId("ibm-watson");
+
 ibmWatsonAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.ibmToneAnalysisAPIPack, apiAddCompletion);
 
 var googleAPI = NXAPIPacks.connector.apiForId("google-cloud");
+
 googleAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.googleEntityAnalysisAPIPack, apiAddCompletion);
 googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googleSentimentAnalysisAPIPack, apiAddCompletion);
 googleAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.googleLangAnalysisAPIPack, apiAddCompletion);
 
+googleAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.googleImageAnalysisAPIPack, apiAddCompletion);
+
+
 var msAzureAPI = NXAPIPacks.connector.apiForId("ms-azure");
+
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.msAzureLangAnalysisAPIPack, apiAddCompletion);
@@ -269,11 +283,12 @@ recastAIAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.recastaiE
 var apiAIAPI = NXAPIPacks.connector.apiForId("api-ai");
 apiAIAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.apiaiEntityAPIPack, apiAddCompletion);
 
+var image2json = require('./lib/nx/image2json.js');
 
 function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
   //path would end up being something like '/test/phrase/sentiment-analysis',
   const requestPath = path.join(urlPath, serviceId);
-  //something like 'pages/phrase-analysis' to be used in the render() call
+  //something like 'pages/data-analysis' to be used in the render() call
   const resultPath = resultPagePath;
   const sid = serviceId;
   const currentApp = expressApp;
@@ -291,6 +306,16 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
         if (apis.length > 0) {
           //get sample text from the first element
           dataDict.apiServiceInfo = apis[0].serviceInfo;
+          dataDict.apiContentType = dataDict.apiServiceInfo.contentType;
+          if (dataDict.apiServiceInfo.contentType == 'image') {
+              dataDict.apiServiceInfo.sampleImages = [];
+              for (i in dataDict.apiServiceInfo.testSamples) {
+                var imgPath = path.join(process.cwd(), dataDict.apiServiceInfo.testSamples[i].value);
+                var jsonInfo = image2json.NXImage.jsonImageFromFile(imgPath);
+                dataDict.apiServiceInfo.sampleImages.push(jsonInfo);
+              }
+          }
+
 
           for (i in apis) {
             var api = apis[i];
@@ -300,18 +325,15 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
           }
         }
 
-////    e.g. res.render('pages/phrase-analysis', dataDict);
         res.render(resultPath, dataDict);
 
       });
 };
 
-registerGet(app, "/test/phrase", "sentiment-analysis", "pages/phrase-analysis");
-registerGet(app, "/test/phrase", "entity-analysis", "pages/phrase-analysis");
-registerGet(app, "/test/phrase", "language-analysis", "pages/phrase-analysis");
-
-const ImageProcessing = require('./lib/image-processing.js');
-ImageProcessing.registerEndpoints(app, upload);
+registerGet(app, "/test/phrase", "sentiment-analysis", "pages/data-analysis");
+registerGet(app, "/test/phrase", "entity-analysis", "pages/data-analysis");
+registerGet(app, "/test/phrase", "language-analysis", "pages/data-analysis");
+registerGet(app, "/test/image", "image-analysis", "pages/data-analysis");
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
