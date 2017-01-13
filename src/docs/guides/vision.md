@@ -10,4 +10,4 @@ Sub-domains of computer vision include scene reconstruction, motion/event detect
 
 Take a look at some of the samples we've implemented using commercial APIs:
 
-* [Multi-Feature Analysis](/test/image/upload)
+* [Multi-Feature Analysis](/test/image/image-analysis)

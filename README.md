@@ -21,6 +21,7 @@ RECAPTCHA_SECRET_KEY=<recaptcha secret key>
 # Microsoft
 MS_AZURE_COGNITIVE_SERVICES_API_KEY=<MS Azure Cognitive Services API Key>
 MS_AZURE_COG_SERVICES_ENTITY_LINKING_API_KEY=<MS Azure Entity Linking API Key>
+MS_AZUER_COMPUTER_VISION_KEY=<key>
 
 # IBM Watson/Alchemy/etc (note that different IBM services have different auth requirements)
 IBM_WATSON_TONE_USERNAME=<IBM Tone API Username>
