@@ -3,6 +3,10 @@
 <head>
   <% include ../partials/header.ejs %>
   <script src='https://www.google.com/recaptcha/api.js'></script>
+  <link rel="stylesheet" type="text/css" href="/js/image-picker/image-picker.css">
+
+  <script src="/js/image-picker/image-picker.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -16,19 +20,32 @@
   <p>Greetings human. <span id="api-service-desc"></span></p>
   <br/>
   <form id="analysisForm">
+      <% if (apiContentType == "text") { %>
 
-                <fieldset>
-                  <legend style="font-size: 95%;">Select a sample sentence/paragraph or enter one in the field below</legend>
-                  <p style="margin-left:2.5em;" id="formSampleFields">
-                </p>
-              </fieldset>
-              <br><textarea cols="60" rows="4" wrap="true" name="phrase"></textarea>
-<div class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>"></div>
-              <br/>
+      <fieldset>
+          <legend style="font-size: 95%;">Select a sample sentence/paragraph or enter one in the field below</legend>
+          <p style="margin-left:2.5em;" id="formSampleFields"></p>
+      </fieldset>
+      <br>
+      <div class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>"></div>
+      <textarea cols="60" rows="4" wrap="true" name="phrase"></textarea>
+      <br/>
+      <% } else { %>
 
-                  <!-- <INPUT type="text" name="phrase"> -->
-    <input id="sendPhrase" type="submit" value="Analyze">
+          <P>Select a sample image...</p>
+
+          <select class="image-picker show-labels show-html">
+            <option value=""></option>
+          </select>
+          <P>or upload and select a file to analyze:</p><p>
+          <object id="file-object"></object>
+          <div id="file-result"></div>
+          <P>Supported formats include common image formats (i.e., JPEG, PNG).</p>
+
+        <% } %>
+      <input id="sendData" type="submit" value="Analyze">
   </form>
+
 <br/><br/>
   <div id="resultsDiv">
   </div>
@@ -52,28 +69,37 @@
 var spinnerHTML = "<div class='rect1'></div> <div class='rect2'> </div> <div class='rect3'></div> <div class='rect4'></div> <div class='rect5'></div>";
 
 function toggleVisibleRow(divname) {
-  // console.log("div = "+divname);
+
   var divRefNameClick = divname+"-click";
   var divRefNameArrow = divname+"-arrow";
   var divJsonName = divname+"-json";
 
   $("#table-centered ."+divJsonName).toggle();
+
   var isJSONVisible = $("#table-centered ."+divJsonName).is(':visible');
 
-  //if JSON is now visible then we have to switch the arrow from pointing left to pointing down
-  var currentClass = isJSONVisible ? "glyphicon-triangle-right" : "glyphicon-triangle-bottom";
-  var newClass = isJSONVisible ? "glyphicon-triangle-bottom" : "glyphicon-triangle-right";
+  //if JSON is visible switch the arrow from pointing left to pointing down
+  var currentClass = isJSONVisible
+                            ? "glyphicon-triangle-right"
+                            : "glyphicon-triangle-bottom";
+  var newClass = isJSONVisible
+                    ? "glyphicon-triangle-bottom"
+                    : "glyphicon-triangle-right";
 
-  $("#table-centered #"+divRefNameArrow).removeClass(currentClass).addClass(newClass);
+  $("#table-centered #"+divRefNameArrow)
+    .removeClass(currentClass)
+    .addClass(newClass);
 }
 
 function insertTextSamples(apiServiceInfo) {
+
   var presetValues = apiServiceInfo.testSamples;
+
   for (i in presetValues) {
     var preset = presetValues[i];
     var presetValue = preset.value;
     var presetDisplayText = (preset.displayText != undefined) ? preset.displayText : presetValue;
-    var text = "<input type='radio' name='presetPhrase' value='"+presetValue+"'><span style='font-size: 95%;'>";
+    var text = "<input type='radio' name='presetPhrase' value=\""+presetValue+"\"><span style='font-size: 95%;'>";
     text += "&nbsp;&nbsp;&ldquo;"+presetDisplayText+"&rdquo;</span><br/>";
     $("#formSampleFields").append(text) ;
   }
@@ -86,6 +112,68 @@ function insertTextSamples(apiServiceInfo) {
         $("#analysisForm").find("textarea[name='phrase']").val(field.value);
       }
   });
+}
+
+function insertImageSamples(apiServiceInfo) {
+    var sampleData = apiServiceInfo.sampleImages;
+    for (var i=0; i<sampleData.length; ++i) {
+      var data = sampleData[i];
+      var str = "<option data-img-class='pickerImage' data-img-src=\""+data.dataURI+"\" value=\""+(i+1)+"\">"+data.name+"</option>";
+      $("select").append(str);
+    }
+    $("select").imagepicker(
+      {
+        selected: function(select, picker_option, evt) {
+          var selectedImage = sampleData[select.value()-1];
+          showResult(selectedImage);
+         }
+      }
+    );
+
+
+      $('#file-object').replaceWith('<input type="file" id="file-object" value="Load a file" />');
+      $('#file-object').on('change', function(e) {
+        var files = e.target.files,file;
+
+        if (!files || files.length == 0) return;
+        file = files[0];
+        //format of 'file' object File {name: "crazy-signs-notice.jpg", lastModified: 1475855109000, size: 44346, type: "image/jpeg", slice: function}
+        if (file.size > (1024 * 1024)) {
+          alert('Image file is too big. Please select an image of less than 1 MB.');
+          return;
+        }
+        var fileInfo = {
+          name: file.name,
+          lastModified: file.lastModified,
+          size: file.size,
+          type: file.type,
+        }
+        var fileReader = new FileReader();
+        fileReader.onload = function (e) {
+          fileInfo.dataURI = e.target.result;
+          showResult(fileInfo);
+        };
+        fileReader.onerror = function (e) {
+          alert("Sorry, there was a problem reading the file you selected. Please try again or select another file.");
+        };
+        fileReader.readAsDataURL(file);
+      });
+};
+
+
+//this eventually gets filled with an object that contains dataURI, name and possibly other attributes
+var imageToAnalyze = Object.create(null);
+
+// fileInfo can contain name: "myimage.jpg", lastModified: 1475855109000, size: 44346, type: "image/jpeg"
+function showResult(imageInfo) {
+  imageToAnalyze = imageInfo;
+  var imgHtml = imageHTMLFromInfo(imageInfo);
+  $('#file-result').empty();
+  $('#file-result').html(imgHtml);
+}
+
+function imageHTMLFromInfo(imageInfo) {
+    return "<img class=\"pickedImage\" src=\""+imageInfo.dataURI+"\" /><br/>Name: "+imageInfo.name;
 }
 
 var apiList = <%- JSON.stringify(apiEndpoints) %>;
@@ -102,6 +190,10 @@ $(document).ready(function() {
     if (apiServiceInfo.contentType == 'text') {
       insertTextSamples(apiServiceInfo);
     }
+    else if (apiServiceInfo.contentType == 'image') {
+        insertImageSamples(apiServiceInfo);
+    }
+
 });
 
 $( "#analysisForm" ).submit(function( event ) {
@@ -110,18 +202,45 @@ $( "#analysisForm" ).submit(function( event ) {
   event.preventDefault();
 
   var $form = $(this);
-  var phraseField = $form.find( "textarea[name='phrase']" );
-  var gRecaptchaResponse = $("#g-recaptcha-response").val();
 
+  var dataContents;
+  var displayDataContents;
+  if (apiServiceInfo.contentType == 'text') {
+      var gRecaptchaResponse = $("#g-recaptcha-response").val();
+      var dataField = $form.find( "textarea[name='phrase']" );
+       var phraseFieldContents = dataField.val();
 
-  var phraseFieldContents = phraseField.val();
-  if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
-    //todo add error msg.
-    console.log("Text empty or undefined.");
-    alert("Weird. No text detected.");
-    return;
+       if (phraseFieldContents == undefined || phraseFieldContents.trim().length == 0) {
+         //todo add error msg.
+         console.log("Text empty or undefined.");
+         alert("Weird. No text detected.");
+         return;
+       }
+       phraseFieldContents = phraseFieldContents.trim();
+       displayDataContents = phraseFieldContents;
+
+       dataContents = {
+           phrase: phraseFieldContents,
+           gRecaptchaResponse: gRecaptchaResponse
+       };
   }
-  phraseFieldContents = phraseFieldContents.trim();
+  else if (apiServiceInfo.contentType == 'image') {
+
+      dataContents = {
+          image: imageToAnalyze
+      };
+
+
+      displayDataContents =   imageHTMLFromInfo(imageToAnalyze);
+
+  }
+  else {
+      console.log("Unknown apiServiceInfo contentType.");
+      alert("Unknown apiServiceInfo contentType.");
+      return;
+  }
+
+
 
   $("#resultsDiv").empty();
   const resultsNotesDiv = $("#resultsNotes");
@@ -132,7 +251,7 @@ $( "#analysisForm" ).submit(function( event ) {
   // phraseField.val("");
   var resultText = " ";
 
-  resultText += "<p><b>Text</b> <div class='alert alert-info text-center' role='alert'><i>&#8220;"+phraseFieldContents+"&#8221;</i></div><BR>";
+  resultText += "<p><b>Data</b> <div class='alert alert-info text-center' role='alert'><i>&#8220;"+displayDataContents+"&#8221;</i></div><BR>";
   resultText += "<b>Scores</b><br>";
   resultText += "<table id='table-centered'>";
   resultText += "<thead>";
@@ -183,7 +302,7 @@ $( "#analysisForm" ).submit(function( event ) {
           async: true,
           dataType: "json",
           url: apiInfo.url,
-          data: {phrase: phraseFieldContents, gRecaptchaResponse: gRecaptchaResponse}
+          data: dataContents
 
         }).done(function(data) {
           console.log("done in post ("+position+") "+apiInfo.url);

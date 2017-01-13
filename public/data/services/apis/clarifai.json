@@ -1,0 +1,10 @@
+{
+    "id" : "clarifai",
+    "provider": "Clarifai",
+    "name": "Clarifai",
+    "providerUrl": "https://www.clarifai.com",
+    "consoleUrl": "https://developer.clarifai.com/",
+    "officialGithubURL": "https://github.com/Clarifai",
+    "unofficialGithubURL": "",
+    "description": "Artificial Intelligence with a Vision. Build amazing apps with the world’s best image and video recognition API."
+}

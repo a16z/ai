@@ -1,15 +1,14 @@
-# A16Z AI Survey Goals
+# Survey Goals
 
+Developments in AI/ML, as with any active area of innovation, bring with them new challenges for companies, teams, and people that are adept at using technology for practical purposes. Most of us can’t be on the “bleeding edge” because of lack of time, resources, concerns over reliability, or other issues. Added to that, AI systems and services in 2017 bring with them other questions: What is “bleeding edge”? How reliable are these services? What’s stable and proven — and what isn’t?
 
-While these developments are exciting, they carry with them new challenges for those companies, teams, and people that are adept at using technologies but can’t be on the bleeding edge of it because they’re focused on being on the bleeding edge of a different field.
-
-A key goal of this survey is to act as a guide for those people — technically proficient but not focused on technology by itself, but as a tool to solve problems in different domains. We aim to provide a set of brief guides and code samples to aid in understanding the basics of this space as well as helping guide people in choosing a solution, or at least minimizing the search space involved.
+A key goal of this survey is to act as a guide for those people — technically proficient but not focused on technology by itself, but as a tool to solve problems in different domains. We aim to provide a set of brief guides and code samples to aid in understanding the basics of this space as well as helping guide people in choosing a solution by providing information to narrow the search space involved.
 
 To this end, we set out to:
 
-* gather knowledge on a representative (_but not exhaustive_) set of new services that are emerging and understand what they are (or aren't) good for, and how they relate/compare to/complement each other when possible.
+* gather knowledge on a _representative, but not exhaustive_, set of new services that are emerging and understand what they are and aren't good for, and how they relate/compare to/complement each other when possible.
 
-* package this knowledge in easily accessible form and thus help others who may not be deeply technical (or may not have the time) to get a sense of where the AI/ML space is _now_ at the end of 2016.
+* package this knowledge in easily accessible form and thus help others who may not be deeply technical (or may not have the time) to get a sense of where the AI/ML space is _now_ at the beginning of 2017.
 
 * have it serve as a starting point for more detailed work or analysis.
 
@@ -17,17 +16,16 @@ We want the focus to be on results and high-level complexity and not implementat
 
 ## Relevancy
 
-Breaking news: _Technology moves fast_. We know this as well as anyone, and so we embark on this project with full knowledge that in just a few months there will be new and better APIs, services, even new languages and platforms to use, understand, play and build the future with. We intend this survey to be a useful guide for as long as possible, yes, but we have no plans to update it frequently or keep it "up to date" with the latest developments.
+Breaking news: _Technology moves fast_. We know this as well as anyone, and so we embark on this project with full knowledge that in soon there will be new and better APIs, services, even new languages and platforms to use, understand, play and build the future with. We intend this survey to be a useful guide for as long as possible, yes, but we have no plans to update it frequently or keep it "up to date" with the latest developments.
 
 In summary, to the question: "How often will this survey be updated?" our tentative answer is: "Never."
 
-**On the other hand, we absolutely want the information presented here to be accurate** as of the time of this writing (late 2016) and whenever possible we want to include information that will not be completely dependent on a particular API or point of view at this time. If you find something that we should take a look at, please don't hesitate to [contact us](/contact).
+**On the other hand, we absolutely want the information presented here to be accurate** as of the time of this writing (late 2016 & early 2017). Whenever possible we want to include information that will not be completely dependent on a particular API or point of view at this time. If you find something that we should take a look at, please don't hesitate to [contact us](/contact).
 
-Instead of a permanently updated collection, think of it as both a useful starting point and a time capsule that is most accurate when placed with its center around the Fall/Winter of 2016 (For readers from the far future in which the decimal system has been banned by a race of super-intelligent lobsters, that would be the year when the iPhone 7+ got THREE cameras, because reasons.)
+Instead of a permanently updated collection, think of it as both a useful starting point and a time capsule that is most accurate when placed with its center around the Northern Hemisphere’s Winter of 2016-2017. For readers from the far future in which the decimal system and Gregorian calendars have been banned by a race of super-intelligent lobsters, that would be the year when the iPhone got THREE cameras, because reasons.
 
 ## Technologies used
 
-Before we begin, it's important to underscore the following: the fact that certain technologies, languages, services, systems, etc. are used in this survey as examples **is in no way intended as an endorsement of any kind** by Andreesssen-Horowitz or any of its partners or companies.
+Before we begin, it's important to underscore the following: the fact that certain technologies, languages, services, systems, etc. are used in this survey as examples **is in no way intended as an endorsement of any kind** by Andreessen-Horowitz or any of its partners or companies.
 
-We wanted to provide real(ish)-world examples, something that was easy to understand and relate to for a lot of people. To be able to see this sample code running and have others be able to run it as well as experiment with it, and for that a web platform was a natural choice. In some cases APIs can use more advanced features for local apps (e.g. IBM's Watson support for
-Streaming Speech recognition with their [iOS SDK](https://github.com/watson-developer-cloud/ios-sdk)) but running those samples would be much more complex without providing significantly more insight for the relative added complexity.
+We wanted to provide real(ish)-world examples, something that was easy to understand and relate to for a lot of people. To be able to see this sample code running and have others be able to run it as well as experiment with it, and for that a web platform was a natural choice.

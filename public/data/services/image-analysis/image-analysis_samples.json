@@ -1,0 +1,22 @@
+[
+  { "value": "public/data/services/image-analysis/city-skyline-001.jpg",
+    "id": "city-skyline-001.jpg",
+    "labels": "city, skyline",
+    "notes": "JPEG Compression (Medium)"},
+  { "value": "public/data/services/image-analysis/protest-001.jpg",
+    "id": "protest-001.jpg",
+    "labels": "protest, demonstration, sign",
+    "notes": "JPEG Compression (Medium)"},
+  { "value": "public/data/services/image-analysis/protest-002.jpg",
+    "id": "protest-002.jpg",
+    "labels": "protest, demonstration, sign",
+    "notes": "JPEG Compression (Medium)"},
+  { "value": "public/data/services/image-analysis/sign-001.jpg",
+    "id": "sign-001.jpg",
+    "labels": "sign, street sign",
+    "notes": "JPEG Compression (Very High)"},
+  { "value": "public/data/services/image-analysis/sign-002.jpg",
+    "id": "sign-002.jpg",
+    "labels": "sign, street sign",
+    "notes": "JPEG Compression (Very High)"}
+]

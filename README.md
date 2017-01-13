@@ -32,11 +32,19 @@ GCLOUD_PROJECT=<Google Cloud Platform Project ID>
 GOOGLE_NLP_API_KEY=<API KEY>
 GOOGLE_CLOUD_PRIVATE_KEY="<key>"
 GOOGLE_CLOUD_EMAIL="888888888-something@developer.gserviceaccount.com"
+
+# Clarifai
+CLARIFAI_CLIENT_ID=<token>
+CLARIFAI_CLIENT_SECRET=<secret>
+
+# Recast.ai
+RECAST_AI_TOKEN=<token>
+
+# API.ai
+API_AI_TOKEN=<token>
 ```
 
 These variables _must_ be added as Config Vars to the Heroku app. We recommend including all the variables in a `.env` file to be placed in the root directory of the repository and then set in heroku via `heroku config:set VARNAME=value`. Alternatively, the variables can be configured directly on the shell via `export VARNAME=value`.
-
-For Twitter API Tokens, go [here](https://apps.twitter.com) to create an app and get the appropriate tokens. (see [documentation of the twitter module](https://github.com/desmondmorris/node-twitter) for more info).
 
 Packages used by the app are described in `package.json` and can be installed by running `npm install` on the local root directory of the repository.
 
@@ -81,6 +89,12 @@ https://github.com/thisandagain/sentiment
 
 ### Sentimental
 https://github.com/thinkroth/Sentimental
+
+### Recast AI
+https://github.com/RecastAI/SDK-NodeJS
+
+### API.ai
+https://github.com/api-ai/api-ai-node-js
 
 ### IBM Watson Dev Cloud/Alchemy API
 https://www.npmjs.com/package/watson-developer-cloud

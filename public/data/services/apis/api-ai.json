@@ -1,0 +1,10 @@
+{
+    "id" : "api-ai",
+    "provider": "API.ai",
+    "name": "API dot AI",
+    "providerUrl": "https://api.ai",
+    "consoleUrl": "https://console.api.ai/",
+    "officialGithubURL": "https://github.com/api-ai/",
+    "unofficialGithubURL": "",
+    "description": "Let's help machines understand people better."
+}

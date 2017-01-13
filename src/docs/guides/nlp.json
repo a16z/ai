@@ -1,4 +1,4 @@
 {
-    "prev" : {"url" : "/docs/intro/ai", "name" : "Intro to AI/ML"},
+    "prev" : {"url" : "/docs/guides/ai", "name" : "Intro to AI/ML"},
     "next" : {"url" : "/docs/guides/vision", "name" : "Vision"}
 }

@@ -1,0 +1,6 @@
+{
+  "id": "image-analysis",
+  "name" : "Image Feature Analysis",
+  "contentType" : "image",
+  "description" : "Analyze Images."
+}

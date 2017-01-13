@@ -1,20 +1,20 @@
 # Survey Parameters
 
-Throughout the survey we will focus on technologies and techniques and not on specific solutions or systems. For examples, we will prefer cloud-based solutions. This is not just because they are easier to use for common examples/use cases but also because that very focus makes it easier to get started for people new to these areas.
-
 ## Target Audience
 
 The target audience for this survey includes people who have technical knowledge but are not necessarily on the bleeding edge of technology. Some examples:
 
-* A software developer trying to get an understanding of the basic  choices and solutions one can take to approach this space when starting a new project that will involve these technologies
+* A software developer trying to get an understanding of the basic choices and solutions one can take to approach this space when starting a new project that will involve these technologies
 * A technical product manager that has heard that Machine Learning could help improve the product she is responsible for but doesn’t have the time to go through all the options
 * A data scientist looking to leverage existing data sets to arrive at new, useful insights
 
 ## To Cloud or Not To Cloud?
 
-Additionally, we believe that in the vast majority of cases you _would not_ be creating your own thousand-node neural network within your own infrastructure. For other types of services this may be less common, but AI/ML is not common. Services already provided by companies (most big, some small) can cover those needs, and eventually, should you need so much computing power/storage/memory/etc you'll need to do a custom deployment of a distributed processing system of high complexity.
+Additionally, we believe that in the vast majority of cases you _would not_ be creating your own million-node neural network within your own infrastructure. In the age of cloud computing this is already less common than it used to be, but it’s still frequent to find services and systems that are packaged for deployment to AWS or similar.
 
-Those cases are rare, however, and a DIY deployment should _not_ be the starting point when thinking about implementing AI or ML in your company. Unless your particular advantage or innovation lies in your AI layer, or specific techniques that are not yet public, you will almost invariably be better off by using the platforms that already exist, perhaps by themselves or in combination.
+In the case of AI/ML, services already provided by companies (most big, some small) can cover basic needs needs, and eventually, should you need so much computing power/storage/memory/etc you'll need to do a custom deployment of a distributed processing system of high cost, high complexity, or both.
+
+Those cases are rare, however, and as a general rule a DIY deployment should _not_ be the starting point when thinking about implementing AI or ML in your company or product. Unless your particular advantage or innovation lies in your AI layer, or specific techniques that are not yet public, you will almost invariably be better off by using the platforms that already exist, perhaps by themselves — or in combination.
 
 ## Key Items
 
@@ -36,20 +36,30 @@ Additionally, in every case cloud-hosted solutions are backed by open-source pro
 
 ## Language/Platform
 
-We selected JavaScript and Node.js as language and platform respectively.
+We selected JavaScript and Node.js as language and runtime platform respectively.
 
-Put away your pitchforks! Please.
+Ok, ok. Put away your pitchforks! Please.
 
-We absolutely understand JS/Node.js has its fans as well as its detractors (one needs only to look at the [ES6 Compat Table](https://kangax.github.io/compat-table/es6/) to go a little nuts), and sometimes someone can be both! What's undeniable is that JavaScript is both universally available in both clients and servers as well as being fairly well known.
+We absolutely understand JS/Node.js has its fans as well as its detractors (one needs only to look at the [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/) to go a little nuts), and sometimes someone can be both! What's undeniable is that JavaScript is both universally available in both clients and servers as well as being fairly well known.
 
-We love Python, Scala, Go, C, Swift, Java, Haskell, ML, Prolog, APL (well, maybe not APL.) and many other languages and environments but for most of the sample code here we'll use JavaScript.
+We love Python, Scala, Go, C, Swift, Java, Haskell, ML, Prolog, APL (well, maybe not APL) and many other languages and environments but for most of the sample code here we'll use JavaScript.
 
-For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. This choice is also almost certainly controversial for many reasons, but hopefully we'll get over that too.
+For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. We aimed for a straightforward, practical design that would work well in mobile devices.
 
 ## Runtime
 
-For runtime platform we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
+Since one of our goals was to be able to show live examples, we needed a deployment platform. For that purpose we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
 
-Additionally, Heroku supports multiple languages and has a free tier, which will allow people to clone, fork and run this project without problems if needed.
+Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily.
 
 Once again -- with all of these caveats, if there's something you feel we should take a look at, please don't hesitate to [contact us](/contact).
+
+## Structure
+
+The content is divided into sections which are (individually) a relatively quick read.
+
+For details on the survey, you can start with the [survey goals](/docs/intro/survey-goals) and a brief [introduction to AI](/docs/intro/ai).
+
+We have divided content into top-level categories for easier browsing: such as [Natural Language Processing](/docs/guides/nlp), [Vision](/docs/guides/vision), or [Deep Learning](/docs/intro/dl).
+
+Whenever possible we have included live examples throughout the various sections. We also encourage you to fork the github repository and experiment! Most APIs are easy to setup and include free tiers for experimentation.

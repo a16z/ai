@@ -1,0 +1,10 @@
+{
+    "id" : "recast-ai",
+    "provider": "Recast.ai",
+    "name": "Recast AI",
+    "providerUrl": "https://recast.ai",
+    "consoleUrl": "https://recast.ai/",
+    "officialGithubURL": "https://github.com/RecastAI/",
+    "unofficialGithubURL": "",
+    "description": "Easily build bots that understand natural language."
+}
