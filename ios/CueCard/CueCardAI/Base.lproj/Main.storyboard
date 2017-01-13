@@ -37,23 +37,12 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Book Cover" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6G-nD-o85">
-                                                        <rect key="frame" x="8" y="72" width="89" height="21"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="icT-Zp-Qb7">
                                                         <rect key="frame" x="130" y="17" width="209" height="3"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </progressView>
                                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2Kq-qM-2QF">
                                                         <rect key="frame" x="130" y="50" width="209" height="3"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    </progressView>
-                                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dRZ-Cf-RDw">
-                                                        <rect key="frame" x="130" y="81" width="209" height="3"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </progressView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Business Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lnJ-hj-k2X">
@@ -118,7 +107,6 @@
                     </view>
                     <connections>
                         <outlet property="actionButton" destination="zCW-Zb-Eja" id="6zX-wW-wwo"/>
-                        <outlet property="bookCoverBar" destination="dRZ-Cf-RDw" id="Eze-rf-Wm1"/>
                         <outlet property="businessCardBar" destination="icT-Zp-Qb7" id="aJ2-cr-PC9"/>
                         <outlet property="controlsContainerView" destination="RrN-Ws-Grl" id="MpC-oF-cRa"/>
                         <outlet property="creditCardBar" destination="2Kq-qM-2QF" id="EQg-jq-h1Y"/>

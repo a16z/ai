@@ -11,7 +11,6 @@ import AVFoundation
 
 enum PredictionLabel : String {
     case businessCard = "business card"
-    case bookCover = "book cover"
     case creditCard = "credit card"
 }
 
@@ -45,7 +44,6 @@ class CueCardViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
     var predictions:[String:Prediction] = [String:Prediction]()
     var predictionBusinessCard = Prediction("business card")
     var predictionCreditCard = Prediction("credit card")
-    var predictionBookCover = Prediction("book cover")
     
     @IBOutlet weak var businessCardBar:UIProgressView! {
         set {
@@ -61,14 +59,6 @@ class CueCardViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         }
         get {
             return predictionCreditCard.progressView
-        }
-    }
-    @IBOutlet weak var bookCoverBar:UIProgressView! {
-        set {
-            predictionBookCover.progressView = newValue
-        }
-        get {
-            return predictionBookCover.progressView
         }
     }
     
@@ -108,7 +98,6 @@ class CueCardViewController: UIViewController, AVCaptureVideoDataOutputSampleBuf
         
         predictions[predictionBusinessCard.label] = predictionBusinessCard
         predictions[predictionCreditCard.label] = predictionCreditCard
-        predictions[predictionBookCover.label] = predictionBookCover
         
         tensorFlow = TensorFlowProcessor()
         tensorFlow.prepare(withLabelsFile: TF_MODEL_LABEL_FILE, andGraphFile: TF_MODEL_GRAPH_FILE)
