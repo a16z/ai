@@ -1,9 +1,7 @@
 
 ## Knowledge Representation
 
-Knowledge Representation aims to codify information about the world in actionable, and to whatever degree possible, "objective," form, so that systems can reason about it. For example: "The sky is blue" is neither actionable nor objective. "The
-sky's color is identified by humans as blue'." is a bit better. But
-still leaves out a lot of ideas (what's a color, what's a human, etc.)
+Knowledge Representation aims to codify information about the world in actionable, and to whatever degree possible, "objective," form, so that systems can reason about it. For example: "The sky is blue" is neither actionable nor objective. "The sky's color is identified by humans as blue'." is a bit better. But still leaves out a lot of ideas (what's a color, what's a human, etc.)
 
 Knowledge representation is part of what we referred above as "Classical AI". Newell & Simon's General Problem Solver (1958) used decomposition to turn goals into subgoals and then chose strategies that could accomplish each subgoal. Systems such as these were in fact fairly limited in their domains, and they gave rise to so-called _expert systems_ of the 1970s and 1980s, which specifically tried to represent human expertise and knowledge on different fields so it could be shared and applied more easily. Expanding on this idea, systems like [Cyc](https://en.wikipedia.org/wiki/Cyc) have been in development for many years but have found limited success in creating the basis for large-scale intelligent systems of wide applicability.
 

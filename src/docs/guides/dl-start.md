@@ -1,5 +1,7 @@
 
-# Deep Learning: The Wild West of AI
+# Deep Learning: Retraining Comparison
+
+## Deep Learning: The Wild West of AI
 
 No, it's not [Westworld](http://www.hbo.com/westworld). The software is way simpler, and we haven't given it control over any guns (yet), Deep Learning is a field bubbling with activity. As a result, new projects, libraries and systems are released frequently. Older systems can break if not properly maintained, as basic components get heavily modified or entirely deprecated and replaced. It can make things difficult since what we are hearing about the most, what seems the most exciting area, is also one that presents a fairly high barrier of entry.
 
@@ -11,22 +13,110 @@ Put another way: if computing was physics, what you're getting when you are work
 
 For people with less experience, however, it can seem like a curse of riches and trigger a [paradox of choice](https://en.wikipedia.org/wiki/The_Paradox_of_Choice). Hopefully we can help.
 
-# Building on the Shoulders of Giants
+## Building on the Shoulders of Giants
 
-To explore Deep Learning we can combine systems we've already seen in action (like Vision APIs) with Deep Learning to cover the areas in which pre-packaged APIs may not be as useful.
+To explore Deep Learning we can compare a system we've already seen in action (Clarifai) with a more advance alternative (TensorFlow using a pre-built model) and look at the complexity in retraining each to recognize a new category of images.
 
-## Our App: CueCard
 
-Our goal will be to build a simple app that can nevertheless do something interesting. On opening the app, you will get a realtime view through the camera, and what we'll do is make it "smart": by pointing at a business card on a desk, the app will:
+# Clarifai Retraining
 
-* Decide whether it's a business card or not
-* If we think it's a business card, automatically extract the information and convert it into a contact.
+Clarifai provides a straightforward system to add data and train models. The steps are as follows:
 
-We'll call this app **CueCard**. To achieve this, we will use Google's Deep Learning library/system, [TensorFlow](http://www.tensorflow.org) along with some of the web services we saw in action earlier.
+* Add inputs and concepts. Upload the dataset of images you want to use along with 'concepts' that identify them. In this case we will upload images from our dataset by providing positive examples for business cards and credit cards, and using them in juxtaposition as well (ie, a business card is not a credit card, and viceversa) along with other items in the set.
+* Create and Train a model for the inputs.
+* Use the model for prediction.
 
-## Ingredients
+Note that in the command samples that follows, `CLARIFAI_ACCESS_TOKEN` is a token that can be obtained either programmatically via API calls or directly from the developer console. Tokens expire and must be renewed frequently
 
-At a high level, here's what we'll need to build the app:
+## Adding inputs and concepts
+
+The steps in the retraining script involve first adding inputs and concepts, sending information for images with their respective labels:
+
+```
+
+  curl -X POST \
+    -H 'Authorization: Bearer CLARIFAI_ACCESS_TOKEN' \
+    -H "Content-Type: application/json" \
+    -d '
+    {
+      "inputs": [
+        {
+          "data": {
+            "image": {
+              "url": "sourcesite/business_card/001.jpg"
+            },
+            "concepts":[ { "id": "business_card", "value": true }, { "id": "credit_card", "value": false } ]
+          }
+        }
+      ]
+    }'\
+    https://api.clarifai.com/v2/inputs
+```
+
+## Create and Train The Model
+
+Once the inputs and concepts have been added, we create the model with an ID, in this example `ccs1`
+
+```
+
+curl -X POST \
+    -H 'Authorization: Bearer CLARIFAI_ACCESS_TOKEN' \
+    -H "Content-Type: application/json" \
+    -d '
+    {
+      "model": {
+        "name": "ccs",
+        "id": "ccs1",
+        "output_info": {
+          "data": {
+            "concepts": [
+              {
+                "id": "business_card",
+                "name": "business card"
+              },
+              {
+                "id": "credit_card",
+                "name": "credit card"
+              }
+            ]
+          },
+          "output_config": {
+            "concepts_mutually_exclusive": false,
+            "closed_environment":false
+          }
+        }
+      }
+    }'\
+    https://api.clarifai.com/v2/models
+```
+
+
+and can then train the model with
+
+```
+curl -X POST \
+  -H 'Authorization: Bearer CLARIFAI_ACCESS_TOKEN' \
+  -H "Content-Type: application/json" \
+  https://api.clarifai.com/v2/models/ccs1/versions
+```
+
+After the training has started and the script ends, you can check the status of the training with
+
+```
+ curl -X GET   -H 'Authorization: Bearer CLARIFAI_ACCESS_TOKEN'   -H "Content-Type: application/json"   https://api.clarifai.com/v2/models/ccs1/output_info
+```
+
+Note that model operations include the model ID within the URL, `https://api.clarifai.com/v2/models/MODEL_ID/output_info`.
+
+Once this is done, simply referencing the model during prediction calls will be enough.
+
+# TensorFlow
+
+For TensorFlow, we will first prepare and train a standard model and then retrain it with our data set once the initial part is done. 
+
+## TensorFlow Ingredients
+
+At a high level, here's what we'll need to build the model:
 
 * A modern Mac, running macOS 10.11 or above, with 8GB+ of RAM, 50-100 GB of free disk space, and a fast Internet connection
 * An iPhone
