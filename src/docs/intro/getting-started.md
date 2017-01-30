@@ -8,7 +8,7 @@ We've written the survey specifcially as a starting place for for business and t
 
 Along the way, we're going to explore software that will help you understand if your customers are excited, sad or disgusted by your products. We'll see how simple API calls can identify what objects are in an image. We'll show how to build your own iPhone app that cal tell you whether what you're pointing your camera at is a business card.
 
-For people who like linear tours, we've provided navigation links at the top and bottom of every page that guide from the first room to the end. Feel free to visit the table of contents by hitting [[X to find the exact room you want to explore.
+For people who like linear tours, we've provided navigation links at the top and bottom of every page that guide from the first room to the end. Feel free to visit the [table of contents]() to get to the exact topic you want to explore.
 
 A big hat tip to our friend Diego Doval who created this guide based on some very high level, hand-wavy guidance. As usual, he's exceeded expectations. Thanks, Diego.
 
