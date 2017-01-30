@@ -15,11 +15,11 @@ Next, we mostly chose cloud services over software that you'd run on premise. We
 
 Even if you eventually outgrow a publicly available AI cloud service, your experience using the cloud services will help inform the design and scaling of your own AI infrastructure.
 
-We chose a few of the most popular services to include in this tutorial, but we're well aware this is a fast changing list.
+We chose a few of the most popular services to include in this survey (as of the time of writing, which was mostly December 2016), but we're well aware this is a fast changing list.
 
 Since one of our goals was to be able to show live examples, we needed a deployment platform. For that purpose we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon, IBM) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
 
-Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily.
+Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily. To encourage cloning and forking, we chose the [very permissive MIT License](https://opensource.org/licenses/MIT). 
 
 As with any of the other products included in this survey, don't consider their inclusion as an explicit endorsement (or non-endorsement) from a16z. 
 
