@@ -1,31 +1,29 @@
-# Survey Goals
+# What Can AI Do For Your Software?
 
-Developments in AI/ML, as with any active area of innovation, bring with them new challenges for companies, teams, and people that are adept at using technology for practical purposes. Most of us can’t be on the “bleeding edge” because of lack of time, resources, concerns over reliability, or other issues. Added to that, AI systems and services in 2017 bring with them other questions: What is “bleeding edge”? How reliable are these services? What’s stable and proven — and what isn’t?
+Artificial intelligence is a broad set of software capabilities that helps you make your software smarter. We think it's going to have as broad (and maybe broader) an impact on software as relational database technologies. It's hard to think of a company whose products or services you use today that aren't enabled by databases. Databases are inside just about every important piece of software you use each day. E.F. Dodd's [original research paper proposing the relational database](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf) was published in June 1970, Oracle [published its first commercially available Oracle V2 database](https://docs.oracle.com/database/121/CNCPT/intro.htm#CNCPT88784) in 1979, and we've been building on top of this breakthrough for ever since. We're in the very early years of putting AI in all our software in the same we put databses in all our software, and the full maturing of this trend will unfold over decades, not months or even years.T
 
-A key goal of this survey is to act as a guide for those people — technically proficient but not focused on technology by itself, but as a tool to solve problems in different domains. We aim to provide a set of brief guides and code samples to aid in understanding the basics of this space as well as helping guide people in choosing a solution by providing information to narrow the search space involved.
+## Applications of AI
 
-To this end, we set out to:
+One way to think of what AI can enable to is look at what it will make cheap, as in easy to make and distribute and therefore ubiquitous. A HBR article titled ["The Simple Economics of Machine Intelligence"](https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence) published in November 2016 argued that AI would make predictions cheap. Let's expand on this idea. AI will amke predictions cheap, true, but it will make other things cheap as well:
+* Enabling things that move to drive or fly or sail themselves
+* Understand people and objects and their relationships in the real world
+* Optimize complex systems, such as driving patterns or electricity consumption in data centers
+* Create content, such as newspaper articles, tweets, music, Websites, movie trailers, and eventually entire movies
+* Understand people, help people understand software, and help people understand each other 
 
-* gather knowledge on a _representative, but not exhaustive_, set of new services that are emerging and understand what they are and aren't good for, and how they relate/compare to/complement each other when possible.
+For real world examples of all these, we've published [[Future of AI Vimeo]].
 
-* package this knowledge in easily accessible form and thus help others who may not be deeply technical (or may not have the time) to get a sense of where the AI/ML space is _now_ at the beginning of 2017.
+For further inspirtation, subscribe to one or more of the the many excellent daily or weekly newsletters covering artificial intelligence. We list a few in our [[References section.
 
-* have it serve as a starting point for more detailed work or analysis.
+## Applying AI to Your Business
 
-We want the focus to be on results and high-level complexity and not implementation-dependent constraints such as languages. Development environments and languages rise and fall, but in the case of web services we should be able to just switch to a new wrapper. Naturally, though, we _have_ to make some choices. Before we discuss those, let's take a moment to discuss how relevant this information will be over time.
+To get the most out of this survey, we recommend that you come up with a few concrete areas where you want to apply AI techniques. Having these in mind will ground your exploration in a concrete software product.
 
-## Relevancy
+Here are a a few was you can brainstorm how AI can help:
+* Throughout each phase or the product or service lifecycle 
+* For each of the functional teams in your organization
+* Achieve high-level business objectives
+* For the most important products or services in your porfolio
 
-Breaking news: _Technology moves fast_. We know this as well as anyone, and so we embark on this project with full knowledge that in soon there will be new and better APIs, services, even new languages and platforms to use, understand, play and build the future with. We intend this survey to be a useful guide for as long as possible, yes, but we have no plans to update it frequently or keep it "up to date" with the latest developments.
+Here is a [Google sheet](https://docs.google.com/spreadsheets/d/15NgdbcLrWWMumHD_inMKrtrnpPtqX_sPUQ9iGJ3eD9A/edit#gid=0) you can use as a template.
 
-In summary, to the question: "How often will this survey be updated?" our tentative answer is: "Never."
-
-**On the other hand, we absolutely want the information presented here to be accurate** as of the time of this writing (late 2016 & early 2017). Whenever possible we want to include information that will not be completely dependent on a particular API or point of view at this time. If you find something that we should take a look at, please don't hesitate to [contact us](/contact).
-
-Instead of a permanently updated collection, think of it as both a useful starting point and a time capsule that is most accurate when placed with its center around the Northern Hemisphere’s Winter of 2016-2017. For readers from the far future in which the decimal system and Gregorian calendars have been banned by a race of super-intelligent lobsters, that would be the year when the iPhone got THREE cameras, because reasons.
-
-## Technologies used
-
-Before we begin, it's important to underscore the following: the fact that certain technologies, languages, services, systems, etc. are used in this survey as examples **is in no way intended as an endorsement of any kind** by Andreessen-Horowitz or any of its partners or companies.
-
-We wanted to provide real(ish)-world examples, something that was easy to understand and relate to for a lot of people. To be able to see this sample code running and have others be able to run it as well as experiment with it, and for that a web platform was a natural choice.
