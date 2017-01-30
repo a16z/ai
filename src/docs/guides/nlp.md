@@ -1,6 +1,6 @@
 # Natural Language Processing (NLP)
 
-Natural Language Processing will enable better understanding all around: we'll talk to our computers; our computers will talk to us; and we'll have the [Star Trek Universal Communicator](http://memory-alpha.wikia.com/wiki/Universal_translator) in our ears translating any langauge into our native language in real time (and vice versa). Before we get to natural conversations with our computers, there are a lot of applications that help do things like understand whether someone is getting angry on a support call, write better job descriptions, and disambiguating words whose meaning change depending on context (see this Wikipedia page for a [fun list of examples](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences) including one of my favorite perfectly grammatical sentences: "[Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo]"(https://en.wikipedia.org/wiki/Buffalo_buffalo_Buffalo_buffalo_buffalo_buffalo_Buffalo_buffalo)
+Natural Language Processing will enable better understanding all around: we'll talk to our computers; our computers will talk to us; and we'll have the [Star Trek Universal Communicator](http://memory-alpha.wikia.com/wiki/Universal_translator) in our ears translating any langauge into our native language in real time (and vice versa). Before we get to natural conversations with our computers, there are a lot of applications that help do things like understand whether someone is getting angry on a support call, write better job descriptions, and disambiguating words whose meaning change depending on context (see this Wikipedia page for a [fun list of examples](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences) including one of my favorite perfectly grammatical sentences: [Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo](https://en.wikipedia.org/wiki/Buffalo_buffalo_Buffalo_buffalo_buffalo_buffalo_Buffalo_buffalo)
 
 ...
 This branch of AI includes such capabilities as:
@@ -8,7 +8,7 @@ This branch of AI includes such capabilities as:
 * **Speech synthesis**, which goes the other way and gives computer an increasingly human-sounding voice
 * **Language detection** which figures out what language a document is written in
 * **Language translation**, which translates text from any language to any language
-* ** Sentiment analysis**, which figures out the emotional tilt of text
+* **Sentiment analysis**, which figures out the emotional tilt of text
 * **Entity extraction**, which highlights all the "things, places, people, and products" in a piece of text
 
 the ability to understand language either in audio or text form is a fundamental technology in both human-computer interaction and AI. Applications for it are literally everywhere, since nearly every human interaction can happen via language. Even if language is not the primary mode of interaction, speech can often serve as an effective addition in multi-modal interfaces. NLP also includes translation and language generation.
