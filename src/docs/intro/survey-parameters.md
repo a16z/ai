@@ -1,22 +1,37 @@
-# Survey Parameters
+# How We Picked the Products to Survey 
 
 ## Target Audience
 
-The target audience for this survey includes people who have technical knowledge but are not necessarily on the bleeding edge of technology. Some examples:
+To pick a representative set of products and services to include, we did a few things. First, we thought about our audience as people who are actively involved in building software:
+* A **software developer** trying to get a broad overview of the products and services available
+* A **business analyst**, **product manager** or **marketing manager** who has heard that Machine Learning could help improve the product she is responsible for but doesn’t have the time to go through all the options
+* A **data scientist** looking to broaden their toolkit from basic statistical techniques to the latest and great AI toolkits
+* A **line of business leader** trying to figure out the right way for their organization to put intelligence into their team's software, proceses, and culture  
 
-* A software developer trying to get an understanding of the basic choices and solutions one can take to approach this space when starting a new project that will involve these technologies
-* A technical product manager that has heard that Machine Learning could help improve the product she is responsible for but doesn’t have the time to go through all the options
-* A data scientist looking to leverage existing data sets to arrive at new, useful insights
 
-## To Cloud or Not To Cloud?
+## Cloud First
 
-Additionally, we believe that in the vast majority of cases you _would not_ be creating your own million-node neural network within your own infrastructure. In the age of cloud computing this is already less common than it used to be, but it’s still frequent to find services and systems that are packaged for deployment to AWS or similar.
+Next, we mostly chose cloud services over software that you'd run on premise. We believe most people will begin their AI journeys cloud services rather than creating and managing million-node neural networks in their own data centers. 
 
-In the case of AI/ML, services already provided by companies (most big, some small) can cover basic needs needs, and eventually, should you need so much computing power/storage/memory/etc you'll need to do a custom deployment of a distributed processing system of high cost, high complexity, or both.
+Even if you eventually outgrow a publicly available AI cloud service, your experience using the cloud services will help inform the design and scaling of your own AI infrastructure.
 
-Those cases are rare, however, and as a general rule a DIY deployment should _not_ be the starting point when thinking about implementing AI or ML in your company or product. Unless your particular advantage or innovation lies in your AI layer, or specific techniques that are not yet public, you will almost invariably be better off by using the platforms that already exist, perhaps by themselves — or in combination.
+We chose a few of the most popular services to include in this tutorial, but we're well aware this is a fast changing list.
 
-## Key Items
+Since one of our goals was to be able to show live examples, we needed a deployment platform. For that purpose we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon, IBM) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
+
+Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily.
+
+As with any of the other products included in this survey, don't consider their inclusion as an explicit endorsement (or non-endorsement) from a16z. 
+
+
+## Code Samples
+
+We chose to write our code samples in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your develoeprs) like whether that's Python, Scala, Go, C++, Swift, Java, Haskell, and so on. 
+
+For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. We aimed for a straightforward, practical design that would work well in mobile devices.
+
+
+## Further Things to Evaluate When You Start Paying For Services
 
 The paragraphs above should already give you an idea of what parameters we used to choose services & platforms to cover. We also used the following list to select the services we'd choose and how we'd evaluate them.
 
@@ -34,32 +49,9 @@ Additionally, in every case cloud-hosted solutions are backed by open-source pro
 
 * _Project activity & relevance_. How actively is it in development? How many resources are being put against it? How crucial is it for the company? E.g. for a startup that only does that it would be critical, for IBM it may be a drop in a bucket, and therefore have fewer resources against it.
 
-## Language/Platform
 
-We selected JavaScript and Node.js as language and runtime platform respectively.
 
-Ok, ok. Put away your pitchforks! Please.
 
-We absolutely understand JS/Node.js has its fans as well as its detractors (one needs only to look at the [ES6 Compatibility Table](https://kangax.github.io/compat-table/es6/) to go a little nuts), and sometimes someone can be both! What's undeniable is that JavaScript is both universally available in both clients and servers as well as being fairly well known.
 
-We love Python, Scala, Go, C, Swift, Java, Haskell, ML, Prolog, APL (well, maybe not APL) and many other languages and environments but for most of the sample code here we'll use JavaScript.
 
-For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. We aimed for a straightforward, practical design that would work well in mobile devices.
 
-## Runtime
-
-Since one of our goals was to be able to show live examples, we needed a deployment platform. For that purpose we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
-
-Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily.
-
-Once again -- with all of these caveats, if there's something you feel we should take a look at, please don't hesitate to [contact us](/contact).
-
-## Structure
-
-The content is divided into sections which are (individually) a relatively quick read.
-
-For details on the survey, you can start with the [survey goals](/docs/intro/survey-goals) and a brief [introduction to AI](/docs/intro/ai).
-
-We have divided content into top-level categories for easier browsing: such as [Natural Language Processing](/docs/guides/nlp), [Vision](/docs/guides/vision), or [Deep Learning](/docs/intro/dl).
-
-Whenever possible we have included live examples throughout the various sections. We also encourage you to fork the github repository and experiment! Most APIs are easy to setup and include free tiers for experimentation.
