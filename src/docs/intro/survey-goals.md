@@ -26,4 +26,3 @@ Here are a a few was you can brainstorm how AI can help:
 * For the most important products or services in your porfolio
 
 Here is a [Google sheet](https://docs.google.com/spreadsheets/d/15NgdbcLrWWMumHD_inMKrtrnpPtqX_sPUQ9iGJ3eD9A/edit#gid=0) you can use as a template.
-
