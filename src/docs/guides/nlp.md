@@ -1,6 +1,16 @@
 # Natural Language Processing (NLP)
 
-Natural Language Processing, the ability to understand language either in audio or text form is a fundamental technology in both human-computer interaction and AI. Applications for it are literally everywhere, since nearly every human interaction can happen via language. Even if language is not the primary mode of interaction, speech can often serve as an effective addition in multi-modal interfaces. NLP also includes translation and language generation.
+Natural Language Processing will enable better understanding all around: we'll be able to talk to our computers, our computers will be able to talk to us, we'll all have the [Star Trek Universal Communicator](http://memory-alpha.wikia.com/wiki/Universal_translator)  in our ears translating any langauge into our native language in real time (and vice versa).
+
+This branch of AI includes such capabilities as:
+* **Speech to text**, which converts what you say into computer-readable text
+* **Speech synthesis**, which goes the other way and gives computer an increasingly human-sounding voice
+* **Language detection** which figures out what language a document is written in
+* **Language translation**, which translates text from any language to any language
+* ** Sentiment analysis**, which figures out the emotional tilt of text
+* **Entity extraction**, which highlights all the "things, places, people, and products" in a piece of text
+
+the ability to understand language either in audio or text form is a fundamental technology in both human-computer interaction and AI. Applications for it are literally everywhere, since nearly every human interaction can happen via language. Even if language is not the primary mode of interaction, speech can often serve as an effective addition in multi-modal interfaces. NLP also includes translation and language generation.
 
 Speech recognition converts spoken speech into text or commands. Speech recognition has an immediate use for dictation applications, in which the system can transcribe what is being said. Often, though, the intended use of speech is for commands and interaction, which relaxes some constraints, e.g. highly accurate detection of every word and nuance, but tightens others, in particular response time. Recognition is generally done either _asynchronously_, meaning the speech is saved and the audio files are processed afterwards, or _streaming_ in which recognition is done and improved on the fly.
 
