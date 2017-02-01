@@ -1,4 +1,4 @@
-
+require('dotenv').config();
 var express = require('express');
 
 var fs = require('fs');
@@ -33,7 +33,6 @@ var upload = multer({ storage: storage });
 
 //local modules (JS files)
 // var utils = require('./utils');
-
 var SentimentAnalysis = require('./lib/sentiment-analysis.js');
 var EntityAnalysis = require('./lib/entity-analysis.js');
 var LanguageAnalysis = require('./lib/language-analysis.js');
