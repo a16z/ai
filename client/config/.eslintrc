@@ -1,0 +1,68 @@
+{
+  // Extend the AirBnb lint config
+  "extends": "airbnb",
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "globalReturn": true,
+      "impliedStrict": true,
+      "jsx": true
+    },
+    "sourceType": "module",
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jquery": true,
+    // Optional Enables
+    "webextensions": false, // Enable if using Web Extensions
+    // Optional Testing Frameworks
+    "jasmine": false, // Enable if using Jasmine testing framework
+    "protractor": false, // Enable if using Protractor testing framework
+    "mocha": false // Enable if using Mocha testing framework
+  },
+  "globals": {
+    "jQuery": true,
+    "angular": false, // Enable if using Angular
+  },
+  // Do NOT change these rules
+  "rules": {
+    "indent": [2, 2, {"SwitchCase": 1}],
+    "max-len": [2, 80, 4, {
+      "ignoreComments": true,
+      "ignoreUrls": true,
+      "ignoreStrings": true,
+      "ignoreTemplateLiterals": true
+    }],
+    "quotes": [2, "single"], // Allows template literals if they have substitutions or line breaks
+    "semi": [2, "always"],
+    "no-multiple-empty-lines": [2, {"max": 1}],
+    "comma-dangle": [2, "always-multiline"],
+    "dot-location": [2, "property"],
+    "one-var": [2, "never"],
+    "no-var": [2], // Stop using var, use const or let instead
+    "prefer-const": ["error"],
+    "no-bitwise": [2],
+    "id-length": ["error", {
+      "properties": "never",
+      "exceptions": ["x", "y", "i", "e", "n", "k", "$", "s"]
+    }],
+    "func-names": [1, "always"],  // This aids in debugging
+    "no-use-before-define": [2, "nofunc"],
+    "yoda": [2, "always"],
+    "object-curly-spacing": [2, "always"],
+    "array-bracket-spacing": [2, "never"],
+    "space-unary-ops": [2, {"words": true, "nonwords": false, "overrides": {"!": false}}],
+    "keyword-spacing": ["error", {"after": true}],
+    "space-before-blocks": [2, "always"],
+    "space-in-parens": [2, "never"],
+    "spaced-comment": [2, "always"],
+    "no-confusing-arrow": ["error", {"allowParens": true}], // See eslint config for reasons
+    "no-constant-condition": ["error"],
+    "arrow-parens": ["error", "always"],
+    "operator-linebreak": ["error", "after"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/forbid-prop-types": [0]
+  }
+}
