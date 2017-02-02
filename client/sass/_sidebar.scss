@@ -1,0 +1,42 @@
+#sidebar {
+
+	border-right: $border-primary;
+	color: $color-dark;
+	height: 100%;
+	padding: 15px 30px 15px 30px;
+	position: absolute;
+	z-index: 9999;
+
+	ul {
+		list-style-type: none;
+		padding: 0;
+
+		&:not(:last-of-type) {
+			&:after {
+				border-bottom: $border-primary;
+				content: "";
+				display: block;
+				margin-top: 15px;
+				width: 30px;
+			}
+		}
+	}
+
+	h1 {
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	a {
+		color: $color-dark;
+
+		&:hover {
+			color: $color-orange;
+		}
+	}
+
+	li {
+		font-size: 14px;
+		padding-bottom: 8px;
+	}
+}
