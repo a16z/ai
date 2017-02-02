@@ -5,27 +5,15 @@
 </head>
 
 <body>
-  <% include ../partials/nav.ejs %>
-  <div class="alert alert-info text-right" role="alert">
-    <div style="display: flex;">
-    <div style="flex: 1;">
-    <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
-    <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>    <!--  navigation -->
-  </div>
-</div>
-
-</div>
-<nav class="sidebar">
-  <h3>Table of Contents</h3>
-  <div>
-    <p><b>Intro</b>
+  <nav id="sidebar">
+    <div>
+      <h1>Intro</h1>
       <ul>
         <li><a href="/docs/intro/getting-started">Getting Started</a></li>
         <li><a href="/docs/intro/survey-goals">Survey Goals</a></li>
         <li><a href="/docs/intro/survey-parameters">Survey Parameters</a></li>
       </ul>
-    </p>
-    <p><b>Guides</b>
+      <h1>Guides</h1>
       <ul>
         <li><a href="/docs/guides/ai">Introduction</a></li>
         <li><a href="/docs/guides/nlp">Natural Language Processing</a></li>
@@ -37,18 +25,27 @@
         <li><a href="/docs/guides/dl-unsupervised">Unsupervised Learning</a></li>
         <li><a href="/docs/guides/dl-start">Deep Learning: Retraining Comparison</a></li>
       </ul>
-    </p>
-    <p>
-      <b>Reference</b>
+      <h1>Reference</h1>
       <ul>
         <li><a href="/docs/reference/where-to-next">Where to Next?</a></li>
         <li><a href="/docs/reference/datasets">Datasets</a></li>
         <li><a href="/docs/reference/links">Talks, Videos and Podcasts</a></li>
         <li><a href="/docs/reference/bibliography">Papers and Research</a></li>
       </ul>
-    </p>
+    </div>
+  </nav>
+
+  
+  <% include ../partials/nav.ejs %>
+  <div class="alert alert-info text-right" role="alert">
+    <div style="display: flex;">
+    <div style="flex: 1;">
+    <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
+    <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>    <!--  navigation -->
   </div>
-</nav>
+</div>
+
+</div>
 
 <!-- <div class="jumbotron">
   <div class="container">
