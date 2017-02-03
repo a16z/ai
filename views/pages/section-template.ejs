@@ -5,9 +5,9 @@
 
 <body>
   <% include ../partials/sidebar.ejs %>
+  <% include ../partials/nav.ejs %>
   <div class="content-wrapper">
     <% include ../partials/header.ejs %>
-    <% include ../partials/nav.ejs %>
 
     <%- markdownContent %>
 
@@ -19,7 +19,7 @@
               <span class="breadcrumb-name"><%- breadcrumbs.prev.name %></span>
             </a>
           </li>
-          <li class="breadcrumb-item pull-right">
+          <li class="breadcrumb-item breadcrumb-item--last">
             <a href="<%- breadcrumbs.next.url %>">
               <span class="breadcrumb-name"><%- breadcrumbs.next.name %></span>
               <span class="chevron"><% include ../partials/svg/chevron-right.ejs %></span>
