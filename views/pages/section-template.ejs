@@ -1,42 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include ../partials/header.ejs %>
 </head>
 
 <body>
-  <nav id="sidebar">
-    <div>
-      <h1>Intro</h1>
-      <ul>
-        <li><a href="/docs/intro/getting-started">Getting Started</a></li>
-        <li><a href="/docs/intro/survey-goals">Survey Goals</a></li>
-        <li><a href="/docs/intro/survey-parameters">Survey Parameters</a></li>
-      </ul>
-      <h1>Guides</h1>
-      <ul>
-        <li><a href="/docs/guides/ai">Introduction</a></li>
-        <li><a href="/docs/guides/nlp">Natural Language Processing</a></li>
-        <li><a href="/docs/guides/vision">Vision</a></li>
-        <li><a href="/docs/guides/patterns">Pattern Recognition</a></li>
-        <li><a href="/docs/guides/on-apis">On APIs: Packaging and Complexity</a></li>
-        <li><a href="/docs/guides/dl">Deep Learning</a></li>
-        <li><a href="/docs/guides/dl-supervised">Supervised Learning</a></li>
-        <li><a href="/docs/guides/dl-unsupervised">Unsupervised Learning</a></li>
-        <li><a href="/docs/guides/dl-start">Deep Learning: Retraining Comparison</a></li>
-      </ul>
-      <h1>Reference</h1>
-      <ul>
-        <li><a href="/docs/reference/where-to-next">Where to Next?</a></li>
-        <li><a href="/docs/reference/datasets">Datasets</a></li>
-        <li><a href="/docs/reference/links">Talks, Videos and Podcasts</a></li>
-        <li><a href="/docs/reference/bibliography">Papers and Research</a></li>
-      </ul>
-    </div>
-  </nav>
+  <% include ../partials/sidebar.ejs %>
+  <div class="content-wrapper">
+    <% include ../partials/header.ejs %>
     <% include ../partials/nav.ejs %>
     <% include ../partials/banner.ejs %>
-
     <% if (hasBreadcrumbs) { %>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
@@ -44,13 +16,7 @@
         </ol>
     <% } %>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-              <%- markdownContent %>
-          </div>
-        </div>
-    </div>
+    <%- markdownContent %>
 
     <% if (hasBreadcrumbs) { %>
         <ol class="breadcrumb">
@@ -58,6 +24,7 @@
             <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
         </ol>
     <% } %>
+  </div>
 
 </body>
 </html>
