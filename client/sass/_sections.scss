@@ -1,4 +1,10 @@
 .content-wrapper {
+
+	@media #{$breakpoint-tablet} {
+		margin: 0 auto;
+		max-width: 80%;
+	}
+
 	p,
 	ul {
 		font-weight: 300;
@@ -31,6 +37,10 @@
 	list-style: none;
 	margin: 45px 0;
 	padding: 10px 0;
+
+	@media #{$breakpoint-mobile} {
+		flex-wrap: wrap;
+	}
 }
 
 .breadcrumb-item {
@@ -51,4 +61,10 @@
 .breadcrumb-name {
 	line-height: 0;
 	padding: 0 5px;
+}
+
+.breadcrumb-item--last {
+	@media #{$breakpoint-mobile} {
+		margin-left: auto;
+	}
 }

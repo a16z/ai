@@ -13,6 +13,7 @@ $sidebar-width: 300px;
 body {
 	color: $color-dark;
 	font-family: 'Lato', sans-serif;
+	margin: 0;
 }
 
 * {
@@ -20,6 +21,12 @@ body {
 }
 
 .content-wrapper {
-	margin-left: $sidebar-width + 40;
-	padding-right: 30px;
+	@media #{$breakpoint-tablet-max} {
+		padding: 10px;
+	}
+	
+	@media #{$breakpoint-desktop} {
+		margin-left: $sidebar-width + 40;
+		padding-right: 30px;
+	}
 }

@@ -2,6 +2,7 @@
 	background-color: $color-grey-light;
 	border-right: $border-primary;
 	color: $color-dark;
+	display: none;
 	height: 100%;
 	padding: 15px 30px 15px 30px;
 	position: fixed;
@@ -10,6 +11,10 @@
 	width: $sidebar-width;
 	z-index: 9999;
 
+	@media #{$breakpoint-desktop} {
+		display: block;
+	}
+	
 	ul {
 		list-style-type: none;
 		padding: 0;
