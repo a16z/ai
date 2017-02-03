@@ -1,0 +1,44 @@
+.header-mobile {
+	border-bottom: $border-primary;
+	
+	@media #{$breakpoint-desktop} {
+		display: none;
+	}
+}
+
+.header-mobile-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.logo-mobile,
+.icon-bars {
+	svg {
+		height: 25px;
+		width: auto;
+	}
+}
+
+.logo-mobile {
+	svg {
+		height: 18px;
+
+		@media #{$breakpoint-tablet} {
+			height: 35px;
+		}
+	}
+}
+
+.menu-label {
+	font-size: 11px;
+	font-weight: 300;
+	line-height: 0;
+	padding-right: 5px;
+}
+
+.icon-bars {
+	align-items: center;
+	display: flex;
+}
