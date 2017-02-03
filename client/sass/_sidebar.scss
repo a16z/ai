@@ -1,10 +1,13 @@
 #sidebar {
-
+	background-color: $color-grey-light;
 	border-right: $border-primary;
 	color: $color-dark;
 	height: 100%;
 	padding: 15px 30px 15px 30px;
-	position: absolute;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $sidebar-width;
 	z-index: 9999;
 
 	ul {
@@ -29,6 +32,7 @@
 
 	a {
 		color: $color-dark;
+		text-decoration: none;
 
 		&:hover {
 			color: $color-orange;
@@ -39,4 +43,13 @@
 		font-size: 14px;
 		padding-bottom: 8px;
 	}
+
+	.sidebar-nav {
+		height: 100%;
+		overflow-y: auto;
+	}
+}
+
+.logo-wrapper {
+	margin-bottom: 45px;
 }
