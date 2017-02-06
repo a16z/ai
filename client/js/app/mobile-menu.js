@@ -14,5 +14,4 @@ export default function () {
       mainNav.classList.remove('active');
     });
   }
-  console.log('hellhhho');
 }
