@@ -1,0 +1,32 @@
+// breakpoints
+$breakpoint-mobile: "(max-width: 767px)" !default;
+$breakpoint-tablet: "(min-width: 768px) and (max-width: 1023px)" !default;
+$breakpoint-tablet-max: "(max-width: 1023px)" !default;
+$breakpoint-tablet-min: "(min-width: 768px)" !default;
+$breakpoint-desktop: "(min-width: 1024px)" !default;
+$breakpoint-desktop-large: "(min-width: 1240px)" !default;
+
+//sidebar
+$sidebar-width: 300px;
+
+
+body {
+	color: $color-dark;
+	font-family: 'Lato', sans-serif;
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.content-wrapper {
+	@media #{$breakpoint-tablet-max} {
+		padding: 10px;
+	}
+	
+	@media #{$breakpoint-desktop} {
+		margin-left: $sidebar-width + 40;
+		padding-right: 30px;
+	}
+}

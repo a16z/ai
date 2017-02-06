@@ -1,0 +1,60 @@
+#sidebar {
+	background-color: $color-grey-light;
+	border-right: $border-primary;
+	color: $color-dark;
+	display: none;
+	height: 100%;
+	padding: 15px 30px 15px 30px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: $sidebar-width;
+	z-index: 9999;
+
+	@media #{$breakpoint-desktop} {
+		display: block;
+	}
+	
+	ul {
+		list-style-type: none;
+		padding: 0;
+
+		&:not(:last-of-type) {
+			&:after {
+				border-bottom: $border-primary;
+				content: "";
+				display: block;
+				margin-top: 15px;
+				width: 30px;
+			}
+		}
+	}
+
+	h1 {
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	a {
+		color: $color-dark;
+		text-decoration: none;
+
+		&:hover {
+			color: $color-orange;
+		}
+	}
+
+	li {
+		font-size: 14px;
+		padding-bottom: 8px;
+	}
+
+	.sidebar-nav {
+		height: 100%;
+		overflow-y: auto;
+	}
+}
+
+.logo-wrapper {
+	margin-bottom: 45px;
+}

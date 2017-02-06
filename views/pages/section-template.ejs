@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include ../partials/header.ejs %>
 </head>
 
 <body>
+  <% include ../partials/sidebar.ejs %>
+  <% include ../partials/nav.ejs %>
+  <div class="content-wrapper">
+    <% include ../partials/header.ejs %>
 
-    <% include ../partials/nav.ejs %>
+    <%- markdownContent %>
+
+    <% if (hasBreadcrumbs) { %>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="<%- breadcrumbs.prev.url %>">
+              <span class="chevron"><% include ../partials/svg/chevron-left.ejs %></span>
+              <span class="breadcrumb-name"><%- breadcrumbs.prev.name %></span>
+            </a>
+          </li>
+          <li class="breadcrumb-item breadcrumb-item--last">
+            <a href="<%- breadcrumbs.next.url %>">
+              <span class="breadcrumb-name"><%- breadcrumbs.next.name %></span>
+              <span class="chevron"><% include ../partials/svg/chevron-right.ejs %></span>
+            </a>
+          </li>
+        </ol>
+    <% } %>
     <% include ../partials/banner.ejs %>
-
-    <% if (hasBreadcrumbs) { %>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
-            <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
-        </ol>
-    <% } %>
-
-    <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-              <%- markdownContent %>
-          </div>
-        </div>
-    </div>
-
-    <% if (hasBreadcrumbs) { %>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<%- breadcrumbs.prev.url %>">&larr; <%- breadcrumbs.prev.name %></a></li>
-            <li class="breadcrumb-item pull-right"><a href="<%- breadcrumbs.next.url %>"><%- breadcrumbs.next.name %> &rarr;</a></li>
-        </ol>
-    <% } %>
+  </div>
 
 </body>
 </html>

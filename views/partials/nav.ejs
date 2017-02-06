@@ -1,11 +1,20 @@
+<header class="header-mobile">
+  <div class="header-mobile-wrapper">
+    <div class="logo-mobile">
+      <% include ../partials/logo.ejs %>
+    </div>
+    <div class="icon-bars">
+      <span class="menu-label">MENU</span>
+      <% include ../partials/svg/bars.ejs %>
+    </div>
+  </div>
+</header>
+
 <nav class="navbar navbar-default navbar-static-top navbar-inverse">
   <div class="container">
     <ul class="nav navbar-nav">
       <li <% if (activeRoute == "" || activeRoute == "/") { %> class="active" <% } %> >
         <!-- <a href="/"><span class="glyphicon glyphicon-home"></span></a> -->
-        <div class='circle-container'>
-            <a href='/' class='center'><div class="roundedImageContainer"><img class="roundedImage64" src="/main-image.png"/></div></a>
-        </div>
 
       </li>
     </ul>

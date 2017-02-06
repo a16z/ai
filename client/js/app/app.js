@@ -1,2 +1,3 @@
-const hello = 'hello webpack';
-console.log(hello);
+import mobileMenu from './mobile-menu';
+
+mobileMenu();
