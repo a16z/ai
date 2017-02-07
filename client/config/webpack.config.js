@@ -11,8 +11,10 @@ module.exports = {
   // Two discrete module entry points
   entry: {
     global: [
-    	'client/js/app/app.js',
-    	'client/sass/screen.scss',
+      'public/bootstrap/js/bootstrap.min.js',
+      'public/js/ai.client.js',
+      'client/js/app/app.js',
+      'client/sass/screen.scss',
     ],
   },
 
@@ -35,6 +37,11 @@ module.exports = {
     ],
   },
 
+  // Enable require('jquery') where jquery is already a global
+  externals: {
+    'jquery': 'jQuery',
+  },
+
   plugins: [
     new ExtractTextPlugin('css/[name].css'),
     new LiveReloadPlugin({ appendScriptTag: true }),
@@ -45,7 +52,10 @@ module.exports = {
     preLoaders: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          /public/,
+        ],
         loader: 'eslint',
       },
     ],
@@ -80,8 +90,8 @@ module.exports = {
       },
       {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'file'
+        loader: 'file',
       },
-    ]
-  }
+    ],
+  },
 }
