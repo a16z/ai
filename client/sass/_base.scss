@@ -24,9 +24,10 @@ body {
 	@media #{$breakpoint-tablet-max} {
 		padding: 10px;
 	}
-	
+
 	@media #{$breakpoint-desktop} {
 		margin-left: $sidebar-width + 40;
 		padding-right: 30px;
+		margin-top: 95px;
 	}
 }
