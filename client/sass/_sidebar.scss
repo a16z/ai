@@ -7,14 +7,27 @@
 	padding: 15px 30px 15px 30px;
 	position: fixed;
 	top: 0;
-	left: 0;
 	width: $sidebar-width;
 	z-index: 9999;
 
 	@media #{$breakpoint-desktop} {
 		display: block;
+		left: 0;
 	}
-	
+
+	@media #{$breakpoint-tablet-max} {
+		bottom: 0;
+		display: block;
+		height: 100%;
+		position: fixed;
+		right: -$sidebar-width;
+		transition: all .5s ease;
+	}
+
+	&.active {
+		right: 0;	
+	}
+
 	ul {
 		list-style-type: none;
 		padding: 0;
