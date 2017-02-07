@@ -6,8 +6,8 @@
 
 <body>
   <% include ../partials/sidebar.ejs %>
+  <% include ../partials/header.ejs %>
   <div class="content-wrapper">
-    <% include ../partials/header.ejs %>
     <%- markdownContent %>
 
     <% if (hasBreadcrumbs) { %>
