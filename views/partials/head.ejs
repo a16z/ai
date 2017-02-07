@@ -1,0 +1,31 @@
+<% if (session.signedIn) { %>
+<title>A16Z AI Playground</title>
+<% } else { %>
+  <title>Login Required</title>
+<% } %>
+
+<!-- Optional theme -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+<script src="/js/ai.client.js"></script>
+
+<!-- @todo: cache busting for compiled assets -->
+<!-- Webpack compiled -->
+<script src="/static/js/global.bundle.js"></script>
+<link rel="stylesheet" href="/static/css/global.css">
+<!-- END Webpack compiled -->
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/stylesheets/xtra.css" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">

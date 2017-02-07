@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <% include ../partials/header.ejs %>
+  <% include ../partials/head.ejs %>
 </head>
 
 <body>
   <% include ../partials/sidebar.ejs %>
-  <% include ../partials/nav.ejs %>
-  <div class="alert alert-info text-right" role="alert">
-    <div style="display: flex;">
-    <div style="flex: 1;">
-    <a class="github-button" href="https://github.com/a16z" data-style="mega" data-count-href="/a16z/followers" data-count-api="/users/a16z#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @a16z on GitHub">Follow @a16z on GitHub</a>
-    <a class="github-button" href="https://github.com/a16z/ai/fork" data-style="mega" data-count-href="/a16z/ai/network" data-count-api="/repos/a16z/ai#forks_count" data-count-aria-label="# forks on GitHub" aria-label="Fork a16z/ai on GitHub">Fork a16z/ai on GitHub</a>
+  <% include ../partials/header.ejs %>
+  <div class="content-wrapper">
+    <% include ../partials/home.ejs %>
+    <% include ../partials/banner.ejs %>
+    <% include ../partials/login.ejs %>
   </div>
 </div>
 </div>
