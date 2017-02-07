@@ -1,3 +1,5 @@
+<% var assetVersion = '1.0.0'; %>
+
 <% if (session.signedIn) { %>
 <title>A16Z AI Playground</title>
 <% } else { %>
@@ -16,10 +18,9 @@
 
 <script src="/js/ai.client.js"></script>
 
-<!-- @todo: cache busting for compiled assets -->
 <!-- Webpack compiled -->
-<script src="/static/js/global.bundle.js"></script>
-<link rel="stylesheet" href="/static/css/global.css">
+<script src="/static/js/global.bundle.js?version=<%= assetVersion %>"></script>
+<link rel="stylesheet" href="/static/css/global.css?version=<%= assetVersion %>">
 <!-- END Webpack compiled -->
 
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
