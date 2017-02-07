@@ -10,6 +10,8 @@ Current Computer Vision APIs provide significant, impressive functionality with 
 
 * [Image Multi-Feature Analysis](/test/image/image-analysis)
 
+<iframe style="width: 100%; min-height: 400px" src="/test/image/image-analysis"></iframe>
+
 There’s plenty of information to be obtained: from tags, captions, labels, text (via OCR), detection of adult or inappropriate content, etc. Some systems will return specific coordinates in the image that allow separation of elements, either automatically or with a person’s help.
 
 ![An Image With Text Areas Automatically Highlighted](/images/image-highlights.png “An Image With Text Areas Automatically Highlighted”)
