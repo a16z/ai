@@ -1,21 +1,13 @@
-<% var assetVersion = '1.0.0'; %>
-
-<% if (session.signedIn) { %>
-<title>A16Z AI Playground</title>
-<% } else { %>
-  <title>Login Required</title>
-<% } %>
-
-<!-- Optional theme -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="/stylesheets/xtra.css" />
-
-<!-- Webpack compiled -->
-<script src="/static/js/global.bundle.js?version=<%= assetVersion %>"></script>
-<link rel="stylesheet" href="/static/css/global.css?version=<%= assetVersion %>">
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<header class="header-mobile">
+	<div class="header-fixed">
+	  <div class="header-mobile-wrapper">
+	    <div class="logo-mobile">
+	      <% include ../partials/logo.ejs %>
+	    </div>
+	    <div id="icon-bars">
+	      <span class="menu-label">MENU</span>
+	      <% include ../partials/svg/bars.ejs %>
+	    </div>
+	  </div>
+	</div>	
+</header>

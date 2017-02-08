@@ -1,17 +1,17 @@
 export default function () {
-  const menuBtn = document.querySelector('.hamburger-menu');
-  const mainNav = document.querySelector('.main-nav');
-  const menuClose = document.querySelector('.mobile-close');
+  const menuBtn = document.getElementById('icon-bars');
+  const sideBar = document.getElementById('sidebar');
+  const menuClose = document.getElementById('close-menu');
   if (menuBtn) {
     menuBtn.addEventListener('click', (evt) => {
       evt.preventDefault();
-      mainNav.classList.add('active');
+      sideBar.classList.add('active');
     });
   }
   if (menuClose) {
     menuClose.addEventListener('click', (evt) => {
       evt.preventDefault();
-      mainNav.classList.remove('active');
+      sideBar.classList.remove('active');
     });
   }
 }

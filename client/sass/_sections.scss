@@ -68,3 +68,10 @@
 		margin-left: auto;
 	}
 }
+
+blockquote {
+	border-left: 4px solid $color-grey;
+	font-style: italic;
+	margin: 0;
+	padding-left: 20px;
+}
