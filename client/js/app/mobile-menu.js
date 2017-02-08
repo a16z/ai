@@ -7,4 +7,5 @@ export default function () {
       sideBar.classList.add('active');
     });
   }
+  console.log(menuBtn);
 }
