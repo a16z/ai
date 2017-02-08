@@ -27,6 +27,7 @@ body {
 
 	@media #{$breakpoint-desktop} {
 		margin-left: $sidebar-width + 40;
+		max-width: 860px;
 		padding-right: 30px;
 		margin-top: 95px;
 	}
