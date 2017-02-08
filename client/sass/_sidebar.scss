@@ -25,7 +25,7 @@
 	}
 
 	&.active {
-		right: 0;	
+		right: 0;
 	}
 
 	ul {
@@ -69,5 +69,20 @@
 }
 
 .logo-wrapper {
-	margin-bottom: 45px;
+	display: none;
+
+	@media #{$breakpoint-desktop} {
+		display: block;
+		margin-bottom: 45px;
+	}
+}
+
+#close-menu {
+	height: 27px;
+	margin-left: auto;
+	width: 27px;
+
+	@media #{$breakpoint-desktop} {
+		display: none;
+	}
 }
