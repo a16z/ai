@@ -1,9 +1,16 @@
 .header-mobile {
-	border-bottom: $border-primary;
+	height: 45px;
 
 	@media #{$breakpoint-desktop} {
 		display: none;
 	}
+}
+
+.header-fixed {
+	background-color: #ffffff;
+	border-bottom: $border-primary;
+	position: fixed;
+	width: 100%;
 }
 
 .header-mobile-wrapper {
