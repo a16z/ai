@@ -42,7 +42,9 @@
     "ssl-root-cas": "^1.2.3",
     "twitter": "1.4.0",
     "util": "0.10.3",
-    "watson-developer-cloud": "2.2.0"
+    "watson-developer-cloud": "2.2.0",
+    "dotenv": "^4.0.0"
+
   },
   "engines": {
     "node": "6.9.3"
@@ -58,7 +60,6 @@
   ],
   "license": "MIT",
   "devDependencies": {
-    "dotenv": "^4.0.0",
     "autoprefixer-loader": "~3.1.0",
     "babel-eslint": "~4.1.1",
     "babel-loader": "~5.3.2",
