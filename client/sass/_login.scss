@@ -1,0 +1,20 @@
+.login-wrapper {
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 30px;
+
+	@media #{$breakpoint-mobile} {
+		width: 100%;
+	}
+
+	p {
+		font-size: 1.5rem;
+		font-weight: 300;
+	}
+
+	.login-input {
+		height: 40px;
+		width: 200px;
+	}
+}

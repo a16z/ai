@@ -75,3 +75,30 @@ blockquote {
 	margin: 0;
 	padding-left: 20px;
 }
+
+
+.home-content {
+	p {
+		font-size: 1.6rem;
+		line-height: 1.4;
+
+		@media #{$breakpoint-mobile} {
+			font-size: 1.2rem;
+		}
+	}
+}
+
+.home-content-block {
+	margin-bottom: 70px;
+}
+
+.ai-image {
+	width: 200px;
+	border-radius: 50%;
+	float: right;
+	padding: 0 10px;
+
+	@media #{$breakpoint-mobile} {
+		width: 25%;
+	}
+}
