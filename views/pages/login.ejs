@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <% include ../partials/head.ejs %>
-  <% include ../partials/header.ejs %>
 </head>
 
 <body>
 
-  <% include ../partials/login.ejs %>
-
-<div class="jumbotron text-center">
+<div class="login-wrapper">
   <div class="container">
+    <div class="logo-wrapper">
+      <% include ../partials/logo.ejs %>
+    </div>
     <a href="/" class="lang-logo">
       <img src="/main-image.png">
     </a>
@@ -25,17 +25,14 @@
       <% } %>
 
       <form action="/loginCheck" method="POST">
-      <p>This is not the <INPUT type="password" name="secretKey"> you're looking for.</p>
+      <p>This is not the <INPUT type="password" name="secretKey" class="login-input"> you're looking for.</p>
       <p><input type="submit" class="btn btn-lg btn-primary" value="Let me in!"></p>
 
 
       </form>
 
-
+      <% include ../partials/banner.ejs %>
   </div>
-</div>
-<div class="container">
-
 </div>
 
 <% include ../partials/footer.ejs %>
