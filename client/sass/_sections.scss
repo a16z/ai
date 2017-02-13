@@ -2,8 +2,8 @@
 	animation: contentfade 1s;
 
 	@keyframes contentfade {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+		from { opacity: 0; }
+		to   { opacity: 1; }
 	}
 
 	/* Firefox < 16 */
@@ -17,7 +17,7 @@
 		from { opacity: 0; }
 		to   { opacity: 1; }
 	}
-	
+
 	@media #{$breakpoint-tablet} {
 		margin: 0 auto;
 		max-width: 80%;
