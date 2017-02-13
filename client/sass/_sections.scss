@@ -4,8 +4,20 @@
 	@keyframes contentfade {
     from { opacity: 0; }
     to   { opacity: 1; }
-}
+	}
 
+	/* Firefox < 16 */
+	@-moz-keyframes contentfade {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+
+	/* Internet Explorer */
+	@-ms-keyframes contentfade {
+		from { opacity: 0; }
+		to   { opacity: 1; }
+	}
+	
 	@media #{$breakpoint-tablet} {
 		margin: 0 auto;
 		max-width: 80%;
