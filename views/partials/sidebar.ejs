@@ -5,31 +5,32 @@
 	<div class="logo-wrapper">
 		<% include ../partials/logo.ejs %>
 	</div>
+	<%# @todo: Consider refactoring. Separate data for links in a JSON. Loop over links using ejs %>
 	<div class="sidebar-nav">
 		<h1>Intro</h1>
 		<ul>
-			<li><a href="/docs/intro/getting-started">Getting Started</a></li>
-			<li><a href="/docs/intro/survey-goals">Survey Goals</a></li>
-			<li><a href="/docs/intro/survey-parameters">Survey Parameters</a></li>
+			<li><a <% if (bodyClass === 'docs-intro-getting-started') { %> class="active" <% } %> href="/docs/intro/getting-started">Getting Started</a></li>
+			<li><a <% if (bodyClass === 'docs-intro-survey-goals') { %> class="active" <% } %> href="/docs/intro/survey-goals">Survey Goals</a></li>
+			<li><a <% if (bodyClass === 'docs-intro-survey-parameters') { %> class="active" <% } %> href="/docs/intro/survey-parameters">Survey Parameters</a></li>
 		</ul>
 		<h1>Guides</h1>
 		<ul>
-			<li><a href="/docs/guides/ai">Introduction</a></li>
-			<li><a href="/docs/guides/nlp">Natural Language Processing</a></li>
-			<li><a href="/docs/guides/vision">Vision</a></li>
-			<li><a href="/docs/guides/patterns">Pattern Recognition</a></li>
-			<li><a href="/docs/guides/on-apis">On APIs: Packaging and Complexity</a></li>
-			<li><a href="/docs/guides/dl">Deep Learning</a></li>
-			<li><a href="/docs/guides/dl-supervised">Supervised Learning</a></li>
-			<li><a href="/docs/guides/dl-unsupervised">Unsupervised Learning</a></li>
-			<li><a href="/docs/guides/dl-start">Deep Learning: Retraining Comparison</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-ai') { %> class="active" <% } %> href="/docs/guides/ai">Introduction</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-nlp') { %> class="active" <% } %> href="/docs/guides/nlp">Natural Language Processing</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-vision') { %> class="active" <% } %> href="/docs/guides/vision">Vision</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-paterns') { %> class="active" <% } %> href="/docs/guides/patterns">Pattern Recognition</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-on-apis') { %> class="active" <% } %> href="/docs/guides/on-apis">On APIs: Packaging and Complexity</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-dl') { %> class="active" <% } %> href="/docs/guides/dl">Deep Learning</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-dl-supervised') { %> class="active" <% } %> href="/docs/guides/dl-supervised">Supervised Learning</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-dl-unsupervised') { %> class="active" <% } %> href="/docs/guides/dl-unsupervised">Unsupervised Learning</a></li>
+			<li><a <% if (bodyClass === 'docs-guides-dl-start') { %> class="active" <% } %> href="/docs/guides/dl-start">Deep Learning: Retraining Comparison</a></li>
 		</ul>
 		<h1>Reference</h1>
 		<ul>
-			<li><a href="/docs/reference/where-to-next">Where to Next?</a></li>
-			<li><a href="/docs/reference/datasets">Datasets</a></li>
-			<li><a href="/docs/reference/links">Talks, Videos and Podcasts</a></li>
-			<li><a href="/docs/reference/bibliography">Papers and Research</a></li>
+			<li><a <% if (bodyClass === 'docs-reference-where-to-next') { %> class="active" <% } %> href="/docs/reference/where-to-next">Where to Next?</a></li>
+			<li><a <% if (bodyClass === 'docs-reference-datasets') { %> class="active" <% } %> href="/docs/reference/datasets">Datasets</a></li>
+			<li><a <% if (bodyClass === 'docs-reference-links') { %> class="active" <% } %> href="/docs/reference/links">Talks, Videos and Podcasts</a></li>
+			<li><a <% if (bodyClass === 'docs-reference-bibliography') { %> class="active" <% } %> href="/docs/reference/bibliography">Papers and Research</a></li>
 		</ul>
 	</div>
 </nav>
