@@ -1,22 +1,24 @@
-<% var bodyClass = bodyClass %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <% include ../partials/header.ejs %>
+  <% include ../partials/head.ejs %>
 </head>
-
-<body class="<%= bodyClass %>">
-
-  <% include ../partials/signed-out-nav.ejs %>
-
-<div class="jumbotron text-center">
-  <div class="container">
-    <a href="/">
-      <img src="/404.png">
-    </a>
-    <p>Oops. Couldn't find that page. Or... something went wrong.</p><p>Try going back <a href="/">Home</a>.</p>
+<body class="error 404-page">
+  <% include ../partials/sidebar.ejs %>
+  <% include ../partials/header.ejs %>
+  <div class="content-wrapper">
+    <div class="jumbotron text-center">
+      <div class="container">
+      	<h1>Page Not Found</h1>
+      	<br>
+        <a href="/">
+          <img src="/404.png">
+        </a>
+        <p>Oops. Couldn't find that page. Or... something went wrong.</p><p>Try going back <a href="/">Home</a>.</p>
+      </div>
+    </div>
+    <% include ../partials/login.ejs %>
+    <% include ../partials/footer.ejs %>
   </div>
-</div>
-
 </body>
 </html>
