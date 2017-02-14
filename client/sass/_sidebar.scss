@@ -52,7 +52,8 @@
 		color: $color-dark;
 		text-decoration: none;
 
-		&:hover {
+		&:hover,
+		&.active {
 			color: $color-orange;
 		}
 	}

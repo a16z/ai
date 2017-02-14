@@ -2,7 +2,7 @@ require('dotenv').config();
 var express = require('express');
 
 var fs = require('fs');
-
+var slugify = require('slugify');
 // cookies see https://github.com/expressjs/cookie-parser
 var cookieParser = require('cookie-parser');
 // var cookieSession = require('cookie-session');
@@ -40,9 +40,15 @@ var ImageAnalysis = require('./lib/image-analysis.js');
 var NXAPIPacks = require('./lib/api-connector/api-connector.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
-  return { session: req.session, activeRoute: req.activeRoute, recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY };
-}
-
+  // Set a body class hook to append to <body>
+  let localBodyClass = '';
+  if(req.originalUrl === '/') {
+    localBodyClass = 'home';
+  } else {
+    localBodyClass = slugify(req.originalUrl.replace(/\//g, ' '));
+  }
+  return { session: req.session, activeRoute: req.activeRoute, recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY, bodyClass: localBodyClass };
+};
 
 //storage
 // var session = require('express-session');
