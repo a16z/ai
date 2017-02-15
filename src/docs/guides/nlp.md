@@ -42,7 +42,7 @@ A key element to look at is whether the service in question supports training fo
 
 ## Language Analysis and Detection
 
-While automated translation is an interesting application, language detection is a service that can be useful in many different situations — imagine, instead of having to ask a person what language they’d like to choose, they can simply speak or write and a service can use that information to automatically route to the correct language. 
+While automated translation is an interesting application, language detection is a service that can be useful in many different situations — imagine, instead of having to ask a person what language they’d like to choose, they can simply speak or write and a service can use that information to automatically route to the correct language.
 
 To see responses from different services to the same query, see the [comparison page for Language Analysis APIs](/test/phrase/language-analysis).
 
@@ -56,6 +56,6 @@ To see responses from different services to the same query, see the [comparison 
 
 Here’s a collection of API examples referenced in this section
 
-* [Sentiment Analysis](/test/phrase/sentiment-analysis)
-* [Entity Extraction](/test/phrase/entity-analysis)
-* [Language Detection](/test/phrase/language-analysis)
+<iframe style="width: 100%; min-height: 400px; margin-bottom: 40px" src="/test/phrase/sentiment-analysis"></iframe>
+<iframe style="width: 100%; min-height: 400px; margin-bottom: 40px" src="/test/phrase/entity-analysis"></iframe>
+<iframe style="width: 100%; min-height: 400px; margin-bottom: 40px" src="/test/phrase/language-analysis"></iframe>
