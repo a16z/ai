@@ -12,7 +12,6 @@ module.exports = {
   entry: {
     global: [
       'public/bootstrap/js/bootstrap.min.js',
-      'public/js/ai.client.js',
       'client/js/app/app.js',
       'client/sass/screen.scss',
     ],
