@@ -266,7 +266,7 @@ $( "#analysisForm" ).submit(function( event ) {
       //necessary since ajax async calls defer and you end up having variables overwritten is used within the same context
       (function (position) {
         var apiInfo = apiList[position];
-
+        var endpointPath = apiInfo.url;
         // $.post(endpointPath.url, {phrase: phraseFieldContents});
         var divname = apiInfo.api.id;
         var divRefName = "#"+divname;
@@ -328,13 +328,20 @@ $( "#analysisForm" ).submit(function( event ) {
           })
 
         }).fail(function(data) {
-          console.log("error in post");
           var receiveDate = (new Date()).getTime();
           var responseTimeMs = receiveDate - sendDate;
 
           $(divRefName).removeClass("spinner");
-          $(divRefName).empty().append("Error, api="+JSON.stringify(endpointPath)+" / data="+JSON.stringify(data)+" / Total time = "+responseTimeMs);
 
+          $(divRefName).empty().append('Error: could not connect to <br/>' + endpointPath + ' <br/>check console');
+
+          console.error('Error connecting to: ' + endpointPath);
+          var failError = {
+            api: { log: endpointPath },
+            data: { log: JSON.stringify(data) },
+            totalTime: { log: responseTimeMs}
+          };
+          console.table(failError);
 
         });
       })(key);
@@ -346,7 +353,6 @@ $( "#analysisForm" ).submit(function( event ) {
     resultsNotesDiv.fadeToggle(100);
 
 });
-
 
    </script>
 
