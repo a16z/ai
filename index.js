@@ -41,7 +41,7 @@ var NXAPIPacks = require('./lib/api-connector/api-connector.js');
 
 createEJSTemplateDataDictionary = function (req, res) {
   // Set a body class hook to append to <body>
-  let localBodyClass = '';
+  var localBodyClass = '';
   if(req.originalUrl === '/') {
     localBodyClass = 'home';
   } else {
