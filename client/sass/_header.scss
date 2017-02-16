@@ -11,6 +11,7 @@
 	border-bottom: $border-primary;
 	position: fixed;
 	width: 100%;
+	z-index: 2;
 }
 
 .header-mobile-wrapper {
@@ -22,6 +23,7 @@
 
 .logo-mobile,
 #icon-bars {
+	cursor: pointer;
 	svg {
 		height: 25px;
 		width: auto;
