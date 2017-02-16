@@ -28,11 +28,19 @@
 		font-weight: 300;
 		font-size: 1.2rem;
 		line-height: 2;
+
+		@media #{$breakpoint-mobile} {
+			font-size: 1em;
+		}
 	}
 
 	h1,h2 {
 		font-size: 2em;
 		margin: 35px 0 0 0;
+
+		@media #{$breakpoint-mobile} {
+			font-size: 1.4em;
+		}
 	}
 
 	a {
@@ -109,7 +117,6 @@
 
 blockquote {
 	border-left: 4px solid $color-grey;
-	font-style: italic;
 	margin: 0;
 	padding-left: 20px;
 }

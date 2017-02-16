@@ -1,0 +1,42 @@
+fieldset {
+	border: 0;
+	margin: 0;
+	min-width: 0;
+	padding: 0;
+}
+
+#api-service-title {
+	margin: 0;
+}
+
+legend {
+	border-bottom: $border-primary;
+	display: block;
+	font-weight: 700;
+	width: 100%;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	appearance: button;
+	cursor: pointer;
+	font: inherit;
+
+	@media #{$breakpoint-mobile} {
+		width: 100%;
+	}
+}
+
+textarea {
+	width: 100%;
+}
+
+.thumbnail {
+	>img {
+		display: block;
+    height: auto;
+    max-width: 100%;
+	}
+}
