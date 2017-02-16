@@ -21,3 +21,16 @@
 		background-color: $color-orange;
 	}
 }
+
+.icon-external-link {
+	height: .75em;
+	padding: 0 0.125em;
+	width: .75em;
+
+	svg {
+		fill: $color-blue;
+		height: inherit;
+		width: inherit;
+		vertical-align: baseline;
+	}
+}
