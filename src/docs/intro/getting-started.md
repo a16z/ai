@@ -15,5 +15,5 @@ A big hat tip to our friend Diego Doval who created this guide based on some ver
 Enjoy the journey. We're very bullish on the potential for artificial intelligence to make all our software smarter, easier to use, and a better [bicycle for our minds](https://www.youtube.com/watch?v=ob_GX50Za6c).
 
 --
-frank@a16z.com (@withfries2) on behalf of the a16z team
+Frank Chen (frank@a16z.com / [@withfries2](https://twitter.com/withfries2)) and Michael Wee (mwee@a16z.com / [@theweester](https://twitter.com/theweester)) on behalf of the a16z team.
 <!-- Eyes up, Guardian. -->
