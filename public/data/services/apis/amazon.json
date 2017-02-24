@@ -1,0 +1,10 @@
+{
+    "id" : "amazon-ai",
+    "provider": "Amazon",
+    "name": "Amazon AI",
+    "providerUrl": "https://aws.amazon.com/",
+    "consoleUrl": "https://console.aws.amazon.com/",
+    "officialGithubURL": "https://github.com/aws/aws-sdk-js",
+    "unofficialGithubURL": "",
+    "description": "AWS offers a family of AI services that provide cloud-native machine learning and deep learning technologies to address your different use cases and needs."
+}
