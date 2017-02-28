@@ -8,9 +8,7 @@ Sub-domains of computer vision include scene reconstruction, motion/event detect
 
 Current Computer Vision APIs provide significant, impressive functionality with very little complexity.  We can compare raw output for the same image and different APIs with the following page:
 
-* [Image Multi-Feature Analysis](/test/image/image-analysis)
-
-<iframe style="width: 100%; min-height: 400px" src="/test/image/image-analysis"></iframe>
+<iframe style="width: 100%; min-height: 551px" src="/test/image/image-analysis"></iframe>
 
 There’s plenty of information to be obtained: from tags, captions, labels, text (via OCR), detection of adult or inappropriate content, etc. Some systems will return specific coordinates in the image that allow separation of elements, either automatically or with a person’s help.
 
