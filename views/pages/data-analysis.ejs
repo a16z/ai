@@ -315,6 +315,7 @@ $( "#analysisForm" ).submit(function( event ) {
             $(divRefAPITimeName).empty().append(""+data.apiTime);
 
             $("#table-centered ."+divRefNameClick).click(function () {
+              $(this).toggleClass('open');
               toggleVisibleRow(divname);
             });
             $("#table-centered #"+divRefNameArrow).click(function () {

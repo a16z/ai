@@ -14,12 +14,7 @@ fieldset {
 }
 
 legend {
-	background-color: $color-red;
-	border-bottom: $border-primary;
-	color: #ffffff;
-	display: block;
 	font-weight: 700;
-	padding: 10px;
 	width: 100%;
 }
 
@@ -45,5 +40,28 @@ textarea {
 		display: block;
     height: auto;
     max-width: 100%;
+	}
+}
+
+.hoverArea {
+	color: $color-blue;
+
+	&:hover,
+	&:active {
+		background-color: transparent;
+		color: $color-blue;
+		border-bottom: 1px dotted $color-blue;
+	}
+
+	&::before {
+		content: "+";
+		display: inline-block;
+		padding-right: .5em;
+	}
+
+	&.open {
+		&::before {
+			content: "-";
+		}
 	}
 }

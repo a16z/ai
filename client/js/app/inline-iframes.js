@@ -10,7 +10,8 @@ export default function () {
 
         iframe.addEventListener('click', (e) => {
           if (e.target && (e.target.matches('input[type="submit"]') ||
-            e.target.matches('img.pickerImage'))) {
+            e.target.matches('img.pickerImage') ||
+            e.target.matches('span.hoverArea'))) {
             const self = this;
             setTimeout(() => {
               const newHeight =
