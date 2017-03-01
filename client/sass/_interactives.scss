@@ -47,3 +47,26 @@ textarea {
     max-width: 100%;
 	}
 }
+
+.hoverArea {
+	color: $color-blue;
+
+	&:hover,
+	&:active {
+		background-color: transparent;
+		color: $color-blue;
+		border-bottom: 1px dotted $color-blue;
+	}
+
+	&::before {
+		content: "+";
+		display: inline-block;
+		padding-right: .5em;
+	}
+
+	&.open {
+		&::before {
+			content: "-";
+		}
+	}
+}

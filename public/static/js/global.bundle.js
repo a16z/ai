@@ -1698,7 +1698,7 @@
 	        el.height = loadHeight + 'px'; // eslint-disable-line
 	
 	        iframe.addEventListener('click', function (e) {
-	          if (e.target && (e.target.matches('input[type="submit"]') || e.target.matches('img.pickerImage'))) {
+	          if (e.target && (e.target.matches('input[type="submit"]') || e.target.matches('img.pickerImage') || e.target.matches('span.hoverArea'))) {
 	            (function () {
 	              var self = _this;
 	              setTimeout(function () {

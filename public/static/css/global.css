@@ -236,4 +236,12 @@ textarea { width: 100%; }
 
 .thumbnail > img { display: block; height: auto; max-width: 100%; }
 
+.hoverArea { color: #7a99ac; }
+
+.hoverArea:hover, .hoverArea:active { background-color: transparent; color: #7a99ac; border-bottom: 1px dotted #7a99ac; }
+
+.hoverArea::before { content: "+"; display: inline-block; padding-right: .5em; }
+
+.hoverArea.open::before { content: "-"; }
+
 /*# sourceMappingURL=global.css.map*/
