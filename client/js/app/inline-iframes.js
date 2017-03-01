@@ -5,8 +5,12 @@ export default function () {
     Array.prototype.forEach.call(iframes, (el) => {
       el.onload = function () { // eslint-disable-line
         const iframe = el.contentWindow.document;
+        const loadHeight = iframe.body.scrollHeight;
+        el.height = `${loadHeight}px`; // eslint-disable-line
+
         iframe.addEventListener('click', (e) => {
-          if (e.target && e.target.matches('input[type="submit"]')) {
+          if (e.target && (e.target.matches('input[type="submit"]') ||
+            e.target.matches('img.pickerImage'))) {
             const self = this;
             setTimeout(() => {
               const newHeight =
