@@ -139,6 +139,10 @@ function insertImageSamples(apiServiceInfo) {
           alert('Image file is too big. Please select an image of less than 1 MB.');
           return;
         }
+        if (file.type != "image/jpeg") {
+          alert('Image must be in the JPEG format.');
+         return;
+        }
         var fileInfo = {
           name: file.name,
           lastModified: file.lastModified,

@@ -1,7 +1,7 @@
 {
     "id" : "amazon-ai",
     "provider": "Amazon",
-    "name": "Amazon AI",
+    "name": "Amazon Rekognition",
     "providerUrl": "https://aws.amazon.com/",
     "consoleUrl": "https://console.aws.amazon.com/",
     "officialGithubURL": "https://github.com/aws/aws-sdk-js",

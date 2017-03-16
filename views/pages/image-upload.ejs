@@ -54,8 +54,13 @@ function showResult(imageInfo) {
     if (!files || files.length == 0) return;
     file = files[0];
     //format of 'file' object File {name: "crazy-signs-notice.jpg", lastModified: 1475855109000, size: 44346, type: "image/jpeg", slice: function}
+    alert('hi');
     if (file.size > (1024 * 1024)) {
       alert('Image file is too big. Please select an image of less than 1 MB.');
+      return;
+    }
+    if (file.type != "image/jpeg") {
+      alert('Image must be in the JPEG format.');
       return;
     }
     var fileInfo = {
