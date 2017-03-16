@@ -37,7 +37,7 @@
           <P>or upload and select a file to analyze:</p><p>
           <object id="file-object"></object>
           <div id="file-result"></div>
-          <P>Supported formats include common image formats (i.e., JPEG, PNG).</p>
+          <P>JPEG is the supported image format.</p>
 
         <% } %>
       <input id="sendData" type="submit" value="Analyze">
@@ -334,7 +334,7 @@ $( "#analysisForm" ).submit(function( event ) {
 
           $(divRefName).removeClass("spinner");
 
-          $(divRefName).empty().append('Error: could not connect to <br/>' + endpointPath + ' <br/>check console');
+          $(divRefName).empty().append('Error: could not connect to <br/>' + endpointPath + ' <br/>');
 
           console.error('Error connecting to: ' + endpointPath);
           var failError = {
