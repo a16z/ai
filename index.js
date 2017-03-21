@@ -79,6 +79,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.bodyParser({limit: '5mb'}));
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
