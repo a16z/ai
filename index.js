@@ -29,13 +29,9 @@ var redis = require('redis');
 var rateLimiter = new RateLimit(redis.createClient(), [{interval: 86400, limit: 100000}]);
 
 var options = {
-  ignoreRedisErrors: true; // defaults to false
+  ignoreRedisErrors: true // defaults to false
 };
 var limitMiddleware = new ExpressMiddleware(rateLimiter, options);
-
-app.use('/api', limitMiddleware.middleware(function(req, res, next) {
-  res.status(429).json({message: 'rate limit exceeded'});
-}));
 
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
@@ -135,6 +131,10 @@ app.use(function (req, res, next) {
   next();
 
 });
+
+app.use('/api', limitMiddleware.middleware(function(req, res, next) {
+  res.status(429).json({message: 'rate limit exceeded'});
+}));
 
 var markdownCache = Object.create(null);
 var SectionPageProcessor = require('./lib/section-page-processor.js');

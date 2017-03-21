@@ -44,6 +44,7 @@
     "najax": "0.7.1",
     "ratelimit.js": "^1.8.0",
     "recastai": "^2.3.0",
+    "redis": "^2.7.1",
     "sentiment": "2.0.0",
     "session": "0.1.0",
     "showdown": "1.5.1",
