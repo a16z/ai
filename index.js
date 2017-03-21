@@ -74,12 +74,12 @@ app.use(session({  secret: cookiesSecretKey }));
 //     secret: 'secretdata'
 // }));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '2mb'}));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
 app.use(express.static(__dirname + '/public'));
-app.use(express.bodyParser({limit: '5mb'}));
+
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
