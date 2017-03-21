@@ -22,6 +22,21 @@ var uploads_dir = path.join(process.cwd(), 'uploads/');
 
 var API_OFF = true;
 
+var RateLimit = require('ratelimit.js').RateLimit;
+var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
+var redis = require('redis');
+
+var rateLimiter = new RateLimit(redis.createClient(), [{interval: 86400, limit: 100000}]);
+
+var options = {
+  ignoreRedisErrors: true; // defaults to false
+};
+var limitMiddleware = new ExpressMiddleware(rateLimiter, options);
+
+app.use('/api', limitMiddleware.middleware(function(req, res, next) {
+  res.status(429).json({message: 'rate limit exceeded'});
+}));
+
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
 }
