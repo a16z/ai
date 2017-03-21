@@ -20,6 +20,8 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 var uploads_dir = path.join(process.cwd(), 'uploads/');
 // require('ssl-root-cas').inject().addFile('./server.crt');
 
+var API_OFF = true;
+
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
 }
@@ -95,7 +97,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(function (req, res, next) {
-
 //don't do this check for the login page, login processing, or the about page
 //(about page has two versions, one signed in, one signed out)
   if (req.originalUrl != "/login"
@@ -114,11 +115,13 @@ app.use(function (req, res, next) {
     }
   }
 
+  if (req.originalUrl.substring(0,4) === '/api' && API_OFF) {
+    return {success: false};
+  }
+
   next();
 
 });
-
-
 
 var markdownCache = Object.create(null);
 var SectionPageProcessor = require('./lib/section-page-processor.js');
