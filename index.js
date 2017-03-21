@@ -20,7 +20,7 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 var uploads_dir = path.join(process.cwd(), 'uploads/');
 // require('ssl-root-cas').inject().addFile('./server.crt');
 
-var API_OFF = true;
+var API_OFF = false;
 
 var RateLimit = require('ratelimit.js').RateLimit;
 var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
