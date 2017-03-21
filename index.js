@@ -74,7 +74,7 @@ app.use(session({  secret: cookiesSecretKey }));
 //     secret: 'secretdata'
 // }));
 
-app.use(bodyParser.json({limit: '2mb'}));
+app.use(bodyParser.json({'limit':'5mb'}));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 
