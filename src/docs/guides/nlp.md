@@ -17,7 +17,7 @@ This branch of AI includes such capabilities as:
 
 Let's explore a few of these capabilities by calling real-world APIs, some from the open source community and others from the major public cloud providers such as Google, Microsoft, and IBM. You can type your own sentence or use of our pre-canned examples. Check the"I'm not a robot" box, and hit analyze. Click on the API Name to see the results that come back. It's fun! For example, click the IBM Watson Developer Cloud answer for sentiment analysis. It's like the entire cast (and friends) of Pixar's [*Inside Out*](http://www.imdb.com/title/tt2096673/) is evaluating your sentence. 
 
-Also, a quick shout out of thanks to the fabulous Delip Rao (@deliprao) of [Joostware](http://joostware.com/) for his review of this section. Delip knows NLP.
+Also, a quick shout out to the fabulous Delip Rao (@deliprao) of [Joostware](http://joostware.com/) for his review of this entire guide, but especially this section. Delip knows NLP, among many other AI technologies. Thanks, Delip!
 
 ## Sentiment Analysis
 
