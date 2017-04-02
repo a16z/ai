@@ -21,13 +21,13 @@ Also, a quick shout out to the fabulous Delip Rao (@deliprao) of [Joostware](htt
 
 ## Sentiment Analysis
 
-A basic form of natural language processing has to do with sentiment analysis. For example, the following sentences:
+A common natural language processing task involves understanding the affect or sentiment of text, also known as sentiment analysis. For example, the following sentences:
 
 * “Seeing the F-117 Nighthawk was cool."
 * "Airplanes with the shape of hawks are cool."
 * "Seeing a hawk flying at night is cool."
 
-All use similar nouns, have significantly different meanings,  but communicate a similar feeling, or _sentiment_. Understanding sentiment without depending on, or even understanding, meaning, can be extremely useful. For example, a system can monitor conversations of customers with technical support and derive a general degree of "happiness", "anger" or other emotions expressed in the communication. This type of analysis can be even more useful in the aggregate, whether combining multiple messages from a single person or from multiple people.
+All use similar nouns, have significantly different meanings,  but communicate a similar feeling, or _sentiment_. Understanding sentiment without depending on, or even understanding, meaning, can be extremely useful. For example, a system can monitor conversations of customers with technical support and derive a general degree of "happiness", "anger" or other emotions expressed in the communication.
 
 To see responses from different services to the same query, check out our [comparison page for Sentiment APIs](/test/phrase/sentiment-analysis).
 
