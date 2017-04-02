@@ -3,20 +3,21 @@
 Natural Language Processing will enable better understanding all around: we'll talk to our computers; our computers will talk to us; and we'll have the [Star Trek Universal Communicator](http://memory-alpha.wikia.com/wiki/Universal_translator) in our ears translating any langauge into our native language in real time (and vice versa). Before we get to natural conversations with our computers, there are a lot of applications that help do things like understand whether someone is getting angry on a support call, write better job descriptions, and disambiguating words whose meaning change depending on context (see this Wikipedia page for a [fun list of examples](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences) including one of my favorite perfectly grammatical sentences: [Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo](https://en.wikipedia.org/wiki/Buffalo_buffalo_Buffalo_buffalo_buffalo_buffalo_Buffalo_buffalo).
 
 This branch of AI includes such capabilities as:
-* **Speech to text**, which converts what you say into computer-readable text
-* **Speech synthesis**, which goes the other way and gives computer an increasingly human-sounding voice
+* **Automatic speech recognition (ASR)**, which converts what you say into computer-readable text, also called "speech to text"
+* **Text to speech**, which goes the other way and gives computer an increasingly human-sounding voice
 * **Language detection** which figures out what language a document is written in
-* **Language translation**, which translates text from any language to any language
+* **Machine translation**, which translates text from any language to any language. Some language pairs work better than others, mostly because of the availability of data sets. 
 * **Sentiment analysis**, which figures out the emotional tilt of text
 * **Entity extraction**, which highlights all the "things, places, people, and products" in a piece of text
+* **Information extraction**, which finds relationships between extracted entities, such as "who did what to whom and how did they do it"?
+* **Document analysis**, which categorizes documents, figures out what they are talking about (topic modeling), and makes the content easy to search (find documents about "fund raising" even if the documents never contain that exact phrase)
+* **Natural langauge generation**, which generates well-formed sentences so that when you are chatting with your bot, it sounds like a real person
+* **Summarization**, which generates readable summaries of arbitrary text documents, preserving as much of the meaning as possible
+* **Question answering**, which answers questions from people about a dataset. Part of the challenge is figuring out which questions mean the same thing. In bots, a hot topic these days is "intent categorization", which is about trying to figure out what the user is trying to accomplish (e.g., book a flight, schedule a meeting, make a withdrawal)
 
-the ability to understand language either in audio or text form is a fundamental technology in both human-computer interaction and AI. Applications for it are literally everywhere, since nearly every human interaction can happen via language. Even if language is not the primary mode of interaction, speech can often serve as an effective addition in multi-modal interfaces. NLP also includes translation and language generation.
+Let's explore a few of these capabilities by calling real-world APIs, some from the open source community and others from the major public cloud providers such as Google, Microsoft, and IBM. You can type your own sentence or use of our pre-canned examples. Check the"I'm not a robot" box, and hit analyze. Click on the API Name to see the results that come back. It's fun! For example, click the IBM Watson Developer Cloud answer for sentiment analysis. It's like the entire cast (and friends) of Pixar's [*Inside Out*](http://www.imdb.com/title/tt2096673/) is evaluating your sentence. 
 
-Speech recognition converts spoken speech into text or commands. Speech recognition has an immediate use for dictation applications, in which the system can transcribe what is being said. Often, though, the intended use of speech is for commands and interaction, which relaxes some constraints, e.g. highly accurate detection of every word and nuance, but tightens others, in particular response time. Recognition is generally done either _asynchronously_, meaning the speech is saved and the audio files are processed afterwards, or _streaming_ in which recognition is done and improved on the fly.
-
-Whether text was written by humans or transcribed via speech recognition, **understanding** it enables computers to derive meaning from language input and act on it, or allows them to present alternatives for action to a person or other agent.
-
-There are many degrees of "understanding" that can be achieved, from analyzing the sentiment behind a phrase or text to extracting information, disambiguating, or understanding the actual meaning.
+Also, a quick shout out of thanks to the fabulous Delip Rao (@deliprao) of [Joostware](http://joostware.com/) for his review of this section. Delip knows NLP.
 
 ## Sentiment Analysis
 
