@@ -1,4 +1,4 @@
 {
-    "prev" : {"url" : "/docs/guides/ai", "name" : "Intro to AI/ML"},
+    "prev" : {"url" : "/docs/guides/ai-using", "name" : "Using AI in Your Software"},
     "next" : {"url" : "/docs/guides/vision", "name" : "Vision"}
 }
