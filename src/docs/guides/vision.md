@@ -24,7 +24,7 @@ Running enough tests gives us an idea of how these APIs perform:
 * **Error rates are low, but high enough that you have to prepare for them carefully**. An API with a 2% error rate will fail outright for 2 out of every 100 images. For the 2 people that see the results of an incorrect analysis, the result can be jarring.
 * **Image rotation, complexity and quality matter.** The same image rotated different ways can have significantly different recognition results. When the image is complex and has multiple features precision also degrades.
 
-The good news is that all of these things can be addressed by how the system is used, rather than requiring a different technology. Here are some tips:
+The good news is that all of these things can be addressed by how your code uses the underlying APIs. Also, the systems are improving rapidly. Here are some tips to get the most out of the current generation of technology:
 
 * Give information on what the system is seeing quickly but use smoothing (e.g. with moving averages) to prevent unexpected jumps between categories
 * Don’t put the error on the person, but on the system.
