@@ -1,4 +1,4 @@
 {
     "prev" : {"url" : "/docs/guides/nlp", "name" : "Natural Language Processing"},
-    "next" : {"url" : "/docs/guides/dl-start", "name" : "Deep Learning"}
+    "next" : {"url" : "/docs/guides/dl", "name" : "Deep Learning"}
 }
