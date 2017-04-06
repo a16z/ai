@@ -1,51 +1,59 @@
-
 # Machine Learning
 
-Machine Learning can be generally defined as algorithms that are data-driven, as opposed to involving codification of behavior or knowledge in digital form.
+If you've played with the examples from the previous sections on NLP and vision recognition, you've seen the power of APIs. Send in a picture, get a list of objects in that picture; send in a sentence, and get the emotional tilt of that sentence, or get the sentence back in another language. Magic.
 
-For example, for a robot that had to navigate a flat grid, you could write relatively simple sets if-then-else rules to get the car from one end to the other. You would be in a sense "encoding" appropriate rules about driving, time to take, etc. With machine learning, the system would be, instead, learning "by example" -- you could simulate several paths taken and grade them according to time, fuel, etc, and the system will eventually learn and be able to predict (or, in a sense, _plan ahead_) what a reasonable route could be.
+Just as with other areas of software development, sometimes the API you need doesn't exist and you'll have to write your own code. A common starting point for AI programming is to select a machine learning algorithm, train it with data (see [this Medium post for a set of strategies for getting data](https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48), and then expose that trained model via APIs to the rest of your code can call.
 
-In recent years, however, a new term, "Deep Learning" has taken hold. It generally refers to machine learning systems based on multilayer data processing (typically through neural networks), that, additionally is done at a scale that leads to quantitatively different results.
+There are a [large](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/) [set](http://www.kdnuggets.com/2016/08/10-algorithms-machine-learning-engineers.html)of [machine learning algorithms](https://en.wikipedia.org/wiki/Machine_learning) with fun names such as decision trees, random forest, support vector machines, logistic regression, and so on. Each algorithm is best suited for a specific situation sucha s how much data you have, how many "features" or dimensions of data you can feed the algorithms, how sparse or dense the data set is, and so on. Sometimes it's hard to figure out which algorithm to use, and you will have to try a few different algorithms (and combinations of algorithms) to see how they do.
 
-# Deep Learning
+Here are a few good starting points to picking the right ML algorithm to solve your specific problem:
+* [How to choose machine learning algorithms for Microsoft Azure machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-choice)
+* [Stack Overflow answer to "When to choose which machine learning classifer?"](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier)
+* Scikit-learn documentation: [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
 
-And what is a Neural Network? There are different ways of looking at them, as mechanisms that, by looking at data, "learn" complex functions that can result in that dataset and be predictive of other values. At the most basic level, neural networks _transform_: inputs in one dataspace into outputs in another.
+Deep learning is a class of machine learning that has gotten a lot of well-deserved attention in recent years because it's working to solve a wide variety of AI problems in vision, natural language processing, and many others. Also, in contrast with many of the other machine learning algorithsm where data scientists or software engineers have to figure out which features will lead to good predictions, deep learning approaches figure out the features themselves. 
 
-It's important to keep in mind that Neural Networks (NNs) in computer science are modeled (or "inspired") on biological neural networks but they don't "copy" biological networks except in relatively abstract terms of processing, dataflow, or (sometimes) topology. Software NNs include nodes, "neurons" that are connected and therefore can send simple messages to each other. These messages are numerical values that, as they are processed by each node/neuron, move "forward" through the network, changing. When the network is asked to solve a certain type of problem, or "learn" some sort of pattern, the network processes data repeatedly, thousands or millions of times, each time adjusting processing nodes and coming closer to the desired result.
+For example, let's say you were using linear regressions to try to predict the price of a home like Trulia does. With most machine learning approaches, you'd have to figure out "features" (think of them as factors that will drive price like how big the house is, when the house was built, the price of nearby houses, the number of bedrooms and bathrooms, and so forth). With deep learning, you don't pick the features. The algorithms essentially find the features for you in the data. 
 
+For both these reasons (namely, (1) it's working and (2) it figures out features on its own), we'll spend the rest of the time in this playbook digging into deep learning. But before we continue, this tweet is spot on:
+![True tweet about machine learning](/images/regression.png)
 
-## Why "Deep"
+We'd encourage you to try potentially simpler, admittedly less glamarous algorithms before deep learning. Sometimes a good ol' linear regresssion (just like from your high school physics labs) is all you need.
 
-Jeff Dean (from Google) [echoes the idea](https://youtu.be/QSaZGT4-6EY?t=315) during a talk earlier this year: "Large-Scale Deep Learning for Intelligent Computer Systems" and [adds](https://youtu.be/QSaZGT4-6EY?t=561):
+## Deep Learning
+Having said that, deep learning algorithms are incredibly powerful and getting amazing results across many different domains. Professor Christopher Manning, a longtime veteran of NLP research at Stanford, says in his [introductory lecture for "CS Natural Language Processing with Deep Learning"](https://www.youtube.com/watch?v=OQQ-W_63UgQ&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6) that "in the length of my lifetime, I'd actually say it's unprecedented [for] a field to progress so quickly".
 
-> "Deep refers to the number of layers [...]. I think of them as deep neural networks generally.""
+Deep learning data structures and algorithms were originally inspired by the way neurons in the brain work, but most researchers today will tell you that brains and neural networks used in software like TensorFlow are very different. But if you are interested in the history of how we got here, check out these excellent resources which we've ordered by depth, from most concise to most comprehensive, for your reading pleasure.
+* Andrew L. Beam, [Deep Learning 101](http://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html)
+* Andrey Kruenkov, [A "Brief" of Neural Nets and Deep Learning](http://www.andreykurenkov.com/writing/a-brief-history-of-neural-nets-and-deep-learning/)
+* Jurgen Schmidhuber, [Deep Learning in Neural Networks: An Overview](https://arxiv.org/pdf/1404.7828.pdf)
 
-This is a common definition of what 'deep learning' stands for -- a modern and powerful set of techniques for training neural networks.
+## Why "Deep"?
+By the way, why do we call it "deep learning"? It's called deep learning because the underlying algorithms work on data structure that looks like a graph of connected nodes, and the nodes are organized into layers. Data goes into the left-most modes, and the output comes out the right hand side. Between the input and output nodes, there are many layers of other nodes; hence, the network is "deep". This [diagram from nVidia](https://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/) does a good job of illustrating the concept:
+![Why is deep learning "deep"?](/images/nn_example-624x218.png)
 
-A great resource on this topic is the online book/website [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) by Michael Nielsen.
+To learn more:
+* Watch legend Jeff Dean from the Google Brain team lecutre on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
+* Read Michael Nielsen's excellent ebook and Website [Neural Networks and Deep Learning(http://neuralnetworksanddeeplearning.com/index.html)
 
-
-# What's New, What Isn't
-
-If you know a bit of the history of AI, you might wonder what's really new about all this, in essence, you could very reasonably ask: "Haven't We Tried This Before?"
-
-The answer is: not really.
+## Why Now?
+You might be wondering why this revolution is happening now given that some of the original ideas date back to the 1950s. The short answer is a common one in technology: bountiful and inexpensive compute, storage, and data. Andrew Ng shares this conceptual graph illustrating how the effectiveness of deep learning improves as you feed it more data and more computing resources:
+![Why is deep learning working now?](/images/andrewNg.png)
 
 While the fundamental ideas are generally the same, the scale at which we are using them has changed, and that has brought quantitatively different (and better) results, in part because we can now test ideas we couldn't test before. Scale constraints created a barrier to evolution. As cloud computing has made large-scale experiments possible, the techniques have evolved and improved significantly.
 
-Prof Geoff Hinton (Google and University of Toronto) discussed why previous approaches failed [at this point in the talk](https://youtu.be/VhmE_UXDOGs?t=1330). The first two reasons he identifies have to do with scale ("Our labeled datasets were thousands of times too small ") and compute capabilities ("Our computers were millions of times too slow") which clearly don't speak only to the speed of processors but compute capacity in general (ie., including processor, memory, storage, networking).
+Professor Geoff Hinton (Google and University of Toronto) discussed why previous approaches failed [at this point in the talk](https://youtu.be/VhmE_UXDOGs?t=1330). The first two reasons he identifies have to do with scale ("Our labeled datasets were thousands of times too small ") and compute capabilities ("Our computers were millions of times too slow") which clearly don't speak only to the speed of processors but compute capacity in general (ie., including processor, memory, storage, networking).
 
 The difference in scale, and specifically the number of processing layers that enabled, is where the 'deep' of 'deep learning' comes into play.
 
-
 ## Ways In Which Machines Learn
 
-There are three major learning paradigms: _supervised_, _unsupervised_, and _reinforcement learning_.
+There are four major learning paradigms: _supervised_, _unsupervised_, _semi-supervised_, and _reinforcement learning_.
 
-**Supervised Learning** depends on a set of pre-existing data that is "labeled" in that we already know what the output of the network is expected to be for each pattern it is given. The process of learning can then use an objective function to quantify the mismatch between the expected and the observed results, and the network's weights can be adjusted accordingly.
+**Supervised Learning** depends on a set of pre-existing data that is "labeled" in that we already know what the output of the network is expected to be for each pattern it is given. The process of learning can then use an objective function to quantify the mismatch between the expected and the observed results, and the network's weights can be adjusted accordingly. It can be hard (read: expensive) to get the data, so you need to make sure the value of the prediction a trained model will make justifies the cost of getting the labeled data and training the model in the first place. For example, getting labeled X-rays of people who might have cancer is expensive, but the value of an accurate model that generates few false positives and few false negatives is obviously very high.
 
-**Unsupervised Learning** uses datasets that aren't labeled to identify clusters of data based on a cost function to be minimized. The function does not necessarily lead to a straight classification problem, but perhaps to a filtering or mapping of data.
+**Unsupervised Learning** uses datasets that aren't labeled to identify clusters of data based on a cost function to be minimized. The function does not necessarily lead to a straight classification problem, but perhaps to a filtering or mapping of data. The famous ["Google cat paper"](https://googleblog.blogspot.com/2012/06/using-large-scale-brain-simulations-for.html) which found cats and other things by watching lots and lots of YouTube videos is a great example of unsupervised learning. They didn't set out to cats, but the algorithm grouped video frames that had cats (and thousands of other objects from the 22,000 object categories defined in ImageNet) in them. 
 
-**Reinforcement Learning** depends on interaction between the system and an environment, and while there are similar elements at play the goals are related to an accumulation of action and environmental responses that are useful for planning or control problems.
+**Semi-supervised learning** combines lots of unlabeled data with really small amounts of labeled data to learn a highly performant model. Our friend Delip Rao at the AI consulting company [Joostware](http://joostware.com/), for example, built a solution using semi-supervised learning using just 30 labels per class which got the same accuracy as a model trained using supervised learning which required ~1360 labels per class. This enabled their client to scale from 20 categories to 110 categories very quickly.
 
-Forms of unsupervised and reinforcement learning are generally preferable, since supervised learning has obvious limitations. Most of the data that exists in the world is unlabeled, and the ability to explore and learn autonomously is crucial. Still, at the moment, the most common example of machine learning is _supervised learning_, which we'll discuss in a bit more detail next.
+**Reinforcement Learning** depends on interaction between the system and an environment, and while there are similar elements at play the goals are related to an accumulation of action and environmental responses that are useful for planning or control problems. Watch this technique in action with a reinforcement learning system that [learned to play Super Mario Brothers like a boss](https://www.youtube.com/watch?v=L4KBBAwF_bE). 
