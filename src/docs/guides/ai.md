@@ -1,5 +1,5 @@
 # A Little History
-We'll begin with a little history. If you are anxious to get to the practical bits, feel free to skip this section.
+Let's start with a little history. If you are anxious to get to the practical bits, feel free to skip this section.
 
 For starters, let's just assume artificial intelligence is about making computers smart in the way that we consider each other smart: that is, we can talk and understand each other, we can take see the world and work out plans to get from home to a friend's house, we can learn new behavior like knitting or playing basketball by watching other people, and so forth.
 
