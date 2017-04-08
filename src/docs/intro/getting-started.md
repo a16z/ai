@@ -1,4 +1,4 @@
-# The a16z Artificial Intelligence Survey
+# The a16z Artificial Intelligence Cookbook
 
 In July 2016, we published a [primer on artificial intelligence and machine learning](http://a16z.com/2016/06/10/ai-deep-learning-machines/). Since then, we've met with hundreds of Global 2000 companies and startups asking, "how do I get started with artificial intelligence?" and "what can I do with AI in my own product or company?"
 
