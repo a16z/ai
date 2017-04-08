@@ -4,7 +4,7 @@ Let's start with a little history. If you are anxious to get to the practical bi
 For starters, let's just assume artificial intelligence is about making computers smart in the way that we consider each other smart: that is, we can talk and understand each other, we can take see the world and work out plans to get from home to a friend's house, we can learn new behavior like knitting or playing basketball by watching other people, and so forth.
 
 Researchers have been trying to endow machines with these human capabilities since antiquity. The Wikipedia article on the [history of artificial intelligence](https://en.wikipedia.org/wiki/History_of_artificial_intelligence) describes some of the early attempts. But most historians would date the beginning of AI as we know it today to the [Dartmouth Summer Research Project on Artificial Intelligence](https://en.wikipedia.org/wiki/Dartmouth_workshop) over the summer of 1956.
-![50th Anniversary Picture of Dartmouth AI Conference](/images/dartmouth.jpg)
+![50th Anniversary Picture of Dartmouth AI Conference](/images/darthmouth.jpg)
 
 In the 60+ years since that kickoff, researchers have tried many different techniques to program computers to mimic human intelligence. To a first approximation, that six-decade history AI divides reasonably well into "Classical AI" from "Modern AI".
 
