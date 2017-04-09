@@ -1,5 +1,5 @@
 
-# Recipe Part 2: Adding AI to Our Moible App
+# Recipe Part 2: Adding AI to Our iPhone App
 
 If you've arrived here from Part 1 of the recipe, you have a TensorFlow model. Now let's add AI superpowers to our iPhone app by retaining the model with our own data and connecting the trained model to our iPhone app.
 
