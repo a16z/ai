@@ -1,5 +1,7 @@
 
-# Deep Learning with TensorFlow Part II: The App
+# Recipe Part 2: Adding AI to Our Moible App
+
+If you've arrived here from Part 1 of the recipe, you have a TensorFlow model. Now let's add AI superpowers using that trained TensorFlow model to our iPhone app.
 
 ## <a name="setupiOS"></a>Setup and Test the iOS App
 
