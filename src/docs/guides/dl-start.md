@@ -1,32 +1,21 @@
+# Recipe Part 1: (Re-)Training a Model
 
-# Deep Learning: Retraining Comparison
+Now that you understand deep learning models and training methods, let's get coding. We'll going to an iPhone app which will take the camera input and decide whether the camera is looking at a business card.
 
-## Deep Learning: The Wild West of AI
+In Part 1, we're going to train and then re-train a model using our own data set using Clarifai and TensorFlow.
+In Part 2, we'll hook up our model to an iPhone app.
 
-No, it's not [Westworld](http://www.hbo.com/westworld). The software is way simpler, and we haven't given it control over any guns (yet), Deep Learning is a field bubbling with activity. As a result, new projects, libraries and systems are released frequently. Older systems can break if not properly maintained, as basic components get heavily modified or entirely deprecated and replaced. It can make things difficult since what we are hearing about the most, what seems the most exciting area, is also one that presents a fairly high barrier of entry.
-
-There's also the fact that Deep Learning involves some of the most advanced and experimental techniques, and has the highest requirements of all systems.
-
-This is something unique to computing, and part of what makes _software eat the world_. Incredibly complex technologies can be used by _anyone_ to learn, experiment, and frequently get new results.
-
-Put another way: if computing was physics, what you're getting when you are working with Deep Learning and other advanced systems (or their underlying science) is the equivalent of direct access to your own particle accelerator. And if you outgrow the confines of your own machine or systems within your reach you can get low-cost access to the largest systems in the world through platforms like Google Cloud, Microsoft Azure, Amazon AWS, and so on.
-
-For people with less experience, however, it can seem like a curse of riches and trigger a [paradox of choice](https://en.wikipedia.org/wiki/The_Paradox_of_Choice). Hopefully we can help.
-
-## Building on the Shoulders of Giants
-
-To explore Deep Learning we can compare a system we've already seen in action (Clarifai) with a more advance alternative (TensorFlow using a pre-built model) and look at the complexity in retraining each to recognize a new category of images.
-
+You might have already seen Clarifai in action in the Vision section. A slightly more advanced use of Clarifai's Web service is to feed it our own data to train a model. We'll do that, and then try the same thing in Google's TensorFlow.
 
 # Clarifai Retraining
 
-Clarifai provides a straightforward system to add data and train models. The steps are as follows:
+Clarifai provides a straightforward system to add data and train models. Here's how:
 
-* Add inputs and concepts. Upload the dataset of images you want to use along with 'concepts' that identify them. In this case we will upload images from our dataset by providing positive examples for business cards and credit cards, and using them in juxtaposition as well (ie, a business card is not a credit card, and viceversa) along with other items in the set.
-* Create and Train a model for the inputs.
-* Use the model for prediction.
+1. Upload images with labels (which Clarifai call "concepts").
+2. Create and train a model for the inputs.
+3. Use the model for prediction.
 
-Note that in the command samples that follows, `CLARIFAI_ACCESS_TOKEN` is a token that can be obtained either programmatically via API calls or directly from the developer console. Tokens expire and must be renewed frequently
+Note that in the command samples that follows, `CLARIFAI_ACCESS_TOKEN` is a token that can be obtained either programmatically via API calls or directly from the developer console. Tokens expire and must be renewed frequently.
 
 ## Adding inputs and concepts
 
@@ -108,11 +97,11 @@ After the training has started and the script ends, you can check the status of 
 
 Note that model operations include the model ID within the URL, `https://api.clarifai.com/v2/models/MODEL_ID/output_info`.
 
-Once this is done, simply referencing the model during prediction calls will be enough.
+Once this is done, you can ask the model to make a prediction to pasing in the Model ID to reference the model we should trained.
 
 # TensorFlow
 
-For TensorFlow, we will first prepare and train a standard model and then retrain it with our data set once the initial part is done.
+Now let's do the same thing in TensorFlow. We will first prepare and train a standard model and then retrain it with our data set. This recipe will take some more effort because we're downloading TensorFlow software onto our own development machine. 
 
 ## TensorFlow Ingredients
 
