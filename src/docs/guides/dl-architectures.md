@@ -21,6 +21,8 @@ Create your own feedforward neural networks with the [browser-based TensorFlow p
 ## Convolutional (Neural) Networks (CNNs or ConvNets)
 
 [Convolutional neural networks](http://cs231n.github.io/convolutional-networks/) are a specific type of multilayer feedforward network typically used in image recognition and (more recently) some natural language processing tasks. Introduced by [Yann LeCun, Yoshua Bengio, Leon Bottou, and Patrick Haffner in 1998](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf), they were originally to recognize handwritten postal codes and check amounts. They are faster to train than traditional feedforward networks because they make simplifying assumptions about how nodes connect to each other and how many nodes you need in the network, drastically reducing how much math you have to do to train the model.
+Here's a visual from Andrej Karparthy's Stanford class to get us going:
+![Convolutional neural network](/public/images/convolutional.jpeg)
 
 ### Biologically inspired?
 Some researchers point out that the design of these networks are [inspired by biology](https://www.quora.com/How-are-human-visual-perception-and-deep-learning-related) and in particular by the visual cortex. [Hubel and Wiesel discovered in the 1960s](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1359523/pdf/jphysiol01247-0121.pdf) that cats have cells which responded specificially to certain regions of the input coming in from the retina, and further that cats had both so-called [simple cells](https://en.wikipedia.org/wiki/Simple_cell) which responded to lines and edges as well as so-called [complex cells] that responded to those same inputs, even if they were rotated or in a slightly different place (that is, "spatially invarint"). They hypothesized that cells were organized into a hierarchy exactly like the neurla networks we've been discussing: simple cells would feed their ouptut to complex cells in exactly the same fashion as nodes "to the left" feed their inputs to nodes further "to the right" in a multilayer network.  
@@ -41,7 +43,7 @@ These networks are very cool, and here are a set of resources for learning more 
 * This [2013 paper by Matthew Zeiler and Rob Fergus](https://arxiv.org/abs/1311.2901) provides some visual examples that help you understand the intuition behind the architecture.
 
 
-### Recurrent Neural Networks (RNNs), including Long Short-Term Memories (LTSM)
+### Recurrent Neural Networks (RNNs), including Long Short-Term Memories (LSTM)
 The third and last type of neural network we'll discuss is the recurrent neural network, partly because they are widely used and partly because we suspect your eyes are glazing over.
 
 > There are many types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institue [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/) 
