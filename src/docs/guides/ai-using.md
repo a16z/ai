@@ -1,4 +1,4 @@
-# Using AI and ML technology in your software
+# Giving Your Software AI Superpowers
 
 With that in mind, let's give your software some AI superpowers.
 
