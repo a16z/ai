@@ -16,7 +16,7 @@ Deep learning is a class of machine learning that has gotten a lot of well-deser
 For example, let's say you were using linear regressions to try to predict the price of a home like Trulia does. With most machine learning approaches, you'd have to figure out "features" (think of them as factors that will drive price like how big the house is, when the house was built, the price of nearby houses, the number of bedrooms and bathrooms, and so forth). With deep learning, you don't pick the features. The algorithms essentially find the features for you in the data. 
 
 For both these reasons (namely, (1) it's working and (2) it figures out features on its own), we'll spend the rest of the time in this playbook digging into deep learning. But before we continue, this tweet is spot on:
-![True tweet about machine learning](/images/regression.png)
+![True tweet about machine learning](/public/images/regression.png)
 
 We'd encourage you to try potentially simpler, admittedly less glamarous algorithms before deep learning. Sometimes a good ol' linear regresssion (just like from your high school physics labs) is all you need.
 
@@ -30,7 +30,7 @@ Deep learning data structures and algorithms were originally inspired by the way
 
 ## Why "Deep"?
 By the way, why do we call it "deep learning"? It's called deep learning because the underlying algorithms work on data structure that looks like a graph of connected nodes, and the nodes are organized into layers. Data goes into the left-most modes, and the output comes out the right hand side. Between the input and output nodes, there are many layers of other nodes; hence, the network is "deep". This [diagram from nVidia](https://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/) does a good job of illustrating the concept:
-![Why is deep learning "deep"?](/images/nn_example-624x218.png)
+![Why is deep learning "deep"?](/public/images/nn_example-624x218.png)
 
 To learn more:
 * Watch legend Jeff Dean from the Google Brain team lecutre on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
@@ -38,7 +38,7 @@ To learn more:
 
 ## Why Now?
 You might be wondering why this revolution is happening now given that some of the original ideas date back to the 1950s. The short answer is a common one in technology: bountiful and inexpensive compute, storage, and data. Andrew Ng shares this conceptual graph illustrating how the effectiveness of deep learning improves as you feed it more data and more computing resources:
-![Why is deep learning working now?](/images/andrewNg.png)
+![Why is deep learning working now?](/public/images/andrewNg.png)
 
 While the fundamental ideas are generally the same, the scale at which we are using them has changed, and that has brought quantitatively different (and better) results, in part because we can now test ideas we couldn't test before. Scale constraints created a barrier to evolution. As cloud computing has made large-scale experiments possible, the techniques have evolved and improved significantly.
 
