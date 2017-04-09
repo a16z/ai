@@ -1,4 +1,4 @@
 {
-    "prev" : {"url" : "/docs/guides/patterns", "name" : "Patterns and Classification"},
-    "next" : {"url" : "/docs/guides/dl-supervised", "name" : "Supervised Learning"}
+    "prev" : {"url" : "/docs/guides/vision", "name" : "Vision"},
+    "next" : {"url" : "/docs/guides/dl-architectures", "name" : "Neural Network Architectures"}
 }
