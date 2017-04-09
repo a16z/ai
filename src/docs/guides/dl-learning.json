@@ -1,0 +1,4 @@
+{
+    "prev" : {"url" : "/docs/guides/dl-architectures", "name" : "Deep Learning Architectures"},
+    "next" : {"url" : "/docs/guides/dl-start", "name" : "Recipe: (Re-)Training a Model"}
+}
