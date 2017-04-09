@@ -43,7 +43,7 @@ One of the [most promising recent developments in unsupervised learning](https:/
    * DeepMind (published a paper in Nature)[https://deepmind.com/blog/deep-reinforcement-learning/] describing a system that combines reinforcement learning with deep learning to learned to play a set of Atari video games, some with great success (like Breakout) and others terribly (like Montezuma's Revenge).   
    * The Nervana team (now at Intel) published [an excellent explanatory blog post](https://www.nervanasys.com/demystifying-deep-reinforcement-learning/) that walks through the techniques in detail.
    * A very creative Stanford student project by Russell Kaplan, Christopher Sauer, Alexander Sosa illustrates one of the challenges with reinforcement learning and suggests a clever solution. You'll see in the DeepMind paper that the algorithms failed to learn how to play Montezuma's Revenge. The reason for this is that, as the Stanford students describe,  "reinforcement learning agents still struggle to learn in environments with sparse rewards." When you don't get enough "hotter" or "colder" hints, you have a hard time finding the hidden key. The Stanford students basically taught the system to understand and respond to natural language hints such as "climb down the ladder" or "get the key", making the system the top-scoring algorithm in the OpenAI gym. Watch a [video of the algorithm in action](https://drive.google.com/file/d/0B2ZTvWzKa5PHSkJvQVlsb0FLYzQ/view). 
-![Natural language hints](/public/images/montezuma.png)
+![Natural language hints](/images/montezuma.png)
    * Watch the video of a reinforcement learning system that [learned to play Super Mario World like a boss](https://www.youtube.com/watch?v=L4KBBAwF_bE). 
 
 
