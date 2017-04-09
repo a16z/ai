@@ -11,7 +11,7 @@ Having said that, let's walk through some of the common neural network architect
 
 Feedforward networks were the first type of artificial neural network devised. In this network the information moves in only one direction: forward. Input nodes receive data and pass it along, as seen in Figure 1.
 
-![Simple Feedforward Network](/public/images/fig-1-ff-nn.png)
+![Simple Feedforward Network](/images/fig-1-ff-nn.png)
 
 From the input nodes data flows through the hidden nodes (if any) and to the output nodes, without cycles or loops, and may be modified along the way by each node. They are called feedforward because processing moves forward from left to right. As [Michael Nielsen points out](http://neuralnetworksanddeeplearning.com/chap1.html), "hidden nodes" aren't some mysterious philosophical or mathematical construct: they are simply nodes in the middle of the network that are neither an input or an output.
 
@@ -23,7 +23,7 @@ Create your own feedforward neural networks with the [browser-based TensorFlow p
 
 [Convolutional neural networks](http://cs231n.github.io/convolutional-networks/) are a specific type of multilayer feedforward network typically used in image recognition and (more recently) some natural language processing tasks. Introduced by [Yann LeCun, Yoshua Bengio, Leon Bottou, and Patrick Haffner in 1998](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf), they were originally to recognize handwritten postal codes and check amounts. They are faster to train than traditional feedforward networks because they make simplifying assumptions about how nodes connect to each other and how many nodes you need in the network, drastically reducing how much math you have to do to train the model.
 Here's a visual from Andrej Karparthy's Stanford class to get us going. Don't worry about understanding the details just yet.
-![Convolutional neural network](/public/images/cnn.png)
+![Convolutional neural network](/images/cnn.png)
 
 ### Biologically inspired?
 Some researchers point out that the design of these networks are [inspired by biology](https://www.quora.com/How-are-human-visual-perception-and-deep-learning-related) and in particular by the visual cortex. [Hubel and Wiesel discovered in the 1960s](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1359523/pdf/jphysiol01247-0121.pdf) that cats have cells which responded specificially to certain regions of the input coming in from the retina, and further that cats had both so-called [simple cells](https://en.wikipedia.org/wiki/Simple_cell) which responded to lines and edges as well as so-called [complex cells] that responded to those same inputs, even if they were rotated or in a slightly different place (that is, "spatially invarint"). They hypothesized that cells were organized into a hierarchy exactly like the neurla networks we've been discussing: simple cells would feed their ouptut to complex cells in exactly the same fashion as nodes "to the left" feed their inputs to nodes further "to the right" in a multilayer network.  
