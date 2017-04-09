@@ -23,7 +23,7 @@ Create your own feedforward neural networks with the [browser-based TensorFlow p
 
 [Convolutional neural networks](http://cs231n.github.io/convolutional-networks/) are a specific type of multilayer feedforward network typically used in image recognition and (more recently) some natural language processing tasks. Introduced by [Yann LeCun, Yoshua Bengio, Leon Bottou, and Patrick Haffner in 1998](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf), they were originally to recognize handwritten postal codes and check amounts. They are faster to train than traditional feedforward networks because they make simplifying assumptions about how nodes connect to each other and how many nodes you need in the network, drastically reducing how much math you have to do to train the model.
 Here's a visual from Andrej Karparthy's Stanford class to get us going. Don't worry about understanding the details just yet.
-![Convolutional neural network](/public/images/cnn.jpeg)
+![Convolutional neural network](/public/images/cnn.png)
 
 ### Biologically inspired?
 Some researchers point out that the design of these networks are [inspired by biology](https://www.quora.com/How-are-human-visual-perception-and-deep-learning-related) and in particular by the visual cortex. [Hubel and Wiesel discovered in the 1960s](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1359523/pdf/jphysiol01247-0121.pdf) that cats have cells which responded specificially to certain regions of the input coming in from the retina, and further that cats had both so-called [simple cells](https://en.wikipedia.org/wiki/Simple_cell) which responded to lines and edges as well as so-called [complex cells] that responded to those same inputs, even if they were rotated or in a slightly different place (that is, "spatially invarint"). They hypothesized that cells were organized into a hierarchy exactly like the neurla networks we've been discussing: simple cells would feed their ouptut to complex cells in exactly the same fashion as nodes "to the left" feed their inputs to nodes further "to the right" in a multilayer network.  
@@ -47,13 +47,40 @@ These networks are very cool, and here are a set of resources for learning more 
 ### Recurrent Neural Networks (RNNs), including Long Short-Term Memories (LSTM)
 The third and last type of neural network we'll discuss is the recurrent neural network, partly because they are widely used and partly because we suspect your eyes are glazing over.
 
-> There are many types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institue [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/) 
+> There are many other types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institue [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/) 
  
+Remember how in a feedforward network, computation only goes forward, or if you're looking at a diagram, "from left to right"? Also we didn't say, it but feedforward (and convolutional networks) take fixed sized inputs and outputs. Once you decide how many elements in the input and output vectors, that's it. You train the model and hope you get good results.
 
-RNNs support bi-directional data flow, propagating data from later processing stages back to earlier stages and well as linearly from input to output. The recurrent use of the layers enable processing of arbitrary data lengths, but they also tend to require greater scale and larger data sets.
+RNNs relax both those constraints.
+1. RNNs support bi-directional data flow, propagating data from later processing stages back to earlier stages and well as linearly from input to output. This diagram from [Christopher Olah's excellent overview article](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) shows the shape of an RNN:
+![Unrolled recurrent neural network](/public/images/RNN-unrolled.png)
+
+This permits the RNN to "remember" things, which makes them great for processing time-series data (like events in an event log) or natural language processing tasks (like understanding the roles each word plays in a sentence, in which remembering what word came before can help you figure the role of the current word).
+
+2. Secondly, RNNs can process arbitary-sized inputs and outputs by processing vectors in a sequence, one at a time. Where feedforward and CNNs only work on fixed sized inputs and outputs, RNNs can process one vectors one after another thereby work on any shape of intput and output. Andrej Kaparthy comes to the rescue with a diagram that shows this from his excellent blog post titled [*The Unreaonable Effectiveness of Recurrent Neural Networks:*](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+![Arbitrary input and output sizes in RNNs](/images/public/sequences.png)
+
+Read Andrej's whole blog post, which is a great explanation of the structure of RNNs. In it, he describes how to build a Paul Graham essay generator by training the system with the full 1M characters of pg's essays (alas, a very small corpus by AI standards) and building an RNN. You can tune one of the hyperparameters of the RNN to generate the sentence that Paul Graham is most likely to write, and that is an infinite loop of:
+> “is that they were all the same thing that was a startup is that they were all the same thing that was a startup is that they were all the same thing that was a startup is that they were all the same”
+
+Who said neural nets weren't fun?
+
+Together, these two enhancements over feedforward networks have made RNNs incredibly powerful tools for solving many different types of AI problems including speech recognition, language modeling, machine translation, image captioning, recommendation systems, predicting the next word in a sentence for text generation systems, and others.
+
+A specific type of RNN that you'll see discussed is called the Long Short-Term Memory (LTSM). Bizarre, no? Is the memory short or the long? Anyway, this type of RNN was introduced by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory) and does an even better job of remembering something from "further back in time" compared to vanilla RNNs. Read [Christopher Olah's blog post]( if you want to understand how LTSMs do this. It's a beautiful piece of explanatory writing and illustration.
+
+# How do these architectures relate to the other Deep Learning frameworks I've heard of?
+One last topics before we wrap up here, which is: how do these neural network architectures relate to the libraries or frameworks such as TensorFlow and Caffe I've heard of?
+
+The quick answer is that you can implement most *neural net architetures* in each of the popular *neural network libraries*. Want to implement a feedforward or RNN in TensorFlow? You can [do that](https://www.tensorflow.org/tutorials/recurrent). How about a LSTM in Caffe? [Yup](https://github.com/junhyukoh/caffe-lstm). Feedforward network in MXNet? There's an [API call for that](http://mxnet.io/api/python/model.html#model-api-reference).
+
+And if you can't implement a specific model in one of the popular libraries, you can always write your own so your software can eat the world.
+
+Here are [15 machine learning libraries](http://www.kdnuggets.com/2016/04/top-15-frameworks-machine-learning-experts.html) to get you started. The indefatiguable Andrej Kaparthy posted a "Google Trends"-esque type analysis showing what's hot if you peek inside [28,303 machine learning research papers over the last 5 years](https://medium.com/@karpathy/a-peek-at-trends-in-machine-learning-ab8a1085a106).  
 
 # Key Takeaways 
-* There are many different types of neural networks, each useful for solving specific problems.
+Ok, that's enough on neural network architectures. What have we learned?
+* There are many different types of neural networks, each useful for solving specific AI problems.
 * The field is evolving quickly; Ian Goodfellow [invented GANs in 2014](https://arxiv.org/abs/1406.2661).
-* You got here because you looked for but coudln't find a higher-level API that does what your software needs, so you needed to train your own model.
+* You got here because you looked for but couldn't find a higher-level API that does what your software needs, so you needed to train your own model.
 * Reminder: neural networks aren't the only machine learning algorithms. You might solve your problem with a clean data set and a simpler machine learning algorithm like a good ol' linear regression.
