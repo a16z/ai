@@ -1,4 +1,4 @@
-# Machine Learning
+# Training Your Own Models with Deep Learning
 
 If you've played with the examples from the previous sections on NLP and vision recognition, you've seen the power of APIs. Send in a picture, get a list of objects in that picture; send in a sentence, and get the emotional tilt of that sentence, or get the sentence back in another language. Magic.
 
