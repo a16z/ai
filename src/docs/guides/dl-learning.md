@@ -2,6 +2,8 @@
 
 There are four major ways to train deep learning networks: _supervised_, _unsupervised_, _semi-supervised_, and _reinforcement learning_. We'll explain the intuitions behind each of the these methods. Along the way, we'll share terms you'll read in the literature (in parantheses) and point to more resources for the mathematically inclined. By the way, these categories span both traditional machine learning algorithms and the newer, fancier deep learning algorithms.
 
+For the math-inclined, see [this Stanford tutorial which covers supervised and unsupervised learning](http://ufldl.stanford.edu/tutorial/) and includes code samples.
+
 ## Supervised Learning
 **Supervised Learning** trains networks using examples where we already know the correct answer (ground truth). Say we're trying to train a network to recognize pictures that have your parents in them. First, grab all your photos. Ready? Let's go:
 1. Go through your photos (data set) and identify all the pictures that have your parents in them (labeling the data set with ground truth).
