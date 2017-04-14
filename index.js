@@ -20,6 +20,19 @@ var temp_dir = path.join(process.cwd(), 'temp/');
 var uploads_dir = path.join(process.cwd(), 'uploads/');
 // require('ssl-root-cas').inject().addFile('./server.crt');
 
+var API_OFF = false;
+
+var RateLimit = require('ratelimit.js').RateLimit;
+var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
+var redis = require('redis');
+
+var rateLimiter = new RateLimit(redis.createClient(), [{interval: 86400, limit: 100000}]);
+
+var options = {
+  ignoreRedisErrors: true // defaults to false
+};
+var limitMiddleware = new ExpressMiddleware(rateLimiter, options);
+
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
 }
@@ -74,9 +87,7 @@ app.use(session({  secret: cookiesSecretKey }));
 //     secret: 'secretdata'
 // }));
 
-
 app.use(bodyParser.urlencoded({ limit:'2mb', extended: true })); // for parsing
-
 
 app.use(express.static(__dirname + '/public'));
 
@@ -95,7 +106,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(function (req, res, next) {
-
 //don't do this check for the login page, login processing, or the about page
 //(about page has two versions, one signed in, one signed out)
   if (req.originalUrl != "/login"
@@ -114,11 +124,17 @@ app.use(function (req, res, next) {
     }
   }
 
+  if (req.originalUrl.substring(0,4) === '/api' && API_OFF) {
+    return {success: false};
+  }
+
   next();
 
 });
 
-
+app.use('/api', limitMiddleware.middleware(function(req, res, next) {
+  res.status(429).json({message: 'rate limit exceeded'});
+}));
 
 var markdownCache = Object.create(null);
 var SectionPageProcessor = require('./lib/section-page-processor.js');

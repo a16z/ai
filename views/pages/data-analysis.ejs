@@ -338,7 +338,7 @@ $( "#analysisForm" ).submit(function( event ) {
 
           $(divRefName).removeClass("spinner");
 
-          $(divRefName).empty().append('Error: could not connect to <br/>' + endpointPath + ' <br/>');
+          $(divRefName).empty().append('Error: could not connect to <br/>' + endpointPath + '. Please try again later. <br/>');
 
           console.error('Error connecting to: ' + endpointPath);
           var failError = {
