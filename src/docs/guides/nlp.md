@@ -60,3 +60,4 @@ Here’s a collection of API examples referenced in this section
 <iframe style="width: 100%; min-height: 476px; margin-bottom: 40px" src="/test/phrase/sentiment-analysis"></iframe>
 <iframe style="width: 100%; min-height: 496px; margin-bottom: 40px" src="/test/phrase/entity-analysis"></iframe>
 <iframe style="width: 100%; min-height: 556px; margin-bottom: 40px" src="/test/phrase/language-analysis"></iframe>
+<iframe style="width: 100%; min-height: 556px; margin-bottom: 40px" src="/test/phrase/language-translation"></iframe>

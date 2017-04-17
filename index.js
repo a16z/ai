@@ -260,6 +260,8 @@ loadAllAPIs('public/data/services/apis');
 
 var languageAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'language-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
+var languageTranslationCommonServiceInfo = loadServiceInfo({serviceId: 'language-translation', topLevelFolder: 'public/data/services', loadSamples: true});
+
 var entityAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'entity-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
 var sentimentAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'sentiment-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
@@ -291,6 +293,8 @@ googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googl
 googleAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.googleLangAnalysisAPIPack, apiAddCompletion);
 
 googleAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.googleImageAnalysisAPIPack, apiAddCompletion);
+
+googleAPI.addService(languageTranslationCommonServiceInfo, LanguageAnalysis.googleLangTranslationAPIPack, apiAddCompletion);
 
 var amazonAPI = NXAPIPacks.connector.apiForId("amazon-ai");
 amazonAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.amazonImageAnalysisAPIPack, apiAddCompletion);
@@ -364,6 +368,8 @@ registerGet(app, "/test/phrase", "sentiment-analysis", "pages/data-analysis");
 registerGet(app, "/test/phrase", "entity-analysis", "pages/data-analysis");
 registerGet(app, "/test/phrase", "language-analysis", "pages/data-analysis");
 registerGet(app, "/test/image", "image-analysis", "pages/data-analysis");
+registerGet(app, "/test/phrase", "language-translation", "pages/data-analysis");
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
