@@ -26,7 +26,7 @@ var RateLimit = require('ratelimit.js').RateLimit;
 var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
 var redis = require('redis');
 
-var rateLimiter = new RateLimit(redis.createClient(), [{interval: 86400, limit: 100000}]);
+var rateLimiter = new RateLimit(redis.createClient(process.env.REDIS_URL), [{interval: 86400, limit: 100000}]);
 
 var options = {
   ignoreRedisErrors: true // defaults to false
