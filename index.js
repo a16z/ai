@@ -22,16 +22,23 @@ var uploads_dir = path.join(process.cwd(), 'uploads/');
 
 var API_OFF = false;
 
-var RateLimit = require('ratelimit.js').RateLimit;
-var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
-var redis = require('redis');
+// This should remain disabled for most people, this is enabled for our production environment
+var rateLimitingEnabled = process.env.RATE_LIMITING_ENABLED || false;
 
-var rateLimiter = new RateLimit(redis.createClient(process.env.REDIS_URL), [{interval: 86400, limit: 100000}]);
+var RateLimit, ExpressMiddleware, redis, rateLimiter, options, limitMiddleware;
 
-var options = {
-  ignoreRedisErrors: true // defaults to false
-};
-var limitMiddleware = new ExpressMiddleware(rateLimiter, options);
+if (rateLimitingEnabled) {
+   RateLimit = require('ratelimit.js').RateLimit;
+   ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
+   redis = require('redis');
+
+   rateLimiter = new RateLimit(redis.createClient(process.env.REDIS_URL), [{interval: 86400, limit: 100000}]);
+
+   options = {
+    ignoreRedisErrors: true // defaults to false
+  };
+  limitMiddleware = new ExpressMiddleware(rateLimiter, options);
+}
 
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
@@ -132,9 +139,11 @@ app.use(function (req, res, next) {
 
 });
 
-app.use('/api', limitMiddleware.middleware(function(req, res, next) {
-  res.status(429).json({message: 'rate limit exceeded'});
-}));
+if (limitMiddleware) {
+  app.use('/api', limitMiddleware.middleware(function(req, res, next) {
+    res.status(429).json({message: 'rate limit exceeded'});
+  }));
+}
 
 var markdownCache = Object.create(null);
 var SectionPageProcessor = require('./lib/section-page-processor.js');
@@ -260,6 +269,8 @@ loadAllAPIs('public/data/services/apis');
 
 var languageAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'language-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
+var languageTranslationCommonServiceInfo = loadServiceInfo({serviceId: 'language-translation', topLevelFolder: 'public/data/services', loadSamples: true});
+
 var entityAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'entity-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
 
 var sentimentAnalysisCommonServiceInfo = loadServiceInfo({serviceId: 'sentiment-analysis', topLevelFolder: 'public/data/services', loadSamples: true});
@@ -291,6 +302,8 @@ googleAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.googl
 googleAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.googleLangAnalysisAPIPack, apiAddCompletion);
 
 googleAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.googleImageAnalysisAPIPack, apiAddCompletion);
+
+googleAPI.addService(languageTranslationCommonServiceInfo, LanguageAnalysis.googleLangTranslationAPIPack, apiAddCompletion);
 
 var amazonAPI = NXAPIPacks.connector.apiForId("amazon-ai");
 amazonAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.amazonImageAnalysisAPIPack, apiAddCompletion);
@@ -328,7 +341,7 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
       function (req, res) {
         var dataDict =  createEJSTemplateDataDictionary(req, res);
 
-        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", contentType: "none", testSamples: []};
+        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", contentType: "none", xtra: {"type":"none"}, testSamples: []};
         // dataDict.apis = JSON.stringify();
         var apis = NXAPIPacks.connector.getApisForServiceType(sid); //eg sid = 'sentiment-analysis'
 
@@ -337,6 +350,7 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
           //get sample text from the first element
           dataDict.apiServiceInfo = apis[0].serviceInfo;
           dataDict.apiContentType = dataDict.apiServiceInfo.contentType;
+          dataDict.xtra = dataDict.apiServiceInfo.xtra;
           if (dataDict.apiServiceInfo.contentType == 'image') {
               dataDict.apiServiceInfo.sampleImages = [];
               for (i in dataDict.apiServiceInfo.testSamples) {
@@ -364,6 +378,8 @@ registerGet(app, "/test/phrase", "sentiment-analysis", "pages/data-analysis");
 registerGet(app, "/test/phrase", "entity-analysis", "pages/data-analysis");
 registerGet(app, "/test/phrase", "language-analysis", "pages/data-analysis");
 registerGet(app, "/test/image", "image-analysis", "pages/data-analysis");
+registerGet(app, "/test/phrase", "language-translation", "pages/data-analysis");
+
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
