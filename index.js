@@ -22,16 +22,26 @@ var uploads_dir = path.join(process.cwd(), 'uploads/');
 
 var API_OFF = false;
 
-var RateLimit = require('ratelimit.js').RateLimit;
-var ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
-var redis = require('redis');
+// This should remain disabled for most people, this is enabled for our production environment
+var rateLimitingEnabled = process.env.RATE_LIMITING_ENABLED || false;
 
-var rateLimiter = new RateLimit(redis.createClient(), [{interval: 86400, limit: 100000}]);
+var RateLimit, ExpressMiddleware, redis, rateLimiter, options, limitMiddleware;
 
-var options = {
-  ignoreRedisErrors: true // defaults to false
-};
-var limitMiddleware = new ExpressMiddleware(rateLimiter, options);
+if (rateLimitingEnabled) {
+   RateLimit = require('ratelimit.js').RateLimit;
+   ExpressMiddleware = require('ratelimit.js').ExpressMiddleware;
+   redis = require('redis');
+
+   rateLimiter = new RateLimit(redis.createClient(process.env.REDIS_URL), [{interval: 86400, limit: 100000}]);
+
+   options = {
+    ignoreRedisErrors: true // defaults to false
+  };
+  limitMiddleware = new ExpressMiddleware(rateLimiter, options);
+}
+
+
+
 
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
@@ -132,9 +142,11 @@ app.use(function (req, res, next) {
 
 });
 
-app.use('/api', limitMiddleware.middleware(function(req, res, next) {
-  res.status(429).json({message: 'rate limit exceeded'});
-}));
+if (limitMiddleware) {
+  app.use('/api', limitMiddleware.middleware(function(req, res, next) {
+    res.status(429).json({message: 'rate limit exceeded'});
+  }));
+}
 
 var markdownCache = Object.create(null);
 var SectionPageProcessor = require('./lib/section-page-processor.js');
