@@ -22,6 +22,11 @@
       <fieldset>
           <legend style="font-size: 95%;">Select a sample sentence/paragraph or enter one in the field below</legend>
           <p style="margin-left: 1rem;" id="formSampleFields"></p>
+
+      <% if (xtra != undefined && xtra.type != "none") { %>
+          <p style="margin-left: 1rem;" id="formXtraFields"><%= xtra.label %> </p>
+      <% }  %>
+
       </fieldset>
       <br>
       <div class="g-recaptcha" data-sitekey="<%= recaptchaSiteKey %>"></div>
@@ -101,6 +106,18 @@ function insertTextSamples(apiServiceInfo) {
     $("#formSampleFields").append(text) ;
   }
 
+  var xtraField =  apiServiceInfo.xtra;
+  var xFieldId = $("#formXtraFields");
+  if (xFieldId != undefined && xtraField != undefined) {
+    var newfield = "<select name=\"xtra\">"
+    var newfieldValues = xtraField.options.split(",");
+    for (i in newfieldValues) {
+      value = newfieldValues[i];
+      newfield += "<option value=\""+value+"\">"+value+"</option>";
+  }
+  newfield += "</select>";
+  $("#formXtraFields").append(newfield) ;
+}
 
   var rad = $("#analysisForm").find("input[name='presetPhrase']");
 
@@ -208,6 +225,10 @@ $( "#analysisForm" ).submit(function( event ) {
   var displayDataContents;
   if (apiServiceInfo.contentType == 'text') {
       var gRecaptchaResponse = $("#g-recaptcha-response").val();
+
+      var extraField = $form.find( "select[name='xtra']" ).val();
+      extraField = extraField != undefined ? extraField : "no_data";
+
       var dataField = $form.find( "textarea[name='phrase']" );
        var phraseFieldContents = dataField.val();
 
@@ -222,6 +243,7 @@ $( "#analysisForm" ).submit(function( event ) {
 
        dataContents = {
            phrase: phraseFieldContents,
+           xtra: extraField,
            gRecaptchaResponse: gRecaptchaResponse
        };
   }

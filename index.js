@@ -40,9 +40,6 @@ if (rateLimitingEnabled) {
   limitMiddleware = new ExpressMiddleware(rateLimiter, options);
 }
 
-
-
-
 if (!fs.existsSync(temp_dir)) {
     fs.mkdirSync(temp_dir);
 }
@@ -344,7 +341,7 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
       function (req, res) {
         var dataDict =  createEJSTemplateDataDictionary(req, res);
 
-        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", contentType: "none", testSamples: []};
+        dataDict.apiServiceInfo = {id: "no_id", name: "No info", description: "no description.", contentType: "none", xtra: {"type":"none"}, testSamples: []};
         // dataDict.apis = JSON.stringify();
         var apis = NXAPIPacks.connector.getApisForServiceType(sid); //eg sid = 'sentiment-analysis'
 
@@ -353,6 +350,7 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
           //get sample text from the first element
           dataDict.apiServiceInfo = apis[0].serviceInfo;
           dataDict.apiContentType = dataDict.apiServiceInfo.contentType;
+          dataDict.xtra = dataDict.apiServiceInfo.xtra;
           if (dataDict.apiServiceInfo.contentType == 'image') {
               dataDict.apiServiceInfo.sampleImages = [];
               for (i in dataDict.apiServiceInfo.testSamples) {
