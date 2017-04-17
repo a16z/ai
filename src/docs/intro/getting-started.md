@@ -16,7 +16,7 @@ Along the way, we'll discover software that will help you understand if your cus
 
 For people who like linear tours, we've provided navigation links at the top and bottom of every page that guide from the first room to the end. Feel free to visit the [table of contents]() to get to the exact topic you want to explore.
 
-A big hat tip to our friend Diego Doval who generated most of the code samples and much of the text in this cookbook based on some very high level, hand-wavy guidance. As usual, he's exceeded expectations. Thanks, Diego.
+A big hat tip to our friend [Diego Doval](https://blog.diegodoval.com/) who generated most of the code samples and much of the text in this cookbook based on some very high level, hand-wavy guidance. As usual, he's exceeded expectations. Thanks, Diego.
 
 Enjoy the journey. We're very bullish on the potential for artificial intelligence to make all our software smarter, easier to use, and a better [bicycle for our minds](https://www.youtube.com/watch?v=ob_GX50Za6c).
 
