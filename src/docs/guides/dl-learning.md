@@ -9,9 +9,9 @@ For the math-inclined, see [this Stanford tutorial which covers supervised and u
 1. Go through your photos (data set) and identify all the pictures that have your parents in them (labeling the data set with ground truth).
 2. Take the whole stack of photos and split them into two piles. We'll use the first pile to train the network (training data). We'll use the second pile of photos (validation data) to see how accurate the model is at picking out photos with our parents. 
 3. Feed the photos to your model. Mathematically, our goal is for the deep network to find a function whose input is a photo and whose output is a 0 (your parents are not in this photo) or 1 (yup, that's your folks). 
-  * This is called a categorization task.
-  * Supervised learning can also be used to output a set of values, rather than just a 0 or 1. 
-  * For example, we might train a network to output the probability that someone will repay a credit card loan, in which case the output is anywhere between 0 and 100. These tasks are called regressions. 
+   * This is called a categorization task.
+   * Supervised learning can also be used to output a set of values, rather than just a 0 or 1. 
+   * For example, we might train a network to output the probability that someone will repay a credit card loan, in which case the output is anywhere between 0 and 100. These tasks are called regressions. 
 4. For each photo, the model makes a prediction by following rules (activation function) to decide whether to light up a particular node in the work. The model works from left to right one layer a time (let's ignore more complicated networks for the moment). After the network calculates this for every node in the network, we'll get to the rightmost node (output node) which lights up (or not). 
 5. Since we already know which pictures have your parents in them, we can tell the model whether its prediction is right or wrong. The algorithm uses this feedback, which in the general case is a function that says "how far off from the real answer is the model's prediction" (cost function, also called an objective function, a utility function or a fitness function) to modify the strength of connections (and biases) between nodes (backpropogation). We repeat this for each of the pictures, and in each case the algorithms try to minimize the cost function. 
    * There are a variety of mathematical techniques to use this knowledge of whether the model was right or wrong back into the model, but a very common method is gradient descent.  
