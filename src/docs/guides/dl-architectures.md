@@ -67,7 +67,8 @@ Who said neural nets weren't fun?
 
 Together, these two enhancements over feedforward networks have made RNNs incredibly powerful tools for solving many different types of AI problems including speech recognition, language modeling, machine translation, image captioning, recommendation systems, predicting the next word in a sentence for text generation systems, and others.
 
-A specific type of RNN that you'll see discussed is called the Long Short-Term Memory (LTSM). Bizarre, no? Is the memory short or the long? Anyway, this type of RNN was introduced by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory) and does an even better job of remembering something from "further back in time" compared to vanilla RNNs. Read [Christopher Olah's blog post]( if you want to understand how LTSMs do this. It's a beautiful piece of explanatory writing and illustration.
+A specific type of RNN that you'll see discussed is called the Long Short-Term Memory (LTSM). Bizarre, no? Is the memory short or the long? Anyway, this type of RNN was introduced by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory) and does an even better job of remembering something from "further back in time" compared to vanilla RNNs. Read [Christopher Olah's blog post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) if you want to understand how LTSMs do this. It's a beautiful piece of explanatory writing and illustration. Rohan Kapur's [Medium post is also great](https://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b).
+
 
 # How do these architectures relate to the other Deep Learning frameworks I've heard of?
 One last topics before we wrap up here, which is: how do these neural network architectures relate to the libraries or frameworks such as TensorFlow and Caffe I've heard of?
