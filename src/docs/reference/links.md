@@ -21,17 +21,16 @@
 * The classic: [Coursera Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)
 * [Udactiy Introduction to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
 * [Udacity Deep Learning by Google](https://www.udacity.com/course/deep-learning--ud730)
-* [List of top 5 list online classes](http://thegrandjanitor.com/2016/08/15/learning-deep-learning-my-top-five-resource/), curated by Arthur Chan
-* [EdX Introduction to AI](https://www.edx.org/course/artificial-intelligence-ai-columbiax-csmm-101x-0)
 * "The trinity"
   * Stanford class [CS221: Artificial Intelligence: Principles and Techniques by Percy Liang](http://web.stanford.edu/class/cs221/)
   * Stanford class [CS224N Natural Language Processing with Deep Learning by Christopher Manning and Richard Socher](http://web.stanford.edu/class/cs224n/), [YouTube playlist](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6)
   * Stanford class [CS231N: Convolutional Neural Networks for Visual Recognition by Fei-Fei Li and Andrej Karapthy](http://cs231n.stanford.edu/), Github repo(http://cs231n.github.io/))
+* [EdX Introduction to AI](https://www.edx.org/course/artificial-intelligence-ai-columbiax-csmm-101x-0)
 * Carnegie Mellon's [Introduction to Machine Learning](http://www.cs.cmu.edu/~mgormley/courses/10701-f16/), followed up by [Statistical Machine Learning](http://www.stat.cmu.edu/~larry/=sml/)
 * MIT's [Artificial Intelligence with Patrick Henry Winston](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/)
 * "The hard one": [Coursera's Neural Networks for Machine Learning with Geoff Hinton](https://www.coursera.org/learn/neural-networks)
 * Class notes from [University of Iowa AI class on unsupervised learning](http://homepage.cs.uiowa.edu/~hzhang/c145/notes/18-unsupervised-6p.pdf)
-
+* [List (and reviews) of top 5 list online classes](http://thegrandjanitor.com/2016/08/15/learning-deep-learning-my-top-five-resource/), curated by Arthur Chan
 
 ## Blogs and sites
 * [Andrej Karpathy’s blog](http://karpathy.github.io/), check out [Unreasonable effectiveness of RNN](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
