@@ -54,7 +54,7 @@
 
 ## Other
 * Keep up to date with [Artificial Intelligence research papers at arXiv.org](https://arxiv.org/list/cs.AI/recent)
-* Because there are too many papers to actually read, try @kaparthy's [http://arxiv-sanity.com/](arXiv Sanity browser)
+* Because there are too many papers to actually read, try @kaparthy's [arXiv Sanity browser](http://arxiv-sanity.com/)
 * Check out the [latest articles about machine learning at Distill](http://distill.pub/)
 * [Stanford University 100 Year Study on AI](https://ai100.stanford.edu/)
 * [Summary of Schmidhumber’s long history and introduction by Annalyn Ng and Kenneth Soo](http://www.kdnuggets.com/2016/04/deep-learning-neural-networks-overview.html)
