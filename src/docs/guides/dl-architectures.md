@@ -52,13 +52,14 @@ The third and last type of neural network we'll discuss is the recurrent neural 
 Remember how in a feedforward network, computation only goes forward, or if you're looking at a diagram, "from left to right"? Also we didn't say, it but feedforward (and convolutional networks) take fixed sized inputs and outputs. Once you decide how many elements in the input and output vectors, that's it. You train the model and hope you get good results.
 
 RNNs relax both those constraints.
-1. RNNs support bi-directional data flow, propagating data from later processing stages back to earlier stages and well as linearly from input to output. This diagram from [Christopher Olah's excellent overview article](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) shows the shape of an RNN:
-![Unrolled recurrent neural network](/public/images/RNN-unrolled.png)
 
-This permits the RNN to "remember" things, which makes them great for processing time-series data (like events in an event log) or natural language processing tasks (like understanding the roles each word plays in a sentence, in which remembering what word came before can help you figure the role of the current word).
+First, RNNs support bi-directional data flow, propagating data from later processing stages back to earlier stages and well as linearly from input to output. This diagram from [Christopher Olah's excellent overview article](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) shows the shape of an RNN:
+![Unrolled recurrent neural network](/images/RNN-unrolled.png)
 
-2. Secondly, RNNs can process arbitary-sized inputs and outputs by processing vectors in a sequence, one at a time. Where feedforward and CNNs only work on fixed sized inputs and outputs, RNNs can process one vectors one after another thereby work on any shape of intput and output. Andrej Kaparthy comes to the rescue with a diagram that shows this from his excellent blog post titled [*The Unreaonable Effectiveness of Recurrent Neural Networks:*](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-![Arbitrary input and output sizes in RNNs](/images/public/sequences.png)
+This architecture enables the RNN to "remember" things, which makes them great for processing time-series data (like events in an event log) or natural language processing tasks (like understanding the roles each word plays in a sentence, in which remembering what word came before can help you figure the role of the current word).
+
+Secondly, RNNs can process arbitary-sized inputs and outputs by processing vectors in a sequence, one at a time. Where feedforward and CNNs only work on fixed sized inputs and outputs, RNNs can process one vectors one after another thereby work on any shape of intput and output. Andrej Kaparthy comes to the rescue with a diagram that shows this from his excellent blog post titled [*The Unreaonable Effectiveness of Recurrent Neural Networks:*](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+![Arbitrary input and output sizes in RNNs](/images/sequences.png)
 
 Read Andrej's whole blog post, which is a great explanation of the structure of RNNs. In it, he describes how to build a Paul Graham essay generator by training the system with the full 1M characters of pg's essays (alas, a very small corpus by AI standards) and building an RNN. You can tune one of the hyperparameters of the RNN to generate the sentence that Paul Graham is most likely to write, and that is an infinite loop of:
 > “is that they were all the same thing that was a startup is that they were all the same thing that was a startup is that they were all the same thing that was a startup is that they were all the same”
