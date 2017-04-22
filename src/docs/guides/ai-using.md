@@ -4,12 +4,12 @@ With that in mind, let's give your software some AI superpowers.
 
 The easiest way is to "add AI" is to call an API from your code, whether that API is exposed by a local software library or over the Web.
 
-For example, this line of Python will ask the Clarifai service to predict what objects are in the picture metro-north.jpg:
+For example, this line of Python sends a sentence to a sentiment analyzer over the Web:
 
 `` GET /api/sentiment?phrase=Airplanes+with+the+shape+of+hawks+are+cool
 `` 
 
-Your code will get an answer like this, which means "this is an English sentence which has a positive (rather than negative sentiment) with a "sentiment strength" of 0.6, also on a scale of 0 to 1." Sounds like somone is thinks hawk-shaped airplanes are positive. 
+Your code will get an answer like this, which means the sentiment of is positive. More precisely, the answer you get back is "this is an English sentence which has a positive (negative sentiments have a negative score) with a "sentiment strength" of 0.6, with 0 being weak and 1 being strong". So if you are an airplane designer, may we suggest a hawk shape next time you have a clean sheet of paper out?
 
 ```
 {
@@ -33,9 +33,9 @@ Your code will get an answer like this, which means "this is an English sentence
 
 If you application needs to work without an Internet connection, you can embed software libraries to call locally. For example, you can grab the [Stanford CoreNLP toolkit](http://stanfordnlp.github.io/CoreNLP/) to add language processing capabilities to your software, such as "part of speech tagging", which tries to identify where are the nouns, verbs, adjectives, adverbs and so are in your text.
 
-Just as with regular programming, if you can't find a pre-built Web service or library to do what you want, you'll have to create your own special functions. These days, the most popular way to do this is by training a deep learning model with labeled data using something like Tensorflow or Keras or or MXnet. We'll walk through a few examples using a Web service called Clarifai and Google's TensorFlow later in this guide. 
+Just as with regular programming, if you can't find a pre-built Web service or library to do what you want, you'll have to create your own special functions. These days, the most popular way to do this is by training a machine learning model with labeled data using something such as [scikit-learn](http://scikit-learn.org/stable/#) or [Spark's MLlib](http://spark.apache.org/mllib/) (for a wide collection of machine learning techniques) or [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), [Caffe2](https://caffe2.ai/) or [MXnet](http://mxnet.io/) (for deep learning models). We'll walk through a few examples using a Web service called [Clarifai](https://www.clarifai.com/) and Google's TensorFlow later in this guide. 
 
-As of this writing (March 2017), high-level APIs are very easy to consume but there aren't very many of them. Low-level APIs which allow you to build your own model are difficult to consume and there is a lot of art using them effectively. But the field is improving quickly and all the major pubic cloud providers (Amazon, Google, IBM) are working hard on making more high-level APIs and improving the tools you use to embed AI capabilities into your own code.  
+As of this writing (April 2017), high-level APIs are very easy to consume but there aren't very many of them. Low-level APIs which allow you to build your own model are difficult to consume and there is a lot of art using them effectively. But the field is improving quickly and all the major pubic cloud providers (Amazon, Google, IBM) are working hard on making more high-level APIs and improving the tools you use to embed AI capabilities into your own code.  
 
 ## API vs. Library vs. SDK
 
