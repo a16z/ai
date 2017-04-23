@@ -52,6 +52,7 @@
 
 
 ## Other
+* Have fun at [Google's browser based AI Experiments site](https://aiexperiments.withgoogle.com/) 
 * Keep up to date with [Artificial Intelligence research papers at arXiv.org](https://arxiv.org/list/cs.AI/recent)
 * Because there are too many papers to actually read, try @kaparthy's [arXiv Sanity browser](http://arxiv-sanity.com/)
 * Check out the [latest articles about machine learning at Distill](http://distill.pub/)
