@@ -1,6 +1,6 @@
 # Vision
 
-There are AI areas focused on different senses, but _vision_ is fundamental along with natural language. Vision attempts to identify and extract symbols from raw visual data and then use those symbols to make decisions, take actions or produce information. These symbols have many forms: they can be labels from a set used for training, captions, text extracted from the image via OCR, colors, and so on. Not all images are created alike: In general, systems that are good at processing attributes for still images are not necessarily as good for processing video, and viceversa.
+There are AI areas focused on different senses, but _vision_ is fundamental along with natural language. Vision attempts to identify and extract symbols from raw visual data and then use those symbols to make decisions, take actions or produce information. These symbols have many forms: they can be labels from a set used for training, captions, text extracted from the image via OCR, colors, and so on. Not all images are created alike: In general, systems that are good at processing attributes for still images are not necessarily as good for processing video, and vice-versa.
 
 Sub-domains of computer vision include scene reconstruction, motion/event detection, tracking, object recognition, and image restoration among many others.
 
@@ -12,7 +12,7 @@ Current Computer Vision APIs provide significant, impressive functionality with 
 
 There’s plenty of information to be obtained: from tags, captions, labels, text (via OCR), detection of adult or inappropriate content, etc. Some systems will return specific coordinates in the image that allow separation of elements, either automatically or with a person’s help.
 
-![An Image With Text Areas Automatically Highlighted](/images/image-highlights.png “An Image With Text Areas Automatically Highlighted”)
+![An Image With Text Areas Automatically Highlighted](/images/image-highlights.png "An Image With Text Areas Automatically Highlighted")
 
 As in other API types, there is significant variability between different services in terms of features, capabilities, and so on. When moving between one service and another there aren’t any shortcuts and each API call and response will need to be verified again.
 

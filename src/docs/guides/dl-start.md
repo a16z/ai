@@ -97,11 +97,11 @@ After the training has started and the script ends, you can check the status of 
 
 Note that model operations include the model ID within the URL, `https://api.clarifai.com/v2/models/MODEL_ID/output_info`.
 
-Once this is done, you can ask the model to make a prediction to pasing in the Model ID to reference the model we should trained.
+Once this is done, you can ask the model to make a prediction to passing in the Model ID to reference the model we should trained.
 
 # TensorFlow
 
-Now let's do the same thing in TensorFlow. We will first prepare and train a standard model and then retrain it with our data set. This recipe will take some more effort because we're downloading TensorFlow software onto our own development machine. 
+Now let's do the same thing in TensorFlow. We will first prepare and train a standard model and then retrain it with our data set. This recipe will take some more effort because we're downloading TensorFlow software onto our own development machine.
 
 ## TensorFlow Ingredients
 

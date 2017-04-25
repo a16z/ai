@@ -4,21 +4,21 @@ If you've played with the examples from the previous sections on NLP and vision 
 
 Just as with other areas of software development, sometimes the API you need doesn't exist and you'll have to write your own code. A common starting point for AI programming is to select a machine learning algorithm, train it with data (see [this Medium post for a set of strategies for getting data](https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48), and then expose that trained model via APIs to the rest of your code can call.
 
-There are a [large](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/) [set](http://www.kdnuggets.com/2016/08/10-algorithms-machine-learning-engineers.html)of [machine learning algorithms](https://en.wikipedia.org/wiki/Machine_learning) with fun names such as decision trees, random forest, support vector machines, logistic regression, and so on. Each algorithm is best suited for a specific situation sucha s how much data you have, how many "features" or dimensions of data you can feed the algorithms, how sparse or dense the data set is, and so on. Sometimes it's hard to figure out which algorithm to use, and you will have to try a few different algorithms (and combinations of algorithms) to see how they do.
+There are a [large](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/) [set](http://www.kdnuggets.com/2016/08/10-algorithms-machine-learning-engineers.html)of [machine learning algorithms](https://en.wikipedia.org/wiki/Machine_learning) with fun names such as decision trees, random forest, support vector machines, logistic regression, and so on. Each algorithm is best suited for a specific situation depending on how much data you have, how many "features" or dimensions of data you can feed the algorithms, how sparse or dense the data set is, and so on. Sometimes it's hard to figure out which algorithm to use, and you will have to try a few different algorithms (and combinations of algorithms) to see how they do.
 
 Here are a few good starting points to picking the right ML algorithm to solve your specific problem:
 * [How to choose machine learning algorithms for Microsoft Azure machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-choice)
 * [Stack Overflow answer to "When to choose which machine learning classifer?"](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier)
 * Scikit-learn documentation: [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
 
-Deep learning is a class of machine learning that has gotten a lot of well-deserved attention in recent years because it's working to solve a wide variety of AI problems in vision, natural language processing, and many others. Also, in contrast with many of the other machine learning algorithsm where data scientists or software engineers have to figure out which features will lead to good predictions, deep learning approaches figure out the features themselves. 
+Deep learning is a class of machine learning that has gotten a lot of well-deserved attention in recent years because it's working to solve a wide variety of AI problems in vision, natural language processing, and many others. Also, in contrast with many of the other machine learning algorithms where data scientists or software engineers have to figure out which features will lead to good predictions, deep learning approaches figure out the features themselves.
 
-For example, let's say you were using linear regressions to try to predict the price of a home like Trulia does. With most machine learning approaches, you'd have to figure out "features" (think of them as factors that will drive price like how big the house is, when the house was built, the price of nearby houses, the number of bedrooms and bathrooms, and so forth). With deep learning, you don't pick the features. The algorithms essentially find the features for you in the data. 
+For example, let's say you were using linear regressions to try to predict the price of a home like Trulia does. With most machine learning approaches, you'd have to figure out "features" (think of them as factors that will drive price like how big the house is, when the house was built, the price of nearby houses, the number of bedrooms and bathrooms, and so forth). With deep learning, you don't pick the features. The algorithms essentially find the features for you in the data.
 
 For both these reasons (namely, (1) it's working and (2) it figures out features on its own), we'll spend the rest of the time in this playbook digging into deep learning. But before we continue, this tweet is spot on:
 ![True tweet about machine learning](/images/regression.png)
 
-We'd encourage you to try potentially simpler, admittedly less glamarous algorithms before deep learning. Sometimes a good ol' linear regresssion (just like from your high school physics labs) is all you need.
+We'd encourage you to try potentially simpler, admittedly less glamorous algorithms before deep learning. Sometimes a linear regression is all you need.
 
 ## Deep Learning
 Having said that, deep learning algorithms are incredibly powerful and getting amazing results across many different domains. Professor Christopher Manning, a longtime veteran of NLP research at Stanford, says in his [introductory lecture for "CS Natural Language Processing with Deep Learning"](https://www.youtube.com/watch?v=OQQ-W_63UgQ&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6) that "in the length of my lifetime, I'd actually say it's unprecedented [for] a field to progress so quickly".
@@ -34,7 +34,7 @@ By the way, why do we call it "deep learning"? It's called deep learning because
 ![Why is deep learning "deep"?](/images/nn_example-624x218.png)
 
 To learn more:
-* Watch legend Jeff Dean from the Google Brain team lecutre on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
+* Watch legend Jeff Dean from the Google Brain team lecture on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
 * Read Michael Nielsen's excellent ebook and Website [Neural Networks and Deep Learning(http://neuralnetworksanddeeplearning.com/index.html)
 
 ## Why Now?

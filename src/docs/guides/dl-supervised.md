@@ -2,9 +2,9 @@
 
 ## Supervised learning
 
-In Supervised Machine Learning, the program is “trained” on a set of training examples, adapting correct responses for the dataset given. It can then classify or detect patterns in new, unlabeled items.
+In Supervised Machine Learning, the program is "trained" on a set of training examples, adapting correct responses for the dataset given. It can then classify or detect patterns in new, unlabeled items.
 
-For example, let's say we wanted to augment a car with the ability to warn when there's a red light in front of it. We would equip the car with a camera that could take several photos per second of what's in front of it and pass them to an analyzer that would determine whether the image includes or not a red traffic light. To teach the system we would collect a large dataset of images including intersections with and without lights, at different times of day and different configurations. In our example, let's say the system receives an image as input and outputs a value (frequently called "score") for the image.
+For example, let's say we wanted to augment a car with the ability to warn when there's a red light in front of it. We would equip the car with a camera that could take several photos per second of what's in front of it and pass them to an analyzer that would determine whether the image includes or not a red traffic light. To teach the system we would collect a large dataset of images including intersections with and without lights, at different times of day and different configurations. In our example, the system receives an image as input and outputs a value (frequently called _score_) for the image.
 
 To train the system, we need to come up with an _objective function_ that can give us a measure of "correctness", or, if you will, "by how much the system missed". What we want is to guide the machine to give us the highest score for the correct values, consistently. For every item processed the objective function tells the system the measured error (distance) relative to the desired score. In response, the system performs modifications to minimize the error.
 

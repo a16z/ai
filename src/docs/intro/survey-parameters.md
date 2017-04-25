@@ -1,22 +1,22 @@
-# How We Picked the Recipes 
+# How We Picked the Recipes
 
 The good news is that there are hundreds of products, cloud services, frameworks, libraries and other tools that will help you add AI to your software. This makes curating a list to present in a short introductory cookbook like this a challenge.
 
-Here's how we picked our examples. First, we wanted to survey the most popular offerings, letting the wisdom of the crowd do the first rought sort. Next, we mostly chose cloud services over software that you'd run on premise. We believe most people will begin their AI journeys cloud services rather than creating and managing million-node neural networks in their own data centers. Even if you eventually outgrow a publicly available AI cloud service, your experience using the cloud services will help inform the design and scaling of your own AI infrastructure. Finally, we picked a few products from startups and the open source community so that you can compare and contrast results from the big public cloud providers. 
+Here's how we picked our examples. First, we wanted to survey the most popular offerings, letting the wisdom of the crowd do the first rought sort. Next, we mostly chose cloud services over software that you'd run on premise. We believe most people will begin their AI journeys cloud services rather than creating and managing million-node neural networks in their own data centers. Even if you eventually outgrow a publicly available AI cloud service, your experience using the cloud services will help inform the design and scaling of your own AI infrastructure. Finally, we picked a few products from startups and the open source community so that you can compare and contrast results from the big public cloud providers.
 
 ## Our Deployment Platform
 
 Since one of our goals was to be able to show live examples, we needed a deployment platform. For that purpose we chose [Heroku](http://www.heroku.com), as a "neutral" provider of cloud runtime services. Other providers (e.g. Google, Microsoft, Amazon, IBM) also have their own AI/ML APIs and services and support different (usually easier) integrations between these services and their own platforms. Using a separate 3rd party service puts everyone on a level playing field.
 
-Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily. To encourage cloning and forking, we chose the [very permissive MIT License](https://opensource.org/licenses/MIT). 
+Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily. To encourage cloning and forking, we chose the [very permissive MIT License](https://opensource.org/licenses/MIT).
 
-We're not recommending any specific product over another. Our portfolio companies have had success with all of the products we mention. Our real goals for this cookbook (just as it with food cookbooks) are to share what's possible and to encourage you to get into the kitchen. 
+We're not recommending any specific product over another. Our portfolio companies have had success with all of the products we mention. Our real goals for this cookbook (just as it with food cookbooks) are to share what's possible and to encourage you to get into the kitchen.
 
 ## Code Samples
 
 The first few recipes in the cookbook don't require you to understand programming at all, though being able to read [JSON](https://www.json.org) is handy. Even if you've never done that before, JSON is written to be "easy for humans to read and write" so you'll pick it up along the way.
 
-Where we do provide code samples, we offer them in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your engineers) prefer, whether that's Python, Scala, Go, C++, Swift, Java, Haskell, or name-your-favorite-langage-here. 
+Where we do provide code samples, we offer them in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your engineers) prefer, whether that's Python, Scala, Go, C++, Swift, Java, Haskell, or name-your-favorite-langage-here.
 
 For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. We aimed for a straightforward, practical design that would work well in mobile devices.
 
