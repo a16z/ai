@@ -2,7 +2,7 @@
 
 The good news is that there are hundreds of products, cloud services, frameworks, libraries and other tools that will help you add AI to your software. This makes curating a list to present in a short introductory cookbook like this a challenge.
 
-Here's how we picked our examples. First, we wanted to survey the most popular offerings, letting the wisdom of the crowd do the first rought sort. Next, we mostly chose cloud services over software that you'd run on premise. We believe most people will begin their AI journeys cloud services rather than creating and managing million-node neural networks in their own data centers. Even if you eventually outgrow a publicly available AI cloud service, your experience using the cloud services will help inform the design and scaling of your own AI infrastructure. Finally, we picked a few products from startups and the open source community so that you can compare and contrast results from the big public cloud providers.
+Here's how we picked our examples. First, we wanted to survey the most popular offerings, letting the wisdom of the crowd do the first rough sort. Next, we mostly chose cloud services over software that you'd run on premise. We believe most people will begin their AI journeys using cloud services rather than creating and managing million-node neural networks in their own data centers. Even if you eventually outgrow a publicly available AI cloud service, your experience using it will help inform the design and scaling of your own AI infrastructure. Finally, we picked a few products from startups and the open source community so that you can compare and contrast results from the big public cloud providers.
 
 ## Our Deployment Platform
 
