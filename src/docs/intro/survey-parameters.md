@@ -16,7 +16,7 @@ We're not recommending any specific product over another. Our portfolio companie
 
 The first few recipes in the cookbook don't require you to understand programming at all, though being able to read [JSON](https://www.json.org) is handy. Even if you've never done that before, JSON is written to be "easy for humans to read and write" so you'll pick it up along the way.
 
-Where we do provide code samples, we offer them in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your engineers) prefer, whether that's Python, Scala, Go, C++, Swift, Java, Haskell, or name-your-favorite-langage-here.
+Where we do provide code samples, we offer them in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your engineers) prefer, whether that's Python, Scala, Go, C++, Swift, Java, Haskell, or name-your-favorite-language-here.
 
 For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. We aimed for a straightforward, practical design that would work well in mobile devices.
 
