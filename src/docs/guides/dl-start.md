@@ -131,7 +131,7 @@ TensorFlow in particular is one of the most active deep learning packages, and t
 * [Get Started](https://www.tensorflow.org/get_started/) and [Tutorials](https://www.tensorflow.org/tutorials/) from tensorflow.org.
 * [Deep Learning for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/) a Google Codelab, originally developed by [Peter Warden](https://petewarden.com/2016/02/28/tensorflow-for-poets/).
 * [TensorFlow APIs](https://www.tensorflow.org/api_docs/) (C++ and Python).
-* [Setup Instructions](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md) from the [TensorFlow github repository](https://github.com/tensorflow/tensorflow).
+* Setup Instructions from the [TensorFlow github repository](https://github.com/tensorflow/tensorflow).
 
 **The instructions that follow are a combination of material on those tutorials** making a few specific choices to simplify (some) things along the way. We hope it can make things a bit easier if you are having problems following other tutorials or unsure of which option to choose.
 
@@ -140,7 +140,7 @@ While the credit should go entirely to those that created the tutorials and soft
 
 ## If You Already Have TensorFlow Installed
 
-If you are already familiar with TensorFlow and reuse/retraining of models, and just want to skip over to our example, you can jump directly to [Setup and Test the iOS App](/docs/reference/dl-app#setupiOS).
+If you are already familiar with TensorFlow and reuse/retraining of models, and just want to skip over to our example, you can jump directly to [Setup and Test the iOS App](/docs/reference/dl-app).
 
 
 ## Installing TensorFlow on Mac OS X
@@ -435,7 +435,7 @@ Neural Networks use what's called a "model" to interpret input and generate outp
 
 Training a model from scratch is a difficult task. There are many, _many_ variables to consider and testing variations takes a long time, even in fast systems. However, it is possible to use portions of a model while only _retraining_ specific layers.
 
-In this case, to test our TensorFlow setup we will use an example provided in the [TensorFlow retraining section](https://www.tensorflow.org/versions/master/how_tos/image_retraining/index.html) and [TensorFlow for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets) sites. We will use partial retraining, as described in [DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition](/reference-material/donahue2014decaf.pdf), which uses a model that's already trained to classify still images and retrains only the 'top' layer so it recognizes different images categories and labels them correctly. This isn't as effective as a full training approach, but it's fairly effective and relatively fast.
+In this case, to test our TensorFlow setup we will use an example provided in the [TensorFlow retraining section](https://www.tensorflow.org/tutorials/image_retraining) and [TensorFlow for Poets](https://codelabs.developers.google.com/codelabs/tensorflow-for-poets) sites. We will use partial retraining, as described in [DeCAF: A Deep Convolutional Activation Feature for Generic Visual Recognition](/reference-material/donahue2014decaf.pdf), which uses a model that's already trained to classify still images and retrains only the 'top' layer so it recognizes different images categories and labels them correctly. This isn't as effective as a full training approach, but it's fairly effective and relatively fast.
 
 To prepare and test our setup, we will start with the example's own dataset. We will download the training data and source images by running the following commands in the Terminal app:
 
