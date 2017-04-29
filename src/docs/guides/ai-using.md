@@ -4,12 +4,12 @@ With that in mind, let's give your software some AI superpowers.
 
 The easiest way is to "add AI" is to call an API from your code, whether that API is exposed by a local software library or over the Web.
 
-For example, this line of Python sends a sentence to a sentiment analyzer over the Web:
+For example, this HTTP request sends a sentence to a sentiment analyzer over the Web:
 
 `` GET /api/sentiment?phrase=Airplanes+with+the+shape+of+hawks+are+cool
 ``
 
-Your code will get an answer like this, which means the sentiment of is positive. More precisely, the answer you get back is "this is an English sentence which has a positive (negative sentiments have a negative score) with a "sentiment strength" of 0.6, with 0 being weak and 1 being strong". So if you are an airplane designer, may we suggest a hawk shape next time you have a clean sheet of paper out?
+Your code will get an answer like below, which means the sentiment of is positive. More precisely, the answer you get back is "this is an English sentence which has a positive (negative sentiments have a negative score) with a "sentiment strength" of 0.6, with 0 being weak and 1 being strong". So if you are an airplane designer, may we suggest a hawk shape next time you have a clean sheet of paper out?
 
 ```
 {
