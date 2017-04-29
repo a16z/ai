@@ -14,7 +14,7 @@ We're not recommending any specific product over another. Our portfolio companie
 
 ## Code Samples
 
-The first few recipes in the cookbook don't require you to understand programming at all, though being able to read [JSON](https://www.json.org) is handy. Even if you've never done that before, JSON is written to be "easy for humans to read and write" so you'll pick it up along the way.
+The first few recipes in the cookbook don't require you to understand programming at all, though being able to read [JSON](http://www.json.org/) is handy. Even if you've never done that before, JSON is written to be "easy for humans to read and write" so you'll pick it up along the way.
 
 Where we do provide code samples, we offer them in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your engineers) prefer, whether that's Python, Scala, Go, C++, Swift, Java, Haskell, or name-your-favorite-language-here.
 
@@ -22,7 +22,7 @@ For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. W
 
 ## Further Things to Evaluate When You Start Paying For Services
 
-If we inspire you to try adding some AI to your own software (and we hope we do!), here are a few things to criteria to consider in selecting paid services:
+If we inspire you to try adding some AI to your own software (and we hope we do!), here are a few criteria to consider in selecting paid services:
 
 * **Try a cloud service first**. For the same reason SaaS is easier to get started with compared to on-premise software, try a hosted service first. Only when you discover that it doesn't do what you want or its accruacy with your data set is where you need it to be should you deploy your own infrastructure (e.g. by building a [Tensorflow](https://www.tensorflow.org/) or [Apache Singa](https://singa.incubator.apache.org)) cluster. Additionally, in every case cloud-hosted solutions are backed by open-source projects. If you feel you have outgrown the hosted Tensorflow provided by Google (for example) you can move on to deploy your own.
 
@@ -34,6 +34,6 @@ If we inspire you to try adding some AI to your own software (and we hope we do!
 
 * **Price & Terms**. Pay attention not only to the "getting started" plans, but understand the pricing at scale. Does that makes sense for your business given that your own product has a price point and a cost of sales? Can you start free or small and grow? Or are you forced to talk to a sales rep to run a "Hello World" app?
 
-* **Project activity & relevance**. How actively is a product, commercial or open source, being developed? In either case, take a quick look at [StackOverflow](http://www.stackoverflow/) to gauge the activity around it. For open source projects, check out the [Github](http://www.github.com/) activity and be wary of projects with few contributors, forks, or stars. How important is a particular service to the company that's offering it? For startups, developer success on their API might be life or death. On other other hand, a big company might easily decide to discontinue support for an API if it's not strategic to them.
+* **Project activity & relevance**. How actively is a product, commercial or open source, being developed? In either case, take a quick look at [StackOverflow](http://www.stackoverflow.com/) to gauge the activity around it. For open source projects, check out the [Github](http://www.github.com/) activity and be wary of projects with few contributors, forks, or stars. How important is a particular service to the company that's offering it? For startups, developer success on their API might be life or death. On other other hand, a big company might easily decide to discontinue support for an API if it's not strategic to them.
 
 With all the preliminaries behind us, let's get cooking.
