@@ -30,7 +30,7 @@ If we inspire you to try adding some AI to your own software (and we hope we do!
 
 * **Consider SLAs, constraints and limitations**. Do the solutions provide any kind of SLAs? What are the costs/constraints involved?
 
-* **Data ownership and lock-in**. This is an important item. Make sure you understand who owns the data and whether the company providing a service is using your data in a way your are comfortable with. Are they using it to train models that they would then offer to your competitors? What happens if they decide to stop offering their service? What happens with your models? How do you get your data sets and trained models off the service?
+* **Data ownership and lock-in**. This is an important item. Make sure you understand who owns the data and whether the company providing a service is using your data in a way you are comfortable with. Are they using it to train models that they would then offer to your competitors? What happens if they decide to stop offering their service? What happens with your models? How do you get your data sets and trained models off the service?
 
 * **Price & Terms**. Pay attention not only to the "getting started" plans, but understand the pricing at scale. Does that makes sense for your business given that your own product has a price point and a cost of sales? Can you start free or small and grow? Or are you forced to talk to a sales rep to run a "Hello World" app?
 
