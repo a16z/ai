@@ -73,7 +73,7 @@ A specific type of RNN that you'll see discussed is called the Long Short-Term M
 
 
 # How do these architectures relate to the other Deep Learning frameworks I've heard of?
-One last topics before we wrap up here, which is: how do these neural network architectures relate to the libraries or frameworks such as TensorFlow and Caffe I've heard of?
+One last topic before we wrap up here is: how do these neural network architectures relate to the libraries or frameworks such as TensorFlow and Caffe I've heard of?
 
 The quick answer is that you can implement most *neural net architectures* in each of the popular *neural network libraries*. Want to implement a feedforward or RNN in TensorFlow? You can [do that](https://www.tensorflow.org/tutorials/recurrent). How about a LSTM in Caffe? [Yup](https://github.com/junhyukoh/caffe-lstm). Feedforward network in MXNet? There's an [API call for that](http://mxnet.io/api/python/model.html#model-api-reference).
 
