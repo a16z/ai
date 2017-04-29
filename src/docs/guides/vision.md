@@ -22,7 +22,7 @@ Running enough tests gives us an idea of how these APIs perform:
 
 * **Image labeling, captioning, and tagging works very well for general categories, but precision drops quickly** the more specific they try to be. This is to be expected given the type of generic training given to the model, but it is still important to note.
 * **Error rates are low, but high enough that you have to prepare for them carefully**. An API with a 2% error rate will fail outright for 2 out of every 100 images. For the 2 people that see the results of an incorrect analysis, the result can be jarring.
-* **Image rotation, complexity and quality matter.** The same image rotated different ways can have significantly different recognition results. When the image is complex and has multiple features precision also degrades.
+* **Image rotation, complexity and quality matter.** The same image rotated different ways can have significantly different recognition results. When the image is complex and has multiple features precision also degrades. Though it's fair to point out a specific type of deep learning architecture called convolutional neural networks are enabling much higher accuracy for rotated images these days.
 
 The good news is that all of these things can be addressed by how your code uses the underlying APIs. Also, the systems are improving rapidly. Here are some tips to get the most out of the current generation of technology:
 
