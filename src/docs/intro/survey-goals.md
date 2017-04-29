@@ -13,7 +13,7 @@ One way to think of what AI enables to is consider what it will make cheap and t
 
 To see some examples of each of these AI-powered applications, please visit our companion presentation [[Future of AI Vimeo]].
 
-For further inspiration, subscribe to one or more of the the many excellent daily or weekly newsletters covering artificial intelligence. We list a few in our [[References section.
+For further inspiration, subscribe to one or more of the the many excellent daily or weekly newsletters covering artificial intelligence. We list a few in our [References](/docs/reference/links) section.
 
 ## Applying AI to Your Business
 
