@@ -32,7 +32,7 @@ Yann LeCun himself has distanced himself from the biological inspiration, saying
 > The neural inspiration in models like convolutional nets is very tenuous. That's why I call them "convolutional nets" not "convolutional neural nets", and why we call the nodes "units" and not "neurons".
 
 ### Well known implementations of ConvNets
-Specific implementations that you might read about include **LeNet**, **AlexNet**, **ZFNet**, **GoogLeNet**, **VGGNet**, and **ResNet**. Some are named about people and companies, others by some property of the network. Most of these have the won gold in the Olympics of this space, namely the [ImageNet ILSVRC](http://www.image-net.org/challenges/LSVRC/).
+Specific implementations that you might read about include **LeNet**, **AlexNet**, **ZFNet**, **GoogLeNet**, **VGGNet**, and **ResNet**. Some are named after people and companies, others by some property of the network. Most of these have the won gold in the Olympics of this space, namely the [ImageNet ILSVRC](http://www.image-net.org/challenges/LSVRC/).
 
 These networks are very cool, and here are a set of resources for learning more about them, sorted by complexity (easiest first):
 * Read a [good beginner's guide written by a UCLA computer science undergrad named Adit Deshpande](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/)
@@ -53,7 +53,7 @@ Remember how in a feedforward network, computation only goes forward, or if you'
 
 RNNs relax both those constraints.
 
-First, RNNs support bi-directional data flow, propagating data from later processing stages back to earlier stages and well as linearly from input to output. This diagram from [Christopher Olah's excellent overview article](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) shows the shape of an RNN:
+First, RNNs support bi-directional data flow, propagating data from later processing stages back to earlier stages as well as linearly from input to output. This diagram from [Christopher Olah's excellent overview article](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) shows the shape of an RNN:
 ![Unrolled recurrent neural network](/images/RNN-unrolled.png)
 
 This architecture enables the RNN to "remember" things, which makes them great for processing time-series data (like events in an event log) or natural language processing tasks (like understanding the roles each word plays in a sentence, in which remembering what word came before can help you figure the role of the current word).
