@@ -7,6 +7,7 @@
 * Prof. Geoff Hinton [Deep Learning](https://youtu.be/VhmE_UXDOGs), Singularity Lectures July 2016.
 * [Deep Learning and Understandability versus Software Engineering and Verification](https://www.youtube.com/watch?v=X769cyzBNVw), Peter Norvig, 2016.
 * [Accelerating Understanding: Deep Learning, Intelligent Applications, and GPUs](https://www.youtube.com/watch?v=Qk4SqF9FT-M). The Institute for Scientific Computing Research (ISCR) sponsored this talk entitled "Deep Learning" on April 16, 2015, at the Lawrence Livermore National Laboratory. The talk was presented by Yann LeCun, director of AI research at Facebook and professor of data science, computer science, neural science and electrical engineering at NYU.
+* [A DARPA Perspective on Artificial Intelligence](https://www.youtube.com/embed/-O01G3tSYpU). What's the ground truth on artificial intelligence (AI)? In this video, John Launchbury, the Director of DARPA's Information Innovation Office (I2O), attempts to demystify AI: what it can do, what it can't do, and where it is headed. 
 
 ## Tutorials
 * [Welch Labs introduction to neural networks](https://www.youtube.com/watch?v=bxe2T-V8XRs), a handful of 4-5 minute, well done videos
