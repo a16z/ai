@@ -2,7 +2,7 @@
 
 In July 2016, we published a [primer on artificial intelligence and machine learning](http://a16z.com/2016/06/10/ai-deep-learning-machines/). Since then, we've met with hundreds of Global 2000 companies and startups asking, "how do I get started with artificial intelligence?" and "what can I do with AI in my own product or company?"
 
-This playbook is designed as a resource for anyone asking those questions. There are dozens are excellent tutorials available on the Web once you've figured out what library or API you want to use (we've listed a [few of our favorites in the Reference section](docs/reference/links)). But we felt a pre-tutorial, a Chapter 0 if you will, was missing: something that would help you survey the landscape broadly, to give you a sense of what's possible and how you might be able to use artificial intelligence techniques to make your software smarter, your users happier, and your business better. So we decided to create exactly that, complete with sample code to help you get started.
+This playbook is designed as a resource for anyone asking those questions. There are dozens are excellent tutorials available on the Web once you've figured out what library or API you want to use (we've listed a [few of our favorites in the Reference section](/docs/reference/links)). But we felt a pre-tutorial, a Chapter 0 if you will, was missing: something that would help you survey the landscape broadly, to give you a sense of what's possible and how you might be able to use artificial intelligence techniques to make your software smarter, your users happier, and your business better. So we decided to create exactly that, complete with sample code to help you get started.
 
 ## Audience
 
