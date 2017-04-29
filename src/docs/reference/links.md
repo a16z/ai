@@ -42,11 +42,25 @@
 * [Ujjwal Karn with occassional explanatory posts on data science](https://ujjwalkarn.me/)
 * [Three Challenges for Artificial Intelligence in Medicine](https://blog.cardiogr.am/three-challenges-for-artificial-intelligence-in-medicine-dfb9993ae750) on the [Cardiogram blog]
 
+## Mailing lists
+* Azeem Azhar's [The Exponential View](https://www.getrevue.co/profile/azeem)
+* Brian Petro's [AI Newsletter](http://angularjobs.us11.list-manage1.com/subscribe?u=57f6c28a9354055d3398d48e8&id=0aebe4c13c)
+* CognitionX [AI News Briefing](http://cognitionx.com/#subscribe)
+* David Lissmyr's [AI Weekly](http://aiweekly.co/)
+* Denny Britz's [The Wild Week in AI](https://www.getrevue.co/profile/wildml)
+* [O'Reilly Artificial Intelligence Newsletter](http://www.oreilly.com/ai/newsletter.html?)
+* [O'Reilly Data Newsletter](http://www.oreilly.com/data/newsletter.html)
+* Rob May's [Technically Sentient](https://inside.com/technically-sentient)
+* Sam DeBrule's [Machine Learnings, A Weekly Roundup of ML and AI News](http://subscribe.machinelearnings.co/)
+* Jack Clark's [Import AI](http://us13.campaign-archive1.com/home/?u=67bd06787e84d73db24fb0aa5&id=6c9d98ff2c)
+* Not all about AI/ML, but plenty of interesting content too: [a16z Newsletter](https://a16z.com/)
+* Ditto: Benedict Evans' [Newsletter](http://ben-evans.com/newsletter/)
+
 ## Books
 
 * The most popular textbook, [Artificial Intelligence, 3rd edition](http://aima.cs.berkeley.edu/) by Stuart Russell and Peter Norvig
 * Michael Nielsen’s online book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
-* (Draft of Andrew Ng’s upcoming book, Deep Learning Yearing](http://www.mlyearning.org/)
+* [Draft of Andrew Ng’s upcoming book, Deep Learning Yearing](http://www.mlyearning.org/)
 * [Textbook: Deep Learning](http://www.deeplearningbook.org/) by Ian Goodfellow and Yoshua Bengio and Aaron Courville
 * [Reinforcement Learning and its Relationship to Supervised Learning](http://www-anw.cs.umass.edu/pubs/2004/barto_d_04.pdf)
 
