@@ -1,6 +1,6 @@
-# How We Picked the Recipes
+# How We Picked the Examples
 
-The good news is that there are hundreds of products, cloud services, frameworks, libraries and other tools that will help you add AI to your software. This makes curating a list to present in a short introductory cookbook like this a challenge.
+The good news is that there are hundreds of products, cloud services, frameworks, libraries and other tools that will help you add AI to your software. This makes curating a list to present in a short introductory text like this a challenge.
 
 Here's how we picked our examples. First, we wanted to survey the most popular offerings, letting the wisdom of the crowd do the first rough sort. Next, we mostly chose cloud services over software that you'd run on premise. We believe most people will begin their AI journeys using cloud services rather than creating and managing million-node neural networks in their own data centers. Even if you eventually outgrow a publicly available AI cloud service, your experience using it will help inform the design and scaling of your own AI infrastructure. Finally, we picked a few products from startups and the open source community so that you can compare and contrast results from the big public cloud providers.
 
@@ -10,11 +10,11 @@ Since one of our goals was to be able to show live examples, we needed a deploym
 
 Additionally, Heroku supports multiple languages and has a free tier, which should allow people to clone, fork and run this project easily. To encourage cloning and forking, we chose the [very permissive MIT License](https://opensource.org/licenses/MIT).
 
-We're not recommending any specific product over another. Our portfolio companies have had success with all of the products we mention. Our real goals for this cookbook (just as it with food cookbooks) are to share what's possible and to encourage you to get into the kitchen.
+We're not recommending any specific product over another. Our portfolio companies have had success with all of the products we mention. Our goals are to share what's possible and to encourage others to experiment--and do the same.
 
 ## Code Samples
 
-The first few recipes in the cookbook don't require you to understand programming at all, though being able to read [JSON](http://www.json.org/) is handy. Even if you've never done that before, JSON is written to be "easy for humans to read and write" so you'll pick it up along the way.
+The first few examples don't require you to understand programming at all, though being able to read [JSON](http://www.json.org/) is handy. Even if you've never done that before, JSON is written to be "easy for humans to read and write" so you'll pick it up along the way.
 
 Where we do provide code samples, we offer them in JavaScript on Node.js. Please put away your pitchforks. The great news about consuming AI services is that most library providers support the language you (or your engineers) prefer, whether that's Python, Scala, Go, C++, Swift, Java, Haskell, or name-your-favorite-language-here.
 
@@ -24,7 +24,7 @@ For CSS and styles we will use [Bootstrap](http://getbootstrap.com) version 3. W
 
 If we inspire you to try adding some AI to your own software (and we hope we do!), here are a few criteria to consider in selecting paid services:
 
-* **Try a cloud service first**. For the same reason SaaS is easier to get started with compared to on-premise software, try a hosted service first. Only when you discover that it doesn't do what you want or its accruacy with your data set is where you need it to be should you deploy your own infrastructure (e.g. by building a [Tensorflow](https://www.tensorflow.org/) or [Apache Singa](https://singa.incubator.apache.org)) cluster. Additionally, in every case cloud-hosted solutions are backed by open-source projects. If you feel you have outgrown the hosted Tensorflow provided by Google (for example) you can move on to deploy your own.
+* **Try a cloud service first**. For the same reason SaaS is easier to get started with compared to on-premise software, try a hosted service first. Only when you discover that it doesn't do what you want or its accuracy with your data set is where you need it to be should you deploy your own infrastructure (e.g. by building a [Tensorflow](https://www.tensorflow.org/) or [Apache Singa](https://singa.incubator.apache.org)) cluster. Additionally, in every case cloud-hosted solutions are backed by open-source projects. If you feel you have outgrown the hosted Tensorflow provided by Google (for example) you can move on to deploy your own.
 
 * **Focus on solutions that don't require a significant operational commitment**. Does the solution require you to manage the details of the service, or is it maintained and scaled for you? Do you need monitoring for it? When implementing a pilot program or a small scale test, these are important points. The less you have to worry about, the better.
 

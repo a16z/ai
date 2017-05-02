@@ -1,4 +1,4 @@
-# Recipe Part 1: (Re-)Training a Model
+# Tutorial Part 1: (Re-)Training a Model
 
 Now that you understand deep learning models and training methods, let's get coding. We'll going to an iPhone app which will take the camera input and decide whether the camera is looking at a business card.
 
@@ -101,9 +101,9 @@ Once this is done, you can ask the model to make a prediction to passing in the 
 
 # TensorFlow
 
-Now let's do the same thing in TensorFlow. We will first prepare and train a standard model and then retrain it with our data set. This recipe will take some more effort because we're downloading TensorFlow software onto our own development machine.
+Now let's do the same thing in TensorFlow. We will first prepare and train a standard model and then retrain it with our data set. This will take some more effort because we're downloading TensorFlow software onto our own development machine.
 
-## TensorFlow Ingredients
+## TensorFlow Requirements
 
 At a high level, here's what we'll need to build the model:
 
