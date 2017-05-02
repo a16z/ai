@@ -24,7 +24,7 @@ As part of this survey we identified several datasets useful for experimentation
                   cardHTML += "<h4 class='card-title'>"+dset.name+"</h4>";
                   cardHTML += "<h6 class='card-subtitle text-muted'>"+dset.organization+"</h6>";
                   cardHTML += "<p class='card-text'>"+dset.description+"</p>";
-                  cardHTML += "<a href='#' class='card-link'>"+dset.url+"</a>";
+                  cardHTML += "<a href='"+dset.url+"' class='card-link'>"+dset.url+"</a>";
                   cardHTML += "</div>";
                   finalHTML += cardHTML;
                 }
