@@ -1,7 +1,7 @@
 
-# Recipe Part 2: Adding AI to Our iPhone App
+# Tutorial Part 2: Adding AI to Our iPhone App
 
-If you've arrived here from Part 1 of the recipe, you have a TensorFlow model. Now let's add AI superpowers to our iPhone app by retaining the model with our own data and connecting the trained model to our iPhone app.
+If you've arrived here from Part 1 of the tutorial, you have a TensorFlow model. Now let's add AI superpowers to our iPhone app by retaining the model with our own data and connecting the trained model to our iPhone app.
 
 ## <a name="setupiOS"></a>Setup and Test the iOS App
 
@@ -70,4 +70,4 @@ $ bazel-bin/tensorflow/examples/image_retraining/retrain \
 
 # Using the Model in the iOS App
 
-Our iOS App uses the iOS static [TensorFlow library](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/ios_examples) along with our own Swift Code for it. 
+Our iOS App uses the iOS static [TensorFlow library](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/ios_examples) along with our own Swift Code for it.

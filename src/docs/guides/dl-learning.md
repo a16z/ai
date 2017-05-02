@@ -20,16 +20,16 @@ This step is usually called the _categorization task_. In this case we're traini
 
 To continue the process, the model makes a prediction for each photo by following rules (activation function) to decide whether to light up a particular node in the work. The model works from left to right one layer a time--we will ignore more complicated networks for the moment. After the network calculates this for every node in the network, we'll get to the rightmost node (output node) which lights up or not.
 
-Since we already know which pictures have your parents in them, we would be able to tell the model whether its prediction is right or wrong. We would then _feed back_ this information to the network. 
+Since we already know which pictures have your parents in them, we would be able to tell the model whether its prediction is right or wrong. We would then _feed back_ this information to the network.
 
-The algorithm uses this feedback, which is the result of a function that quantifies "how far off from the real answer is from the model's prediction". This is called a _cost function_, also known as _objective function_, _utility function_ or _fitness function_. The result of the function is then used to modify the strength of connections and biases between nodes in a process called _backpropagation_ since the information travels "backwards" from the result nodes. 
+The algorithm uses this feedback, which is the result of a function that quantifies "how far off from the real answer is from the model's prediction". This is called a _cost function_, also known as _objective function_, _utility function_ or _fitness function_. The result of the function is then used to modify the strength of connections and biases between nodes in a process called _backpropagation_ since the information travels "backwards" from the result nodes.
 
 We'd repeat this for each of the pictures, and in each case the algorithms try to minimize the cost function.
 There are a variety of mathematical techniques to use this knowledge of whether the model was right or wrong back into the model, but a very common method is gradient descent. [Algobeans](https://algobeans.com/2016/11/03/artificial-neural-networks-intro2/) has a good layman's explanation of how this works. Michael Nielsen [adds the math](http://neuralnetworksanddeeplearning.com/chap2.html) which involves calculus and linear algebra (and a friendly demon!).
 
 ### Step 3: Verify
 
-Once we've processed all the photos from our first stack we will be ready to test the model. We would grab the second stack of photos and use them to see how accurately the trained model can pick up photos of your parents. 
+Once we've processed all the photos from our first stack we will be ready to test the model. We would grab the second stack of photos and use them to see how accurately the trained model can pick up photos of your parents.
 
 Steps 2 and 3 would typically by repeated by tweaking various things about the model (hyperparameters), such as how many nodes there are, how many layers there are, which mathematical function to use to decide whether a node lights up, how aggressively to train the weights during the backpropagation phase, and so on. This [Quora answer](https://www.quora.com/What-are-hyperparameters-in-machine-learning) has a good explanation of the knobs you can turn.
 
@@ -37,7 +37,7 @@ Steps 2 and 3 would typically by repeated by tweaking various things about the m
 
 Finally, once you have an accurate model, you deploy that model into your application. Your expose the model as an API call, such as `ParentsInPicture(photo)`, and you can call that method from your software, causing the model to make an inference and giving you the result.
 
-We'll go through this exact process later in the cookbook to write an iPhone application that recognizes business cards.
+We'll go through this exact process later to write an iPhone application that recognizes business cards.
 
 It can be hard (that is, expensive) to get a labeled data set, so you need to make sure the value of the prediction justifies the cost of getting the labeled data and training the model in the first place. For example, getting labeled X-rays of people who might have cancer is expensive, but the value of an accurate model that generates few false positives and few false negatives is obviously very high.
 
