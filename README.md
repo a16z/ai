@@ -43,6 +43,10 @@ RECAST_AI_TOKEN=<token>
 
 # API.ai
 API_AI_TOKEN=<token>
+
+# Baidu
+BAIDU_TRANSLATION_APP_ID=<token>
+BAIDU_TRANSLATION_KEY=<token>
 ```
 
 These variables _must_ be added as Config Vars to the Heroku app. We recommend including all the variables in a `.env` file to be placed in the root directory of the repository and then set in heroku via `heroku config:set VARNAME=value`. Alternatively, the variables can be configured directly on the shell via `export VARNAME=value`.

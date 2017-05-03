@@ -318,7 +318,8 @@ msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEnt
 msAzureAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.msAzureLangAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.msAzureImageAnalysisAPIPack, apiAddCompletion);
 
-
+var baiduAPI = NXAPIPacks.connector.apiForId("baidu");
+baiduAPI.addService(languageTranslationCommonServiceInfo, LanguageAnalysis.baiduLangTranslationAPIPack, apiAddCompletion);
 
 var recastAIAPI = NXAPIPacks.connector.apiForId("recast-ai");
 recastAIAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.recastaiEntityAPIPack, apiAddCompletion);
@@ -360,7 +361,6 @@ function registerGet(expressApp, urlPath, serviceId, resultPagePath) {
               }
           }
 
-
           for (i in apis) {
             var api = apis[i];
             var clientPack = api.createClientPack();
@@ -379,7 +379,6 @@ registerGet(app, "/test/phrase", "entity-analysis", "pages/data-analysis");
 registerGet(app, "/test/phrase", "language-analysis", "pages/data-analysis");
 registerGet(app, "/test/image", "image-analysis", "pages/data-analysis");
 registerGet(app, "/test/phrase", "language-translation", "pages/data-analysis");
-
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

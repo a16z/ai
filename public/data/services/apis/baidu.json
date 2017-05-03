@@ -1,0 +1,10 @@
+{
+    "id" : "baidu",
+    "provider": "Baidu",
+    "name": "Baidu Translation",
+    "providerUrl": "http://api.fanyi.baidu.com/",
+    "consoleUrl": "http://api.fanyi.baidu.com/api/trans/product/desktop",
+    "officialGithubURL": "https://github.com/baidu/",
+    "unofficialGithubURL": "",
+    "description": "Support real-time translation of 28 global languages, no access frequency restrictions, service stability up to 99.99%"
+}
