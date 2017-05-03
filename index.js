@@ -312,7 +312,6 @@ var clarifaiAPI = NXAPIPacks.connector.apiForId("clarifai");
 clarifaiAPI.addService(imageAnalysisCommonServiceInfo, ImageAnalysis.clarifaiImageAnalysisAPIPack, apiAddCompletion);
 
 var msAzureAPI = NXAPIPacks.connector.apiForId("ms-azure");
-
 msAzureAPI.addService(sentimentAnalysisCommonServiceInfo, SentimentAnalysis.msAzureSentimentAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(entityAnalysisCommonServiceInfo, EntityAnalysis.msAzureEntityAnalysisAPIPack, apiAddCompletion);
 msAzureAPI.addService(languageAnalysisCommonServiceInfo, LanguageAnalysis.msAzureLangAnalysisAPIPack, apiAddCompletion);
