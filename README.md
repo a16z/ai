@@ -1,4 +1,4 @@
-# AI-landscape
+# AI-Playbook
 
 ## Production URL
 The latest non-dev version of this app is running at [Live AI Playground](http://localhost) - TODO update with final URL
@@ -12,7 +12,7 @@ Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https
 
 ### Environment variables
 
-The following environment variables are required (they also have to be setup in the Heroku app's environment when running it there):
+The following environment variables are required (they also have to be setup in the Heroku app's environment when running it there). These environment variables are obtained from the service provider's respective developer consoles after signing up for their services:
 ```sh
 # Recaptcha
 RECAPTCHA_SITE_KEY=<recaptcha site key>
