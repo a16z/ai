@@ -3,5 +3,5 @@
   "name" : "Language translation",
   "contentType" : "text",
   "xtra" : { "type": "select", "label": "Choose target language:", "options" : "Spanish, French, English, Chinese" },
-  "description" : "Translate text from one language to another."
+  "description" : "Translate text from one language to another. We will auto-detect your source language."
 }
