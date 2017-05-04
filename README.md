@@ -118,6 +118,11 @@ https://westus.dev.cognitive.microsoft.com/docs/services/
 ### (Unofficial) Node.js API for Microsoft Azure Cognitive Services
 https://github.com/joshbalfour/node-cognitive-services
 
+### Amazon Rekognition API
+https://aws.amazon.com/rekognition/
+
+### Baidu Translation
+http://api.fanyi.baidu.com/api/trans/product/index
 
 ## Documentation
 
