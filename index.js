@@ -113,30 +113,11 @@ app.use(function(req, res, next) {
 });
 
 app.use(function (req, res, next) {
-//don't do this check for the login page, login processing, or the about page
-//(about page has two versions, one signed in, one signed out)
-  if (req.originalUrl != "/login"
-          && req.originalUrl != "/loginCheck"
-          && req.originalUrl != "/about") {
-    var signedIn = req.cookies.aiKeyCheck;
-
-    if (signedIn !== "ok") {
-      // console.log('not signed in');
-      req.session.signedIn = undefined
-        res.redirect("/login");
-        return;
-    }
-    else {
-      req.session.signedIn = "yes"
-    }
-  }
-
   if (req.originalUrl.substring(0,4) === '/api' && API_OFF) {
     return {success: false};
   }
 
   next();
-
 });
 
 if (limitMiddleware) {
@@ -161,43 +142,9 @@ app.get('/contact', function(req, res) {
   res.render('pages/contact', createEJSTemplateDataDictionary(req, res));
 });
 
-app.get('/login', function(req, res) {
-  res.render('pages/login', createEJSTemplateDataDictionary(req, res));
-});
-
-app.get('/logout', function (req, res) {
-  res.cookie("aiKeyCheck",'');
-  req.session.signedIn = undefined
-  req.session.loginError = undefined
-  res.redirect("/");
-});
-
-app.post('/loginCheck', function (req, res) {
-  // console.log("phrase = "+req.body.secretKey);
-  var secretKey = req.body.secretKey;
-  var redirectPath = "/";
-  if (secretKey == process.env.A16Z_AI_SECRET_KEY) {
-    //set the cookie, redirect to /
-    res.cookie("aiKeyCheck",'ok');
-  }
-  else {
-    //redirect to / with an error
-    redirectPath = "/login";
-    if (secretKey.length > 0) {
-      req.session.loginError = "Invalid Key"
-    }
-  }
-
-  res.redirect(redirectPath);
-});
-
-
-
 app.get('/', function(req, res) {
   res.render('pages/index', createEJSTemplateDataDictionary(req, res));
 });
-
-
 
 var apiAddCompletion = function(apiPack, success, message) {
     console.log((success?"OK: ":"ERROR: ")+message);
