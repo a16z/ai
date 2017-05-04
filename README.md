@@ -48,9 +48,11 @@ API_AI_TOKEN=<token>
 BAIDU_TRANSLATION_APP_ID=<token>
 BAIDU_TRANSLATION_KEY=<token>
 
-# this is enabled for our production environment
+# this is enabled for rate limiting on our production environment
 REDIS_URL=redis://<Redis location>
 RATE_LIMITING_ENABLED=true
+RATE_LIMITING_INTERVAL=<interval>
+RATE_LIMITING_REQUESTS=<limit>
 
 ```
 
