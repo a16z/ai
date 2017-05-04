@@ -20,7 +20,7 @@ This is what one Speech-To-Text service transcribed when that sentence was read 
 
 Domain-specific speech can easily confuse general speech recognition systems because it uses specialized vocabulary with difficult pronunciation, as well as modify significantly the meaning of words depending on context.
 
-Slang, accents, and colloquialisms can also easily “confuse” these systems. So if we take the first two sentences of _Ulysses_ by James Joyce:
+Slang, accents, and colloquialisms can also easily "confuse" these systems. So if we take the first two sentences of _Ulysses_ by James Joyce:
 
 > Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed. A yellow dressinggown, ungirdled, was sustained gently behind him on the mild morning air.
 
