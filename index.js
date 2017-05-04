@@ -18,6 +18,8 @@ var cache = require('apicache').middleware;
 var path = require("path");
 var temp_dir = path.join(process.cwd(), 'temp/');
 var uploads_dir = path.join(process.cwd(), 'uploads/');
+
+var forceSSL = require('express-force-ssl');
 // require('ssl-root-cas').inject().addFile('./server.crt');
 
 var API_OFF = false;
@@ -82,6 +84,10 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 var cookiesSecretKey = (process.env.COOKIES_SECRET_KEY || 'cookiesSecret');
+
+if ('production' === app.get('env')) {
+  app.use(forceSSL);
+}
 
 app.use(cookieParser(cookiesSecretKey));
 
