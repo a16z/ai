@@ -2,6 +2,6 @@
   "id": "language-translation",
   "name" : "Language translation",
   "contentType" : "text",
-  "xtra" : { "type": "select", "label": "Choose target language:", "options" : "es,fr,en" },
-  "description" : "Translate text from one language to another."
+  "xtra" : { "type": "select", "label": "Choose target language:", "options" : "Spanish, French, English, Chinese" },
+  "description" : "Translate text from one language to another. We will auto-detect your source language."
 }
