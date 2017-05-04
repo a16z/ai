@@ -152,6 +152,7 @@ pre {
   outline: 1px solid #aaa;
   padding: 5px; margin: 5px;
   text-align: left;
+  white-space: pre-wrap;
 
 	code {
 		padding: 0;
@@ -209,5 +210,5 @@ table {
 #resultsNotes {
   li {
     margin-bottom: 10px;
-  }  
+  }
 }
