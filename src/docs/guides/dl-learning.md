@@ -6,8 +6,6 @@ For the math-inclined, see [this Stanford tutorial which covers supervised and u
 
 ## Supervised Learning
 
-
-## Supervised Learning
 **Supervised Learning** trains networks using examples where we already know the correct answer. Imagine we are interested in training a network to recognize pictures from your photo library that have your parents in them. Here's the steps we'd take in that hypothetical scenario.
 ### Step 1: Data Set Creation and Categorization
 We would start the process by going through your photos (the data set) and identifying all the pictures that have your parents in them, labeling them. We would then take the whole stack of photos and split them into two piles. We would use the first pile to train the network (training data) and the second pile to see how accurate the model is at picking out photos with our parents (validation data).
