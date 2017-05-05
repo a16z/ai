@@ -25,4 +25,4 @@ Here are a a few was you can brainstorm how AI can help:
 * Achieve high-level business objectives
 * For the most important products or services in your portfolio
 
-Here is a [Google sheet](https://docs.google.com/spreadsheets/d/15NgdbcLrWWMumHD_inMKrtrnpPtqX_sPUQ9iGJ3eD9A/edit#gid=0) you can use as a template.
+Here is a [Google sheet](https://docs.google.com/spreadsheets/d/1BFQpi8fhUxisUOyUi0-Sw-KRGaJsHOjU507v6539AMk/) you can use as a template.
