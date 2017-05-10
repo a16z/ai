@@ -20,7 +20,7 @@
 
 ## MOOCs
 * The classic: [Coursera Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)
-* [Udacity Introduction to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
+* [Udactiy Introduction to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
 * [Udacity Deep Learning by Google](https://www.udacity.com/course/deep-learning--ud730)
 * **"The trinity":** Stanford class [CS221: Artificial Intelligence: Principles and Techniques by Percy Liang](http://web.stanford.edu/class/cs221/), Stanford class [CS224N Natural Language Processing with Deep Learning by Christopher Manning and Richard Socher](http://web.stanford.edu/class/cs224n/), [YouTube playlist](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6), Stanford class [CS231N: Convolutional Neural Networks for Visual Recognition by Fei-Fei Li and Andrej Karapthy](http://cs231n.stanford.edu/), Github repo(http://cs231n.github.io/))
 * [EdX Introduction to AI](https://www.edx.org/course/artificial-intelligence-ai-columbiax-csmm-101x-0)
@@ -29,7 +29,6 @@
 * "The hard one": [Coursera's Neural Networks for Machine Learning with Geoff Hinton](https://www.coursera.org/learn/neural-networks)
 * Class notes from [University of Iowa AI class on unsupervised learning](http://homepage.cs.uiowa.edu/~hzhang/c145/notes/18-unsupervised-6p.pdf)
 * [List (and reviews) of top 5 list online classes](http://thegrandjanitor.com/2016/08/15/learning-deep-learning-my-top-five-resource/), curated by Arthur Chan
-* Fast.ai's 7-week [Practical Deep Learning](http://course.fast.ai/), taught by Jeremy Howard (past president of Kaggle, founder of Enlitic and fast.ai)
 
 
 ## Blogs and sites
@@ -112,5 +111,7 @@
 * NVIDA's 2014 blog post [Accelerate Machine Learning with the cuDNN Deep Neural Network Library](http://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/)
 * Watch Google legend Jeff Dean from the Google Brain team lecture on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
 * Read Michael Nielsen's excellent ebook and Website [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
-
-
+* [IEEE interview with UC Berkeley professor Michael Jordan from October 2014](http://spectrum.ieee.org/robotics/artificial-intelligence/machinelearning-maestro-michael-jordan-on-the-delusions-of-big-data-and-other-huge-engineering-efforts)
+* [Wikipedia article on the types of artificial neural networks](https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks)
+* [Browser-based TensorFlow playground](http://playground.tensorflow.org/)
+* [a16z AI Primer](http://a16z.com/2016/06/10/ai-deep-learning-machines)
