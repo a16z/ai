@@ -18,7 +18,7 @@ For people who like linear tours, we've provided navigation links at the top and
 
 A big hat tip to our friend [Diego Doval](https://medium.com/@diego.) who generated most of the code samples and some of the text in this playbook based on some very high level, hand-wavy guidance. As usual, he's exceeded expectations. Thanks, Diego.
 
-Enjoy the journey. We're very bullish on the potential for artificial intelligence to make all our software smarter, easier to use, and a better [bicycle for our minds](https://www.youtube.com/watch?v=ob_GX50Za6c).
+Enjoy the journey. We're very bullish on the potential for artificial intelligence to make all our software smarter, easier to use, and a better [bicycle for our minds](https://youtu.be/ob_GX50Za6c?t=24).
 
 --
 Frank Chen (frank@a16z.com / [@withfries2](https://twitter.com/withfries2)) and Michael Wee (mwee@a16z.com / [@theweester](https://twitter.com/theweester)) on behalf of the a16z team.
