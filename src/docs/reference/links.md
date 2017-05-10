@@ -87,4 +87,4 @@
 
 ## Referenced Links
 * Steve Jobs [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
-
+* E.F. Dodd's [original research paper proposing the relational database](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf)
