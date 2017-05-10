@@ -98,3 +98,9 @@
 * Tools and frameworks include [scikit-learn](http://scikit-learn.org/stable/#), [Spark's MLlib](http://spark.apache.org/mllib/) (for a wide collection of machine learning techniques), [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), [Caffe2](https://caffe2.ai/), [MXNet](http://mxnet.io/)(for deep learning models)
 * [Paper outlining the tradeoffs between power, memory, accuracy, etc in deep neural networks](https://arxiv.org/pdf/1605.07678.pdf) by Canziani, Culurciello, and Paszke
 * [Medium post describing a set of strategies for getting data](https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48)
+* [A tour of machine learning algorithms](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/)
+* [The 10 Algorithms Machine Learning Engineers Need to Know](http://www.kdnuggets.com/2016/08/10-algorithms-machine-learning-engineers.html)
+* Microsoft's developer documentation [How to choose machine learning algorithms for Microsoft Azure machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-choice)
+* [Stack Overflow answer to "When to choose which machine learning classifer?"](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier)
+* Scikit-learn documentation: [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
+
