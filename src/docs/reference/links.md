@@ -103,4 +103,5 @@
 * Microsoft's developer documentation [How to choose machine learning algorithms for Microsoft Azure machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-choice)
 * [Stack Overflow answer to "When to choose which machine learning classifer?"](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier)
 * Scikit-learn documentation: [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
-
+* Christopher Manning in his [introductory lecture for "CS Natural Language Processing with Deep Learning"](https://www.youtube.com/watch?v=OQQ-W_63UgQ&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6)
+* 
