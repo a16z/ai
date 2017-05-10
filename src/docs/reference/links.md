@@ -121,3 +121,7 @@
 * Andrej Karpathy's [class notes from Stanford CS class CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/convolutional-networks/. Make sure to scroll down to see the cool animation that shows you what a convolution is.)
 * Play with [Andrej Karpathy's ConvNetJS demo](http://cs.stanford.edu/people/karpathy/convnetjs/demo/mnist.html) which trains a Convolutional Neural Network on the MNIST digits dataset (consisting of handwritten numerical digits) in the comfort of your own browser. 
 * [2013 paper by Matthew Zeiler and Rob Fergus](https://arxiv.org/abs/1311.2901) provides some visual examples that help you understand the intuition behind the architecture.
+* There are many other types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institute [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/)
+* [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), Christopher Olah's excellent overview article is a beautiful piece of explanatory writing and illustration. 
+* LSTM architecture introduction by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory)
+* Rohan Kapur's [Medium post on Recurrent Neural Networks & LSTMs](http://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
