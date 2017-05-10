@@ -97,3 +97,4 @@
 * [Stanford CoreNLP toolkit](http://stanfordnlp.github.io/CoreNLP/)
 * Tools and frameworks include [scikit-learn](http://scikit-learn.org/stable/#), [Spark's MLlib](http://spark.apache.org/mllib/) (for a wide collection of machine learning techniques), [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), [Caffe2](https://caffe2.ai/), [MXNet](http://mxnet.io/)(for deep learning models)
 * [Paper outlining the tradeoffs between power, memory, accuracy, etc in deep neural networks](https://arxiv.org/pdf/1605.07678.pdf) by Canziani, Culurciello, and Paszke
+* [Medium post describing a set of strategies for getting data](https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48)
