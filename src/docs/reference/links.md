@@ -106,8 +106,10 @@
 * Christopher Manning in his [introductory lecture for "CS Natural Language Processing with Deep Learning"](https://www.youtube.com/watch?v=OQQ-W_63UgQ&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6)
 * Andrew L. Beam, [Deep Learning 101](http://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html)
 * Andrey Kruenkov, [A "Brief" of Neural Nets and Deep Learning](http://www.andreykurenkov.com/writing/a-brief-history-of-neural-nets-and-deep-learning/)
-* Haohan Wang and Bhiksha Raj, [On the Origin of Deep Learning](https://arxiv.org/pdf/1702.07800.pdf) provide a good historical overview, explaining in concept including the math
+* Haohan Wang and Bhiksha Raj, [On the Origin of Deep Learning](https://arxiv.org/pdf/1702.07800.pdf) provide a good historical overview, explaining concepts including the math
 * Jurgen Schmidhuber, [Deep Learning in Neural Networks: An Overview](https://arxiv.org/pdf/1404.7828.pdf) provides the most comprehensive and technically dense overview
-
+* NVIDA's 2014 blog post [Accelerate Machine Learning with the cuDNN Deep Neural Network Library](http://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/)
+* Watch Google legend Jeff Dean from the Google Brain team lecture on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
+* Read Michael Nielsen's excellent ebook and Website [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
 
 
