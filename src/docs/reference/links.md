@@ -30,6 +30,7 @@
 * Class notes from [University of Iowa AI class on unsupervised learning](http://homepage.cs.uiowa.edu/~hzhang/c145/notes/18-unsupervised-6p.pdf)
 * [List (and reviews) of top 5 list online classes](http://thegrandjanitor.com/2016/08/15/learning-deep-learning-my-top-five-resource/), curated by Arthur Chan
 
+
 ## Blogs and sites
 * [Andrej Karpathy’s blog](http://karpathy.github.io/), check out [Unreasonable effectiveness of RNN](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 * [KDNuggests: News, stories, job posts, data sets about machine learning (not just deep learning)](http://www.kdnuggets.com/)
@@ -49,10 +50,20 @@
 * Jack Clark's [Import AI](http://us13.campaign-archive1.com/home/?u=67bd06787e84d73db24fb0aa5&id=6c9d98ff2c)
 * O'Reilly [Artificial Intelligence Newsletter](http://www.oreilly.com/ai/newsletter.html?)
 * O'Reilly [Data Newsletter](http://www.oreilly.com/data/newsletter.html)
-* Rob May's [Technically Sentient](https://inside.com/technically-sentient)
+* Rob May's [Inside AI](https://inside.com/technically-sentient), formerly known as Technically Sentient
 * Sam DeBrule's [Machine Learnings, A Weekly Roundup of ML and AI News](http://subscribe.machinelearnings.co/)
+* [The Visionary](http://www.thevisionary.com/), eyeing what's next in AI and computer vision
 * Not all about AI/ML, but plenty of interesting content too: [a16z Newsletter](https://a16z.com/)
 * Ditto: Benedict Evans' [Newsletter](http://ben-evans.com/newsletter/)
+
+
+## Podcasts
+* Matt Fogel's curated list of the [Top 10 Best AI, Data Science and Machine Learning Podcasts](https://medium.com/startup-grind/the-10-best-ai-data-science-and-machine-learning-podcasts-d7495cfb127c)
+* nVidia's [The AI Podcast](https://blogs.nvidia.com/ai-podcast/)
+* Katie Malone and Ben Jaffe host a fun, conversation-style podcast called [Linear Digressions](http://lineardigressions.com/) that explains how things work
+* Sam Charrington's [This Week in Machine Learning & AI](https://twimlai.com/)
+* We often talk about AI and ML on the [a16z podcast](https://a16z.com/category/artificial-intelligence/) 
+
 
 ## Books
 
