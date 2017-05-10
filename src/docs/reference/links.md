@@ -69,7 +69,7 @@
 
 * The most popular textbook, [Artificial Intelligence, 3rd edition](http://aima.cs.berkeley.edu/) by Stuart Russell and Peter Norvig
 * Michael Nielsen’s online book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
-* [Draft of Andrew Ng’s upcoming book, Deep Learning Yearing](http://www.mlyearning.org/)
+* [Draft of Andrew Ng’s upcoming book, Deep Learning Yearning](http://www.mlyearning.org/)
 * [Textbook: Deep Learning](http://www.deeplearningbook.org/) by Ian Goodfellow and Yoshua Bengio and Aaron Courville
 * [Reinforcement Learning and its Relationship to Supervised Learning](http://www-anw.cs.umass.edu/pubs/2004/barto_d_04.pdf)
 
@@ -86,10 +86,11 @@
 * Quora is continually adding Q&A around relevant topics such as [Artificial Intelligence](https://www.quora.com/topic/Artificial-Intelligence), [Machine Learning](https://www.quora.com/topic/Machine-Learning), and [Artificial Neural Networks](https://www.quora.com/topic/Artificial-Neural-Networks-ANNs). 
 
 ## Referenced Links
-* Steve Jobs [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
+* Steve Jobs's [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
 * E.F. Dodd's [original research paper proposing the relational database](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf) (1970)
 * Oracle [published its first commercially available Oracle V2 database](https://docs.oracle.com/database/121/CNCPT/intro.htm#CNCPT88784) in 1979
 * Harvard Business Review ["The Simple Economics of Machine Intelligence"](https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence) published in November 2016 
 * Open source [MIT License](https://opensource.org/licenses/MIT)
-* Jeff Bezos in his [2016 letter to Amazon shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312517120198/d373368dex991.htm)
+* Jeff Bezos's AI history tl;dr in his [2016 letter to Amazon shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312517120198/d373368dex991.htm)
 * Jeff Dean's presentation on [Trends and Developments in Deep Learning Research](https://www.slideshare.net/AIFrontiers/jeff-dean-trends-and-developments-in-deep-learning-research)
+* Jerry Kaplan defining artificial intelligence in his book [Artificial Intelligence: What Everyone Needs To Know](http://jerrykaplan.com/books/)
