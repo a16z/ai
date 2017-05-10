@@ -85,3 +85,6 @@
 * Dive into the [Machine Learning For Software Engineers rabbithole](https://github.com/ZuzooVn/machine-learning-for-software-engineers)
 * Quora is continually adding Q&A around relevant topics such as [Artificial Intelligence](https://www.quora.com/topic/Artificial-Intelligence), [Machine Learning](https://www.quora.com/topic/Machine-Learning), and [Artificial Neural Networks](https://www.quora.com/topic/Artificial-Neural-Networks-ANNs). 
 
+## Referenced Links
+* Steve Jobs [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
+
