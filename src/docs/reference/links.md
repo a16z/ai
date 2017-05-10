@@ -115,3 +115,4 @@
 * [Wikipedia article on the types of artificial neural networks](https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks)
 * [Browser-based TensorFlow playground](http://playground.tensorflow.org/)
 * [a16z AI Primer](http://a16z.com/2016/06/10/ai-deep-learning-machines)
+* [Convolutional Neural Networks](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) introduced by LeCun, Bengio, Lottou, Haffer in 1998
