@@ -91,3 +91,4 @@
 * Oracle [published its first commercially available Oracle V2 database](https://docs.oracle.com/database/121/CNCPT/intro.htm#CNCPT88784) in 1979
 * Harvard Business Review ["The Simple Economics of Machine Intelligence"](https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence) published in November 2016 
 * Open source [MIT License](https://opensource.org/licenses/MIT)
+* Jeff Bezos in his [2016 letter to Amazon shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312517120198/d373368dex991.htm)
