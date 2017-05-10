@@ -33,7 +33,7 @@
 
 ## Blogs and sites
 * [Andrej Karpathy’s blog](http://karpathy.github.io/), check out [Unreasonable effectiveness of RNN](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-* [KDNuggests: News, stories, job posts, data sets about machine learning (not just deep learning)](http://www.kdnuggets.com/)
+* [KDNuggets: News, stories, job posts, data sets about machine learning (not just deep learning)](http://www.kdnuggets.com/)
 * [Algobeans: great layman’s explanations of analytics concepts](https://algobeans.com/)
 * [Arthur Chan’s blog](http://thegrandjanitor.com/)
 * [Andrew Gibiansky’s occassionally updated blog posts explaining basic concepts](http://andrew.gibiansky.com/)
@@ -125,3 +125,6 @@
 * [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), Christopher Olah's excellent overview article is a beautiful piece of explanatory writing and illustration. 
 * LSTM architecture introduction by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory)
 * Rohan Kapur's [Medium post on Recurrent Neural Networks & LSTMs](http://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
+* [Top 15 Frameworks for Machine Learning Experts](http://www.kdnuggets.com/2016/04/top-15-frameworks-machine-learning-experts.html)
+* The indefatigable Andrej Kaparthy posted a "Google Trends"-esque type analysis showing what's hot if you peek inside [28,303 machine learning research papers over the last 5 years](https://medium.com/@karpathy/a-peek-at-trends-in-machine-learning-ab8a1085a106)
+* [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
