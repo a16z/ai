@@ -94,3 +94,5 @@
 * Jeff Bezos's AI history tl;dr in his [2016 letter to Amazon shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312517120198/d373368dex991.htm)
 * Jeff Dean's presentation on [Trends and Developments in Deep Learning Research](https://www.slideshare.net/AIFrontiers/jeff-dean-trends-and-developments-in-deep-learning-research)
 * Jerry Kaplan defining artificial intelligence in his book [Artificial Intelligence: What Everyone Needs To Know](http://jerrykaplan.com/books/)
+* [Stanford CoreNLP toolkit](http://stanfordnlp.github.io/CoreNLP/)
+* Tools and frameworks include [scikit-learn](http://scikit-learn.org/stable/#), [Spark's MLlib](http://spark.apache.org/mllib/) (for a wide collection of machine learning techniques), [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), [Caffe2](https://caffe2.ai/), [MXNet](http://mxnet.io/)(for deep learning models)
