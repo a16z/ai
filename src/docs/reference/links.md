@@ -116,3 +116,8 @@
 * [Browser-based TensorFlow playground](http://playground.tensorflow.org/)
 * [a16z AI Primer](http://a16z.com/2016/06/10/ai-deep-learning-machines)
 * [Convolutional Neural Networks](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) introduced by LeCun, Bengio, Lottou, Haffer in 1998
+* [ImageNet Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/) (ILSVRC)
+* [A good beginner's guide on ConvNets](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/) written by a UCLA computer science undergrad named Adit Deshpande
+* Andrej Karpathy's [class notes from Stanford CS class CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/convolutional-networks/. Make sure to scroll down to see the cool animation that shows you what a convolution is.)
+* Play with [Andrej Karpathy's ConvNetJS demo](http://cs.stanford.edu/people/karpathy/convnetjs/demo/mnist.html) which trains a Convolutional Neural Network on the MNIST digits dataset (consisting of handwritten numerical digits) in the comfort of your own browser. 
+* [2013 paper by Matthew Zeiler and Rob Fergus](https://arxiv.org/abs/1311.2901) provides some visual examples that help you understand the intuition behind the architecture.
