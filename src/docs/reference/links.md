@@ -127,4 +127,8 @@
 * Rohan Kapur's [Medium post on Recurrent Neural Networks & LSTMs](http://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
 * [Top 15 Frameworks for Machine Learning Experts](http://www.kdnuggets.com/2016/04/top-15-frameworks-machine-learning-experts.html)
 * The indefatigable Andrej Kaparthy posted a "Google Trends"-esque type analysis showing what's hot if you peek inside [28,303 machine learning research papers over the last 5 years](https://medium.com/@karpathy/a-peek-at-trends-in-machine-learning-ab8a1085a106)
-* [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)
+* Ian Goodfellow et. al's 2014 [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661) paper
+* For the math-inclined, see [this Stanford tutorial which covers supervised and unsupervised learning](http://ufldl.stanford.edu/tutorial/) and includes code samples.
+* Algobeans layman's explanation of [gradient descent in artificial neural networks](https://algobeans.com/2016/11/03/artificial-neural-networks-intro2/)
+* Survey of unsupervised anomaly detection algorithms](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152173)
+* "YouTube cat finder" research that [kindled the general public's enthusiasm for AI](https://www.wired.com/2012/06/google-x-neural-network/) and the [accompanying paper by the Google Brain team and Stanford researchers Quoc Le and Andrew Ng](https://arxiv.org/abs/1112.6209)
