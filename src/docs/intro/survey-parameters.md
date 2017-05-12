@@ -1,4 +1,4 @@
-# How We Picked the Examples
+# How We Picked Our Examples
 
 The good news is that there are hundreds of products, cloud services, frameworks, libraries and other tools that will help you add AI to your software. This makes curating a list to present in a short introductory text like this a challenge.
 

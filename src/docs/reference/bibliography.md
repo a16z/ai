@@ -1,8 +1,8 @@
-# Bibliography
+# Books, Papers, and Research
+
+### Bibliography
 
 You can also download the [source bibTeX file](/reference-material/a16z-ai-survey.bib).
-
-
 
 <script src="/js/bib-list-min.js"></script>
 <link rel="stylesheet" href="/stylesheets/bib-publication-list.css" type="text/css" />

@@ -1,4 +1,4 @@
-# Tutorial Part 1: (Re-)Training a Model
+# Code Part 1: (Re-)Training a Model
 
 Now that you understand deep learning models and training methods, let's get coding. We'll going to an iPhone app which will take the camera input and decide whether the camera is looking at a business card.
 

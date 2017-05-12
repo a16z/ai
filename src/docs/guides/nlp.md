@@ -1,6 +1,6 @@
-# Natural Language Processing (NLP)
+# Natural Language Processing
 
-Natural Language Processing will enable better understanding all around: we'll talk to our computers; our computers will understand us; and we'll have the [Star Trek Universal Communicator](http://memory-alpha.wikia.com/wiki/Universal_translator) in our ears translating any language into our native language in real time (and vice versa).
+Natural Language Processing (NLP) will enable better understanding all around: we'll talk to our computers; our computers will understand us; and we'll have the [Star Trek Universal Communicator](http://memory-alpha.wikia.com/wiki/Universal_translator) in our ears translating any language into our native language in real time (and vice versa).
 
 Before we get to long, philosophical, and emotional natural conversations with our computers (as in the movie [Her](http://www.imdb.com/title/tt1798709/), we can build a lot of extremely useful language-enabled applications that help do things like understand whether someone is getting angry on a support call, write better job descriptions, and disambiguating words whose meaning change depending on context (see this Wikipedia page for a [fun list of examples](https://en.wikipedia.org/wiki/List_of_linguistic_example_sentences) including one of my favorite perfectly grammatical sentences: [Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo](https://en.wikipedia.org/wiki/Buffalo_buffalo_Buffalo_buffalo_buffalo_buffalo_Buffalo_buffalo).
 

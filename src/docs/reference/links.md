@@ -1,4 +1,4 @@
-# Talks, Videos and Podcasts
+# Videos, Tutorials, and Blogs
 
 ## Talks and Podcasts
 * [AI And Deep Learning](http://a16z.com/2016/06/10/ai-deep-learning-machines/). From types of machine intelligence to a tour of algorithms, a16z Deal and Research team head Frank Chen walks us through the basics (and beyond) of AI and deep learning in this slide presentation.
@@ -7,7 +7,7 @@
 * Prof. Geoff Hinton [Neural Networks for Machine Learning](https://www.youtube.com/watch?v=cbeTc-Urqak&list=PLoRl3Ht4JOcdU872GhiYWf6jwrk_SNhz9), Coursera Lectures 2012.
 * [Deep Learning and Understandability versus Software Engineering and Verification](https://www.youtube.com/watch?v=X769cyzBNVw), Peter Norvig, 2016.
 * [Accelerating Understanding: Deep Learning, Intelligent Applications, and GPUs](https://www.youtube.com/watch?v=Qk4SqF9FT-M). The Institute for Scientific Computing Research (ISCR) sponsored this talk entitled "Deep Learning" on April 16, 2015, at the Lawrence Livermore National Laboratory. The talk was presented by Yann LeCun, director of AI research at Facebook and professor of data science, computer science, neural science and electrical engineering at NYU.
-* [A DARPA Perspective on Artificial Intelligence](https://www.youtube.com/embed/-O01G3tSYpU). What's the ground truth on artificial intelligence (AI)? In this video, John Launchbury, the Director of DARPA's Information Innovation Office (I2O), attempts to demystify AI: what it can do, what it can't do, and where it is headed. 
+* [A DARPA Perspective on Artificial Intelligence](https://www.youtube.com/embed/-O01G3tSYpU). What's the ground truth on artificial intelligence (AI)? In this video, John Launchbury, the Director of DARPA's Information Innovation Office (I2O), attempts to demystify AI: what it can do, what it can't do, and where it is headed.
 
 ## Tutorials
 * [Welch Labs introduction to neural networks](https://www.youtube.com/watch?v=bxe2T-V8XRs), a handful of 4-5 minute, well done videos
@@ -62,7 +62,7 @@
 * nVidia's [The AI Podcast](https://blogs.nvidia.com/ai-podcast/)
 * Katie Malone and Ben Jaffe host a fun, conversation-style podcast called [Linear Digressions](http://lineardigressions.com/) that explains how things work
 * Sam Charrington's [This Week in Machine Learning & AI](https://twimlai.com/)
-* We often talk about AI and ML on the [a16z podcast](https://a16z.com/category/artificial-intelligence/) 
+* We often talk about AI and ML on the [a16z podcast](https://a16z.com/category/artificial-intelligence/)
 
 
 ## Books
@@ -75,7 +75,7 @@
 
 
 ## Other
-* Have fun at [Google's browser based AI Experiments site](https://aiexperiments.withgoogle.com/) 
+* Have fun at [Google's browser based AI Experiments site](https://aiexperiments.withgoogle.com/)
 * Keep up to date with [Artificial Intelligence research papers at arXiv.org](https://arxiv.org/list/cs.AI/recent)
 * Because there are too many papers to actually read, try @kaparthy's [arXiv Sanity browser](http://arxiv-sanity.com/)
 * Check out the [latest articles about machine learning at Distill](http://distill.pub/)
@@ -83,13 +83,13 @@
 * [Summary of Schmidhumber’s long history and introduction by Annalyn Ng and Kenneth Soo](http://www.kdnuggets.com/2016/04/deep-learning-neural-networks-overview.html)
 * [McKinsey study on AI and jobs](http://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/where-machines-could-replace-humans-and-where-they-cant-yet)
 * Dive into the [Machine Learning For Software Engineers rabbithole](https://github.com/ZuzooVn/machine-learning-for-software-engineers)
-* Quora is continually adding Q&A around relevant topics such as [Artificial Intelligence](https://www.quora.com/topic/Artificial-Intelligence), [Machine Learning](https://www.quora.com/topic/Machine-Learning), and [Artificial Neural Networks](https://www.quora.com/topic/Artificial-Neural-Networks-ANNs). 
+* Quora is continually adding Q&A around relevant topics such as [Artificial Intelligence](https://www.quora.com/topic/Artificial-Intelligence), [Machine Learning](https://www.quora.com/topic/Machine-Learning), and [Artificial Neural Networks](https://www.quora.com/topic/Artificial-Neural-Networks-ANNs).
 
 ## Referenced Links
 * Steve Jobs's [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
 * E.F. Dodd's [original research paper proposing the relational database](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf) (1970)
 * Oracle [published its first commercially available Oracle V2 database](https://docs.oracle.com/database/121/CNCPT/intro.htm#CNCPT88784) in 1979
-* Harvard Business Review ["The Simple Economics of Machine Intelligence"](https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence) published in November 2016 
+* Harvard Business Review ["The Simple Economics of Machine Intelligence"](https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence) published in November 2016
 * Open source [MIT License](https://opensource.org/licenses/MIT)
 * Jeff Bezos's AI history tl;dr in his [2016 letter to Amazon shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312517120198/d373368dex991.htm)
 * Jeff Dean's presentation on [Trends and Developments in Deep Learning Research](https://www.slideshare.net/AIFrontiers/jeff-dean-trends-and-developments-in-deep-learning-research)
@@ -119,10 +119,10 @@
 * [ImageNet Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/) (ILSVRC)
 * [A good beginner's guide on ConvNets](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/) written by a UCLA computer science undergrad named Adit Deshpande
 * Andrej Karpathy's [class notes from Stanford CS class CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/convolutional-networks/. Make sure to scroll down to see the cool animation that shows you what a convolution is.)
-* Play with [Andrej Karpathy's ConvNetJS demo](http://cs.stanford.edu/people/karpathy/convnetjs/demo/mnist.html) which trains a Convolutional Neural Network on the MNIST digits dataset (consisting of handwritten numerical digits) in the comfort of your own browser. 
+* Play with [Andrej Karpathy's ConvNetJS demo](http://cs.stanford.edu/people/karpathy/convnetjs/demo/mnist.html) which trains a Convolutional Neural Network on the MNIST digits dataset (consisting of handwritten numerical digits) in the comfort of your own browser.
 * [2013 paper by Matthew Zeiler and Rob Fergus](https://arxiv.org/abs/1311.2901) provides some visual examples that help you understand the intuition behind the architecture.
 * There are many other types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institute [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/)
-* [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), Christopher Olah's excellent overview article is a beautiful piece of explanatory writing and illustration. 
+* [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), Christopher Olah's excellent overview article is a beautiful piece of explanatory writing and illustration.
 * LSTM architecture introduction by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory)
 * Rohan Kapur's [Medium post on Recurrent Neural Networks & LSTMs](http://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
 * [Top 15 Frameworks for Machine Learning Experts](http://www.kdnuggets.com/2016/04/top-15-frameworks-machine-learning-experts.html)
