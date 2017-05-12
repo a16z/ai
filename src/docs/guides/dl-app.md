@@ -1,5 +1,4 @@
-
-# Tutorial Part 2: Adding AI to Our iPhone App
+# Code Part 2: Adding AI to Your Mobile App
 
 If you've arrived here from Part 1 of the tutorial, you have a TensorFlow model. Now let's add AI superpowers to our iPhone app by retaining the model with our own data and connecting the trained model to our iPhone app.
 
@@ -53,7 +52,7 @@ In the end, you should have both the `/tf_files/inception` folder and a new fold
 
 * We selected the dataset that includes images of business cards, book covers and CD covers but did not use all 500 images for each category.
 * We then expanded the sets with additional images obtained via web searches, verifying that they had been marked for reuse (according to Google Search) and added a new category for credit cards, which can be very similar to business cards.
-* Finally we normalized the images to dimensions of 640x480 with medium JPEG compression. This isn't required by the process but we wanted to keep the dataset a relatively small download and have a reference image size that we could use later with the mobile app.  
+* Finally we normalized the images to dimensions of 640x480 with medium JPEG compression. This isn't required by the process but we wanted to keep the dataset a relatively small download and have a reference image size that we could use later with the mobile app.
 
 This showcases the flexibility afforded by DL for real-world applications while keeping complexity of the training process to a minimum. In our app the image recognition process is intended to speed up, rather than completely replace, human interaction, so even lower-probability matches can be useful.
 
