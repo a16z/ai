@@ -12,10 +12,12 @@ Along the way, we'll explore software that will help you understand if your cust
 
 For people who like linear tours, we've provided navigation links at the top and bottom of every page that guide from the first room to the end. Feel free to visit the table of contents to get to the exact topic you want to explore.
 
-A big hat tip to our friend [Diego Doval](https://medium.com/@diego.) who generated most of the code samples and some of the text in this playbook based on some very high level, hand-wavy guidance. As usual, he's exceeded expectations. Thanks, Diego.
+A big hat tip to our friend [Diego Doval](https://twitter.com/diegodoval?lang=en) who built the site, generated most of the code samples and drafted the text based on some very high level, hand-wavy guidance. As usual, he's exceeded expectations. Thanks, Diego.
+
+A shout out also to contributors [Delip Rao](https://twitter.com/deliprao?lang=en) of Joostware, [Mark Palatucci](https://twitter.com/markpalatucci?lang=en) at Anki, and my partners [Sonal Chokshi](https://twitter.com/smc90?lang=en) and [Michael Wee](https://twitter.com/theweester?lang=en) at a16z.
 
 Enjoy the journey. We're excited about the potential for artificial intelligence to make our software smarter and easier to use, and be a better [bicycle for our minds](https://youtu.be/ob_GX50Za6c?t=24).
 
 --
-Frank Chen (frank@a16z.com / [@withfries2](https://twitter.com/withfries2)) and Michael Wee (mwee@a16z.com / [@theweester](https://twitter.com/theweester)) on behalf of the a16z team.
+Frank Chen (frank@a16z.com / [@withfries2](https://twitter.com/withfries2)) on behalf of the a16z team.
 <!-- Eyes up, Guardian. -->
