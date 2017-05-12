@@ -17,7 +17,7 @@ From the input nodes data flows through the hidden nodes (if any) and to the out
 
 When feedforward networks have multiple layers, they are called multilayer networks.
 
-Create your own feedforward neural networks with the [browser-based TensorFlow playground](http://playground.tensorflow.org/). We did a brief demo in [our AI primer](begining at about 26:17), but get in there and click around on your own. The things that you can change (depth of the network, the activation function, the learning rate, etc.) are called *hyperparameters*. So by clicking around in the playground, you are "modifying the hyperparameters of a feedforward multilayer neural network". Isn't that something?
+Create your own feedforward neural networks with the [browser-based TensorFlow playground](http://playground.tensorflow.org/). We did a brief demo in [our AI primer](http://a16z.com/2016/06/10/ai-deep-learning-machines/) (begining at about 27:17), but get in there and click around on your own. The things that you can change (depth of the network, the activation function, the learning rate, etc.) are called *hyperparameters*. So by clicking around in the playground, you are "modifying the hyperparameters of a feedforward multilayer neural network". Isn't that something?
 
 ## Convolutional (Neural) Networks (CNNs or ConvNets)
 

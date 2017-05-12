@@ -20,20 +20,20 @@
 
 ## MOOCs
 * The classic: [Coursera Machine Learning by Andrew Ng](https://www.coursera.org/learn/machine-learning)
-* [Udactiy Introduction to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
+* [Udacity Introduction to Machine Learning](https://www.udacity.com/course/intro-to-machine-learning--ud120)
 * [Udacity Deep Learning by Google](https://www.udacity.com/course/deep-learning--ud730)
-* **"The trinity":** Stanford class [CS221: Artificial Intelligence: Principles and Techniques by Percy Liang](http://web.stanford.edu/class/cs221/), Stanford class [CS224N Natural Language Processing with Deep Learning by Christopher Manning and Richard Socher](http://web.stanford.edu/class/cs224n/), [YouTube playlist](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6), Stanford class [CS231N: Convolutional Neural Networks for Visual Recognition by Fei-Fei Li and Andrej Karapthy](http://cs231n.stanford.edu/), Github repo(http://cs231n.github.io/))
+* "The trinity": Stanford class [CS221: Artificial Intelligence: Principles and Techniques by Percy Liang](http://web.stanford.edu/class/cs221/), Stanford class [CS224N Natural Language Processing with Deep Learning by Christopher Manning and Richard Socher](http://web.stanford.edu/class/cs224n/), [YouTube playlist](https://www.youtube.com/playlist?list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6), Stanford class [CS231N: Convolutional Neural Networks for Visual Recognition by Fei-Fei Li and Andrej Karapthy](http://cs231n.stanford.edu/), Github repo(http://cs231n.github.io/))
 * [EdX Introduction to AI](https://www.edx.org/course/artificial-intelligence-ai-columbiax-csmm-101x-0)
 * Carnegie Mellon's [Introduction to Machine Learning](http://www.cs.cmu.edu/~mgormley/courses/10701-f16/), followed up by [Statistical Machine Learning](http://www.stat.cmu.edu/~larry/=sml/)
 * MIT's [Artificial Intelligence with Patrick Henry Winston](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/)
 * "The hard one": [Coursera's Neural Networks for Machine Learning with Geoff Hinton](https://www.coursera.org/learn/neural-networks)
 * Class notes from [University of Iowa AI class on unsupervised learning](http://homepage.cs.uiowa.edu/~hzhang/c145/notes/18-unsupervised-6p.pdf)
 * [List (and reviews) of top 5 list online classes](http://thegrandjanitor.com/2016/08/15/learning-deep-learning-my-top-five-resource/), curated by Arthur Chan
-
+* Fast.ai's 7-week [Practical Deep Learning](http://course.fast.ai/), taught by Jeremy Howard (past president of Kaggle, founder of Enlitic and fast.ai)
 
 ## Blogs and sites
 * [Andrej Karpathy’s blog](http://karpathy.github.io/), check out [Unreasonable effectiveness of RNN](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
-* [KDNuggests: News, stories, job posts, data sets about machine learning (not just deep learning)](http://www.kdnuggets.com/)
+* [KDNuggets: News, stories, job posts, data sets about machine learning (not just deep learning)](http://www.kdnuggets.com/)
 * [Algobeans: great layman’s explanations of analytics concepts](https://algobeans.com/)
 * [Arthur Chan’s blog](http://thegrandjanitor.com/)
 * [Andrew Gibiansky’s occassionally updated blog posts explaining basic concepts](http://andrew.gibiansky.com/)
@@ -69,7 +69,7 @@
 
 * The most popular textbook, [Artificial Intelligence, 3rd edition](http://aima.cs.berkeley.edu/) by Stuart Russell and Peter Norvig
 * Michael Nielsen’s online book [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
-* [Draft of Andrew Ng’s upcoming book, Deep Learning Yearing](http://www.mlyearning.org/)
+* [Draft of Andrew Ng’s upcoming book, Deep Learning Yearning](http://www.mlyearning.org/)
 * [Textbook: Deep Learning](http://www.deeplearningbook.org/) by Ian Goodfellow and Yoshua Bengio and Aaron Courville
 * [Reinforcement Learning and its Relationship to Supervised Learning](http://www-anw.cs.umass.edu/pubs/2004/barto_d_04.pdf)
 
@@ -85,3 +85,54 @@
 * Dive into the [Machine Learning For Software Engineers rabbithole](https://github.com/ZuzooVn/machine-learning-for-software-engineers)
 * Quora is continually adding Q&A around relevant topics such as [Artificial Intelligence](https://www.quora.com/topic/Artificial-Intelligence), [Machine Learning](https://www.quora.com/topic/Machine-Learning), and [Artificial Neural Networks](https://www.quora.com/topic/Artificial-Neural-Networks-ANNs). 
 
+## Referenced Links
+* Steve Jobs's [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
+* E.F. Dodd's [original research paper proposing the relational database](https://www.seas.upenn.edu/~zives/03f/cis550/codd.pdf) (1970)
+* Oracle [published its first commercially available Oracle V2 database](https://docs.oracle.com/database/121/CNCPT/intro.htm#CNCPT88784) in 1979
+* Harvard Business Review ["The Simple Economics of Machine Intelligence"](https://hbr.org/2016/11/the-simple-economics-of-machine-intelligence) published in November 2016 
+* Open source [MIT License](https://opensource.org/licenses/MIT)
+* Jeff Bezos's AI history tl;dr in his [2016 letter to Amazon shareholders](https://www.sec.gov/Archives/edgar/data/1018724/000119312517120198/d373368dex991.htm)
+* Jeff Dean's presentation on [Trends and Developments in Deep Learning Research](https://www.slideshare.net/AIFrontiers/jeff-dean-trends-and-developments-in-deep-learning-research)
+* Jerry Kaplan defining artificial intelligence in his book [Artificial Intelligence: What Everyone Needs To Know](http://jerrykaplan.com/books/)
+* [Stanford CoreNLP toolkit](http://stanfordnlp.github.io/CoreNLP/)
+* Tools and frameworks include [scikit-learn](http://scikit-learn.org/stable/#), [Spark's MLlib](http://spark.apache.org/mllib/) (for a wide collection of machine learning techniques), [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), [Caffe2](https://caffe2.ai/), [MXNet](http://mxnet.io/)(for deep learning models)
+* [Paper outlining the tradeoffs between power, memory, accuracy, etc in deep neural networks](https://arxiv.org/pdf/1605.07678.pdf) by Canziani, Culurciello, and Paszke
+* [Medium post describing a set of strategies for getting data](https://medium.com/@muellerfreitag/10-data-acquisition-strategies-for-startups-47166580ee48)
+* [A tour of machine learning algorithms](http://machinelearningmastery.com/a-tour-of-machine-learning-algorithms/)
+* [The 10 Algorithms Machine Learning Engineers Need to Know](http://www.kdnuggets.com/2016/08/10-algorithms-machine-learning-engineers.html)
+* Microsoft's developer documentation [How to choose machine learning algorithms for Microsoft Azure machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-algorithm-choice)
+* [Stack Overflow answer to "When to choose which machine learning classifer?"](http://stackoverflow.com/questions/2595176/when-to-choose-which-machine-learning-classifier)
+* Scikit-learn documentation: [Choosing the right estimator](http://scikit-learn.org/stable/tutorial/machine_learning_map/)
+* Christopher Manning in his [introductory lecture for "CS Natural Language Processing with Deep Learning"](https://www.youtube.com/watch?v=OQQ-W_63UgQ&list=PL3FW7Lu3i5Jsnh1rnUwq_TcylNr7EkRe6)
+* Andrew L. Beam, [Deep Learning 101](http://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html)
+* Andrey Kruenkov, [A "Brief" of Neural Nets and Deep Learning](http://www.andreykurenkov.com/writing/a-brief-history-of-neural-nets-and-deep-learning/)
+* Haohan Wang and Bhiksha Raj, [On the Origin of Deep Learning](https://arxiv.org/pdf/1702.07800.pdf) provide a good historical overview, explaining concepts including the math
+* Jurgen Schmidhuber, [Deep Learning in Neural Networks: An Overview](https://arxiv.org/pdf/1404.7828.pdf) provides the most comprehensive and technically dense overview
+* NVIDA's 2014 blog post [Accelerate Machine Learning with the cuDNN Deep Neural Network Library](http://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/)
+* Watch Google legend Jeff Dean from the Google Brain team lecture on [Large-Scale Deep Learning for Intelligent Computer Systems](https://www.youtube.com/watch?v=4hqb3tdk01k)
+* Read Michael Nielsen's excellent ebook and Website [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html)
+* [IEEE interview with UC Berkeley professor Michael Jordan from October 2014](http://spectrum.ieee.org/robotics/artificial-intelligence/machinelearning-maestro-michael-jordan-on-the-delusions-of-big-data-and-other-huge-engineering-efforts)
+* [Wikipedia article on the types of artificial neural networks](https://en.wikipedia.org/wiki/Types_of_artificial_neural_networks)
+* [Browser-based TensorFlow playground](http://playground.tensorflow.org/)
+* [a16z AI Primer](http://a16z.com/2016/06/10/ai-deep-learning-machines)
+* [Convolutional Neural Networks](http://yann.lecun.com/exdb/publis/pdf/lecun-01a.pdf) introduced by LeCun, Bengio, Lottou, Haffer in 1998
+* [ImageNet Large Scale Visual Recognition Challenge](http://www.image-net.org/challenges/LSVRC/) (ILSVRC)
+* [A good beginner's guide on ConvNets](https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/) written by a UCLA computer science undergrad named Adit Deshpande
+* Andrej Karpathy's [class notes from Stanford CS class CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/convolutional-networks/. Make sure to scroll down to see the cool animation that shows you what a convolution is.)
+* Play with [Andrej Karpathy's ConvNetJS demo](http://cs.stanford.edu/people/karpathy/convnetjs/demo/mnist.html) which trains a Convolutional Neural Network on the MNIST digits dataset (consisting of handwritten numerical digits) in the comfort of your own browser. 
+* [2013 paper by Matthew Zeiler and Rob Fergus](https://arxiv.org/abs/1311.2901) provides some visual examples that help you understand the intuition behind the architecture.
+* There are many other types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institute [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/)
+* [Understanding LSTM Networks](http://colah.github.io/posts/2015-08-Understanding-LSTMs/), Christopher Olah's excellent overview article is a beautiful piece of explanatory writing and illustration. 
+* LSTM architecture introduction by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory)
+* Rohan Kapur's [Medium post on Recurrent Neural Networks & LSTMs](http://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b)
+* [Top 15 Frameworks for Machine Learning Experts](http://www.kdnuggets.com/2016/04/top-15-frameworks-machine-learning-experts.html)
+* The indefatigable Andrej Kaparthy posted a "Google Trends"-esque type analysis showing what's hot if you peek inside [28,303 machine learning research papers over the last 5 years](https://medium.com/@karpathy/a-peek-at-trends-in-machine-learning-ab8a1085a106)
+* Ian Goodfellow et. al's 2014 [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661) paper
+* For the math-inclined, see [this Stanford tutorial which covers supervised and unsupervised learning](http://ufldl.stanford.edu/tutorial/) and includes code samples.
+* Algobeans layman's explanation of [gradient descent in artificial neural networks](https://algobeans.com/2016/11/03/artificial-neural-networks-intro2/)
+* Survey of unsupervised anomaly detection algorithms](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152173)
+* "YouTube cat finder" research that [kindled the general public's enthusiasm for AI](https://www.wired.com/2012/06/google-x-neural-network/) and the [accompanying paper by the Google Brain team and Stanford researchers Quoc Le and Andrew Ng](https://arxiv.org/abs/1112.6209)
+* Xiaojin Zhu's [epic 135-slide tutorial on semi-supervised learning](http://pages.cs.wisc.edu/~jerryzhu/pub/sslicml07.pdf) and the [accompanying paper which surveys the literature back in 2008](http://pages.cs.wisc.edu/~jerryzhu/pub/ssl_survey.pdf).
+* DeepMind [published a paper in Nature](https://deepmind.com/blog/deep-reinforcement-learning/) describing a system that combines reinforcement learning with deep learning to learned to play a set of Atari video games, some with great success (like Breakout) and others terribly (like Montezuma's Revenge).
+* The Nervana team (now at Intel) published an excellent explanatory blog post that walks through [deep reinforcement learning techniques](https://www.nervanasys.com/demystifying-deep-reinforcement-learning/) in detail.
+* Richard Sutton and Andrew Barto [wrote the book on Reinforcement Learning](http://incompleteideas.net/sutton/book/the-book-1st.html). Check out the [draft of the 2nd edition](http://incompleteideas.net/sutton/book/the-book-2nd.html).
