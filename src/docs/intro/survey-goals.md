@@ -11,7 +11,7 @@ One way to think of what AI enables to is consider what it will make cheap and t
 * Create content, such as newspaper articles, tweets, music, Websites, movie trailers, and eventually entire movies
 * Understand people, help people understand software, and help people understand each other
 
-To see some examples of each of these AI-powered applications, please visit our companion presentation [[Future of AI Vimeo]].
+To see some examples of each of these AI-powered applications, please visit our [companion presentation called The Promise of AI](https://vimeo.com/215926017). It's a 45-minute narrated presentation showing you what companies are doing with AI today, as well as what's right around the corner in research labs.
 
 For further inspiration, subscribe to one or more of the the many excellent daily or weekly newsletters covering artificial intelligence. We list a few in our [References](/docs/reference/links) section.
 
