@@ -56,6 +56,7 @@
 * [The Visionary](http://www.thevisionary.com/), eyeing what's next in AI and computer vision
 * Not all about AI/ML, but plenty of interesting content too: [a16z Newsletter](https://a16z.com/)
 * Ditto: Benedict Evans' [Newsletter](http://ben-evans.com/newsletter/)
+* [Messaging Business Trends](http://messagingbusinesstrends.com/), stay up to date with the latest news in the chatbots and messaging space
 
 
 ## Podcasts
