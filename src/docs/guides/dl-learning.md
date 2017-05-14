@@ -47,7 +47,11 @@ It can be hard (that is, expensive) to get a labeled data set, so you need to ma
 * You are on the Google Brain team, and you wonder what's in YouTube videos. This is the very real story of the   
 "YouTube cat finder" research that [kindled the general public's enthusiasm for AI](https://www.wired.com/2012/06/google-x-neural-network/). In [this paper](https://arxiv.org/abs/1112.6209), the Google Brain team in conjunction with Stanford researchers Quoc Le and Andrew Ng describe an algorithm that groups YouTube videos into a bunch of categories, including one that contained cats. They didn't set out to find cats, but the algorithm automatically grouped videos containing cats (and thousands of other objects from the 22,000 object categories defined in ImageNet) together without any explicit training data.
 
-Some unsupervised learning techniques you'll read about in the literature include [autoencoding] (http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/), [principal components analysis](https://www.quora.com/What-is-an-intuitive-explanation-for-PCA), and (work hard to include these gems at your next AI networking event) [random forests](https://en.wikipedia.org/wiki/Random_forest) and [k-means clustering](https://www.youtube.com/watch?v=RD0nNK51Fp8).
+Some unsupervised learning techniques you'll read about in the literature include:
+* [Autoencoding](http://ufldl.stanford.edu/tutorial/unsupervised/Autoencoders/)
+* [Principal components analysis](https://www.quora.com/What-is-an-intuitive-explanation-for-PCA)
+* [Random forests](https://en.wikipedia.org/wiki/Random_forest) 
+* [K-means clustering](https://www.youtube.com/watch?v=RD0nNK51Fp8)
 
 To learn more about unsupervised learning, try [this Udacity class](https://www.udacity.com/course/machine-learning-unsupervised-learning--ud741).
 
