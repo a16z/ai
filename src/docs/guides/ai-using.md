@@ -31,7 +31,7 @@ Your code will get an answer like below, which means the sentiment of is positiv
  }
 ```
 
-If you application needs to work without an Internet connection, you can embed software libraries to call locally. For example, you can grab the [Stanford CoreNLP toolkit](http://stanfordnlp.github.io/CoreNLP/) to add language processing capabilities to your software, such as "part of speech tagging", which tries to identify where are the nouns, verbs, adjectives, adverbs and so are in your text.
+If your application needs to work without an Internet connection, you can embed software libraries to call locally. For example, you can grab the [Stanford CoreNLP toolkit](http://stanfordnlp.github.io/CoreNLP/) to add language processing capabilities to your software, such as "part of speech tagging", which tries to identify where are the nouns, verbs, adjectives, adverbs and so are in your text.
 
 Just as with regular programming, if you can't find a pre-built Web service or library to do what you want, you'll have to create your own special functions. These days, the most popular way to do this is by training a machine learning model with labeled data using something such as [scikit-learn](http://scikit-learn.org/stable/#) or [Spark's MLlib](http://spark.apache.org/mllib/) (for a wide collection of machine learning techniques) or [Tensorflow](https://www.tensorflow.org/), [Keras](https://keras.io/), [Caffe2](https://caffe2.ai/) or [MXnet](http://mxnet.io/) (for deep learning models). We'll walk through a few examples using a Web service called [Clarifai](https://www.clarifai.com/) and Google's TensorFlow later in this guide.
 
