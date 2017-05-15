@@ -1,7 +1,7 @@
 # AI-Playbook
 
 ## Production URL
-The latest non-dev version of this app is running at [Live AI Playground](http://localhost) - TODO update with final URL
+The latest non-dev version of this app is running at [Live AI Playground](http://aiplaybook.a16z.com/).
 
 ## Releasing to Production
 Releasing to a Heroku app/account requires the appropriate setup, including environment variables (see below).
