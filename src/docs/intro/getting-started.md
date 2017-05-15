@@ -1,6 +1,6 @@
 # About This Site
 
-We've written the survey specifically as a starting place for for business and technical people just beginning their own journeys with artificial intelligence and are teasing apart what's real from what's hype.
+We've written the survey specifically as a starting place for business and technical people just beginning their own journeys with artificial intelligence and are teasing apart what's real from what's hype.
 
 We assume you are involved in creating, managing, or green lighting software and want to understand how AI can give your software super powers (as [Andrew Ng](http://andrewng.org) is fond of saying). We do **not** assume you have a computer science degree. The people we had in mind for this microsite include:
 * A **software developer** trying to get a broad overview of the products and services available
