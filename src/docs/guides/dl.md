@@ -30,7 +30,7 @@ Deep learning data structures and algorithms were originally inspired by the way
 * Jurgen Schmidhuber, [Deep Learning in Neural Networks: An Overview](https://arxiv.org/pdf/1404.7828.pdf) provides the most comprehensive and technically dense overview
 
 ## Why "Deep"?
-By the way, why do we call it "deep learning"? It's called deep learning because the underlying algorithms work on data structure that looks like a graph of connected nodes, and the nodes are organized into layers. Data goes into the left-most modes, and the output comes out the right hand side. Between the input and output nodes, there are many layers of other nodes; hence, the network is "deep". This [diagram from nVidia](https://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/) does a good job of illustrating the concept:
+By the way, why do we call it "deep learning"? It's called deep learning because the underlying algorithms work on data structure that looks like a graph of connected nodes, and the nodes are organized into layers. Data goes into the left-most nodes, and the output comes out the right hand side. Between the input and output nodes, there are many layers of other nodes; hence, the network is "deep". This [diagram from nVidia](https://devblogs.nvidia.com/parallelforall/accelerate-machine-learning-cudnn-deep-neural-network-library/) does a good job of illustrating the concept:
 ![Why is deep learning "deep"?](/images/nn_example-624x218.png)
 
 To learn more:
