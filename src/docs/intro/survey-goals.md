@@ -19,7 +19,7 @@ For further inspiration, subscribe to one or more of the the many excellent dail
 
 To get the most out of this survey, we recommend that you come up with a few concrete areas where you want to apply AI techniques. Having these in mind will ground your exploration in a concrete software product.
 
-Here are a a few was you can brainstorm how AI can help:
+Here are a a few ways you can brainstorm how AI can help:
 * Throughout each phase or the product or service lifecycle
 * For each of the functional teams in your organization
 * Achieve high-level business objectives
