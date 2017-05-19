@@ -2,7 +2,7 @@
 
 With that in mind, let's give your software some AI superpowers.
 
-The easiest way is to "add AI" is to call an API from your code, whether that API is exposed by a local software library or over the Web.
+The easiest way to "add AI" is to call an API from your code, whether that API is exposed by a local software library or over the Web.
 
 For example, this HTTP request sends a sentence to a sentiment analyzer over the Web:
 
