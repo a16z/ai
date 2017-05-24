@@ -31,7 +31,7 @@
     {
       "id": "kaggle",
       "name": "Kaggle",
-      "description": "Kaggle includes nearly 600 "Featured" datasets that are well documented and prepped for ML analysis. Any user or organization can publish data on Kaggle Datasets, and it includes classics like Iris as well as unique datasets published by our users",
+      "description": "Kaggle includes nearly 600 'Featured' datasets that are well documented and prepped for ML analysis. Any user or organization can publish data on Kaggle Datasets, and it includes classics like Iris as well as unique datasets published by our users",
       "organization": "Kaggle",
       "lastUpdated": "",
       "createdOn": "Unknown",
