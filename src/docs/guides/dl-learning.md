@@ -29,7 +29,7 @@ There are a variety of mathematical techniques to use this knowledge of whether 
 
 Once we've processed all the photos from our first stack we will be ready to test the model. We would grab the second stack of photos and use them to see how accurately the trained model can pick up photos of your parents.
 
-Steps 2 and 3 would typically by repeated by tweaking various things about the model (hyperparameters), such as how many nodes there are, how many layers there are, which mathematical function to use to decide whether a node lights up, how aggressively to train the weights during the backpropagation phase, and so on. This [Quora answer](https://www.quora.com/What-are-hyperparameters-in-machine-learning) has a good explanation of the knobs you can turn.
+Steps 2 and 3 would typically be repeated by tweaking various things about the model (hyperparameters), such as how many nodes there are, how many layers there are, which mathematical function to use to decide whether a node lights up, how aggressively to train the weights during the backpropagation phase, and so on. This [Quora answer](https://www.quora.com/What-are-hyperparameters-in-machine-learning) has a good explanation of the knobs you can turn.
 
 ### Step 4: Use
 
