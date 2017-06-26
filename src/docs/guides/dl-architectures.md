@@ -47,7 +47,7 @@ The third and last type of neural network we'll discuss is the recurrent neural 
 
 > There are many other types of neural networks. If you are interested in learning more, we suggest a visit to the Asimov's Institute [Neural Network Zoo](http://www.asimovinstitute.org/neural-network-zoo/)
 
-Remember how in a feedforward network, computation only goes forward, or if you're looking at a diagram, "from left to right"? Also we didn't say, it but feedforward (and convolutional networks) take fixed sized inputs and outputs. Once you decide how many elements in the input and output vectors, that's it. You train the model and hope you get good results.
+Remember how in a feedforward network, computation only goes forward, or if you're looking at a diagram, "from left to right"? Also we didn't say it, but feedforward (and convolutional networks) take fixed sized inputs and outputs. Once you decide how many elements in the input and output vectors, that's it. You train the model and hope you get good results.
 
 RNNs relax both those constraints.
 
@@ -56,7 +56,7 @@ First, RNNs support bi-directional data flow, propagating data from later proces
 
 This architecture enables the RNN to "remember" things, which makes them great for processing time-series data (like events in an event log) or natural language processing tasks (like understanding the roles each word plays in a sentence, in which remembering what word came before can help you figure the role of the current word).
 
-Secondly, RNNs can process arbitrarily-sized inputs and outputs by processing vectors in a sequence, one at a time. Where feedforward and CNNs only work on fixed sized inputs and outputs, RNNs can process one vectors one after another thereby work on any shape of input and output. Andrej Kaparthy comes to the rescue with a diagram that shows this from his excellent blog post titled [*The Unreasonable Effectiveness of Recurrent Neural Networks:*](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
+Secondly, RNNs can process arbitrarily-sized inputs and outputs by processing vectors in a sequence, one at a time. Where feedforward and CNNs only work on fixed sized inputs and outputs, RNNs can process vectors one after another thereby work on any shape of input and output. Andrej Kaparthy comes to the rescue with a diagram that shows this from his excellent blog post titled [*The Unreasonable Effectiveness of Recurrent Neural Networks:*](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 ![Arbitrary input and output sizes in RNNs](/images/sequences.png)
 
 Read Andrej's whole blog post, which is a great explanation of the structure of RNNs. In it, he describes how to build a Paul Graham essay generator by training the system with the full 1M characters of his essays (alas, a very small corpus by AI standards) and building an RNN. You can tune one of the hyperparameters of the RNN to generate the sentence that Paul Graham is most likely to write, and that is an infinite loop of:
@@ -67,11 +67,11 @@ Who said neural nets weren't fun?
 
 Together, these two enhancements over feedforward networks have made RNNs incredibly powerful tools for solving many different types of AI problems including speech recognition, language modeling, machine translation, image captioning, recommendation systems, predicting the next word in a sentence for text generation systems, and others.
 
-A specific type of RNN that you'll see discussed is called the Long Short-Term Memory (LTSM). Bizarre, no? Is the memory short or the long? Anyway, this type of RNN was introduced by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory) and does an even better job of remembering something from "further back in time" compared to vanilla RNNs. 
+A specific type of RNN that you'll see discussed is called the Long Short-Term Memory (LSTM). Bizarre, no? Is the memory short or the long? Anyway, this type of RNN was introduced by [Hochreiter and Schmidhuber in 1997](https://www.researchgate.net/publication/13853244_Long_Short-term_Memory) and does an even better job of remembering something from "further back in time" compared to vanilla RNNs. 
 
 To learn more:
 * [Edwin Chen's blog post](http://blog.echen.me/2017/05/30/exploring-lstms/) complete with cartoons of Snorlax and references to jelly donuts does an excellent job of explaining the basic concepts and comparing RNNs with LSTMs. 
-* Read [Christopher Olah's blog post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) if you want to understand how LTSMs do their remembering and forgetting. It's a beautiful piece of explanatory writing and illustration. 
+* Read [Christopher Olah's blog post](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) if you want to understand how LSTMs do their remembering and forgetting. It's a beautiful piece of explanatory writing and illustration. 
 * Rohan Kapur's [Medium post is also great](https://ayearofai.com/rohan-lenny-3-recurrent-neural-networks-10300100899b).
 
 
