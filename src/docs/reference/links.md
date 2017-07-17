@@ -41,7 +41,7 @@
 * [Christopher Olah's blog](http://colah.github.io/)
 * [Edwin Chen's blog](http://blog.echen.me/)
 * [Ujjwal Karn with occassional explanatory posts on data science](https://ujjwalkarn.me/)
-* [Three Challenges for Artificial Intelligence in Medicine](https://blog.cardiogr.am/three-challenges-for-artificial-intelligence-in-medicine-dfb9993ae750) on the [Cardiogram blog]
+* [Three Challenges for Artificial Intelligence in Medicine](https://blog.cardiogr.am/three-challenges-for-artificial-intelligence-in-medicine-dfb9993ae750) on the [Cardiogram blog](https://blog.cardiogr.am/)
 
 ## Mailing lists
 * Azeem Azhar's [The Exponential View](https://www.getrevue.co/profile/azeem)
