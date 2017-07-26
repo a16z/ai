@@ -43,6 +43,7 @@
 * [Ujjwal Karn with occassional explanatory posts on data science](https://ujjwalkarn.me/)
 * [Three Challenges for Artificial Intelligence in Medicine](https://blog.cardiogr.am/three-challenges-for-artificial-intelligence-in-medicine-dfb9993ae750) on the [Cardiogram blog](https://blog.cardiogr.am/)
 * Robbie Allen's [curated list of AI and Machine Learning resources](https://unsupervisedmethods.com/my-curated-list-of-ai-and-machine-learning-resources-from-around-the-web-9a97823b8524)
+* [Deep Learning for NLP Best Practices](http://ruder.io/deep-learning-nlp-best-practices/index.html)
 
 ## Mailing lists
 * Azeem Azhar's [The Exponential View](https://www.getrevue.co/profile/azeem)
