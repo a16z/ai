@@ -9,8 +9,11 @@ Now that you are ready to put AI in your software, get started with some pre-pac
 * [Microsoft Azure Machine Learning](https://azure.microsoft.com/en-us/services/machine-learning/)
 * [Arimo](https://arimo.com/)
 * [DataBricks](https://databricks.com/)
-* [SigOpt](https://sigopt.com/)
 * Some more [here](https://www.quora.com/What-are-the-best-machine-learning-as-a-service-MLaaS-companies-and-startups) and [here](http://www.butleranalytics.com/20-machine-learning-service-platforms/)
+
+## Hyperparameter Optimization as a Service
+* [SigOpt](https://sigopt.com/)
+* [Wikipedia list](https://en.wikipedia.org/wiki/Hyperparameter_(machine_learning)#Software)
 
 ## Machine Learning Software
 * [Apache Spark MLlib](http://spark.apache.org/mllib/)
