@@ -79,6 +79,7 @@
 
 
 ## Other
+* Check out Siraj Raval's [Artificial Intelligence Education YouTube channel](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A). Here's a video on [AI generated music](https://www.youtube.com/watch?v=S_f2qV2_U00&list=PL2-dafEMk2A5-sn0Sgkw-4q-Lw0jiuQtu).
 * Have fun at [Google's browser based AI Experiments site](https://aiexperiments.withgoogle.com/)
 * Keep up to date with [Artificial Intelligence research papers at arXiv.org](https://arxiv.org/list/cs.AI/recent)
 * Because there are too many papers to actually read, try @kaparthy's [arXiv Sanity browser](http://arxiv-sanity.com/)
