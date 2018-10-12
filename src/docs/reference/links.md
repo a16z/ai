@@ -91,6 +91,7 @@
 * Quora is continually adding Q&A around relevant topics such as [Artificial Intelligence](https://www.quora.com/topic/Artificial-Intelligence), [Machine Learning](https://www.quora.com/topic/Machine-Learning), and [Artificial Neural Networks](https://www.quora.com/topic/Artificial-Neural-Networks-ANNs).
 * A curated list of how peopple are [using AI to do creative things](http://www.creativeai.net/) like write music, write stories, create paintings, and so on. 
 * Along those lines, try @hardmaru's [Instragram feed full of deep learning generated sketches](https://www.instagram.com/hardmaru/). Fun!
+* Fast AI's [Jupyter Notebook Enhancements, Tips and Tricks](http://forums.fast.ai/t/jupyter-notebook-enhancements-tips-and-tricks/17064)
 
 ## Referenced Links
 * Steve Jobs's [bicycles for the minds video](https://youtu.be/ob_GX50Za6c?t=24)
