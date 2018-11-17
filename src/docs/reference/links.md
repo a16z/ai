@@ -47,7 +47,7 @@
 
 ## Mailing lists
 * Azeem Azhar's [The Exponential View](https://www.getrevue.co/profile/azeem)
-* Brian Petro's [AI Newsletter](http://angularjobs.us11.list-manage1.com/subscribe?u=57f6c28a9354055d3398d48e8&id=0aebe4c13c)
+* Brian Petro's [AI Newsletter](https://icymi.email/AI)
 * CognitionX [AI News Briefing](http://cognitionx.com/#subscribe)
 * David Lissmyr's [AI Weekly](http://aiweekly.co/)
 * Denny Britz's [The Wild Week in AI](https://www.getrevue.co/profile/wildml)
