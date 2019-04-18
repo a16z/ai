@@ -56,12 +56,3 @@ To see responses from different services to the same query, see the [comparison 
 **Generating language** allows a computer to interact with humans in their own language. Generating spoken language is generally called _Speech Synthesis_. It's important to note that understanding speech or language is not required for generating it.
 
 **Translating between languages** may or may not involve understanding, and may also involve different degrees of flexibility.
-
-## API Examples
-
-Here’s a collection of API examples referenced in this section
-
-<iframe style="width: 100%; min-height: 476px; margin-bottom: 40px" src="/test/phrase/sentiment-analysis"></iframe>
-<iframe style="width: 100%; min-height: 496px; margin-bottom: 40px" src="/test/phrase/entity-analysis"></iframe>
-<iframe style="width: 100%; min-height: 556px; margin-bottom: 40px" src="/test/phrase/language-analysis"></iframe>
-<iframe style="width: 100%; min-height: 556px; margin-bottom: 40px" src="/test/phrase/language-translation"></iframe>
