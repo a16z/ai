@@ -53,7 +53,8 @@
     "ssl-root-cas": "^1.2.3",
     "twitter": "1.4.0",
     "util": "0.10.3",
-    "watson-developer-cloud": "2.2.0"
+    "watson-developer-cloud": "2.2.0",
+    "webpack": "~1.12.1"
   },
   "engines": {
     "node": "6.9.3"
