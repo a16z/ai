@@ -25,7 +25,7 @@ Having said that, deep learning algorithms are incredibly powerful and getting a
 
 Deep learning data structures and algorithms were originally inspired by the way neurons in the brain work, but most researchers today will tell you that brains and neural networks used in software like TensorFlow are very different. But if you are interested in the history of how we got here, check out these excellent resources which we've ordered by depth, from most concise to most comprehensive, for your reading pleasure.
 * Andrew L. Beam, [Deep Learning 101](http://beamandrew.github.io/deeplearning/2017/02/23/deep_learning_101_part1.html)
-* Andrey Kruenkov, [A "Brief" of Neural Nets and Deep Learning](http://www.andreykurenkov.com/writing/a-brief-history-of-neural-nets-and-deep-learning/)
+* Andrey Kruenkov, [A "Brief" History of Neural Nets and Deep Learning](http://www.andreykurenkov.com/writing/a-brief-history-of-neural-nets-and-deep-learning/)
 * Haohan Wang and Bhiksha Raj, [On the Origin of Deep Learning](https://arxiv.org/pdf/1702.07800.pdf) provide a good historical overview, explaining concepts including the math
 * Jurgen Schmidhuber, [Deep Learning in Neural Networks: An Overview](https://arxiv.org/pdf/1404.7828.pdf) provides the most comprehensive and technically dense overview
 
